@@ -1,41 +1,57 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const passport = require('passport');
+const jwt = require('jsonwebtoken');
+const cors = require('cors');
+const mongoose = require('mongoose');
+const url = require('./db').mongoURI;
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+const userRoute = require('./api/routes/user');
+const authRoute = require('./api/routes/auth');
 
-var app = express();
+mongoose.connect(url, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+}).then(() => console.log("MongoDB successfully connected")).catch(err => console.log(err));
+mongoose.set('useCreateIndex', true);
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'hbs');
+require('./api/middlewares/passport');
 
-app.use(logger('dev'));
+const app = express();
+app.use(cors());
+
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.urlencoded({extended: false}));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  next(createError(404));
+app.use(function (req, res, next) {
+    res.locals.user = req.user || null;
+    next();
 });
 
-// error handler
-app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+app.use('/user', userRoute);
+app.use('/auth', authRoute);
 
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
+app.get('/me', passport.authenticate('jwt', {session: false}), (req, res) => {
+    res.status(200).json(
+        req.user
+    );
+});
+
+app.use(function (req, res, next) {
+    const err = new Error('Not Found');
+    err.status = 404;
+    next(err);
+});
+
+app.use(function (err, req, res, next) {
+    res.locals.message = err.message;
+    res.locals.error = req.app.get('env') === 'development' ? err : {};
+
+    res.status(err.status || 500);
+    res.render('error');
 });
 
 module.exports = app;
