@@ -16,6 +16,12 @@ const mapDispatchToProps = dispatch => {
         Login: (username, password) => {
             dispatch(actions.loginRequest(username, password));
         },
+        LoginFB: (res) => {
+            dispatch(actions.loginFB(res))
+        },
+        LoginGG: (res) => {
+            dispatch(actions.loginGG(res))
+        }
     };
 };
 const LoginContainer = connect(

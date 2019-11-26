@@ -1,11 +1,12 @@
 import React from 'react';
+import {Redirect} from 'react-router-dom';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import LockOutlinedIcon from '@material-ui/icons/Lock';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import '../App.css';
@@ -24,6 +25,16 @@ export default class Register extends React.PureComponent {
 
     render() {
         const st = this.props;
+        if (st.isRegister === 'err') {
+            this.err = 'Error occurr, please check again !';
+        }
+        if (st.isRegister === 'success') {
+            this.err = 'Register successfully';
+        }
+
+        if (st.checkRegister) {
+            return <Redirect to="/login"/>;
+        }
         return (
             <div className="loginLayout">
                 <Container component="main" maxWidth="xs">
@@ -31,7 +42,7 @@ export default class Register extends React.PureComponent {
                     <div className="paper">
                         <center>
                             <Avatar className="avatar1">
-                                <LockOutlinedIcon/>
+                                <LockOutlinedIcon color="primary"/>
                             </Avatar>
                             <Typography component="h1" variant="h5">
                                 Sign up
@@ -62,6 +73,7 @@ export default class Register extends React.PureComponent {
                                         required
                                         fullWidth
                                         id="phone"
+                                        type="number"
                                         onChange={event => {
                                             this.phone = event.target.value;
                                         }}
@@ -88,6 +100,7 @@ export default class Register extends React.PureComponent {
                                         variant="outlined"
                                         required
                                         fullWidth
+                                        type="email"
                                         id="email"
                                         onChange={event => {
                                             this.email = event.target.value;

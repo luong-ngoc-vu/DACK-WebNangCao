@@ -5,6 +5,7 @@ export const initialState = {
     phone: '',
     email: '',
     token: '',
+    image: '',
     isLogin: false,
 };
 
@@ -20,8 +21,37 @@ const UserReducer = (state = initialState, action) => {
                 st.name = action.data.res.data.user.name;
                 st.phone = action.data.res.data.user.phone;
                 st.email = action.data.res.data.user.email;
+                st.image = action.data.res.data.user.image;
                 st.isLogin = true;
+            } catch (err) {
+                st.token = 'err';
+            }
+            return st;
+        }
 
+        case 'LOGIN_FACEBOOK': {
+            const st = {...state};
+            st.name = action.data.res.name;
+            st.email = action.data.res.email;
+            st.image = action.data.res.picture.data.url;
+            try {
+                st.token = action.data.res.accessToken;
+                st.isLogin = true;
+            } catch (err) {
+                st.token = 'err';
+            }
+            return st;
+        }
+
+        case 'LOGIN_GOOGLE': {
+            const st = {...state};
+            st.name = action.data.res.w3.ig;
+            st.email = action.data.res.w3.U3;
+            st.image = action.data.res.w3.Paa;
+
+            try {
+                st.token = action.data.res.Zi.access_token;
+                st.isLogin = true;
             } catch (err) {
                 st.token = 'err';
             }
@@ -29,13 +59,14 @@ const UserReducer = (state = initialState, action) => {
         }
 
         case 'UPDATE': {
-            return {
-                ...state,
-                username: action.data.res.data.username,
-                name: action.data.res.data.name,
-                phone: action.data.res.data.phone,
-                email: action.data.res.data.email
-            };
+            const st = {...state};
+            st.username = action.data.username;
+
+            st.name = action.data.res.data.name;
+            st.phone = action.data.res.data.phone;
+            st.email = action.data.res.data.email;
+            st.image = action.data.res.data.image;
+            return st;
         }
 
         case 'CHANGE_PASSWORD': {

@@ -6,6 +6,7 @@ const mapStateToProps = state => {
     const st = state.RegisterReducer;
     return {
         isRegister: st.isRegister,
+        checkRegister: st.checkRegister,
     };
 };
 

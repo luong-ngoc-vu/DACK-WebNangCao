@@ -23,6 +23,9 @@ const UserSchema = new Schema({
     phone: {
         type: String
     },
+    image: {
+        type: String
+    }
 });
 
 UserSchema.methods.isValidPassword = async function (password) {

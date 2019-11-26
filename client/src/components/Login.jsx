@@ -1,5 +1,7 @@
 import React from 'react';
 import {Redirect} from 'react-router-dom';
+import FacebookLogin from 'react-facebook-login';
+import GoogleLogin from 'react-google-login';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -21,6 +23,9 @@ export default class Login extends React.Component {
 
     render() {
         const st = this.props;
+        if (st.token === 'err') {
+            this.err = 'Username or password is not correct !';
+        }
         if (st.isLogin) {
             return <Redirect to="/home"/>;
         }
@@ -31,7 +36,7 @@ export default class Login extends React.Component {
                     <div className="paper">
                         <center>
                             <Avatar className="avatar1">
-                                <LockOutlinedIcon className="LockOutlinedIcon"/>
+                                <LockOutlinedIcon color="primary"/>
                             </Avatar>
                             <Typography component="h1" variant="h5">
                                 Sign in
@@ -63,9 +68,7 @@ export default class Login extends React.Component {
                                 label="Password"
                                 type="password"
                                 id="password"
-
                             />
-
                             <div className="Error">{this.err}</div>
                             <Button
                                 fullWidth
@@ -78,9 +81,26 @@ export default class Login extends React.Component {
                             >
                                 Sign In
                             </Button>
-                            <div
-                                style={{display: 'flex', flexWrap: 'wrap'}}
-                            >
+                            <br/><br/>
+                            <div style={{display: 'flex', flexWrap: 'wrap'}}>
+                                <FacebookLogin
+                                    appId="468555120306852"
+                                    fields="name,email,picture"
+                                    callback={(res) => {
+                                        st.LoginFB(res)
+                                    }}
+                                    cssClass="my-facebook-button-class"
+                                    icon="fa-facebook"
+                                    textButton="&nbsp;&nbsp;&nbsp;Sign In with Facebook"
+                                />&nbsp;&nbsp;&nbsp;
+                                <GoogleLogin
+                                    clientId="986011408031-fcsncbckfjdtv8085179rfu1n6p70psf.apps.googleusercontent.com"
+                                    onSuccess={(res) => {
+                                        st.LoginGG(res)
+                                    }}
+                                    className="btnGoogle">
+                                    <span>Sign In with Google</span>
+                                </GoogleLogin>
                             </div>
                             <Grid className="footer-login" container>
                                 <Grid item>

@@ -1,167 +1,167 @@
 
 .loginLayout {
-  margin-left: auto;
+    margin-left: auto;
 }
 
 .paper {
-  margin-top: 70px;
-  display: 'flex';
-  flex-direction: 'column';
-  align-items: 'center';
+    margin-top: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .avatar1 {
-  margin: 10px 0px 10px 0px;
+    margin: 10px 10px 10px 10px;
 }
 
 .form {
-  width: '100%';
-  margin-top: 10px;
+    width: 100%;
+    margin-top: 10px;
 }
 
 .Remember {
-  margin: 5px 0px 5px;
+    margin: 5px 0px 5px;
 }
 
 .wrap {
-  position: relative;
-  overflow: hidden;
-  display: inline-block;
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
 }
 
 .btn {
-  color: white !important;
-  background-color: #3F51B5 !important;
-  width: auto !important;
-  margin-left: 10px !important;
-  margin-top: 10px !important;
+    color: white !important;
+    background-color: #3F51B5 !important;
+    width: auto !important;
+    margin-left: 10px !important;
+    margin-top: 10px !important;
 }
 
 
 .wrap input[type=file] {
-  font-size: 100px;
-  position: absolute;
-  left: 0;
-  top: 0;
-  opacity: 0;
+    font-size: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
 }
 
 .footer-login {
-  margin-top: 20px;
+    margin-top: 20px;
 }
 
 .LockOutlinedIcon {
-  color: rgb(248, 48, 75);
+    color: rgb(248, 48, 75);
 }
 
 .Error {
-  color: red;
-  margin-bottom: 10px;
+    color: red;
+    margin-bottom: 10px;
 }
 
 .GridForm {
 
-  margin-left: auto;
-  margin-bottom: 10px;
-  margin-top: auto;
+    margin-left: auto;
+    margin-bottom: 10px;
+    margin-top: auto;
 }
 
 .Username {
-  color: rgb(112, 23, 38);
+    color: rgb(112, 23, 38);
 }
 
 .ErrorRegister {
-  color: red;
-  margin: 20px 20px 0px 10px;
+    color: red;
+    margin: 20px 20px 0px 10px;
 }
 
 .rootMenu {
-  margin: 1px !important;
+    margin: 1px !important;
 }
 
 .menu {
-  display: flex !important;
-  justify-content: space-around !important;
-  margin-left: 30px !important;
-  border: 1px solid white !important;
+    display: flex !important;
+    justify-content: space-around !important;
+    margin-left: 30px !important;
+    border: 1px solid white !important;
 }
 
 .menu:hover {
-  color: yellow;
-  border: 1px solid yellow !important;
+    color: yellow;
+    border: 1px solid yellow !important;
 }
 
 .back-home {
-  position: relative;
-  left: 20% !important;
+    position: relative;
+    left: 20% !important;
 
-  border: 1px solid #3F51B5 !important;
+    border: 1px solid #3F51B5 !important;
 }
 
 .back-home:hover {
-  color: white;
-  border: 1px solid !important;
-  background: #3F51B5 !important;
+    color: white;
+    border: 1px solid !important;
+    background: #3F51B5 !important;
 }
 
 .title {
-  color: yellow;
-  text-shadow: teal 2px;
+    color: yellow;
+    text-shadow: 2px;
 }
 
 .account {
-  position: relative;
-  right: -40%;
+    position: relative;
+    right: -40%;
 
 }
 
 .account:hover {
-  color: yellow;
+    color: yellow;
 }
 
 .user-name {
-  position: relative;
-  right: -40%;
+    position: relative;
+    right: -40%;
 }
 
 .user-name:hover {
-  color: yellow;
+    color: yellow;
 }
 
 .my-facebook-button-class {
-  width: 165px;
-  height: 46px;
-  border-radius: 4px;
-  background: #3b5998;
-  color: white;
-  border: 0px transparent;
-  text-align: center;
-  margin: 5px;
-  display: inline-block;
+    width: 165px;
+    height: 46px;
+    border-radius: 4px;
+    background: #3b5998;
+    color: white;
+    border: 0px transparent;
+    text-align: center;
+    margin: 5px;
+    display: inline-block;
 }
 
 .my-facebook-button-class:hover {
-  background: #3b5998;
-  opacity: 0.6;
+    background: #3b5998;
+    opacity: 0.6;
 }
 
 .btnGoogle {
-  margin: 5px;
-  height: 46px !important;
-  border-radius: 4px;
-  background: white !important;
-  color: black !important;
-  border: 0px transparent !important;
-  text-align: center !important;
+    margin: 5px;
+    height: 46px !important;
+    border-radius: 4px;
+    background: white !important;
+    color: black !important;
+    border: 0px transparent !important;
+    text-align: center !important;
 }
 
 .btnGoogle:hover {
-  background: #db3236;
-  opacity: 0.6;
+    background: #db3236;
+    opacity: 0.6;
 }
 
 .avatar {
-  position: relative;
-  right: -41%;
+    position: relative;
+    right: -41%;
 }
 

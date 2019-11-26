@@ -1,12 +1,10 @@
 import axios from "axios";
 
 export const LOGIN = 'LOGIN';
+export const LOGIN_FACEBOOK = 'LOGIN_FACEBOOK';
+export const LOGIN_GOOGLE = 'LOGIN_GOOGLE';
 export const REGISTER = 'REGISTER';
 export const LOGOUT = 'LOGOUT';
-export const PLAY = 'PLAY';
-export const BACK = 'BACK';
-export const OPEN_MENU = 'OPEN_MENU';
-export const CLOSE_MENU = 'CLOSE_MENU';
 export const GET_USER = 'GET_USER';
 export const UPDATE = 'UPDATE';
 export const CHANGE_PASSWORD = 'CHANGE_PASSWORD';
@@ -37,6 +35,18 @@ export const loginRequest = (username, password) => {
         })
     }
 };
+
+/* =================== LOG IN FACEBOOK =================== */
+export const loginFB = (res) => ({
+    type: LOGIN_FACEBOOK,
+    data: {res}
+});
+
+/* =================== LOG IN GOOGLE =================== */
+export const loginGG = (res) => ({
+    type: LOGIN_GOOGLE,
+    data: {res}
+});
 
 /* =================== REGISTER =================== */
 function OnclickRegister(username, name, phone, email, password) {
@@ -97,34 +107,34 @@ export const getUserRequest = (token) => {
 };
 
 /* =================== UPDATE USER INFORMATION =================== */
-function onClickUpdate(username, name, phone, email) {
-    return axios.post('https://localhost:4000/user/update', {
-        username, name, phone, email
+function onClickUpdate(username, name, phone, email, image) {
+    return axios.post('http://localhost:4000/user/update', {
+        username, name, phone, email, image
     }).catch(err => {
         return err
     })
 }
 
-export const update = (username, name, phone, email, res) => {
+export const update = (username, name, phone, email, image, res) => {
     return {
         type: UPDATE,
         data: {
-            username, name, phone, email, res
+            username, name, phone, email, image, res
         }
     }
 };
-export const updateRequest = (username, name, phone, email) => {
 
+export const updateRequest = (username, name, phone, email, image) => {
     return (dispatch => {
-        return onClickUpdate(username, name, phone, email).then(res => {
-            dispatch(update(username, name, phone, email, res))
+        return onClickUpdate(username, name, phone, email, image).then(res => {
+            dispatch(update(username, name, phone, email, image, res))
         })
     })
 };
 
 /* =================== CHANGE PASSWORD =================== */
 function onClickChangePassword(username, password, newpassword) {
-    return axios.post('http://localhost:4000/user/changePassword', {
+    return axios.post('http://localhost:4000/user/changePass', {
         username, password, newpassword
     }).catch(err => {
         return err

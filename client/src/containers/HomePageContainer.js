@@ -8,7 +8,8 @@ const mapStateToProps = (st) => {
         name: st.UserReducer.name,
         email: st.UserReducer.email,
         token: st.UserReducer.token,
-        isLogin: st.UserReducer.isLogin,
+        image: st.UserReducer.image,
+        isLogin: st.UserReducer.isLogin
     }
 };
 

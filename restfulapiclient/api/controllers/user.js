@@ -8,7 +8,8 @@ module.exports = {
             password: req.body.password,
             name: req.body.name,
             phone: req.body.phone,
-            email: req.body.email
+            email: req.body.email,
+            image: " "
         });
         bcrypt.genSalt(10, (err, salt) => {
             bcrypt.hash(newUser.password, salt, (err, hash) => {
@@ -30,6 +31,7 @@ module.exports = {
             user.name = req.body.name;
             user.phone = req.body.phone;
             user.email = req.body.email;
+            user.image = req.body.image;
             user.save();
             return res.status(200).json(user);
         })
