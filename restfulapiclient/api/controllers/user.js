@@ -26,7 +26,7 @@ module.exports = {
         });
     },
 
-    updateUser: (req, res, next) => {
+    updateUser: (req, res) => {
         User.findOne({"username": req.body.username}, (err, user) => {
             user.name = req.body.name;
             user.phone = req.body.phone;
@@ -37,10 +37,10 @@ module.exports = {
         })
     },
 
-    changePassword: (req, res, next) => {
-        User.findOne({"username": req.body.username}, (err, user) => {
+    changePassword: async (req, res) => {
+        await User.findOne({"username": req.body.username}, (err, user) => {
             if (!bcrypt.compareSync(req.body.password, user.password)) {
-                return res.status(400)
+                return res.status(400);
             }
             bcrypt.genSalt(10, (err, salt) => {
                 bcrypt.hash(req.body.newpassword, salt, (err, hash) => {
@@ -57,7 +57,7 @@ module.exports = {
             });
             return res.status(200).json(user);
         }).catch(err => {
-            next(err)
+            throw err;
         })
     },
 

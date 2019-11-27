@@ -4,8 +4,9 @@ import thunk from 'redux-thunk';
 import {Provider} from 'react-redux';
 import throttle from 'lodash/throttle';
 import {createStore, applyMiddleware} from 'redux';
-import indexReducer from './reducers/index';
-import Container from './containers/Containers';
+
+import indexReducer from './components/RootReducer';
+import Container from './components/RootContainer';
 
 import './index.css';
 
