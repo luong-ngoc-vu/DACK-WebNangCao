@@ -1,0 +1,9 @@
+.sider-bar {
+  height: 100%;
+}
+.item-sider {
+  text-align: left;
+}
+.ant-layout-sider-children {
+  box-shadow: 0px 1px 6px 0px rgba(57, 73, 76, 0.35);
+}
