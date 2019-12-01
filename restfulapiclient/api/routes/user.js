@@ -9,6 +9,7 @@ router.post('/register', controller.register);
 router.post('/login', controllerLogin.authLogin);
 router.post('/update', controller.updateUser);
 router.post('/changePass', controller.changePassword);
+
 router.get('/me', controller.getUser);
 
 module.exports = router;

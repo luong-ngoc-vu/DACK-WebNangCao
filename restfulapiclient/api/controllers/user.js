@@ -4,11 +4,10 @@ const bcrypt = require('bcryptjs');
 module.exports = {
     register: (req, res, next) => {
         const newUser = new User({
-            username: req.body.username,
+            email: req.body.email,
             password: req.body.password,
             name: req.body.name,
             phone: req.body.phone,
-            email: req.body.email,
             image: " "
         });
         bcrypt.genSalt(10, (err, salt) => {
@@ -27,10 +26,9 @@ module.exports = {
     },
 
     updateUser: (req, res) => {
-        User.findOne({"username": req.body.username}, (err, user) => {
+        User.findOne({"email": req.body.email}, (err, user) => {
             user.name = req.body.name;
             user.phone = req.body.phone;
-            user.email = req.body.email;
             user.image = req.body.image;
             user.save();
             return res.status(200).json(user);
@@ -38,7 +36,7 @@ module.exports = {
     },
 
     changePassword: async (req, res) => {
-        await User.findOne({"username": req.body.username}, (err, user) => {
+        await User.findOne({"email": req.body.email}, (err, user) => {
             if (!bcrypt.compareSync(req.body.password, user.password)) {
                 return res.status(400);
             }

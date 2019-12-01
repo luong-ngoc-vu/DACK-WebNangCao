@@ -15,10 +15,9 @@ module.exports = {
                     res.send(err);
                 }
                 const token = jwt.sign({
-                    username: user.username,
+                    email: user.email,
                     name: user.name,
                     phone: user.phone,
-                    email: user.email,
                 }, 'website_gia_su');
                 return res.status(200).json({token: token, user});
             });
