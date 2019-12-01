@@ -1,9 +1,9 @@
 import React from 'react';
-import { Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import 'antd/dist/antd.css';
 import './Login.css';
-import { Form, Icon, Input, Button, Checkbox, Tabs, Typography } from 'antd';
+import { Form, Icon, Input, Button, Checkbox, Typography } from 'antd';
 import GoogleLogin from 'react-google-login';
 import FacebookLogin from 'react-facebook-login';
 

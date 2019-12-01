@@ -1,154 +1,181 @@
 import React from 'react';
-import {Redirect} from 'react-router-dom';
-import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import TextField from '@material-ui/core/TextField';
-import Link from '@material-ui/core/Link';
-import Grid from '@material-ui/core/Grid';
-import LockOutlinedIcon from '@material-ui/icons/Lock';
-import Typography from '@material-ui/core/Typography';
-import Container from '@material-ui/core/Container';
-import '../../App.css';
+import { Link } from 'react-router-dom';
 
-export default class Register extends React.PureComponent {
-    constructor() {
-        super();
-        this.username = '';
-        this.password = '';
-        this.name = '';
-        this.phone = '';
-        this.email = '';
-        this.err = '';
+import 'antd/dist/antd.css';
+import './Register.css';
+import { Form, Icon, Input, Button, Tooltip, Radio, Typography } from 'antd';
+
+class RegisterForm extends React.Component {
+  state = {
+    confirmDirty: false,
+    typeUser: 1,
+    autoCompleteResult: []
+  };
+  handleConfirmBlur = e => {
+    const { value } = e.target;
+    this.setState({ confirmDirty: this.state.confirmDirty || !!value });
+  };
+
+  compareToFirstPassword = (rule, value, callback) => {
+    const { form } = this.props;
+    if (value && value !== form.getFieldValue('password')) {
+      callback('Two passwords that you enter is inconsistent!');
+    } else {
+      callback();
     }
+  };
 
-    render() {
-        const st = this.props;
-        if (st.isRegister === 'err') {
-            this.err = 'Error occurr, please check again !';
-        }
-        if (st.isRegister === 'success') {
-            this.err = 'Register successfully';
-        }
-
-        if (st.checkRegister) {
-            return <Redirect to="/login"/>;
-        }
-        return (
-            <div className="loginLayout">
-                <Container component="main" maxWidth="xs">
-                    <CssBaseline/>
-                    <div className="paper">
-                        <center>
-                            <Avatar className="avatar1">
-                                <LockOutlinedIcon color="primary"/>
-                            </Avatar>
-                            <Typography component="h1" variant="h5">
-                                Sign up
-                            </Typography>
-                        </center>
-                        <form className="form" noValidate>
-                            <Grid container spacing={2}>
-                                <Grid item xs={12}>
-                                    <TextField
-                                        autoComplete="name"
-                                        name="name"
-                                        variant="outlined"
-                                        required
-                                        fullWidth
-                                        id="name"
-                                        onChange={event => {
-                                            this.name = event.target.value;
-                                        }}
-                                        label="Full Name"
-                                        autoFocus
-                                    />
-                                </Grid>
-                                <Grid item xs={12}>
-                                    <TextField
-                                        autoComplete="phone"
-                                        name="phone"
-                                        variant="outlined"
-                                        required
-                                        fullWidth
-                                        id="phone"
-                                        type="number"
-                                        onChange={event => {
-                                            this.phone = event.target.value;
-                                        }}
-                                        label="Phone"
-                                        autoFocus
-                                    />
-                                </Grid>
-                                <Grid item xs={12}>
-                                    <TextField
-                                        variant="outlined"
-                                        required
-                                        fullWidth
-                                        id="username"
-                                        onChange={event => {
-                                            this.username = event.target.value;
-                                        }}
-                                        label="Username"
-                                        name="username"
-                                        autoComplete="username"
-                                    />
-                                </Grid>
-                                <Grid item xs={12}>
-                                    <TextField
-                                        variant="outlined"
-                                        required
-                                        fullWidth
-                                        type="email"
-                                        id="email"
-                                        onChange={event => {
-                                            this.email = event.target.value;
-                                        }}
-                                        label="Email"
-                                        name="email"
-                                        autoComplete="email"
-                                    />
-                                </Grid>
-                                <Grid item xs={12}>
-                                    <TextField
-                                        variant="outlined"
-                                        required
-                                        fullWidth
-                                        onChange={event => {
-                                            this.password = event.target.value;
-                                        }}
-                                        name="password"
-                                        label="Password"
-                                        type="password"
-                                        id="password"
-                                        autoComplete="current-password"
-                                    />
-                                </Grid>
-                            </Grid>
-                            <div className="ErrorRegister">{this.err}</div>
-                            <div className="GridForm">
-                                <Button
-                                    fullWidth
-                                    variant="contained"
-                                    color="primary"
-                                    onClick={event => {
-                                        event.preventDefault();
-                                        st.Register(this.username, this.name, this.phone, this.email, this.password);
-                                    }}>
-                                    Sign Up
-                                </Button>
-                            </div>
-                            <Grid container justify="flex-end">
-                                <Grid item>
-                                    <Link href="/login" variant="body2">
-                                        Already have an account? Sign in
-                                    </Link>
-                                </Grid>
-                            </Grid>
-                        </form>
-                    </div>
-                </Container>
-            </div>
-        );
+  validateToNextPassword = (rule, value, callback) => {
+    const { form } = this.props;
+    if (value && this.state.confirmDirty) {
+      form.validateFields(['confirm'], { force: true });
     }
+    callback();
+  };
+  handleSubmit = e => {
+    e.preventDefault();
+    this.props.form.validateFields((err, values) => {
+      if (!err) {
+        console.log('Received values of form: ', values);
+      }
+    });
+  };
+
+  render() {
+    const { getFieldDecorator } = this.props.form;
+    return (
+      <div className="Register-form">
+        <Typography>
+          <Typography.Title level={3}>Đăng ký tài khoản</Typography.Title>
+          <div>
+            <Form
+              layout="vertical"
+              onSubmit={this.handleSubmit}
+              style={{ textAlign: 'center' }}
+            >
+              <Form.Item
+                style={{
+                  borderBottom: '1px solid #e0e0e0'
+                }}
+              >
+                <Radio.Group
+                  onChange={e => {
+                    this.setState({ typeUser: e.target.value });
+                  }}
+                  value={this.state.typeUser}
+                >
+                  <Radio
+                    value={1}
+                    style={{ color: '#6290FF', margin: '10px 50px' }}
+                  >
+                    Thuê gia sư
+                  </Radio>
+                  <Radio
+                    value={2}
+                    style={{ color: '#6290FF', marginLeft: '20px' }}
+                  >
+                    Gia sư
+                  </Radio>
+                </Radio.Group>
+              </Form.Item>
+              <Form.Item label="Họ tên đầy đủ">
+                {getFieldDecorator('fullname', {
+                  rules: [
+                    {
+                      required: true
+                    }
+                  ]
+                })(<Input size="large" placeholder="Họ tên đầy đủ của bạn" />)}
+              </Form.Item>
+              <Form.Item label="E-mail đăng nhập">
+                {getFieldDecorator('email', {
+                  rules: [
+                    {
+                      type: 'email',
+                      message: 'The input is not valid E-mail!'
+                    },
+                    {
+                      required: true,
+                      message: 'Please input your E-mail!'
+                    }
+                  ]
+                })(
+                  <Input
+                    placeholder="Nhập email tài khoản đăng nhập"
+                    size="large"
+                  />
+                )}
+              </Form.Item>
+              <Form.Item
+                label={
+                  <span>
+                    Số điện thoại&nbsp;
+                    <Tooltip title="Hãy cung cấp số điện thoại của bạn để nhận được sự phục vụ tốt nhất?">
+                      <Icon type="question-circle-o" />
+                    </Tooltip>
+                  </span>
+                }
+              >
+                {getFieldDecorator('nickname', {
+                  rules: [
+                    {
+                      required: true,
+                      message: 'Xin nhập số điện thoại của bạn!',
+                      whitespace: true
+                    }
+                  ]
+                })(<Input size="large" placeholder="Số điện thoại liên lạc" />)}
+              </Form.Item>
+              <Form.Item label="Password" hasFeedback>
+                {getFieldDecorator('password', {
+                  rules: [
+                    {
+                      required: true,
+                      message: 'Please input your password!'
+                    },
+                    {
+                      validator: this.validateToNextPassword
+                    }
+                  ]
+                })(<Input.Password placeholder="Nhập mật khẩu" size="large" />)}
+              </Form.Item>
+              <Form.Item label="Confirm Password" hasFeedback>
+                {getFieldDecorator('confirm', {
+                  rules: [
+                    {
+                      required: true,
+                      message: 'Please confirm your password!'
+                    },
+                    {
+                      validator: this.compareToFirstPassword
+                    }
+                  ]
+                })(
+                  <Input.Password
+                    placeholder="Nhập lại mật khẩu"
+                    size="large"
+                    onBlur={this.handleConfirmBlur}
+                  />
+                )}
+              </Form.Item>
+              <Form.Item>
+                <Button
+                  size="large"
+                  type="primary"
+                  htmlType="submit"
+                  className="btn-sign-up"
+                >
+                  Đăng kí
+                </Button>
+                <span>Bạn đã có tài khoản? </span>
+                <Link to="/login">Đăng nhập ngay!</Link>
+              </Form.Item>
+            </Form>
+          </div>
+        </Typography>
+      </div>
+    );
+  }
 }
+
+export const Register = Form.create({ name: 'normal_Register' })(RegisterForm);
