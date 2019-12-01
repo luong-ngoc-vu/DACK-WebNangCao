@@ -44,7 +44,7 @@ class RegisterForm extends React.Component {
   render() {
     const { getFieldDecorator } = this.props.form;
     return (
-      <div className="Register-form">
+      <div className="register-form">
         <Typography>
           <Typography.Title level={3}>Đăng ký tài khoản</Typography.Title>
           <div>
@@ -167,8 +167,10 @@ class RegisterForm extends React.Component {
                 >
                   Đăng kí
                 </Button>
-                <span>Bạn đã có tài khoản? </span>
-                <Link to="/login">Đăng nhập ngay!</Link>
+                <div style={{ textAlign: 'center' }}>
+                  <span>Bạn đã có tài khoản? </span>
+                  <Link to="/login">Đăng nhập ngay!</Link>
+                </div>
               </Form.Item>
             </Form>
           </div>

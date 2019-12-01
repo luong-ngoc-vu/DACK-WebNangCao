@@ -77,7 +77,7 @@ class LoginForm extends React.Component {
                 Đăng nhập
               </Button>
               <span>Bạn chưa có tài khoản? </span>
-              <Link to="/sign-up">Đăng ký ngay!</Link>
+              <Link to="/register">Đăng ký ngay!</Link>
             </Form.Item>
           </Form>
           <div className="btn-social">

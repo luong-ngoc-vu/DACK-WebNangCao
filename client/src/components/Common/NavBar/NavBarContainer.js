@@ -1,4 +1,4 @@
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import * as action from './NavBarAction';
 import NavBar from './NavBar';
 

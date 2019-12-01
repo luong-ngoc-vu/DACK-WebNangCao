@@ -69,8 +69,8 @@ class NavBar extends React.Component {
                     Đăng nhập
                   </Link>
                 </Menu.Item>
-                <Menu.Item key="signup">
-                  <Link to="/sign-up">
+                <Menu.Item key="register">
+                  <Link to="/register">
                     <Icon type="user-add" />
                     Đăng ký
                   </Link>

@@ -1,6 +1,6 @@
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import * as actions from './RegisterAction';
-import Register from '../Register/Register';
+import { Register } from '../Register/Register';
 
 const mapStateToProps = state => {
     const st = state.RegisterReducer;
