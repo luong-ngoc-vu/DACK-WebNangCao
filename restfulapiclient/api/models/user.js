@@ -22,6 +22,10 @@ const UserSchema = new Schema({
     },
     image: {
         type: String
+    },
+    typeUser: {
+        type: Intl,
+        require: true
     }
 });
 

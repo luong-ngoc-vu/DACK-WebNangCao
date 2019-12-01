@@ -1,6 +1,6 @@
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 import * as actions from './RegisterAction';
-import { Register } from '../Register/Register';
+import {Register} from './Register';
 
 const mapStateToProps = state => {
     const st = state.RegisterReducer;
@@ -12,8 +12,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        Register: (username, name, phone, email, password) => {
-            dispatch(actions.registerRequest(username, name, phone, email, password));
+        Register: (name, phone, email, password, typeUser) => {
+            dispatch(actions.registerRequest(name, phone, email, password, typeUser));
         }
     };
 };

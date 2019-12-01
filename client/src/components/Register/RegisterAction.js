@@ -3,25 +3,25 @@ import axios from "axios";
 export const REGISTER = 'REGISTER';
 
 /* ========================= REGISTER ========================= */
-function OnclickRegister(username, name, phone, email, password) {
+function OnclickRegister(name, phone, email, password, typeUser) {
     return axios.post('http://localhost:4000/user/register', {
-        username, name, phone, email, password
+        name, phone, email, password, typeUser
     }).catch(error => {
         return error;
     });
 }
 
-export const register = (name, phone, username, password, email, res) => {
+export const register = (name, phone, password, email, typeUser, res) => {
     return {
         type: REGISTER,
-        data: {username, name, phone, email, password, res}
+        data: {name, phone, email, password, typeUser, res}
     };
 };
 
-export const registerRequest = (username, name, phone, email, password) => {
+export const registerRequest = (name, phone, email, password, typeUser) => {
     return dispatch => {
-        return OnclickRegister(username, name, phone, email, password).then(res => {
-            dispatch(register(username, name, phone, email, password, res));
+        return OnclickRegister(name, phone, email, password, typeUser).then(res => {
+            dispatch(register(name, phone, email, password, typeUser, res));
         });
     };
 };

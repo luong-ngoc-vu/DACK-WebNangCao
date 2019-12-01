@@ -8,20 +8,30 @@ module.exports = {
             password: req.body.password,
             name: req.body.name,
             phone: req.body.phone,
+            typeUser: req.body.typeUser,
             image: " "
         });
-        bcrypt.genSalt(10, (err, salt) => {
-            bcrypt.hash(newUser.password, salt, (err, hash) => {
-                if (err) throw err;
-                newUser.password = hash;
-                newUser.save()
-                    .then(user => {
-                        res.status(200).json(user);
+
+        User.findOne({"email": req.body.email}, (err, user) => {
+            if (user) {
+                return res.status(400).json({
+                    message: 'Tài khoản đã tồn tại !',
+                });
+            } else {
+                bcrypt.genSalt(10, (err, salt) => {
+                    bcrypt.hash(newUser.password, salt, (err, hash) => {
+                        if (err) throw err;
+                        newUser.password = hash;
+                        newUser.save()
+                            .then(user => {
+                                res.status(200).json(user);
+                            })
+                            .catch(err => {
+                                res.status(400).json(err);
+                            })
                     })
-                    .catch(err => {
-                        res.status(400).json(err);
-                    })
-            })
+                });
+            }
         });
     },
 

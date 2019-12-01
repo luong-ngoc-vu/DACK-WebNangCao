@@ -7,17 +7,23 @@ const RegisterReducer = (state = initialState, action) => {
     switch (action.type) {
         case "REGISTER": {
             const st = {...state};
-            st.username = action.data.username;
-            st.password = action.data.password;
-            try {
-                st.name = action.data.res.name;
-                st.email = action.data.res.email;
-                st.phone = action.data.res.phone;
-                st.image = action.data.res.image;
-                st.isRegister = 'success';
-                st.checkRegister = true;
-            } catch (error) {
+            if (action.data.res.message === "Request failed with status code 400") {
+                st.checkRegister = false;
                 st.isRegister = 'err';
+                return st;
+            } else {
+                st.email = action.data.email;
+                st.password = action.data.password;
+                try {
+                    st.name = action.data.res.name;
+                    st.phone = action.data.res.phone;
+                    st.image = action.data.res.image;
+                    st.typeUser = action.data.res.typeUser;
+                    st.isRegister = 'success';
+                    st.checkRegister = true;
+                } catch (error) {
+                    st.isRegister = 'err';
+                }
             }
             return st;
         }
