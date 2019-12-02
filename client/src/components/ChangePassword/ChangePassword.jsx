@@ -1,99 +1,98 @@
-// import React from 'react';
-// import {Redirect} from 'react-router-dom';
-// import Avatar from '@material-ui/core/Avatar';
-// import Button from '@material-ui/core/Button';
-// import CssBaseline from '@material-ui/core/CssBaseline';
-// import TextField from '@material-ui/core/TextField';
-// import Grid from '@material-ui/core/Grid';
-// import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-// import Typography from '@material-ui/core/Typography';
-// import Container from '@material-ui/core/Container';
-// import '../../App.css';
+import React from 'react';
+import 'antd/dist/antd.css';
+import '../ManagementOfHirer/ProfileHirer/ProfileHirer.css';
+import {Avatar, Button, Form, Input, Typography} from 'antd';
+import Redirect from 'react-router-dom/Redirect';
 
-// export default class ChangePassword extends React.PureComponent {
-//     constructor() {
-//         super();
-//         this.password = "";
-//         this.newpassword = "";
-//     }
+const {Title} = Typography;
 
-//     render() {
-//         const st = this.props;
 
-//         if (!st.isLogin) {
-//             return <Redirect to="/login"/>;
-//         }
+class ChangePasswordForm extends React.Component {
+    constructor() {
+        super();
+        this.password = "";
+        this.newpassword = "";
+        this.err = '';
+    }
 
-//         return (
-//             <div className="loginLayout">
-//                 <Container component="main" maxWidth="xs">
-//                     <CssBaseline/>
-//                     <div className="paper">
-//                         <center>
-//                             <Avatar className="avatar1">
-//                                 <LockOutlinedIcon/>
-//                             </Avatar>
-//                             <Typography component="h1" variant="h5">
-//                                 Change Password
-//                             </Typography>
-//                         </center>
-//                         <form className="form" noValidate>
-//                             <Grid container spacing={2}>
-//                                 <Grid item xs={12}>
-//                                     <TextField
-//                                         name="password"
-//                                         variant="outlined"
-//                                         required
-//                                         fullWidth
-//                                         id="password"
-//                                         type="password"
-//                                         onChange={event => {
-//                                             this.password = event.target.value;
-//                                         }}
-//                                         label="Current Password"
-//                                         autoFocus
-//                                     />
-//                                 </Grid>
-//                                 <Grid item xs={12}>
-//                                     <TextField
-//                                         name="newpassword"
-//                                         variant="outlined"
-//                                         required
-//                                         fullWidth
-//                                         id="newpassword"
-//                                         type="password"
-//                                         onChange={event => {
-//                                             this.newpassword = event.target.value;
-//                                         }}
-//                                         label="New Password"
-//                                     />
-//                                 </Grid>
+    state = {
+        loading: false
+    };
 
-//                             </Grid>
-//                             <div className="Error">{this.err}</div>
-//                             <div className="GridForm">
-//                                 <Button
-//                                     fullWidth
-//                                     variant="contained"
-//                                     color="primary"
-//                                     onClick={event => {
-//                                         event.preventDefault();
-//                                         st.changePass(st.username, st.password, this.newpassword);
-//                                         this.err = "Update Password Successfully"
-//                                     }}>
-//                                     Change Password
-//                                 </Button>
-//                             </div>
+    handleSubmit = e => {
+        e.preventDefault();
+        this.props.form.validateFields((err, values) => {
+            if (!err) {
+                console.log('Received values of form: ', values);
+            }
+        });
+    };
 
-//                         </form>
-//                     </div>
-//                 </Container>
-//                 <div className="user-info">
-//                     <Button className='back-home' color='primary' onClick={() => {
-//                         window.location.href = '/home'
-//                     }}>Back to homepage</Button>
-//                 </div>
-//             </div>
-//         );
-//     }
-// }
+    render() {
+        const st = this.props;
+        if (st.isRightPassword === 'err') {
+            this.err = 'Mật khẩu cũ không chính xác !';
+        }
+        if (!st.isLogin) {
+            return <Redirect to="/login"/>;
+        }
+        return (
+            <div>
+                <Typography className="typo-data">
+                    <div>
+                        <Title level={4}>Thay đổi mật khẩu</Title>
+                        <br/>
+                        <Avatar size={150} src={st.image}/>
+                        <Form
+                            style={{padding: '0px 50px'}}
+                            layout="vertical"
+                            onSubmit={this.handleSubmit}
+                        >
+                            <Form.Item label="Mật khẩu hiện tại">
+                                <Input.Password
+                                    size="large"
+                                    placeholder="Nhập mật khẩu hiện tại"
+                                    autoFocus
+                                    name="password"
+                                    onChange={event => {
+                                        this.password = event.target.value;
+                                    }}
+                                />
+                            </Form.Item>
+                            <Form.Item label="Mật khẩu mới">
+                                <Input.Password
+                                    size="large"
+                                    placeholder="Nhập mật khẩu mới"
+                                    name="newpassword"
+                                    onChange={event => {
+                                        this.newpassword = event.target.value;
+                                    }}
+                                />
+                            </Form.Item>
+                            <div>{this.err}</div>
+                            <Form.Item>
+                                <Button
+                                    style={{width: '150px', margin: '10px 300px'}}
+                                    size="large"
+                                    type="primary"
+                                    htmlType="submit"
+                                    className="btn-sign-up"
+                                    onClick={event => {
+                                        event.preventDefault();
+                                        st.changePass(st.email, this.password, this.newpassword);
+                                        this.err = "Cập nhật mật khẩu thành công !"
+                                    }}
+                                >
+                                    Cập nhật
+                                </Button>
+                            </Form.Item>
+                        </Form>
+                    </div>
+                </Typography>
+            </div>
+        )
+    }
+}
+
+const ChangePassword = Form.create({name: 'profile_form'})(ChangePasswordForm);
+export default ChangePassword;

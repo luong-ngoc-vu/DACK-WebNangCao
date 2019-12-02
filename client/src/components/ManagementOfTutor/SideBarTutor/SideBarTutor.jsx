@@ -27,8 +27,16 @@ class SideBarTutor extends React.Component {
                 </span>
               }
             >
-              <Menu.Item key="1">Hồ sơ gia sư</Menu.Item>
-              <Menu.Item key="2">Thay đổi mật khẩu</Menu.Item>
+                 <Menu.Item key="1">
+                                <Link to="/tutor-profile">
+                                    Sửa thông tin cá nhân
+                                </Link>
+                            </Menu.Item>
+                            <Menu.Item key="2">
+                                <Link to="/change-password">
+                                    Thay đổi mật khẩu
+                                </Link>
+                            </Menu.Item>
             </SubMenu>
             <SubMenu
               className="item-sider"

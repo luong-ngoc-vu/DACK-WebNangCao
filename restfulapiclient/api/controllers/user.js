@@ -52,8 +52,10 @@ module.exports = {
     changePassword: async (req, res) => {
         await User.findOne({"email": req.body.email}, (err, user) => {
             if (!bcrypt.compareSync(req.body.password, user.password)) {
-                return res.status(400);
-            }
+                return res.status(400).json({
+                    message: 'Mật khẩu không chính xác !',
+                });
+            } else {
             bcrypt.genSalt(10, (err, salt) => {
                 bcrypt.hash(req.body.newpassword, salt, (err, hash) => {
                     if (err) throw err;
@@ -64,13 +66,11 @@ module.exports = {
                         })
                         .catch(err => {
                             res.status(400).json(err);
-                        })
-                })
-            });
-            return res.status(200).json(user);
-        }).catch(err => {
-            throw err;
-        })
+                                })
+                    })
+                });
+            }
+        });
     },
 
     getUser: (req, res, next) => {

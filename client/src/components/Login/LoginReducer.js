@@ -9,6 +9,7 @@ export const initialState = {
     token: '',
     typeUser: 1,
     isLogin: false,
+    isRightPassword: '',
 };
 
 const LoginReducer = (state = initialState, action) => {
@@ -78,11 +79,15 @@ const LoginReducer = (state = initialState, action) => {
         }
 
         case 'CHANGE_PASSWORD': {
-
-            return {
-                ...state,
-                password: action.data.newpassword
-            };
+  const st = {...state};
+            if (action.data.res.message === "Request failed with status code 400") {
+                st.isRightPassword = 'err';
+                return st;
+            } else {
+                st.password = action.data.newpassword;
+                st.isRightPassword = 'success';
+            }
+            return st;
         }
 
 
