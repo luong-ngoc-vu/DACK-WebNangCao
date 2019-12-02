@@ -9,7 +9,9 @@ module.exports = {
             name: req.body.name,
             phone: req.body.phone,
             typeUser: req.body.typeUser,
-            image: " "
+            image: "",
+            address: "",
+            moreInfo: ""
         });
 
         User.findOne({"email": req.body.email}, (err, user) => {
@@ -40,6 +42,8 @@ module.exports = {
             user.name = req.body.name;
             user.phone = req.body.phone;
             user.image = req.body.image;
+            user.address = req.body.address;
+            user.moreInfo = req.body.moreInfo;
             user.save();
             return res.status(200).json(user);
         })

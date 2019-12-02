@@ -22,6 +22,12 @@ const UserSchema = new Schema({
     },
     image: {
         type: String
+    },    
+    address: {
+        type: String
+    },
+    moreInfo: {
+        type: String
     },
     typeUser: {
         type: Intl,
