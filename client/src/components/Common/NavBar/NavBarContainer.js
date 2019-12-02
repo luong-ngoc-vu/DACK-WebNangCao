@@ -1,4 +1,4 @@
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 import * as action from './NavBarAction';
 import NavBar from './NavBar';
 
@@ -8,9 +8,8 @@ const mapStateToProps = (st) => {
         email: st.LoginReducer.email,
         token: st.LoginReducer.token,
         image: st.LoginReducer.image,
+        typeUser: st.LoginReducer.typeUser,
         isLogin: st.LoginReducer.isLogin,
-        isLoginFB: st.LoginReducer.isLoginFB,
-        isLoginGG: st.LoginReducer.isLoginGG,
     }
 };
 
@@ -19,10 +18,6 @@ const mapDispatchToProps = (dispatch) => {
         logOut: () => {
             dispatch(action.LogOut())
         },
-        getUser: (token) => {
-            dispatch(action.getUserRequest(token))
-        },
-
     }
 };
 

@@ -18,6 +18,8 @@ const RegisterReducer = (state = initialState, action) => {
                     st.name = action.data.res.name;
                     st.phone = action.data.res.phone;
                     st.image = action.data.res.image;
+                    st.address = action.data.res.address;
+                    st.moreInfo = action.data.res.moreInfo;
                     st.typeUser = action.data.res.typeUser;
                     st.isRegister = 'success';
                     st.checkRegister = true;
