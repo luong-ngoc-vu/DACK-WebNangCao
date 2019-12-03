@@ -13,6 +13,8 @@ const mapStateToProps = state => {
         image: st.image,
         address: st.address,
         moreInfo: st.moreInfo,
+        isLoginFB: st.isLoginFB,
+        isLoginGG: st.isLoginGG,
         typeUser: st.typeUser
     };
 };

@@ -12,8 +12,13 @@ class LoginForm extends React.Component {
         super();
         this.email = '';
         this.password = '';
+        this.typeUser = 1;
         this.err = '';
     }
+
+    state = {
+        typeUser: 1,
+    };
 
     handleSubmit = e => {
         e.preventDefault();
@@ -111,6 +116,29 @@ class LoginForm extends React.Component {
                             <span>Bạn chưa có tài khoản? </span>
                             <Link to="/register">Đăng ký ngay!</Link>
                         </Form.Item>
+                        <Form.Item style={{borderBottom: '1px solid #e0e0e0'}}>
+                            <Radio.Group
+                                onChange={e => {
+                                    this.setState({typeUser: e.target.value});
+                                    this.typeUser = e.target.value;
+                                }}
+                                value={this.state.typeUser}
+                                name="typeUser">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <Radio
+                                    value={1}
+                                    style={{color: '#6290FF', margin: '10px 50px'}}
+                                >
+                                    Thuê gia sư
+                                </Radio>
+                                <Radio
+                                    value={2}
+                                    style={{color: '#6290FF', marginLeft: '20px'}}
+                                >
+                                    Gia sư
+                                </Radio>
+                            </Radio.Group>
+                        </Form.Item>
                     </Form>
                     <div className="btn-social">
                         <FacebookLogin
@@ -120,7 +148,7 @@ class LoginForm extends React.Component {
                             icon="fa fa-facebook"
                             textButton="Đăng nhập bằng Facebook"
                             callback={(res) => {
-                                st.LoginFB(res)
+                                st.LoginFB(res, this.typeUser)
                             }}
                         />
                         <GoogleLogin
@@ -129,7 +157,7 @@ class LoginForm extends React.Component {
                             buttonText="Đăng nhập bằng Google"
                             cookiePolicy={'single_host_origin'}
                             onSuccess={(res) => {
-                                st.LoginGG(res)
+                                st.LoginGG(res, this.typeUser)
                             }}
                         />
                     </div>
