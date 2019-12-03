@@ -6,6 +6,7 @@ const mapstToProps = state => {
     return {
         username: state.LoginReducer.username,
         password: state.LoginReducer.password,
+        typeUser: state.LoginReducer.typeUser,
         isLogin: state.LoginReducer.isLogin,
         token: state.LoginReducer.token,
     };

@@ -9,6 +9,7 @@ const mapStateToProps = state => {
         token: state.LoginReducer.token,
         image: state.LoginReducer.image,
         isLogin: state.LoginReducer.isLogin,
+        typeUser: state.LoginReducer.typeUser,
         isRightPassword: state.LoginReducer.isRightPassword
     };
 };

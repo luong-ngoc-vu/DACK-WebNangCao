@@ -3,6 +3,8 @@ import 'antd/dist/antd.css';
 import '../ManagementOfHirer/ProfileHirer/ProfileHirer.css';
 import {Avatar, Button, Form, Input, Typography} from 'antd';
 import Redirect from 'react-router-dom/Redirect';
+import SlideBarHirer from '../ManagementOfHirer/SideBarHirer/SideBarHirer';
+import SlideBarTutor from '../ManagementOfTutor/SideBarTutor/SideBarTutor';
 
 const {Title} = Typography;
 
@@ -38,6 +40,8 @@ class ChangePasswordForm extends React.Component {
         }
         return (
             <div>
+                {st.typeUser === 1 && (<SlideBarHirer/>)}
+                {st.typeUser === 2 && (<SlideBarTutor/>)}
                 <Typography className="typo-data">
                     <div>
                         <Title level={4}>Thay đổi mật khẩu</Title>
@@ -79,7 +83,8 @@ class ChangePasswordForm extends React.Component {
                                     className="btn-sign-up"
                                     onClick={event => {
                                         event.preventDefault();
-                                        st.changePass(st.email, this.password, this.newpassword);
+                                        if (this.password !== "" && this.newpassword !== "")
+                                            st.changePass(st.email, this.password, this.newpassword);
                                         this.err = "Cập nhật mật khẩu thành công !"
                                     }}
                                 >

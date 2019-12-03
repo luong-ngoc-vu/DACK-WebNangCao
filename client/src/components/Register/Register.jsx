@@ -55,7 +55,7 @@ class RegisterForm extends React.Component {
     render() {
         const st = this.props;
         if (st.isRegister === 'err') {
-            this.err = 'Tài khoản email đã tồn tại !';
+            this.err = 'Có lỗi trong quá trình xử lý, vui lòng thử lại !';
         }
         if (st.checkRegister) {
             return <Redirect to="/login"/>;
@@ -216,7 +216,9 @@ class RegisterForm extends React.Component {
                                     className="btn-sign-up"
                                     onClick={event => {
                                         event.preventDefault();
-                                        st.Register(this.name, this.phone, this.email, this.password, this.typeUser);
+                                        if (this.name !== "" && this.phone !== "" && this.email !== "" && this.password !== ""
+                                            && this.repassword !== "")
+                                            st.Register(this.name, this.phone, this.email, this.password, this.typeUser);
                                     }}>
                                     Đăng kí
                                 </Button>

@@ -79,7 +79,7 @@ const LoginReducer = (state = initialState, action) => {
         }
 
         case 'CHANGE_PASSWORD': {
-  const st = {...state};
+            const st = {...state};
             if (action.data.res.message === "Request failed with status code 400") {
                 st.isRightPassword = 'err';
                 return st;

@@ -2,45 +2,12 @@ import React from 'react';
 import 'antd/dist/antd.css';
 import './ProfileTutor.css';
 
-import {
-    Avatar,
-    Button,
-    Checkbox,
-    Form,
-    Icon,
-    Input,
-    InputNumber,
-    Layout,
-    message,
-    Select,
-    Tooltip,
-    Typography
-} from 'antd';
+import {Avatar, Button, Checkbox, Form, Icon, Input, InputNumber, Select, Tooltip, Typography} from 'antd';
 import Redirect from "react-router-dom/Redirect";
 
-const {Content} = Layout;
 const {TextArea} = Input;
 
 const {Title, Text} = Typography;
-
-//upload function
-function getBase64(img, callback) {
-    const reader = new FileReader();
-    reader.addEventListener('load', () => callback(reader.result));
-    reader.readAsDataURL(img);
-}
-
-function beforeUpload(file) {
-    const isJpgOrPng = file.type === 'image/jpeg' || file.type === 'image/png';
-    if (!isJpgOrPng) {
-        message.error('You can only upload JPG/PNG file!');
-    }
-    const isLt2M = file.size / 1024 / 1024 < 2;
-    if (!isLt2M) {
-        message.error('Image must smaller than 2MB!');
-    }
-    return isJpgOrPng && isLt2M;
-}
 
 class ProfileForm extends React.Component {
     constructor() {
@@ -85,6 +52,11 @@ class ProfileForm extends React.Component {
         if (st.isLogin === false) {
             return <Redirect to="/login"/>
         }
+
+        if (st.typeUser === 1) {
+            return <Redirect to="/student-profile"/>
+        }
+
         const {getFieldDecorator} = this.props.form;
         const day = [
             'Thứ hai',
