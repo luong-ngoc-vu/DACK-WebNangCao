@@ -1,6 +1,6 @@
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import * as actions from './LoginAction';
-import {Login} from './Login';
+import { Login } from './Login';
 
 const mapstToProps = state => {
     return {

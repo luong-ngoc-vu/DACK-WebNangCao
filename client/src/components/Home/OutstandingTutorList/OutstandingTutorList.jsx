@@ -21,7 +21,7 @@ class OutstandingTutorList extends React.Component {
                 className="card-tutor"
                 cover={
                   <img
-                    style={{ width: 265, height: 158, border: '0' }}
+                    style={{ width: '100%', height: 158, border: '0' }}
                     alt="example"
                     src="https://image.thanhnien.vn/660/uploaded/tuyenth/2019_08_05/f09fcb108d6019817a5c511744350e69d3c40682_rkcn.jpg"
                   />
@@ -74,7 +74,7 @@ class OutstandingTutorList extends React.Component {
                 className="card-tutor"
                 cover={
                   <img
-                    style={{ width: 265, height: 158, border: '0' }}
+                    style={{ width: '100%', height: 158, border: '0' }}
                     alt="example"
                     src="https://image.thanhnien.vn/660/uploaded/tuyenth/2019_08_05/f09fcb108d6019817a5c511744350e69d3c40682_rkcn.jpg"
                   />
@@ -127,7 +127,7 @@ class OutstandingTutorList extends React.Component {
                 className="card-tutor"
                 cover={
                   <img
-                    style={{ width: 265, height: 158, border: '0' }}
+                    style={{ width: '100%', height: 158, border: '0' }}
                     alt="example"
                     src="https://image.thanhnien.vn/660/uploaded/tuyenth/2019_08_05/f09fcb108d6019817a5c511744350e69d3c40682_rkcn.jpg"
                   />
@@ -180,7 +180,7 @@ class OutstandingTutorList extends React.Component {
                 className="card-tutor"
                 cover={
                   <img
-                    style={{ width: 265, height: 158, border: '0' }}
+                    style={{ width: '100%', height: 158, border: '0' }}
                     alt="example"
                     src="https://image.thanhnien.vn/660/uploaded/tuyenth/2019_08_05/f09fcb108d6019817a5c511744350e69d3c40682_rkcn.jpg"
                   />
