@@ -9,6 +9,8 @@ export const initialState = {
     token: '',
     typeUser: 1,
     isLogin: false,
+    isLoginFB: false,
+    isLoginGG: false,
     isRightPassword: '',
 };
 
@@ -27,6 +29,8 @@ const LoginReducer = (state = initialState, action) => {
                 st.moreInfo = action.data.res.data.user.moreInfo;
                 st.typeUser = action.data.res.data.user.typeUser;
                 st.isLogin = true;
+                st.isLoginFB = false;
+                st.isLoginGG = false;
             } catch (err) {
                 st.token = 'err';
             }
@@ -38,11 +42,12 @@ const LoginReducer = (state = initialState, action) => {
             st.name = action.data.res.name;
             st.email = action.data.res.email;
             st.image = action.data.res.picture.data.url;
-            st.typeUser = 1;
+            st.typeUser = action.data.typeUser;
+            st.isLogin = true;
+            st.isLoginFB = true;
+            st.isLoginGG = false;
             try {
                 st.token = action.data.res.accessToken;
-                st.isLogin = true;
-                st.isLoginFB = true;
             } catch (err) {
                 st.token = 'err';
             }
@@ -54,12 +59,13 @@ const LoginReducer = (state = initialState, action) => {
             st.name = action.data.res.w3.ig;
             st.email = action.data.res.w3.U3;
             st.image = action.data.res.w3.Paa;
-            st.typeUser = 1;
+            st.typeUser = action.data.typeUser;
+            st.isLogin = true;
+            st.isLoginGG = true;
+            st.isLoginFB = false;
 
             try {
                 st.token = action.data.res.Zi.access_token;
-                st.isLogin = true;
-                st.isLoginGG = true;
             } catch (err) {
                 st.token = 'err';
             }
@@ -79,7 +85,7 @@ const LoginReducer = (state = initialState, action) => {
         }
 
         case 'CHANGE_PASSWORD': {
-  const st = {...state};
+            const st = {...state};
             if (action.data.res.message === "Request failed with status code 400") {
                 st.isRightPassword = 'err';
                 return st;

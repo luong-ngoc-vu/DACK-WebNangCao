@@ -29,13 +29,13 @@ export const loginRequest = (username, password) => {
 };
 
 /* ========================= LOG IN FACEBOOK ========================= */
-export const loginFB = (res) => ({
+export const loginFB = (res, typeUser) => ({
     type: LOGIN_FACEBOOK,
-    data: {res}
+    data: {res, typeUser}
 });
 
 /* ========================= LOG IN GOOGLE ========================= */
-export const loginGG = (res) => ({
+export const loginGG = (res, typeUser) => ({
     type: LOGIN_GOOGLE,
-    data: {res}
+    data: {res, typeUser}
 });

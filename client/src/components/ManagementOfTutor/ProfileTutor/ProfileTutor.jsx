@@ -2,45 +2,12 @@ import React from 'react';
 import 'antd/dist/antd.css';
 import './ProfileTutor.css';
 
-import {
-    Avatar,
-    Button,
-    Checkbox,
-    Form,
-    Icon,
-    Input,
-    InputNumber,
-    Layout,
-    message,
-    Select,
-    Tooltip,
-    Typography
-} from 'antd';
+import {Avatar, Button, Checkbox, Form, Icon, Input, InputNumber, Select, Tooltip, Typography} from 'antd';
 import Redirect from "react-router-dom/Redirect";
 
-const {Content} = Layout;
 const {TextArea} = Input;
 
 const {Title, Text} = Typography;
-
-//upload function
-function getBase64(img, callback) {
-    const reader = new FileReader();
-    reader.addEventListener('load', () => callback(reader.result));
-    reader.readAsDataURL(img);
-}
-
-function beforeUpload(file) {
-    const isJpgOrPng = file.type === 'image/jpeg' || file.type === 'image/png';
-    if (!isJpgOrPng) {
-        message.error('You can only upload JPG/PNG file!');
-    }
-    const isLt2M = file.size / 1024 / 1024 < 2;
-    if (!isLt2M) {
-        message.error('Image must smaller than 2MB!');
-    }
-    return isJpgOrPng && isLt2M;
-}
 
 class ProfileForm extends React.Component {
     constructor() {
@@ -85,6 +52,11 @@ class ProfileForm extends React.Component {
         if (st.isLogin === false) {
             return <Redirect to="/login"/>
         }
+
+        if (st.typeUser === 1) {
+            return <Redirect to="/student-profile"/>
+        }
+
         const {getFieldDecorator} = this.props.form;
         const day = [
             'Thứ hai',
@@ -158,67 +130,77 @@ class ProfileForm extends React.Component {
                                     }}
                                 />
                             </Form.Item>
-                            <Form.Item label="Số điện thoại">
-                                <Input
-                                    size="large"
-                                    defaultValue={st.phone}
-                                    onChange={event => {
-                                        this.phone = event.target.value;
-                                    }}
-                                    name="phone"
-                                />
-                            </Form.Item>
-                            <Form.Item label="Địa chỉ cụ thể">
-                                <Input
-                                    size="large"
-                                    defaultValue={st.address}
-                                    onChange={event => {
-                                        this.address = event.target.value;
-                                    }}
-                                    name="address"
-                                />
-                            </Form.Item>
-                            <Form.Item label="Thông tin mô tả bản thân">
-                                <TextArea
-                                    rows={3}
-                                    defaultValue={st.moreInfo}
-                                    name="moreInfo"
-                                    onChange={event => {
-                                        this.moreInfo = event.target.value;
-                                    }}
-                                />
-                            </Form.Item>
-                            <Form.Item label="Avatar URL">
-                                <Input
-                                    size="large"
-                                    defaultValue={st.image}
-                                    name="image"
-                                    onChange={event => {
-                                        this.image = event.target.value;
-                                    }}
-                                />
-                            </Form.Item>
-                            <Form.Item label="Choose Avatar">
-                                <Input
-                                    size="large"
-                                    type="file"
-                                    name="file"
-                                    onChange={async e => {
-                                        const {files} = e.target;
-                                        const data = new FormData();
-                                        data.append('file', files[0]);
-                                        data.append('upload_preset', 'jq0gfqp1');
-                                        data.append("api_key", "725237476677898");
-                                        data.append("api_secret", '5bN8m-49GwuIPffqiipf20h9eLI');
+                            {st.isLoginFB === false && st.isLoginGG === false && (
+                                <Form.Item label="Số điện thoại">
+                                    <Input
+                                        size="large"
+                                        defaultValue={st.phone}
+                                        onChange={event => {
+                                            this.phone = event.target.value;
+                                        }}
+                                        name="phone"
+                                    />
+                                </Form.Item>
+                            )}
+                            {st.isLoginFB === false && st.isLoginGG === false && (
+                                <Form.Item label="Địa chỉ cụ thể">
+                                    <Input
+                                        size="large"
+                                        defaultValue={st.address}
+                                        onChange={event => {
+                                            this.address = event.target.value;
+                                        }}
+                                        name="address"
+                                    />
+                                </Form.Item>
+                            )}
+                            {st.isLoginFB === false && st.isLoginGG === false && (
+                                <Form.Item label="Thông tin mô tả bản thân">
+                                    <TextArea
+                                        rows={3}
+                                        defaultValue={st.moreInfo}
+                                        name="moreInfo"
+                                        onChange={event => {
+                                            this.moreInfo = event.target.value;
+                                        }}
+                                    />
+                                </Form.Item>
+                            )}
+                            {st.isLoginFB === false && st.isLoginGG === false && (
+                                <Form.Item label="Avatar URL">
+                                    <Input
+                                        size="large"
+                                        defaultValue={st.image}
+                                        name="image"
+                                        onChange={event => {
+                                            this.image = event.target.value;
+                                        }}
+                                    />
+                                </Form.Item>
+                            )}
+                            {st.isLoginFB === false && st.isLoginGG === false && (
+                                <Form.Item label="Choose Avatar">
+                                    <Input
+                                        size="large"
+                                        type="file"
+                                        name="file"
+                                        onChange={async e => {
+                                            const {files} = e.target;
+                                            const data = new FormData();
+                                            data.append('file', files[0]);
+                                            data.append('upload_preset', 'jq0gfqp1');
+                                            data.append("api_key", "725237476677898");
+                                            data.append("api_secret", '5bN8m-49GwuIPffqiipf20h9eLI');
 
-                                        const res = await fetch('https://api.cloudinary.com/v1_1/dtrty0qol/image/upload', {
-                                            method: 'POST',
-                                            body: data
-                                        });
-                                        const file = await res.json();
-                                        this.image = file.url;
-                                    }}/>
-                            </Form.Item>
+                                            const res = await fetch('https://api.cloudinary.com/v1_1/dtrty0qol/image/upload', {
+                                                method: 'POST',
+                                                body: data
+                                            });
+                                            const file = await res.json();
+                                            this.image = file.url;
+                                        }}/>
+                                </Form.Item>
+                            )}
                             <div>{this.err}</div>
                         </Form>
                     </div>

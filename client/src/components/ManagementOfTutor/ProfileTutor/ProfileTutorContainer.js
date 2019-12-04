@@ -10,6 +10,8 @@ const mapStateToProps = state => {
         phone: st.phone,
         token: st.token,
         isLogin: st.isLogin,
+        isLoginFB: st.isLoginFB,
+        isLoginGG: st.isLoginGG,
         image: st.image,
         address: st.address,
         moreInfo: st.moreInfo,

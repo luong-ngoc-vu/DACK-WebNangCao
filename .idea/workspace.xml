@@ -2,9 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1e3d978d-558f-45bc-a75a-84fa5d11e4de" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Login/Login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Login/Login.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Login/LoginAction.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Login/LoginAction.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Login/LoginContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Login/LoginContainer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Login/LoginReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Login/LoginReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/ManagementOfHirer/ProfileHirer/ProfileHirer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ManagementOfHirer/ProfileHirer/ProfileHirer.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/ManagementOfHirer/ProfileHirer/ProfileHirerContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ManagementOfHirer/ProfileHirer/ProfileHirerContainer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/ManagementOfTutor/ProfileTutor/ProfileTutor.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ManagementOfTutor/ProfileTutor/ProfileTutor.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/ManagementOfTutor/ProfileTutor/ProfileTutorContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ManagementOfTutor/ProfileTutor/ProfileTutorContainer.js" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,22 +22,30 @@
   </component>
   <component name="ProjectId" id="1UMs202V1NtoKFBnOQExa3kcVed" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="C:\Users\Vu\AppData\Roaming\npm\node_modules\prettier" />
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
+  <component name="ServiceViewManager">
+    <option name="viewStates">
       <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
       </list>
     </option>
   </component>
@@ -46,6 +61,8 @@
       <updated>1575177588209</updated>
       <workItem from="1575177590973" duration="178000" />
       <workItem from="1575346570760" duration="36000" />
+      <workItem from="1575370073217" duration="972000" />
+      <workItem from="1575384182912" duration="536000" />
     </task>
     <servers />
   </component>
@@ -64,5 +81,15 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="413" y="115" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1575370427777">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="413" y="115" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1575370427777" />
+    <state x="339" y="162" key="run.anything.popup" timestamp="1575384276027">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1575384276027" />
   </component>
 </project>
