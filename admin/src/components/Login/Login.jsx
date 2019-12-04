@@ -76,6 +76,7 @@ class LoginForm extends React.Component {
                 type="primary"
                 htmlType="submit"
                 className="login-form-button"
+                style={{ width: 'auto' }}
               >
                 Đăng nhập
               </Button>

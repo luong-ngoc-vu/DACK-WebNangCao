@@ -11,8 +11,7 @@ import { Login } from './components/Login/Login';
 
 const { Header, Sider, Content } = Layout;
 
-class App extends React.Component {
-
+class App extends React.PureComponent {
 
   render() {
     return (
@@ -25,9 +24,9 @@ class App extends React.Component {
             <NavBar />
             <Layout style={{ padding: '0 24px 24px' }}>
               <Breadcrumb style={{ margin: '16px 0' }}>
-                <Breadcrumb.Item>Home</Breadcrumb.Item>
-                <Breadcrumb.Item>List</Breadcrumb.Item>
-                <Breadcrumb.Item>App</Breadcrumb.Item>
+                <Breadcrumb.Item>Dashboard</Breadcrumb.Item>
+                <Breadcrumb.Item>Quản lý tài khoản</Breadcrumb.Item>
+                <Breadcrumb.Item>Tạo tài khoản member</Breadcrumb.Item>
               </Breadcrumb>
               <Content
                 style={{
@@ -44,7 +43,7 @@ class App extends React.Component {
             </Layout>
           </Layout>
         </Layout></Route>
-        
+
       </BrowserRouter>
     );
   }

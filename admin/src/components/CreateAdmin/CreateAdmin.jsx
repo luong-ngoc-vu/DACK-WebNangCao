@@ -24,6 +24,7 @@ class CreateAdminForm extends React.Component {
     autoCompleteResult: [],
     loading: false
   };
+
   handleConfirmBlur = e => {
     const { value } = e.target;
     this.setState({ confirmDirty: this.state.confirmDirty || !!value });
@@ -73,91 +74,92 @@ class CreateAdminForm extends React.Component {
 
     return (
       <div>
-        <Typography className="typo-data">
-          <div>
-            <Form
+        <Form
+          style={{
+            width: 400,
+            margin: '0px auto',
+            padding: '10px 20px',
+            border: '1px solid #e0e0e0'
+          }}
+          layout="vertical"
+          onSubmit={this.handleSubmit}
+        >
+          <Form.Item>
+            {' '}
+            <Title level={4} style={{ textAlign: 'center' }}>
+              Tạo tài khoản member
+            </Title>
+          </Form.Item>
+          <Form.Item label="Username">
+            {getFieldDecorator('username', {
+              rules: [
+                {
+                  required: true,
+                  message: 'Vui lòng nhập username!'
+                }
+              ]
+            })(<Input size="large" />)}
+          </Form.Item>
+          <Form.Item label="Password" hasFeedback>
+            {getFieldDecorator('password', {
+              rules: [
+                {
+                  required: true,
+                  message: 'Vui lòng nhập password!'
+                },
+                {
+                  validator: this.validateToNextPassword
+                }
+              ]
+            })(<Input.Password size="large" />)}
+          </Form.Item>
+          <Form.Item label="Nhập lại Password" hasFeedback>
+            {getFieldDecorator('confirm', {
+              rules: [
+                {
+                  required: true,
+                  message: 'Vui lòng nhập lại Password!'
+                },
+                {
+                  validator: this.compareToFirstPassword
+                }
+              ]
+            })(<Input.Password size="large" onBlur={this.handleConfirmBlur} />)}
+          </Form.Item>
+          <div>{this.err}</div>
+          <Form.Item>
+            <div
               style={{
-                margin: '0px 400px',
-                padding: '10px 20px',
-                boxShadow: ' hsla(180, 9%, 6%, 0.35) 0 1px 9px 0 '
+                display: 'flex',
+                flexDirection: 'row',
+                justifyItems: 'center',
+                alignItems: 'center'
               }}
-              layout="vertical"
-              onSubmit={this.handleSubmit}
             >
-              <Form.Item>
-                {' '}
-                <Title level={4} style={{ textAlign: 'center' }}>
-                  Tạo tài khoản admin member
-                </Title>
-              </Form.Item>
-              <Form.Item label="Username">
-                {getFieldDecorator('username', {
-                  rules: [
-                    {
-                      required: true,
-                      message: 'Vui lòng nhập username!'
-                    }
-                  ]
-                })(<Input size="large" />)}
-              </Form.Item>
-              <Form.Item label="Password" hasFeedback>
-                {getFieldDecorator('password', {
-                  rules: [
-                    {
-                      required: true,
-                      message: 'Vui lòng nhập password!'
-                    },
-                    {
-                      validator: this.validateToNextPassword
-                    }
-                  ]
-                })(<Input.Password size="large" />)}
-              </Form.Item>
-              <Form.Item label="Nhập lại Password" hasFeedback>
-                {getFieldDecorator('confirm', {
-                  rules: [
-                    {
-                      required: true,
-                      message: 'Vui lòng nhập lại Password!'
-                    },
-                    {
-                      validator: this.compareToFirstPassword
-                    }
-                  ]
-                })(
-                  <Input.Password
-                    size="large"
-                    onBlur={this.handleConfirmBlur}
-                  />
-                )}
-              </Form.Item>
-              <div>{this.err}</div>
-              <Form.Item>
-                <Button
-                  style={{ width: '150px', margin: '10px 150px' }}
-                  size="large"
-                  type="primary"
-                  htmlType="submit"
-                  className="btn-sign-up"
-                  onClick={event => {
-                    event.preventDefault();
-                    st.updateUser(
-                      this.name,
-                      this.phone,
-                      st.email,
-                      this.image,
-                      this.address,
-                      this.moreInfo
-                    );
-                    this.err = 'Cập nhật thành công';
-                  }}
-                >
-                  Tạo tài khoản
-                </Button>
-              </Form.Item>
-            </Form>
-          </div>
-        </Typography>
+              <Button
+                style={{ width: '150px', margin: 'auto' }}
+                size="large"
+                type="primary"
+                htmlType="submit"
+                className="btn-sign-up"
+                onClick={event => {
+                  event.preventDefault();
+                  st.updateUser(
+                    this.name,
+                    this.phone,
+                    st.email,
+                    this.image,
+                    this.address,
+                    this.moreInfo
+                  );
+                  this.err = 'Cập nhật thành công';
+                }}
+              >
+                Tạo tài khoản
+              </Button>
+            </div>
+          </Form.Item>
+        </Form>
       </div>
     );
   }
