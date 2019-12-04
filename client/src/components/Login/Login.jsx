@@ -7,6 +7,7 @@ import FacebookLogin from 'react-facebook-login';
 import 'antd/dist/antd.css';
 import './Login.css';
 
+const { Text } = Typography;
 class LoginForm extends React.Component {
   constructor() {
     super();
@@ -91,7 +92,7 @@ class LoginForm extends React.Component {
                 />
               )}
             </Form.Item>
-            <div>{this.err}</div>
+            <div type="danger">{this.err}</div>
             <Form.Item>
               {getFieldDecorator('remember', {
                 valuePropName: 'checked',
