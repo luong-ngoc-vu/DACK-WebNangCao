@@ -1,0 +1,36 @@
+.logo {
+  width: 200px;
+
+  background: rgba(12, 10, 10, 0.2);
+
+  float: left;
+  background-image: url('../../../bg.png');
+
+  padding: 0px 0px 20px 15px;
+  height: 80px;
+  background-position: center;
+}
+.avatar-admin {
+  color: rgb(255, 255, 255);
+  background-color: rgb(188, 188, 188);
+  user-select: none;
+  display: block;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  float: left;
+  margin-right: 15px;
+  margin-top: 15px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 0px 8px;
+}
+.name-admin {
+  padding-top: 25px;
+  display: block;
+  color: white;
+  font-weight: 400;
+  font-size: large;
+  text-shadow: rgb(77, 77, 77) 1px 1px;
+}

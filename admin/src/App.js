@@ -1,26 +1,52 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { Layout, Menu, Icon, Breadcrumb } from 'antd';
+import 'antd/dist/antd.css'
+import './App.css'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import { BrowserRouter, Route } from 'react-router-dom';
+import SideBar from './components/Menu/SideBar/SideBar';
+import NavBar from './components/Menu/NavBar/NavBar';
+import CreateAdmin from './components/CreateAdmin/CreateAdmin';
+import { Login } from './components/Login/Login';
+
+const { Header, Sider, Content } = Layout;
+
+class App extends React.Component {
+
+
+  render() {
+    return (
+      <BrowserRouter>
+        <Route path="/admin-login" component={Login} />
+        <Route path="/dashboard" ><Layout style={{ height: '100vh' }}>
+          <SideBar />
+
+          <Layout>
+            <NavBar />
+            <Layout style={{ padding: '0 24px 24px' }}>
+              <Breadcrumb style={{ margin: '16px 0' }}>
+                <Breadcrumb.Item>Home</Breadcrumb.Item>
+                <Breadcrumb.Item>List</Breadcrumb.Item>
+                <Breadcrumb.Item>App</Breadcrumb.Item>
+              </Breadcrumb>
+              <Content
+                style={{
+                  background: '#fff',
+                  padding: 24,
+                  margin: 0,
+                  minHeight: 280,
+                }}
+              >
+                <Route path="/dashboard/" component={CreateAdmin} />
+
+
+              </Content>
+            </Layout>
+          </Layout>
+        </Layout></Route>
+        
+      </BrowserRouter>
+    );
+  }
 }
-
 export default App;

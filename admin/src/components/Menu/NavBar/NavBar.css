@@ -1,0 +1,13 @@
+.header {
+  background-color: white;
+  padding: 0 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  box-shadow: hsla(209, 108%, 8%, 0.35) 0px 1px 4px 0px;
+}
+.search-btn {
+  max-width: 300px;
+  margin-right: 10px;
+}
