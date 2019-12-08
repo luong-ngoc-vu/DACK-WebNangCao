@@ -5,7 +5,7 @@ const router = express.Router();
 
 /* GET home page. */
 router.get('/all', authorize(), clientCtrl.getAllClient);
-router.get('/:email', authorize(), clientCtrl.getAClient);
+router.get('/:email', clientCtrl.getAClient);
 
 
 module.exports = router;

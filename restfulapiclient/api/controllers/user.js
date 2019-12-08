@@ -39,11 +39,12 @@ module.exports = {
 
     updateUser: (req, res) => {
         User.findOne({"email": req.body.email}, (err, user) => {
-            user.name = req.body.name;
-            user.phone = req.body.phone;
-            user.image = req.body.image;
-            user.address = req.body.address;
-            user.moreInfo = req.body.moreInfo;
+            // user.name = req.body.name;
+            // user.phone = req.body.phone;
+            // user.image = req.body.image;
+            // user.address = req.body.address;
+            // user.moreInfo = req.body.moreInfo;
+            Object.assign(user, req.body);  //Khi nào cần cập nhật thông tin gì thì request thông tin đó lên thôi
             user.save();
             return res.status(200).json(user);
         })

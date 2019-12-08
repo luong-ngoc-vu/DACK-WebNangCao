@@ -3,8 +3,12 @@ const Schema = mongoose.Schema;
 
 const schema = new Schema({
     _id: {type: String, required: true},
-    name: { type: String, required: true },
-    creator: { type: String, required: true },
+    user_email: {
+        type: String,
+        require: true,
+    },
+    title: { type: String, required: true },
+    content: { type: String, required: true },
     createdDate: { type: Date, default: Date.now },
 });
 
@@ -19,5 +23,5 @@ schema.pre('save', function(next) {
     });
 });
 
-const skill = mongoose.model('Skill', schema);
-module.exports = skill;
+const introduction = mongoose.model('Introduce', schema);
+module.exports = introduction;
