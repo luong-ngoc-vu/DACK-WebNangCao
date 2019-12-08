@@ -8,8 +8,9 @@ const errorHandler = require('./_helpers/error-handler');
 require('./api/utils/db');
 
 // var indexRouter = require('./routes/index');
-var usersRouter = require('./api/routes/authRoute');
-
+const authRouter = require('./api/routes/authRoute');
+const clientRouter = require('./api/routes/clientManament');
+const skillRouter = require('./api/routes/skillRoute');
 var app = express();
 
 //Setup database
@@ -25,8 +26,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // app.use('/', indexRouter);
-app.use('/users', usersRouter);
-
+app.use('/auth', authRouter);
+app.use('/client', clientRouter);
+app.use('/skill', skillRouter);
 // global error handler
 app.use(errorHandler);
 // catch 404 and forward to error handler
