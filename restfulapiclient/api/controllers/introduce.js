@@ -4,6 +4,7 @@ module.exports = {
     create: async (req, res, next) => {
         const introduction = new introduce(req.body);
         await introduction.save();
+        console.log(introduction);
         return res.status(200).json(introduction);
     },
 
@@ -20,8 +21,9 @@ module.exports = {
         return res.status(200).json(introduction);
     },
 
-    getCurrent: (req, res, next) => {
-        const intro = await introduce.findById(id);
+    getCurrent: async (req, res, next) => {
+        //console.log(req);
+        const intro = await introduce.findById(req.query.id);
         return res.status(200).json(intro);
     },
 };

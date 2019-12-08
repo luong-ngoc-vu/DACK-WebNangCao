@@ -5,6 +5,6 @@ const controller = require('../controllers/introduce');
 
 router.post('/create', controller.create);
 router.put('/update', controller.update);
-router.get('/:id', controller.getCurrent);
+router.get('/get', controller.getCurrent);
 
 module.exports = router;

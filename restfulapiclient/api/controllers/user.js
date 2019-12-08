@@ -13,7 +13,7 @@ module.exports = {
             address: "",
             moreInfo: ""
         });
-
+        console.log(newUser);
         User.findOne({"email": req.body.email}, (err, user) => {
             if (user) {
                 return res.status(400).json({
@@ -35,6 +35,7 @@ module.exports = {
                 });
             }
         });
+       
     },
 
     updateUser: (req, res) => {
@@ -44,12 +45,13 @@ module.exports = {
             // user.image = req.body.image;
             // user.address = req.body.address;
             // user.moreInfo = req.body.moreInfo;
+            // console.log(req.body);
             Object.assign(user, req.body);  //Khi nào cần cập nhật thông tin gì thì request thông tin đó lên thôi
             user.save();
             return res.status(200).json(user);
         })
     },
-
+    
     changePassword: async (req, res) => {
         await User.findOne({"email": req.body.email}, (err, user) => {
             if (!bcrypt.compareSync(req.body.password, user.password)) {
