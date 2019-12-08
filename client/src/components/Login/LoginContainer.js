@@ -22,7 +22,7 @@ const mapDispatchToProps = dispatch => {
         LoginFB: (res, typeUser) => {
             dispatch(actions.loginFB(res, typeUser))
         },
-        LoginGG: (res) => {
+        LoginGG: (res, typeUser) => {
             dispatch(actions.loginGG(res, typeUser))
         }
     };
