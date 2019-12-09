@@ -81,4 +81,14 @@ module.exports = {
             user: req.user,
         });
     },
+
+    getTeacher: async (req, res) => {
+        const tutorrials = await User.find({"typeUser": 2});
+        return res.status(200).json(tutorrials);
+    },
+
+    getTeacherCity: async (req, res) => {
+        const tutorrialsCity = await User.find({"addressCity": req.body.addressCity});
+        return res.status(200).json(tutorrialsCity);
+    },
 };

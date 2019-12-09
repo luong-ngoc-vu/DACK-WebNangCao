@@ -2,7 +2,9 @@ import React from 'react';
 import './OutstandingTutorList.css';
 import 'antd/dist/antd.css';
 
-import {Button, Card, Col, Row, Tag} from 'antd';
+import {Button, Card, Col, Row, Select, Tag} from 'antd';
+
+const {Option} = Select;
 
 const {Meta} = Card;
 
@@ -28,11 +30,19 @@ class OutstandingTutorList extends React.Component {
                 <h2 style={{textAlign: 'left', margin: '20px 0px'}}>
                     Gia sư nổi bật
                 </h2>
+                <Select defaultValue="lucy" style={{width: 120}}>
+                    <Option value="jack">Jack</Option>
+                    <Option value="lucy">Lucy</Option>
+                    <Option value="disabled" disabled>
+                        Disabled
+                    </Option>
+                    <Option value="Yiminghe">yiminghe</Option>
+                </Select>
                 <div className="out-tutor__list">
                     <Row gutter={[24, 16]}>
                         {' '}
                         {data.map(teacher =>
-                            <Col span={10}>
+                            <Col span={6}>
                                 <Card
                                     hoverable="true"
                                     className="card-tutor"

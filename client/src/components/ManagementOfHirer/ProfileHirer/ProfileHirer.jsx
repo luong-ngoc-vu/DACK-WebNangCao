@@ -105,6 +105,7 @@ class ProfileForm extends React.Component {
                                     <Select
                                         name="addressCity"
                                         placeholder="Chọn thành phố"
+                                        value={st.addressCity}
                                         onChange={value => {
                                             this.setState({addressCity: value});
                                         }}
