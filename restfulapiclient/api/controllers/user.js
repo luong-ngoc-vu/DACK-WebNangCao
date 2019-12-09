@@ -51,7 +51,7 @@ module.exports = {
             return res.status(200).json(user);
         })
     },
-    
+
     changePassword: async (req, res) => {
         await User.findOne({"email": req.body.email}, (err, user) => {
             if (!bcrypt.compareSync(req.body.password, user.password)) {

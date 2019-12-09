@@ -12,7 +12,7 @@ schema.set('toJSON', { virtuals: true });
 
 const tutorialSkillSchema = new Schema({
     user: { type: Schema.Types.ObjectId, ref: 'users' },
-    skill: { type: Schema.Types.ObjectId, ref: 'Skill' },
+    skills: [{ type: Schema.Types.Array, ref: 'Skill' }],
 })
 
 const skill = mongoose.model('Skill', tutorialSkillSchema);
