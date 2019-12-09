@@ -35,18 +35,17 @@ module.exports = {
                 });
             }
         });
-       
+
     },
 
     updateUser: (req, res) => {
         User.findOne({"email": req.body.email}, (err, user) => {
-            // user.name = req.body.name;
-            // user.phone = req.body.phone;
-            // user.image = req.body.image;
-            // user.address = req.body.address;
-            // user.moreInfo = req.body.moreInfo;
-            // console.log(req.body);
-            Object.assign(user, req.body);  //Khi nào cần cập nhật thông tin gì thì request thông tin đó lên thôi
+            user.name = req.body.name;
+            user.phone = req.body.phone;
+            user.image = req.body.image;
+            user.address = req.body.address;
+            user.moreInfo = req.body.moreInfo;
+            user.addressCity = req.body.addressCity;
             user.save();
             return res.status(200).json(user);
         })
@@ -59,17 +58,17 @@ module.exports = {
                     message: 'Mật khẩu không chính xác !',
                 });
             } else {
-            bcrypt.genSalt(10, (err, salt) => {
-                bcrypt.hash(req.body.newpassword, salt, (err, hash) => {
-                    if (err) throw err;
-                    user.password = hash;
-                    user.save()
-                        .then(user => {
-                            res.status(200).json(user);
-                        })
-                        .catch(err => {
-                            res.status(400).json(err);
-                                })
+                bcrypt.genSalt(10, (err, salt) => {
+                    bcrypt.hash(req.body.newpassword, salt, (err, hash) => {
+                        if (err) throw err;
+                        user.password = hash;
+                        user.save()
+                            .then(user => {
+                                res.status(200).json(user);
+                            })
+                            .catch(err => {
+                                res.status(400).json(err);
+                            })
                     })
                 });
             }

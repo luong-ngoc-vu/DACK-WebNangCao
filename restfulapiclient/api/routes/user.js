@@ -7,7 +7,7 @@ const controllerLogin = require('../controllers/auth');
 
 router.post('/register', controller.register);
 router.post('/login', controllerLogin.authLogin);
-router.put('/update', controller.updateUser);
+router.post('/update', controller.updateUser);
 router.post('/changePass', controller.changePassword);
 
 router.get('/me', controller.getUser);
