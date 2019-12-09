@@ -2,42 +2,53 @@
 // import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import React from 'react';
-import {BrowserRouter, Route} from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 
-import {Col, Layout, Row} from 'antd';
+import { Col, Layout, Row } from 'antd';
 import LoginContainer from './Login/LoginContainer';
 import RegisterContainer from './Register/RegisterContainer';
 import ManagementTutorContriner from './ManagementOfTutor/ManagementTutorContainer';
 import ManagementHirerContainer from './ManagementOfHirer/ManagementHirerContainer';
 import NavBarContriner from './Common/NavBar/NavBarContainer';
-import ChangePasswordContainer from "./ChangePassword/ChangePasswordContainer";
+import ChangePasswordContainer from './ChangePassword/ChangePasswordContainer';
 import Home from './Home/Home';
 
-const {Content} = Layout;
+const { Content } = Layout;
 
 function Root() {
-    return (
-        <BrowserRouter>
-            <Layout style={{textAlign: 'center'}}>
-                <NavBarContriner/>
-                <Row>
-                    <Col span={3}></Col>
-                    <Col span={18}>
-                        <Content style={{padding: '5px 0px'}}>
-                            <Route exact path="/" component={Home}/>
-                            <Route exact path="/home" component={Home}/>
-                            <Route path="/register" component={RegisterContainer}/>
-                            <Route path="/login" component={LoginContainer}/>
-                            <Route path="/tutor-profile" component={ManagementTutorContriner}/>
-                            <Route path="/student-profile" component={ManagementHirerContainer}/>
-                            <Route path="/change-password" component={ChangePasswordContainer}/>
-                        </Content>
-                    </Col>
-                    <Col span={3}></Col>
-                </Row>
-            </Layout>
-        </BrowserRouter>
-    );
+  return (
+    <BrowserRouter>
+      <Layout style={{ textAlign: 'center', backgroundColor: 'white' }}>
+        <NavBarContriner />
+        <Row>
+          <Col span={3}></Col>
+          <Col span={18}>
+            <Content
+              style={{
+                padding: '0px 0px',
+                margin: '10px 0px',
+                backgroundColor: 'white'
+              }}
+            >
+              <Route exact path="/" component={Home} />
+              <Route exact path="/home" component={Home} />
+              <Route path="/register" component={RegisterContainer} />
+              <Route path="/login" component={LoginContainer} />
+              <Route
+                path="/tutor-manage"
+                component={ManagementTutorContriner}
+              />
+              <Route
+                path="/hirer-manage"
+                component={ManagementHirerContainer}
+              />
+            </Content>
+          </Col>
+          <Col span={3}></Col>
+        </Row>
+      </Layout>
+    </BrowserRouter>
+  );
 }
 
 export default Root;
