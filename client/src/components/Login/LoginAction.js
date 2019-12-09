@@ -5,25 +5,23 @@ export const LOGIN_FACEBOOK = 'LOGIN_FACEBOOK';
 export const LOGIN_GOOGLE = 'LOGIN_GOOGLE';
 
 /* ========================= LOG IN ========================= */
-function OnClickLogin(username, password) {
+function OnClickLogin(email, password) {
     return axios.post('http://localhost:4000/user/login', {
-        username, password
+        email, password
     }).catch(error => {
         return error;
     });
 }
 
-export const login = (username, password, res) => ({
+export const login = (res) => ({
     type: LOGIN,
-    data: {
-        username, password, res
-    }
+    data: {res}
 });
 
-export const loginRequest = (username, password) => {
+export const loginRequest = (email, password) => {
     return dispatch => {
-        return OnClickLogin(username, password).then(res => {
-            dispatch(login(username, password, res));
+        return OnClickLogin(email, password).then(res => {
+            dispatch(login(res));
         })
     }
 };

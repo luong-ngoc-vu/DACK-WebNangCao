@@ -2,19 +2,31 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1e3d978d-558f-45bc-a75a-84fa5d11e4de" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/client/src/components/Home/OutstandingTutorList/OutstandingTutorListAction.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/Home/OutstandingTutorList/OutstandingTutorListContainer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/Home/OutstandingTutorList/OutstandingTutorListReducer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/ChangePassword/ChangePassword.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ChangePassword/ChangePassword.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Common/NavBar/NavBar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Common/NavBar/NavBar.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Common/NavBar/NavBarAction.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Common/NavBar/NavBarAction.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Home/BannerBackground/BannerBackground.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Home/BannerBackground/BannerBackground.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Home/Home.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Home/Home.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Home/OutstandingTutorList/OutstandingTutorList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Home/OutstandingTutorList/OutstandingTutorList.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Login/Login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Login/Login.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Login/LoginAction.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Login/LoginAction.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Login/LoginContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Login/LoginContainer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/Login/LoginReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Login/LoginReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/ManagementOfHirer/ManagementHirer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ManagementOfHirer/ManagementHirer.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/ManagementOfHirer/ProfileHirer/ProfileHirer.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ManagementOfHirer/ProfileHirer/ProfileHirer.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/ManagementOfHirer/ProfileHirer/ProfileHirer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ManagementOfHirer/ProfileHirer/ProfileHirer.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/ManagementOfHirer/ProfileHirer/ProfileHirerAction.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ManagementOfHirer/ProfileHirer/ProfileHirerAction.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/ManagementOfHirer/ProfileHirer/ProfileHirerContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ManagementOfHirer/ProfileHirer/ProfileHirerContainer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/ManagementOfHirer/SideBarHirer/SideBarHirer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ManagementOfHirer/SideBarHirer/SideBarHirer.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/ManagementOfTutor/ProfileTutor/ProfileTutor.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ManagementOfTutor/ProfileTutor/ProfileTutor.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/ManagementOfTutor/ProfileTutor/ProfileTutorAction.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ManagementOfTutor/ProfileTutor/ProfileTutorAction.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/ManagementOfTutor/ProfileTutor/ProfileTutorContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ManagementOfTutor/ProfileTutor/ProfileTutorContainer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/restfulapiclient/api/controllers/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/restfulapiclient/api/controllers/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/restfulapiclient/api/models/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/restfulapiclient/api/models/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/ManagementOfTutor/SideBarTutor/SideBarTutor.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ManagementOfTutor/SideBarTutor/SideBarTutor.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Register/Register.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Register/Register.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/RootComponent.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/RootComponent.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,16 +37,19 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1UMs202V1NtoKFBnOQExa3kcVed" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../DACK-WebNangCao - Clone" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -67,7 +82,7 @@
       <workItem from="1575346570760" duration="36000" />
       <workItem from="1575370073217" duration="972000" />
       <workItem from="1575384182912" duration="605000" />
-      <workItem from="1575897622582" duration="1074000" />
+      <workItem from="1575897622582" duration="2942000" />
     </task>
     <servers />
   </component>
@@ -87,11 +102,18 @@
       </map>
     </option>
   </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="413" y="115" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1575370427777">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="413" y="115" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1575370427777" />
+    <state x="463" y="122" key="FileChooserDialogImpl" timestamp="1575899607953">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="463" y="122" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1575899607953" />
     <state x="339" y="162" key="run.anything.popup" timestamp="1575384276027">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

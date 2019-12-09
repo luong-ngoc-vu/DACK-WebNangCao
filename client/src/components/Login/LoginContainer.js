@@ -1,23 +1,23 @@
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 import * as actions from './LoginAction';
-import { Login } from './Login';
+import {Login} from './Login';
 
-const mapstToProps = state => {
+const mapStateToProps = state => {
     return {
-        username: state.LoginReducer.username,
+        email: state.LoginReducer.email,
         password: state.LoginReducer.password,
         typeUser: state.LoginReducer.typeUser,
         isLogin: state.LoginReducer.isLogin,
         isLoginFB: state.LoginReducer.isLoginFB,
         isLoginGG: state.LoginReducer.isLoginGG,
-        token: state.LoginReducer.token,
+        token: state.LoginReducer.token
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
-        Login: (username, password) => {
-            dispatch(actions.loginRequest(username, password));
+        Login: (email, password) => {
+            dispatch(actions.loginRequest(email, password));
         },
         LoginFB: (res, typeUser) => {
             dispatch(actions.loginFB(res, typeUser))
@@ -27,6 +27,6 @@ const mapDispatchToProps = dispatch => {
         }
     };
 };
-const LoginContainer = connect(mapstToProps, mapDispatchToProps)(Login);
+const LoginContainer = connect(mapStateToProps, mapDispatchToProps)(Login);
 
 export default LoginContainer;

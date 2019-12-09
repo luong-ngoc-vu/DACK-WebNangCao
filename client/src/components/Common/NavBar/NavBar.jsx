@@ -14,20 +14,21 @@ class NavBar extends React.Component {
     };
 
     handleClick = e => {
-        console.log('click ', e);
         this.setState({current: e.key});
     };
 
     render() {
         const st = this.props;
-        console.log("is Login: " + st.isLogin);
         return (
             <div style={{display: 'flex', flexDirection: 'column'}}>
                 <Header style={{height: '60px'}}>
                     <Row>
                         <Col span={3}></Col>
                         <Col span={18}>
-                            <div className="logo"></div>
+                            <Avatar
+                                style={{width: 40, height: 40}}
+                                className="logo"
+                                src="https://c7.uihere.com/files/31/651/661/computer-icons-education-scholarship-academic-degree-graduation-ceremony-diploma.jpg"/>
                             <Menu
                                 className="NavBar"
                                 onClick={this.handleClick}
@@ -69,7 +70,8 @@ class NavBar extends React.Component {
                                                 <Link onClick={e => {
                                                     e.preventDefault();
                                                     st.logOut();
-                                                }}>
+                                                }}
+                                                      to="/login">
                                                     <Icon type="logout"/>
                                                     Đăng xuất
                                                 </Link>

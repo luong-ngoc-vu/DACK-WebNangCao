@@ -11,17 +11,17 @@ function onClickUpdate(name, phone, email, image, address, addressCity, moreInfo
     })
 }
 
-export const update = (name, phone, email, image, address, addressCity, moreInfo, res) => {
+export const update = (res) => {
     return {
         type: UPDATE,
-        data: {name, phone, email, image, address, moreInfo, addressCity, res}
+        data: {res}
     }
 };
 
 export const updateRequest = (name, phone, email, image, address, addressCity, moreInfo) => {
     return (dispatch => {
         return onClickUpdate(name, phone, email, image, address, addressCity, moreInfo).then(res => {
-            dispatch(update(name, phone, email, image, address, addressCity, moreInfo, res))
+            dispatch(update(res))
         })
     })
 };

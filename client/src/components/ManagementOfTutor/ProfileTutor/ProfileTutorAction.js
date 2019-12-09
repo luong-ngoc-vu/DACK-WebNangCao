@@ -14,7 +14,7 @@ function onClickUpdate(name, phone, email, image, address, addressCity, moreInfo
 export const update = (name, phone, email, image, address, addressCity, moreInfo, res) => {
     return {
         type: UPDATE,
-        data: {name, phone, email, image, address, moreInfo, addressCity, res}
+        data: {name, phone, email, image, address, addressCity, moreInfo, res}
     }
 };
 

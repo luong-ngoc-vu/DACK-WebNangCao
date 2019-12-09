@@ -19,24 +19,29 @@ const LoginReducer = (state = initialState, action) => {
     switch (action.type) {
         case 'LOGIN': {
             const st = {...state};
-            st.email = action.data.email;
-            st.password = action.data.password;
-            try {
-                st.token = action.data.res.data.token;
-                st.name = action.data.res.data.user.name;
-                st.phone = action.data.res.data.user.phone;
-                st.image = action.data.res.data.user.image;
-                st.address = action.data.res.data.user.address;
-                st.addressCity = action.data.res.data.user.addressCity;
-                st.moreInfo = action.data.res.data.user.moreInfo;
-                st.typeUser = action.data.res.data.user.typeUser;
-                st.isLogin = true;
-                st.isLoginFB = false;
-                st.isLoginGG = false;
-            } catch (err) {
+            if (action.data.res.message === "Request failed with status code 400") {
                 st.token = 'err';
+                return st;
+            } else {
+                st.email = action.data.res.data.user.email;
+                st.password = action.data.res.data.user.password;
+                try {
+                    st.token = action.data.res.data.token;
+                    st.name = action.data.res.data.user.name;
+                    st.image = action.data.res.data.user.image;
+                    st.phone = action.data.res.data.user.phone;
+                    st.address = action.data.res.data.user.address;
+                    st.addressCity = action.data.res.data.user.addressCity;
+                    st.moreInfo = action.data.res.data.user.moreInfo;
+                    st.typeUser = action.data.res.data.user.typeUser;
+                    st.isLogin = true;
+                    st.isLoginFB = false;
+                    st.isLoginGG = false;
+                } catch (err) {
+                    st.token = 'err';
+                }
+                return st;
             }
-            return st;
         }
 
         case 'LOGIN_FACEBOOK': {
@@ -76,8 +81,7 @@ const LoginReducer = (state = initialState, action) => {
 
         case 'UPDATE': {
             const st = {...state};
-            st.email = action.data.email;
-
+            st.email = action.data.res.data.email;
             st.name = action.data.res.data.name;
             st.phone = action.data.res.data.phone;
             st.image = action.data.res.data.image;
@@ -92,13 +96,23 @@ const LoginReducer = (state = initialState, action) => {
             if (action.data.res.message === "Request failed with status code 400") {
                 st.isRightPassword = 'err';
                 return st;
+            } else {
+                st.password = action.data.newpassword;
+                st.isRightPassword = 'success';
             }
-            st.password = action.data.newpassword;
-            st.isRightPassword = 'success';
-
             return st;
         }
 
+        case "REGISTER_SOCIAL": {
+            const st = {...state};
+            st.email = action.data.email;
+            st.name = action.data.name;
+            st.phone = action.data.phone;
+            st.image = action.data.image;
+            st.address = action.data.address;
+            st.moreInfo = action.data.moreInfo;
+            return st;
+        }
 
         case 'LOGOUT': {
             return initialState;

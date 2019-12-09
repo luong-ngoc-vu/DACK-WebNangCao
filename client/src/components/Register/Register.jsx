@@ -11,6 +11,7 @@ class RegisterForm extends React.Component {
         super();
         this.email = '';
         this.password = '';
+        this.repassword = '';
         this.name = '';
         this.phone = '';
         this.typeUser = 1;
@@ -108,6 +109,7 @@ class RegisterForm extends React.Component {
                                         }
                                     ]
                                 })(<Input
+                                    required
                                     size="large"
                                     placeholder="Họ tên đầy đủ của bạn"
                                     onChange={event => {
@@ -160,6 +162,7 @@ class RegisterForm extends React.Component {
                                         }
                                     ]
                                 })(<Input
+                                    type="number"
                                     size="large"
                                     placeholder="Số điện thoại liên lạc"
                                     onChange={event => {
@@ -203,6 +206,9 @@ class RegisterForm extends React.Component {
                                     <Input.Password
                                         placeholder="Nhập lại mật khẩu"
                                         size="large"
+                                        onChange={event => {
+                                            this.repassword = event.target.value;
+                                        }}
                                         onBlur={this.handleConfirmBlur}
                                     />
                                 )}
@@ -219,8 +225,9 @@ class RegisterForm extends React.Component {
                                         if (this.name !== "" && this.phone !== "" && this.email !== "" && this.password !== ""
                                             && this.repassword !== "")
                                             st.Register(this.name, this.phone, this.email, this.password, this.typeUser);
-                                    }}>
-                                    Đăng kí
+                                    }}
+                                >
+                                    Đăng ký
                                 </Button>
                                 <div style={{textAlign: 'center'}}>
                                     <span>Bạn đã có tài khoản? </span>

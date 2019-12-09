@@ -1,9 +1,10 @@
 import React from 'react';
 import 'antd/dist/antd.css';
-import Redirect from "react-router-dom/Redirect";
+import './ProfileTutor.css';
+
 import {Avatar, Button, Checkbox, Form, Icon, Input, InputNumber, Select, Tooltip, Typography} from 'antd';
 
-import './ProfileTutor.css';
+import Redirect from "react-router-dom/Redirect";
 
 const {TextArea} = Input;
 
@@ -48,6 +49,7 @@ class ProfileForm extends React.Component {
         this.phone = st.phone;
         this.image = st.image;
         this.address = st.address;
+        this.addressCity = st.addressCity;
         this.moreInfo = st.moreInfo;
 
         if (st.isLogin === false) {
@@ -160,18 +162,18 @@ class ProfileForm extends React.Component {
                                         }
                                         size="large"
                                     >
-                                        <Select.Option value="Thành phố Hồ Chí Minh">Thành phố Hồ Chí
+                                        <Select.Option value={'Thành phố Hồ Chí Minh'}>Thành phố Hồ Chí
                                             Minh</Select.Option>
-                                        <Select.Option value="Hà Nội">Hà Nội</Select.Option>
-                                        <Select.Option value="Đà Nẵng">Đà Nẵng</Select.Option>
-                                        <Select.Option value="Huế">Huế</Select.Option>
-                                        <Select.Option value="Quảng Nam">Quảng Nam</Select.Option>
-                                        <Select.Option value="Quảng Ngãi">Quảng Ngãi</Select.Option>
-                                        <Select.Option value="Quảng Bình">Quảng Bình</Select.Option>
-                                        <Select.Option value="Bình Định">Bình Định</Select.Option>
-                                        <Select.Option value="Bình Dương">Bình Dương</Select.Option>
-                                        <Select.Option value="Bình Phước">Bình Phước</Select.Option>
-                                        <Select.Option value="Tây Ninh">Tây Ninh</Select.Option>
+                                        <Select.Option value={'Hà Nội'}>Hà Nội</Select.Option>
+                                        <Select.Option value={'Đà Nẵng'}>Đà Nẵng</Select.Option>
+                                        <Select.Option value={'Huế'}>Huế</Select.Option>
+                                        <Select.Option value={'Quảng Nam'}>Quảng Nam</Select.Option>
+                                        <Select.Option value={'Quảng Ngãi'}>Quảng Ngãi</Select.Option>
+                                        <Select.Option value={'Quảng Bình'}>Quảng Bình</Select.Option>
+                                        <Select.Option value={'Bình Định'}>Bình Định</Select.Option>
+                                        <Select.Option value={'Bình Dương'}>Bình Dương</Select.Option>
+                                        <Select.Option value={'Bình Phước'}>Bình Phước</Select.Option>
+                                        <Select.Option value={'Tây Ninh'}>Tây Ninh</Select.Option>
                                     </Select>
                                 </Form.Item>
                             )}
