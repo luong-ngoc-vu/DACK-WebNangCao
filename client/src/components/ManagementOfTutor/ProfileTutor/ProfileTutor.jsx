@@ -1,9 +1,9 @@
 import React from 'react';
 import 'antd/dist/antd.css';
-import './ProfileTutor.css';
-
-import {Avatar, Button, Checkbox, Form, Icon, Input, InputNumber, Select, Tooltip, Typography} from 'antd';
 import Redirect from "react-router-dom/Redirect";
+import {Avatar, Button, Checkbox, Form, Icon, Input, InputNumber, Select, Tooltip, Typography} from 'antd';
+
+import './ProfileTutor.css';
 
 const {TextArea} = Input;
 
@@ -23,7 +23,8 @@ class ProfileForm extends React.Component {
 
     state = {
         loading: false,
-        selectedItems: []
+        selectedItems: [],
+        addressCity: ''
     };
 
     handleChangeSubject = selectedItems => {
@@ -140,6 +141,38 @@ class ProfileForm extends React.Component {
                                         }}
                                         name="phone"
                                     />
+                                </Form.Item>
+                            )}
+                            {st.isLoginFB === false && st.isLoginGG === false && (
+                                <Form.Item label="Chọn tỉnh/ Thành phố">
+                                    <Select
+                                        name="addressCity"
+                                        placeholder="Chọn thành phố"
+                                        onChange={value => {
+                                            this.setState({addressCity: value});
+                                        }}
+                                        showSearch
+                                        optionFilterProp="children"
+                                        filterOption={(input, option) =>
+                                            option.props.children
+                                                .toLowerCase()
+                                                .indexOf(input.toLowerCase()) >= 0
+                                        }
+                                        size="large"
+                                    >
+                                        <Select.Option value="Thành phố Hồ Chí Minh">Thành phố Hồ Chí
+                                            Minh</Select.Option>
+                                        <Select.Option value="Hà Nội">Hà Nội</Select.Option>
+                                        <Select.Option value="Đà Nẵng">Đà Nẵng</Select.Option>
+                                        <Select.Option value="Huế">Huế</Select.Option>
+                                        <Select.Option value="Quảng Nam">Quảng Nam</Select.Option>
+                                        <Select.Option value="Quảng Ngãi">Quảng Ngãi</Select.Option>
+                                        <Select.Option value="Quảng Bình">Quảng Bình</Select.Option>
+                                        <Select.Option value="Bình Định">Bình Định</Select.Option>
+                                        <Select.Option value="Bình Dương">Bình Dương</Select.Option>
+                                        <Select.Option value="Bình Phước">Bình Phước</Select.Option>
+                                        <Select.Option value="Tây Ninh">Tây Ninh</Select.Option>
+                                    </Select>
                                 </Form.Item>
                             )}
                             {st.isLoginFB === false && st.isLoginGG === false && (
@@ -346,7 +379,7 @@ class ProfileForm extends React.Component {
                                 className="btn-sign-up"
                                 onClick={(event) => {
                                     event.preventDefault();
-                                    st.updateUser(this.name, this.phone, st.email, this.image, this.address, this.moreInfo);
+                                    st.updateUser(this.name, this.phone, st.email, this.image, this.address, this.state.addressCity, this.moreInfo);
                                     this.err = 'Cập nhật thành công';
                                 }}>
                                 Cập nhật

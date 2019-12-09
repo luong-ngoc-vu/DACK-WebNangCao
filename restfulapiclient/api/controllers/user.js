@@ -11,9 +11,9 @@ module.exports = {
             typeUser: req.body.typeUser,
             image: "",
             address: "",
-            moreInfo: ""
+            moreInfo: "",
+            addressCity: "",
         });
-        console.log(newUser);
         User.findOne({"email": req.body.email}, (err, user) => {
             if (user) {
                 return res.status(400).json({

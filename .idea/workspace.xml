@@ -2,15 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1e3d978d-558f-45bc-a75a-84fa5d11e4de" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Login/Login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Login/Login.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Login/LoginAction.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Login/LoginAction.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Login/LoginContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Login/LoginContainer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/ChangePassword/ChangePassword.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ChangePassword/ChangePassword.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/Login/LoginReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Login/LoginReducer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/ManagementOfHirer/ProfileHirer/ProfileHirer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ManagementOfHirer/ProfileHirer/ProfileHirer.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/ManagementOfHirer/ProfileHirer/ProfileHirerAction.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ManagementOfHirer/ProfileHirer/ProfileHirerAction.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/ManagementOfHirer/ProfileHirer/ProfileHirerContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ManagementOfHirer/ProfileHirer/ProfileHirerContainer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/ManagementOfTutor/ProfileTutor/ProfileTutor.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ManagementOfTutor/ProfileTutor/ProfileTutor.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/ManagementOfTutor/ProfileTutor/ProfileTutorAction.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ManagementOfTutor/ProfileTutor/ProfileTutorAction.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/ManagementOfTutor/ProfileTutor/ProfileTutorContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ManagementOfTutor/ProfileTutor/ProfileTutorContainer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restfulapiclient/api/controllers/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/restfulapiclient/api/controllers/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restfulapiclient/api/models/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/restfulapiclient/api/models/user.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +66,8 @@
       <workItem from="1575177590973" duration="178000" />
       <workItem from="1575346570760" duration="36000" />
       <workItem from="1575370073217" duration="972000" />
-      <workItem from="1575384182912" duration="536000" />
+      <workItem from="1575384182912" duration="605000" />
+      <workItem from="1575897622582" duration="1074000" />
     </task>
     <servers />
   </component>

@@ -5,6 +5,7 @@ export const initialState = {
     phone: '',
     image: '',
     address: '',
+    addressCity: '',
     moreInfo: '',
     token: '',
     typeUser: 1,
@@ -26,6 +27,7 @@ const LoginReducer = (state = initialState, action) => {
                 st.phone = action.data.res.data.user.phone;
                 st.image = action.data.res.data.user.image;
                 st.address = action.data.res.data.user.address;
+                st.addressCity = action.data.res.data.user.addressCity;
                 st.moreInfo = action.data.res.data.user.moreInfo;
                 st.typeUser = action.data.res.data.user.typeUser;
                 st.isLogin = true;
@@ -80,6 +82,7 @@ const LoginReducer = (state = initialState, action) => {
             st.phone = action.data.res.data.phone;
             st.image = action.data.res.data.image;
             st.address = action.data.res.data.address;
+            st.addressCity = action.data.res.data.addressCity;
             st.moreInfo = action.data.res.data.moreInfo;
             return st;
         }
@@ -89,10 +92,10 @@ const LoginReducer = (state = initialState, action) => {
             if (action.data.res.message === "Request failed with status code 400") {
                 st.isRightPassword = 'err';
                 return st;
-            } else {
-                st.password = action.data.newpassword;
-                st.isRightPassword = 'success';
             }
+            st.password = action.data.newpassword;
+            st.isRightPassword = 'success';
+
             return st;
         }
 

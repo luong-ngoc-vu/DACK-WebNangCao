@@ -22,7 +22,10 @@ const UserSchema = new Schema({
     },
     image: {
         type: String
-    },    
+    },
+    addressCity: {
+        type: String
+    },
     address: {
         type: String
     },
