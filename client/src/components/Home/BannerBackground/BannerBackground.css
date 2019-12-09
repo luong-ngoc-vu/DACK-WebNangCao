@@ -10,6 +10,7 @@
   margin: 0 -200px;
   padding: 0 200px;
   max-height: 500px;
+  margin-top: -10px;
 }
 .title-bg {
   line-height: 50px;
