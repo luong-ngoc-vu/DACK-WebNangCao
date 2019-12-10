@@ -2,37 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1e3d978d-558f-45bc-a75a-84fa5d11e4de" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/restfulapiadmin/api/controllers/admin.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/restfulapiadmin/api/models/admin1.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/restfulapiadmin/api/routes/rootAdmin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/admin/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/admin/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin/public/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/src/components/CreateAdmin/CreateAdmin.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/components/CreateAdmin/CreateAdmin.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/src/components/CreateAdmin/CreateAdminAction.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/components/CreateAdmin/CreateAdminAction.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/src/components/CreateAdmin/CreateAdminContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/components/CreateAdmin/CreateAdminContainer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/src/components/CreateAdmin/CreateAdminReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/components/CreateAdmin/CreateAdminReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/src/components/Menu/SideBar/SideBar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/components/Menu/SideBar/SideBar.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/src/components/RootComponent.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/components/RootComponent.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/ChangePassword/ChangePassword.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ChangePassword/ChangePassword.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/ChangePassword/ChangePasswordAction.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ChangePassword/ChangePasswordAction.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/RootComponent.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/RootComponent.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/restfulapiadmin/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/restfulapiadmin/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/restfulapiadmin/api/models/admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/restfulapiadmin/api/models/admin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/restfulapiadmin/api/utils/db.js" beforeDir="false" afterPath="$PROJECT_DIR$/restfulapiadmin/api/utils/db.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/restfulapiadmin/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/restfulapiadmin/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/restfulapiadmin/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/restfulapiadmin/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/restfulapiadmin/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/restfulapiadmin/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/restfulapiadmin/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/restfulapiadmin/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/restfulapiclient/api/routes/auth.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/restfulapiclient/api/routes/userSkill.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/components/Menu/SideBar/SlideBarAdmin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/restfulapiclient/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/restfulapiclient/app.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,7 +112,7 @@
       <workItem from="1575384182912" duration="605000" />
       <workItem from="1575897622582" duration="2942000" />
       <workItem from="1575900732068" duration="15255000" />
-      <workItem from="1575963739376" duration="7909000" />
+      <workItem from="1575963739376" duration="8465000" />
     </task>
     <servers />
   </component>
