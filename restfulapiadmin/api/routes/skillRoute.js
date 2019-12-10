@@ -2,6 +2,9 @@
 const skillController = require('../controllers/skillController');
 const express = require('express');
 const router = express.Router();
+const authorize = require('../../_helpers/jwt');
+const Role = require('../../_helpers/roles');
+
 
 router.post('/create', authorize(), skillController.create);
 router.get('/all', skillController.getAll);

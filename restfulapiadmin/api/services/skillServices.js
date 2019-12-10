@@ -1,4 +1,3 @@
-const bcrypt = require('bcryptjs');
 const skill = require('../models/skill');
 
 module.exports = {

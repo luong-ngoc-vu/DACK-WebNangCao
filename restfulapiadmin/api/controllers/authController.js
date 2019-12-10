@@ -11,7 +11,7 @@ exports.authenticate = (req, res, next) => {
 
 exports.create = (req, res, next) => {
     adminService.create(req.body)
-        .then(() => res.json({}))
+        .then((user) => res.json(user))
         .catch(err => next(err));
 }
 
@@ -41,7 +41,7 @@ exports.update = (req, res, next) => {
 
 exports._delete = (req, res, next) => {
     adminService.delete(req.params.id)
-        .then(() => res.json({}))
+        .then(() => res.json('Deleted'))
         .catch(err => next(err));
 }
 

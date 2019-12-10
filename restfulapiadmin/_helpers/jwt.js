@@ -1,5 +1,5 @@
 const expressJwt = require('express-jwt');
-const userService = require('../api/services/userService');
+const userService = require('../api/services/adminService');
 
 //Test with mock service
 //const userService = require('../api/services/userMock');

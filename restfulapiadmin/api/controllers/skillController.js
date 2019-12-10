@@ -1,4 +1,4 @@
-import skillService from '../services/skillServices';
+const skillService =require( '../services/skillServices');
 
 
 exports.create = (req, res, next) => {
