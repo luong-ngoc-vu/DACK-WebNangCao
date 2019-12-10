@@ -2,7 +2,7 @@ import React from 'react';
 import './CreateAdmin.css';
 import 'antd/dist/antd.css';
 
-import Redirect from 'react-router-dom/Redirect';
+import { Redirect } from 'react-router-dom';
 import { Button, Form, Input, Typography } from 'antd';
 
 const { Title, Text } = Typography;

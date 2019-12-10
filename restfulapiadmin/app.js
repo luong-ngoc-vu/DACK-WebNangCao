@@ -4,6 +4,8 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const errorHandler = require('./_helpers/error-handler');
+
+const cors = require('cors');
 //Nho set up db
 require('./api/utils/db');
 
@@ -12,8 +14,8 @@ const authRouter = require('./api/routes/authRoute');
 const clientRouter = require('./api/routes/clientManament');
 const skillRouter = require('./api/routes/skillRoute');
 var app = express();
-
-//Setup database
+app.use(cors())
+//Setup databa;se
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

@@ -7,7 +7,7 @@ import {BrowserRouter, Route} from 'react-router-dom';
 import SideBar from '../components/Menu/SideBar/SideBar';
 import NavBar from '../components/Menu/NavBar/NavBar';
 import CreateAdmin from '../components/CreateAdmin/CreateAdmin';
-import {Login} from '../components/LoginAdmin/Login';
+import LoginContainer from '../components/LoginAdmin/LoginContainer';
 
 const {Header, Sider, Content} = Layout;
 
@@ -16,7 +16,7 @@ class App extends React.PureComponent {
     render() {
         return (
             <BrowserRouter>
-                <Route path="/admin-login" component={Login}/>
+                <Route path="/admin-login" component={LoginContainer}/>
                 <Route path="/dashboard"><Layout style={{height: '100vh'}}>
                     <SideBar/>
                     <Layout>
