@@ -1,6 +1,3 @@
-// import React from 'react';
-// import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-
 import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 
@@ -10,7 +7,6 @@ import RegisterContainer from './Register/RegisterContainer';
 import ManagementTutorContriner from './ManagementOfTutor/ManagementTutorContainer';
 import ManagementHirerContainer from './ManagementOfHirer/ManagementHirerContainer';
 import NavBarContriner from './Common/NavBar/NavBarContainer';
-import ChangePasswordContainer from './ChangePassword/ChangePasswordContainer';
 import Home from './Home/Home';
 
 const { Content } = Layout;
@@ -19,7 +15,7 @@ function Root() {
   return (
     <BrowserRouter>
       <Layout style={{ textAlign: 'center', backgroundColor: 'white' }}>
-        <NavBarContriner />
+        <NavBarContriner/>
         <Row>
           <Col span={3}></Col>
           <Col span={18}>
@@ -30,10 +26,10 @@ function Root() {
                 backgroundColor: 'white'
               }}
             >
-              <Route exact path="/" component={Home} />
-              <Route exact path="/home" component={Home} />
-              <Route path="/register" component={RegisterContainer} />
-              <Route path="/login" component={LoginContainer} />
+              <Route exact path="/" component={Home}/>
+              <Route exact path="/home" component={Home}/>
+              <Route path="/register" component={RegisterContainer}/>
+              <Route path="/login" component={LoginContainer}/>
               <Route
                 path="/tutor-manage"
                 component={ManagementTutorContriner}

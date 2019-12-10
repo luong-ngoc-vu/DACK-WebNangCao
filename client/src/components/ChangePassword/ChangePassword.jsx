@@ -1,10 +1,8 @@
 import React from 'react';
 import 'antd/dist/antd.css';
-import '../ManagementOfHirer/ProfileHirer/ProfileHirer.css';
 import { Avatar, Button, Form, Input, Layout, Typography } from 'antd';
 import Redirect from 'react-router-dom/Redirect';
-import SlideBarHirer from '../ManagementOfHirer/SideBarHirer/SideBarHirer';
-import SlideBarTutor from '../ManagementOfTutor/SideBarTutor/SideBarTutor';
+import '../ManagementOfHirer/ProfileHirer/ProfileHirer.css';
 
 const { Content } = Layout;
 const { Title } = Typography;
@@ -36,7 +34,7 @@ class ChangePasswordForm extends React.Component {
       this.err = 'Mật khẩu cũ không chính xác !';
     }
     if (!st.isLogin) {
-      return <Redirect to="/login" />;
+      return <Redirect to="/login"/>;
     }
     return (
       <div>
@@ -52,8 +50,8 @@ class ChangePasswordForm extends React.Component {
           <Typography className="typo-data">
             <div>
               <Title level={4}>Thay đổi mật khẩu</Title>
-              <br />
-              <Avatar size={150} src={st.image} />
+              <br/>
+              <Avatar size={150} src={st.image}/>
               <Form
                 style={{ padding: '0px 50px' }}
                 layout="vertical"

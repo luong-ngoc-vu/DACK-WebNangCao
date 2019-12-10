@@ -2,18 +2,55 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1e3d978d-558f-45bc-a75a-84fa5d11e4de" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/restfulapiadmin/api/controllers/admin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/restfulapiadmin/api/models/admin1.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/restfulapiadmin/api/routes/rootAdmin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Home/OutstandingTutorList/OutstandingTutorList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Home/OutstandingTutorList/OutstandingTutorList.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/restfulapiclient/api/controllers/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/restfulapiclient/api/controllers/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/restfulapiclient/api/routes/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/restfulapiclient/api/routes/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/admin/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/admin/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/components/CreateAdmin/CreateAdmin.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/components/CreateAdmin/CreateAdmin.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/components/CreateAdmin/CreateAdminAction.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/components/CreateAdmin/CreateAdminAction.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/components/CreateAdmin/CreateAdminContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/components/CreateAdmin/CreateAdminContainer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/components/CreateAdmin/CreateAdminReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/components/CreateAdmin/CreateAdminReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/components/Menu/SideBar/SideBar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/components/Menu/SideBar/SideBar.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/components/RootComponent.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/components/RootComponent.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/ChangePassword/ChangePassword.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ChangePassword/ChangePassword.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/ChangePassword/ChangePasswordAction.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ChangePassword/ChangePasswordAction.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/RootComponent.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/RootComponent.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restfulapiadmin/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/restfulapiadmin/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restfulapiadmin/api/models/admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/restfulapiadmin/api/models/admin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restfulapiadmin/api/utils/db.js" beforeDir="false" afterPath="$PROJECT_DIR$/restfulapiadmin/api/utils/db.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restfulapiadmin/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/restfulapiadmin/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restfulapiadmin/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/restfulapiadmin/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restfulapiadmin/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/restfulapiadmin/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restfulapiadmin/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/restfulapiadmin/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restfulapiclient/api/routes/auth.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/restfulapiclient/api/routes/userSkill.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/components/Menu/SideBar/SlideBarAdmin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restfulapiclient/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/restfulapiclient/app.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="PackageJsonUpdateNotifier">
+    <dismissed value="$PROJECT_DIR$/admin/package.json" />
   </component>
   <component name="ProjectId" id="1UMs202V1NtoKFBnOQExa3kcVed" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -27,13 +64,54 @@
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../DACK-WebNangCao - Clone" />
+    <property name="javascript.nodejs.core.library.configured.version" value="10.15.1" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/client" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="C:\Users\Vu\AppData\Roaming\npm\node_modules\prettier" />
+  </component>
+  <component name="RunManager" selected="npm.test">
+    <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/admin/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="build" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/admin/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="test" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/admin/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="test" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.test" />
+        <item itemvalue="npm.build" />
+        <item itemvalue="npm.start" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="ServiceViewManager">
     <option name="viewStates">
@@ -62,7 +140,8 @@
       <workItem from="1575370073217" duration="972000" />
       <workItem from="1575384182912" duration="605000" />
       <workItem from="1575897622582" duration="2942000" />
-      <workItem from="1575900732068" duration="13122000" />
+      <workItem from="1575900732068" duration="15255000" />
+      <workItem from="1575963739376" duration="7909000" />
     </task>
     <servers />
   </component>
@@ -86,17 +165,33 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="413" y="115" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1575370427777">
+    <state x="413" y="115" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1575968881539">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="413" y="115" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1575370427777" />
-    <state x="463" y="122" key="FileChooserDialogImpl" timestamp="1575901488866">
+    <state x="413" y="115" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1575968881539" />
+    <state x="463" y="122" key="FileChooserDialogImpl" timestamp="1575972679291">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="463" y="122" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1575901488866" />
-    <state x="339" y="162" key="run.anything.popup" timestamp="1575905748487">
+    <state x="463" y="122" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1575972679291" />
+    <state width="1345" height="179" key="GridCell.Tab.0.bottom" timestamp="1575973221469">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1575905748487" />
+    <state width="1345" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1575973221469" />
+    <state width="1345" height="179" key="GridCell.Tab.0.center" timestamp="1575973221469">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1345" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1575973221469" />
+    <state width="1345" height="179" key="GridCell.Tab.0.left" timestamp="1575973221468">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1345" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1575973221468" />
+    <state width="1345" height="179" key="GridCell.Tab.0.right" timestamp="1575973221469">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1345" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1575973221469" />
+    <state x="339" y="162" key="run.anything.popup" timestamp="1575973066784">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1575973066784" />
   </component>
 </project>

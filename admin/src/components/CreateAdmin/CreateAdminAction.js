@@ -1,29 +1,29 @@
 import axios from 'axios';
 
-export const CHANGE_PASSWORD = 'CHANGE_PASSWORD';
+export const CREATE_ADMIN = 'CREATE_ADMIN';
 
 /* ====================== CHANGE PASSWORD ====================== */
-function onClickChangePassword(email, password, newpassword) {
-    return axios.post('http://localhost:4000/user/changePass', {
-        email, password, newpassword
+function onClickCreateAdmin(email, password) {
+    return axios.post('http://localhost:4000/rootAdmin/createAdmin', {
+        email, password
     }).catch(err => {
         return err;
     });
 }
 
-export const changePassword = (email, password, newpassword, res) => {
+export const createAdmin = (email, password, res) => {
     return {
-        type: CHANGE_PASSWORD,
+        type: CREATE_ADMIN,
         data: {
-            email, password, newpassword, res
+            email, password, res
         }
     };
 };
 
-export const changePasswordRequest = (email, password, newpassword) => {
+export const createAdminRequest = (email, password) => {
     return (dispatch => {
-        return onClickChangePassword(email, password, newpassword).then(res => {
-            dispatch(changePassword(email, password, newpassword, res));
+        return onClickCreateAdmin(email, password).then(res => {
+            dispatch(createAdmin(email, password, res));
         });
     });
 };

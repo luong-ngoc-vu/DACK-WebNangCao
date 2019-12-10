@@ -1,16 +1,10 @@
-const createError = require('http-errors');
 const express = require('express');
-const path = require('path');
-const cookieParser = require('cookie-parser');
-const logger = require('morgan');
 const passport = require('passport');
-const jwt = require('jsonwebtoken');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const url = require('./db').mongoURI;
 
 const userRoute = require('./api/routes/user');
-const authRoute = require('./api/routes/auth');
 const introduce = require('./api/routes/introduce');
 
 mongoose.connect(url, {
@@ -33,8 +27,7 @@ app.use(function (req, res, next) {
 });
 
 app.use('/user', userRoute);
-app.use('/auth', authRoute);
-app.use('/introduce',passport.authenticate('jwt', {session: false}),introduce);
+app.use('/introduce', passport.authenticate('jwt', {session: false}), introduce);
 
 app.get('/me', passport.authenticate('jwt', {session: false}), (req, res) => {
     res.status(200).json(
