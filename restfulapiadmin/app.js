@@ -2,15 +2,27 @@ const express = require('express');
 const path = require('path');
 const cors = require('cors');
 const errorHandler = require('./_helpers/error-handler');
+<<<<<<< HEAD
+=======
+
+const cors = require('cors');
+//Nho set up db
+>>>>>>> 7f657e8cff3a9535ac3df94803dc082944446bfb
 require('./api/utils/db');
 
 const authRouter = require('./api/routes/authRoute');
 const clientRouter = require('./api/routes/clientManament');
 const skillRouter = require('./api/routes/skillRoute');
+<<<<<<< HEAD
 const rootAdminRoute = require('./api/routes/rootAdmin');
 
 const app = express();
 app.use(cors());
+=======
+var app = express();
+app.use(cors())
+//Setup databa;se
+>>>>>>> 7f657e8cff3a9535ac3df94803dc082944446bfb
 
 app.disable('etag');
 app.use(express.json());

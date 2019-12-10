@@ -6,7 +6,7 @@ const url = require('./db').mongoURI;
 
 const userRoute = require('./api/routes/user');
 const introduce = require('./api/routes/introduce');
-
+const userSkill = require('./api/routes/userSkill');
 mongoose.connect(url, {
     useNewUrlParser: true,
     useUnifiedTopology: true
@@ -19,7 +19,7 @@ const app = express();
 app.use(cors());
 app.disable('etag');
 app.use(express.json());
-app.use(express.urlencoded({extended: false}));
+app.use(express.urlencoded({ extended: false }));
 
 app.use(function (req, res, next) {
     res.locals.user = req.user || null;
@@ -27,9 +27,16 @@ app.use(function (req, res, next) {
 });
 
 app.use('/user', userRoute);
+<<<<<<< HEAD
 app.use('/introduce', passport.authenticate('jwt', {session: false}), introduce);
 
 app.get('/me', passport.authenticate('jwt', {session: false}), (req, res) => {
+=======
+app.use('/auth', authRoute);
+app.use('/introduce', passport.authenticate('jwt', { session: false }), introduce);
+app.use('/userskill', passport.authenticate('jwt', { session: false }), userRoute);
+app.get('/me', passport.authenticate('jwt', { session: false }), (req, res) => {
+>>>>>>> 7f657e8cff3a9535ac3df94803dc082944446bfb
     res.status(200).json(
         req.user
     );

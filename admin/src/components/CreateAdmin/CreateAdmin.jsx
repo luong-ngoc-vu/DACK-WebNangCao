@@ -3,7 +3,14 @@ import './CreateAdmin.css';
 import 'antd/dist/antd.css';
 import {Button, Form, Input, Typography} from 'antd';
 
+<<<<<<< HEAD
 const {Title, Text} = Typography;
+=======
+import { Redirect } from 'react-router-dom';
+import { Button, Form, Input, Typography } from 'antd';
+
+const { Title, Text } = Typography;
+>>>>>>> 7f657e8cff3a9535ac3df94803dc082944446bfb
 
 class CreateAdminForm extends React.Component {
     constructor() {
