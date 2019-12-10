@@ -30,4 +30,9 @@ module.exports = {
             }
         });
     },
+
+    getAdmin: async (req, res) => {
+        const admin = await Admin.find({"typeUser": 2});
+        return res.status(200).json(admin);
+    },
 };

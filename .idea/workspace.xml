@@ -2,8 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1e3d978d-558f-45bc-a75a-84fa5d11e4de" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/admin/src/components/ViewListAdmin/ViewListAdmin.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/src/components/CreateAdmin/CreateAdmin.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/components/CreateAdmin/CreateAdmin.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/admin/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/admin/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/components/Menu/SideBar/SideBar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/components/Menu/SideBar/SideBar.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/components/RootComponent.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/components/RootComponent.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restfulapiadmin/api/controllers/admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/restfulapiadmin/api/controllers/admin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restfulapiadmin/api/routes/rootAdmin.js" beforeDir="false" afterPath="$PROJECT_DIR$/restfulapiadmin/api/routes/rootAdmin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restfulapiadmin/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/restfulapiadmin/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restfulapiclient/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/restfulapiclient/app.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,7 +120,7 @@
       <workItem from="1575384182912" duration="605000" />
       <workItem from="1575897622582" duration="2942000" />
       <workItem from="1575900732068" duration="15255000" />
-      <workItem from="1575963739376" duration="8465000" />
+      <workItem from="1575963739376" duration="12662000" />
     </task>
     <servers />
   </component>
