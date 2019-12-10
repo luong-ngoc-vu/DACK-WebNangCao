@@ -9,8 +9,9 @@ router.post('/register', controller.register);
 router.post('/login', controllerLogin.authLogin);
 router.post('/update', controller.updateUser);
 router.post('/changePass', controller.changePassword);
+
 router.get('/getTutorialUser', controller.getTeacher);
-router.get('/getTutorialCity', controller.getTeacherCity);
+router.post('/getTutorialCity', controller.getTeacherCity);
 
 router.get('/me', controller.getUser);
 

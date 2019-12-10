@@ -88,7 +88,8 @@ module.exports = {
     },
 
     getTeacherCity: async (req, res) => {
-        const tutorrialsCity = await User.find({"addressCity": req.body.addressCity});
+        const city = req.body.addressCity;
+        const tutorrialsCity = await User.find({"addressCity": city, "typeUser": 2});
         return res.status(200).json(tutorrialsCity);
     },
 };

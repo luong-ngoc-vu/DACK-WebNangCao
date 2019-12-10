@@ -4,8 +4,6 @@
     <list default="true" id="1e3d978d-558f-45bc-a75a-84fa5d11e4de" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/Home/OutstandingTutorList/OutstandingTutorList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Home/OutstandingTutorList/OutstandingTutorList.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/ManagementOfHirer/ProfileHirer/ProfileHirer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ManagementOfHirer/ProfileHirer/ProfileHirer.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/ManagementOfTutor/ProfileTutor/ProfileTutor.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ManagementOfTutor/ProfileTutor/ProfileTutor.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/restfulapiclient/api/controllers/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/restfulapiclient/api/controllers/user.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/restfulapiclient/api/routes/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/restfulapiclient/api/routes/user.js" afterDir="false" />
     </list>
@@ -64,7 +62,7 @@
       <workItem from="1575370073217" duration="972000" />
       <workItem from="1575384182912" duration="605000" />
       <workItem from="1575897622582" duration="2942000" />
-      <workItem from="1575900732068" duration="2668000" />
+      <workItem from="1575900732068" duration="13122000" />
     </task>
     <servers />
   </component>
