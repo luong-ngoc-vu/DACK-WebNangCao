@@ -1,14 +1,14 @@
-const Admin = require('../models/admin1');
+const RootAdmin = require('../models/admin1');
 const bcrypt = require('bcryptjs');
 
 module.exports = {
     createAdmin: (req, res, next) => {
-        const newAdmin = new Admin({
+        const newAdmin = new RootAdmin({
             email: req.body.email,
             password: req.body.password,
             typeUser: 2
         });
-        Admin.findOne({"email": req.body.email}, (err, admin) => {
+        RootAdmin.findOne({"email": req.body.email}, (err, admin) => {
             if (admin) {
                 return res.status(400).json({
                     message: 'Tài khoản đã tồn tại !',
@@ -32,7 +32,7 @@ module.exports = {
     },
 
     getAdmin: async (req, res) => {
-        const admin = await Admin.find({"typeUser": 2});
+        const admin = await RootAdmin.find({"typeUser": 2});
         return res.status(200).json(admin);
     },
 };

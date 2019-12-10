@@ -27,13 +27,16 @@ app.use(function (req, res, next) {
 });
 
 app.use('/user', userRoute);
+
 app.use('/introduce', passport.authenticate('jwt', {session: false}), introduce);
 app.use('/userskill', passport.authenticate('jwt', {session: false}), userRoute);
+
 app.get('/me', passport.authenticate('jwt', {session: false}), (req, res) => {
     res.status(200).json(
         req.user
     );
 });
+
 
 app.use(function (req, res, next) {
     const err = new Error('Not Found');

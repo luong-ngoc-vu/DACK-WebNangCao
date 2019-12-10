@@ -1,5 +1,7 @@
 const jwt = require('jsonwebtoken');
 const passport = require('passport');
+const User = require('../models/normalUser');
+const ObjectId = require('mongodb').ObjectID;
 
 module.exports = {
     authLogin: (req, res, next) => {
@@ -20,5 +22,16 @@ module.exports = {
                 return res.status(200).json({token: token, admin});
             });
         })(req, res);
-    }
+    },
+
+    getUsers: async (req, res) => {
+        const users = await User.find();
+        return res.status(200).json(users);
+    },
+
+    getUser: async (req, res) => {
+        const id = req.body._id;
+        const users = await User.find({"_id": ObjectId(id)});
+        return res.status(200).json(users);
+    },
 };

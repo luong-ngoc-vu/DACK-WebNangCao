@@ -5,8 +5,11 @@ import '../App.css'
 
 import {BrowserRouter, Route} from 'react-router-dom';
 import SideBar from '../components/Menu/SideBar/SideBar';
-import NavBar from '../components/Menu/NavBar/NavBar';
+import SlideBarAdmin from '../components/Menu/SideBar/SlideBarAdmin';
+import NavBarContainer from '../components/Menu/NavBar/NavBarContainer';
 import ViewListAdmin from "./ViewListAdmin/ViewListAdmin";
+import ViewListUserContainer from "./ViewListUsers/ViewListUsersContainer";
+import ViewDetailUserContainer from './ViewDetailUser/ViewDetailUserContainer';
 import CreateAdminContainer from '../components/CreateAdmin/CreateAdminContainer';
 import LoginContainer from '../components/LoginAdmin/LoginContainer';
 
@@ -22,7 +25,7 @@ class App extends React.PureComponent {
                     <Layout style={{height: '100vh'}}>
                         <SideBar/>
                         <Layout>
-                            <NavBar/>
+                            <NavBarContainer/>
                             <Layout style={{padding: '0 24px 24px'}}>
                                 <Breadcrumb style={{margin: '16px 0'}}>
                                     <Breadcrumb.Item>Dashboard</Breadcrumb.Item>
@@ -47,7 +50,7 @@ class App extends React.PureComponent {
                     <Layout style={{height: '100vh'}}>
                         <SideBar/>
                         <Layout>
-                            <NavBar/>
+                            <NavBarContainer/>
                             <Layout style={{padding: '0 24px 24px'}}>
                                 <Breadcrumb style={{margin: '16px 0'}}>
                                     <Breadcrumb.Item>Dashboard</Breadcrumb.Item>
@@ -62,6 +65,54 @@ class App extends React.PureComponent {
                                     }}
                                 >
                                     <Route path="/admins" component={ViewListAdmin}/>
+                                </Content>
+                            </Layout>
+                        </Layout>
+                    </Layout>
+                </Route>
+                <Route path="/home">
+                    <Layout style={{height: '100%'}}>
+                        <SlideBarAdmin/>
+                        <Layout>
+                            <NavBarContainer/>
+                            <Layout style={{padding: '0 24px 24px'}}>
+                                <Breadcrumb style={{margin: '16px 0'}}>
+                                    <Breadcrumb.Item>Dashboard</Breadcrumb.Item>
+                                    <Breadcrumb.Item>Danh sách thành viên</Breadcrumb.Item>
+                                </Breadcrumb>
+                                <Content
+                                    style={{
+                                        background: '#fff',
+                                        padding: 24,
+                                        margin: 0,
+                                        minHeight: 280,
+                                    }}
+                                >
+                                    <Route path="/home" component={ViewListUserContainer}/>
+                                </Content>
+                            </Layout>
+                        </Layout>
+                    </Layout>
+                </Route>
+                <Route path="/detailUser">
+                    <Layout style={{height: '100%'}}>
+                        <SlideBarAdmin/>
+                        <Layout>
+                            <NavBarContainer/>
+                            <Layout style={{padding: '0 24px 24px'}}>
+                                <Breadcrumb style={{margin: '16px 0'}}>
+                                    <Breadcrumb.Item>Dashboard</Breadcrumb.Item>
+                                    <Breadcrumb.Item>Thông tin chi tiết</Breadcrumb.Item>
+                                </Breadcrumb>
+                                <Content
+                                    style={{
+                                        background: '#fff',
+                                        padding: 24,
+                                        margin: 0,
+                                        minHeight: 280,
+                                    }}
+                                >
+                                    <Route path="/detailUser" component={ViewDetailUserContainer}/>
                                 </Content>
                             </Layout>
                         </Layout>

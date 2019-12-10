@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const cors = require('cors');
+const passport = require('passport');
 const errorHandler = require('./_helpers/error-handler');
 require('./api/utils/db');
 
@@ -8,6 +9,9 @@ const authRouter = require('./api/routes/authRoute');
 const clientRouter = require('./api/routes/clientManament');
 const skillRouter = require('./api/routes/skillRoute');
 const rootAdminRoute = require('./api/routes/rootAdmin');
+const adminRoute = require('./api/routes/admin');
+
+require('./api/middlewares/passport');
 
 const app = express();
 app.use(cors());
@@ -24,7 +28,15 @@ app.use(function (req, res, next) {
 app.use('/auth', authRouter);
 app.use('/client', clientRouter);
 app.use('/skill', skillRouter);
+
 app.use('/rootAdmin', rootAdminRoute);
+app.use('/admin', adminRoute);
+
+app.get('/me', passport.authenticate('jwt', {session: false}), (req, res) => {
+    res.status(200).json(
+        req.user
+    );
+});
 
 app.use(errorHandler);
 

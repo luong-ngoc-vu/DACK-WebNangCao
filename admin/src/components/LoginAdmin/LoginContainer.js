@@ -1,12 +1,11 @@
-import { connect } from 'react-redux';
-import { Login } from './Login';
+import {connect} from 'react-redux';
+import {Login} from './Login';
 import {loginRequest} from './LoginAction';
 
 const mapStateToProps = state => {
     return {
-        email: state.LoginReducer.userName,
+        email: state.LoginReducer.email,
         password: state.LoginReducer.password,
-        typeUser: state.LoginReducer.role,
         isLogin: state.LoginReducer.isLogin,
         token: state.LoginReducer.token
     };
