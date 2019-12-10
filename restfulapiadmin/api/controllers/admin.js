@@ -1,38 +1,24 @@
-const Admin = require('../models/admin1');
-const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+const passport = require('passport');
 
 module.exports = {
-    createAdmin: (req, res, next) => {
-        const newAdmin = new Admin({
-            email: req.body.email,
-            password: req.body.password,
-            typeUser: 2
-        });
-        Admin.findOne({"email": req.body.email}, (err, admin) => {
-            if (admin) {
+    authLogin: (req, res, next) => {
+        passport.authenticate('local', {session: false}, (err, admin, info) => {
+            if (err || !admin) {
                 return res.status(400).json({
-                    message: 'Tài khoản đã tồn tại !',
-                });
-            } else {
-                bcrypt.genSalt(10, (err, salt) => {
-                    bcrypt.hash(newAdmin.password, salt, (err, hash) => {
-                        if (err) throw err;
-                        newAdmin.password = hash;
-                        newAdmin.save()
-                            .then(admin => {
-                                res.status(200).json(admin);
-                            })
-                            .catch(err => {
-                                res.status(400).json(err);
-                            })
-                    })
+                    message: 'Something is not right here',
+                    admin: admin
                 });
             }
-        });
-    },
-
-    getAdmin: async (req, res) => {
-        const admin = await Admin.find({"typeUser": 2});
-        return res.status(200).json(admin);
-    },
+            req.login(admin, {session: false}, (err) => {
+                if (err) {
+                    res.send(err);
+                }
+                const token = jwt.sign({
+                    email: admin.email,
+                }, 'website_gia_su');
+                return res.status(200).json({token: token, admin});
+            });
+        })(req, res);
+    }
 };
