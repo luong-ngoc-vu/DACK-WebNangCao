@@ -2,28 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1e3d978d-558f-45bc-a75a-84fa5d11e4de" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/admin/src/components/CreateSkill/CreateSkill.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/components/CreateSkill/CreateSkill.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/components/CreateSkill/CreateSkillAction.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/components/CreateSkill/CreateSkillContainer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/components/CreateSkill/CreateSkillReducer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/components/ViewDetailSkill/ViewDetailSkill.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/components/ViewDetailSkill/ViewDetailSkill.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/components/ViewDetailSkill/ViewDetailSkillAction.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/components/ViewDetailSkill/ViewDetailSkillContainer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/components/ViewListSkill/ViewListSkill.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/components/ViewListSkill/ViewListSkillAction.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/components/ViewListSkill/ViewListSkillContainer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/DetailTutor/DetailTutorAction.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/DetailTutor/DetailTutorContainer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/DetailTutor/DetailTutorReducer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/src/components/Menu/SideBar/SlideBarAdmin.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/components/Menu/SideBar/SlideBarAdmin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/src/components/RootComponent.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/components/RootComponent.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/src/components/RootReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/components/RootReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/src/components/ViewDetailUser/ViewDetaiUser.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/components/ViewDetailUser/ViewDetaiUser.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/src/components/ViewDetailUser/ViewDetailUserContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/components/ViewDetailUser/ViewDetailUserContainer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/src/components/ViewListUsers/ViewListUserReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/components/ViewDetailUser/ViewDetailUserReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/restfulapiadmin/api/controllers/admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/restfulapiadmin/api/controllers/admin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/restfulapiadmin/api/models/skill.js" beforeDir="false" afterPath="$PROJECT_DIR$/restfulapiadmin/api/models/skill.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/restfulapiadmin/api/routes/admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/restfulapiadmin/api/routes/admin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/components/ViewDetailSkill/ViewDetailSkillAction.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/components/ViewDetailSkill/ViewDetailSkillAction.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/DetailTutor/DetailTutor.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/DetailTutor/DetailTutor.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Home/Home.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Home/Home.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Home/OutstandingTutorList/OutstandingTutorList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Home/OutstandingTutorList/OutstandingTutorList.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Home/OutstandingTutorList/OutstandingTutorListAction.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Home/OutstandingTutorList/OutstandingTutorListAction.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Home/OutstandingTutorList/OutstandingTutorListContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Home/OutstandingTutorList/OutstandingTutorListContainer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/RootComponent.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/RootComponent.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/RootReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/RootReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restfulapiclient/api/controllers/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/restfulapiclient/api/controllers/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restfulapiclient/api/routes/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/restfulapiclient/api/routes/user.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +57,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="javascript.nodejs.core.library.configured.version" value="10.15.1" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/client" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/admin" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -73,6 +66,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\Study\React apps\DACK-WebNangCao\admin\src\components\ViewDetailSkill" />
       <recent name="F:\Study\React apps\DACK-WebNangCao\admin\src\components\ViewDetailUser" />
       <recent name="F:\Study\React apps\DACK-WebNangCao\admin\src\components\CreateSkill" />
       <recent name="F:\Study\React apps\DACK-WebNangCao\admin\src\components\ViewListUsers" />
@@ -148,7 +142,7 @@
       <workItem from="1575384182912" duration="605000" />
       <workItem from="1575897622582" duration="2942000" />
       <workItem from="1575900732068" duration="15255000" />
-      <workItem from="1575963739376" duration="36086000" />
+      <workItem from="1575963739376" duration="39430000" />
     </task>
     <servers />
   </component>
@@ -180,10 +174,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="413" y="115" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1575968881539" />
-    <state x="463" y="122" key="FileChooserDialogImpl" timestamp="1575984947249">
+    <state x="463" y="122" key="FileChooserDialogImpl" timestamp="1576030486372">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="463" y="122" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1575984947249" />
+    <state x="463" y="122" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1576030486372" />
     <state width="1345" height="179" key="GridCell.Tab.0.bottom" timestamp="1575981297387">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

@@ -1,16 +1,16 @@
 import React from 'react';
 import BannerBackground from './BannerBackground/BannerBackground';
-import OutstandingTutorList from './OutstandingTutorList/OutstandingTutorList';
+import OutstandingTutorListContainer from './OutstandingTutorList/OutstandingTutorListContainer';
 
 class Home extends React.Component {
-  render() {
-    return (
-      <div>
-        <BannerBackground />
-        <OutstandingTutorList />
-      </div>
-    );
-  }
+    render() {
+        return (
+            <div>
+                <BannerBackground/>
+                <OutstandingTutorListContainer/>
+            </div>
+        );
+    }
 }
 
 export default Home;

@@ -12,6 +12,7 @@ router.post('/changePass', controller.changePassword);
 
 router.get('/getTutorialUser', controller.getTeacher);
 router.post('/getTutorialCity', controller.getTeacherCity);
+router.post('/detailTutor', controller.getDetailTeacher);
 
 router.get('/me', controller.getUser);
 

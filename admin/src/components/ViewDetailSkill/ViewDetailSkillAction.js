@@ -1,7 +1,6 @@
 import axios from 'axios';
 
 export const UPDATE_SKILL = 'UPDATE_SKILL';
-export const DELETE_SKILL = 'DELETE_SKILL';
 
 function onClickUpdateSkill(_id, name) {
     return axios.post('http://localhost:4000/admin/updateSkill', {

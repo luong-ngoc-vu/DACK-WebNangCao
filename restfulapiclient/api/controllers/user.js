@@ -92,4 +92,9 @@ module.exports = {
         const tutorrialsCity = await User.find({"addressCity": city, "typeUser": 2});
         return res.status(200).json(tutorrialsCity);
     },
+
+    getDetailTeacher: async (req, res) => {
+        const teacher = await User.find({"email": req.body.email});
+        return res.status(200).json(teacher);
+    },
 };

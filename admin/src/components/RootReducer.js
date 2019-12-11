@@ -5,10 +5,10 @@ import ViewDetailUserReducer from "./ViewDetailUser/ViewDetailUserReducer";
 import Skill from "./CreateSkill/CreateSkillReducer";
 
 const indexReducer = combineReducers({
+    Skill,
     CreateAdminReducer,
     LoginReducer,
     ViewDetailUserReducer,
-    Skill
 });
 
 export default indexReducer;
