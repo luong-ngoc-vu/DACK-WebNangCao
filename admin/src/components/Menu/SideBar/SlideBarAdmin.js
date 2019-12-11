@@ -10,14 +10,14 @@ const { SubMenu } = Menu;
 class SideBar extends React.Component {
     render() {
         return (
-            <Sider width={200} style={{ background: '#fff' }}>
+            <Sider width={220} style={{ background: '#fff' }}>
                 <div className="logo">
                     <img
                         sizes="50"
                         className="avatar-admin"
                         src="https://2game.vn/imgstore/pictures/2game/2019/10/09/2game-natra-ma-dong-h5-logo-1.png"
                     ></img>
-                    <span className="name-admin">Super Admin</span>
+                    <span className="name-admin">Member Admin</span>
                 </div>
                 <Menu
                     theme="dark"
@@ -36,7 +36,7 @@ class SideBar extends React.Component {
                         }
                     >
                         <Menu.Item key="2">
-                            <Link to="/home">Xem danh sách</Link>
+                            <Link to="/admin-normal/home">Xem danh sách</Link>
                         </Menu.Item>
                     </SubMenu>
                     <SubMenu
@@ -49,10 +49,10 @@ class SideBar extends React.Component {
                         }
                     >
                         <Menu.Item key="5">
-                            <Link to="/createSkill">Thêm mới kỹ năng</Link>
+                            <Link to="/admin-normal/createSkill">Thêm mới kỹ năng</Link>
                         </Menu.Item>
                         <Menu.Item key="6">
-                            <Link to="/skills">Danh sách kỹ năng</Link>
+                            <Link to="/admin-normal/skills">Danh sách kỹ năng</Link>
                         </Menu.Item>
                     </SubMenu>
                     <SubMenu
