@@ -4,7 +4,7 @@ export const VIEW_DETAIL_USER = 'VIEW_DETAIL_USER';
 
 /* ========================= LOG IN ========================= */
 function OnClickViewDetail(_id) {
-    return axios.post('http://localhost:4000/admin/user', {
+    return axios.post('https://apiadminwebsitethuegiasu.herokuapp.com/admin/user', {
         _id
     }).catch(error => {
         return error;

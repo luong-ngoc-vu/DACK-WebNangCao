@@ -169,7 +169,7 @@ class CreateAdminForm extends React.Component {
                                 className="btn-sign-up"
                                 onClick={event => {
                                     event.preventDefault();
-                                    if (this.email !== "" && this.password !== "" && this.repassword !== "")
+                                    if (this.email !== "" && this.password !== "" && this.repass !== "")
                                         st.CreateAdmin(this.email, this.password);
                                     this.err = 'Tạo tài khoản Admin thành công !';
                                 }}

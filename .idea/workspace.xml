@@ -2,26 +2,57 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1e3d978d-558f-45bc-a75a-84fa5d11e4de" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/client/src/components/DetailTutor/DetailTutorAction.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/DetailTutor/DetailTutorContainer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/DetailTutor/DetailTutorReducer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/build/precache-manifest.ab341f4839d6012fe54b56e12c23078b.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/build/static/css/main.30c34153.chunk.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/build/static/css/main.30c34153.chunk.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/build/static/js/2.e0e0e8ee.chunk.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/build/static/js/2.e0e0e8ee.chunk.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/build/static/js/main.394e4e9a.chunk.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/build/static/js/main.394e4e9a.chunk.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/src/components/RootReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/components/RootReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/components/CreateAdmin/CreateAdminAction.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/components/CreateAdmin/CreateAdminAction.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/components/CreateSkill/CreateSkillAction.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/components/CreateSkill/CreateSkillAction.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/components/LoginAdmin/LoginAction.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/components/LoginAdmin/LoginAction.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/src/components/ViewDetailSkill/ViewDetailSkillAction.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/components/ViewDetailSkill/ViewDetailSkillAction.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/components/ViewListAdmin/ViewListAdmin.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/components/ViewListAdmin/ViewListAdmin.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/components/ViewListSkill/ViewListSkill.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/components/ViewListSkill/ViewListSkill.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/components/ViewListSkill/ViewListSkillAction.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/components/ViewListSkill/ViewListSkillAction.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/components/ViewListUsers/ViewListUserAction.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/components/ViewListUsers/ViewListUserAction.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/components/ViewListUsers/ViewListUsers.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/components/ViewListUsers/ViewListUsers.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/client/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/.idea/client.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/.idea/codeStyles/Project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/ChangePassword/ChangePasswordAction.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ChangePassword/ChangePasswordAction.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Common/Footer/Footer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Common/Footer/Footer.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/DetailTutor/DetailTutor.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/DetailTutor/DetailTutor.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/DetailTutor/FormContact/FormContact.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/DetailTutor/FormContact/FormContact.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/Home/Home.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Home/Home.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/Home/OutstandingTutorList/OutstandingTutorList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Home/OutstandingTutorList/OutstandingTutorList.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/Home/OutstandingTutorList/OutstandingTutorListAction.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Home/OutstandingTutorList/OutstandingTutorListAction.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Home/OutstandingTutorList/OutstandingTutorListContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Home/OutstandingTutorList/OutstandingTutorListContainer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/RootComponent.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/RootComponent.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/RootReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/RootReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/restfulapiclient/api/controllers/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/restfulapiclient/api/controllers/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/restfulapiclient/api/routes/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/restfulapiclient/api/routes/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Login/LoginAction.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Login/LoginAction.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/ManagementOfHirer/ProfileHirer/ProfileHirerAction.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ManagementOfHirer/ProfileHirer/ProfileHirerAction.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/ManagementOfTutor/ProfileTutor/ProfileTutor.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ManagementOfTutor/ProfileTutor/ProfileTutor.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/ManagementOfTutor/ProfileTutor/ProfileTutorAction.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ManagementOfTutor/ProfileTutor/ProfileTutorAction.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Register/RegisterAction.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Register/RegisterAction.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restfulapiadmin/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/restfulapiadmin/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restfulapiadmin/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/restfulapiadmin/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restfulapiadmin/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/restfulapiadmin/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restfulapiadmin/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/restfulapiadmin/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="DACK-WebNangCao" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -31,7 +62,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/restfulapiclient" />
   </component>
   <component name="JsFlowSettings">
     <service-enabled>true</service-enabled>
@@ -57,12 +88,13 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="javascript.nodejs.core.library.configured.version" value="10.15.1" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/admin" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/client" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="C:\Users\Vu\AppData\Roaming\npm\node_modules\prettier" />
+    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2019.1\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -142,7 +174,8 @@
       <workItem from="1575384182912" duration="605000" />
       <workItem from="1575897622582" duration="2942000" />
       <workItem from="1575900732068" duration="15255000" />
-      <workItem from="1575963739376" duration="39430000" />
+      <workItem from="1575963739376" duration="56738000" />
+      <workItem from="1576055699898" duration="2069000" />
     </task>
     <servers />
   </component>
@@ -174,30 +207,30 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="413" y="115" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1575968881539" />
-    <state x="463" y="122" key="FileChooserDialogImpl" timestamp="1576030486372">
+    <state x="463" y="122" key="FileChooserDialogImpl" timestamp="1576054410476">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="463" y="122" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1576030486372" />
-    <state width="1345" height="179" key="GridCell.Tab.0.bottom" timestamp="1575981297387">
+    <state x="463" y="122" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1576054410476" />
+    <state width="1345" height="179" key="GridCell.Tab.0.bottom" timestamp="1576055340174">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1575981297387" />
-    <state width="1345" height="179" key="GridCell.Tab.0.center" timestamp="1575981297386">
+    <state width="1345" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1576055340174" />
+    <state width="1345" height="179" key="GridCell.Tab.0.center" timestamp="1576055340174">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1575981297386" />
-    <state width="1345" height="179" key="GridCell.Tab.0.left" timestamp="1575981297386">
+    <state width="1345" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1576055340174" />
+    <state width="1345" height="179" key="GridCell.Tab.0.left" timestamp="1576055340173">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1575981297386" />
-    <state width="1345" height="179" key="GridCell.Tab.0.right" timestamp="1575981297386">
+    <state width="1345" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1576055340173" />
+    <state width="1345" height="179" key="GridCell.Tab.0.right" timestamp="1576055340174">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1575981297386" />
-    <state x="395" y="131" width="575" height="466" key="find.popup" timestamp="1576024018812">
+    <state width="1345" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1576055340174" />
+    <state x="394" y="83" width="683" height="580" key="find.popup" timestamp="1576054696371">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="395" y="131" width="575" height="466" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1576024018812" />
+    <state x="394" y="83" width="683" height="580" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1576054696371" />
     <state x="339" y="162" key="run.anything.popup" timestamp="1575973066784">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

@@ -42,7 +42,7 @@ class ViewListUserForm extends React.Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:4000/admin/users')
+    fetch('https://apiadminwebsitethuegiasu.herokuapp.com/admin/users')
       .then(response => response.json())
       .then(data => this.setState({ dataUser: data }));
   }

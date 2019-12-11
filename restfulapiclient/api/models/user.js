@@ -32,6 +32,9 @@ const UserSchema = new Schema({
     moreInfo: {
         type: String
     },
+    skills: [{
+        type: String
+    }],
     typeUser: {
         type: Intl,
         require: true

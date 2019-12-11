@@ -18,6 +18,7 @@ class ProfileForm extends React.Component {
         this.phone = '';
         this.image = '';
         this.address = '';
+        this.addressCity = '';
         this.moreInfo = '';
         this.err = '';
     }
@@ -36,10 +37,6 @@ class ProfileForm extends React.Component {
         });
     };
 
-    handleChange(value) {
-        console.log("Selected: " + value);
-    }
-
     render() {
         const st = this.props;
 
@@ -48,6 +45,7 @@ class ProfileForm extends React.Component {
         this.phone = st.phone;
         this.image = st.image;
         this.address = st.address;
+        this.addressCity = st.addressCity;
         this.moreInfo = st.moreInfo;
 
         if (st.isLogin === false) {
@@ -105,7 +103,7 @@ class ProfileForm extends React.Component {
                                     <Select
                                         name="addressCity"
                                         placeholder="Chọn thành phố"
-                                        value={st.addressCity}
+                                        defaultValue={st.addressCity}
                                         onChange={value => {
                                             this.setState({addressCity: value});
                                         }}
@@ -203,7 +201,8 @@ class ProfileForm extends React.Component {
                                         className="btn-sign-up"
                                         onClick={(event) => {
                                             event.preventDefault();
-                                            st.updateUser(this.name, this.phone, st.email, this.image, this.address, this.state.addressCity, this.moreInfo);
+                                            st.updateUser(this.name, this.phone, st.email, this.image,
+                                                this.address, this.state.addressCity, this.moreInfo);
                                             this.err = 'Cập nhật thành công';
                                         }}>
                                         Cập nhật

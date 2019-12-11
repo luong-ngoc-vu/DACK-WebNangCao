@@ -1,4 +1,5 @@
 const User = require('../models/user');
+const Skill = require('../models/skill');
 const bcrypt = require('bcryptjs');
 
 module.exports = {
@@ -13,6 +14,7 @@ module.exports = {
             address: "",
             moreInfo: "",
             addressCity: "",
+            skills: "",
         });
         User.findOne({"email": req.body.email}, (err, user) => {
             if (user) {
@@ -46,6 +48,7 @@ module.exports = {
             user.address = req.body.address;
             user.moreInfo = req.body.moreInfo;
             user.addressCity = req.body.addressCity;
+            user.skills = req.body.skills;
             user.save();
             return res.status(200).json(user);
         })
@@ -96,5 +99,10 @@ module.exports = {
     getDetailTeacher: async (req, res) => {
         const teacher = await User.find({"email": req.body.email});
         return res.status(200).json(teacher);
+    },
+
+    getSkills: async (req, res) => {
+        const skills = await Skill.find();
+        return res.status(200).json(skills);
     },
 };

@@ -29,11 +29,11 @@ class ViewListSkillForm extends React.Component {
     };
   }
 
-  componentDidMount() {
-    fetch('http://localhost:4000/admin/skills')
-      .then(response => response.json())
-      .then(data => this.setState({ dataSkill: data }));
-  }
+    componentDidMount() {
+        fetch('https://apiadminwebsitethuegiasu.herokuapp.com/admin/skills')
+            .then(response => response.json())
+            .then(data => this.setState({dataSkill: data}));
+    }
 
   render() {
     const st = this.props;
