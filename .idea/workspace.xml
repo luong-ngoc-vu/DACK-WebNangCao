@@ -2,14 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1e3d978d-558f-45bc-a75a-84fa5d11e4de" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/client/src/components/Common/Footer/Footer.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/Common/Footer/Footer.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/src/components/Menu/SideBar/SlideBarAdmin.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/components/Menu/SideBar/SlideBarAdmin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Home/BannerBackground/BannerBackground.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Home/BannerBackground/BannerBackground.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Home/Home.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Home/Home.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Home/OutstandingTutorList/OutstandingTutorList.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Home/OutstandingTutorList/OutstandingTutorList.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/Home/OutstandingTutorList/OutstandingTutorList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Home/OutstandingTutorList/OutstandingTutorList.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/RootComponent.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/RootComponent.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Login/Login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Login/Login.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/ManagementOfHirer/ProfileHirer/ProfileHirer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ManagementOfHirer/ProfileHirer/ProfileHirer.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/ManagementOfTutor/ProfileTutor/ProfileTutor.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ManagementOfTutor/ProfileTutor/ProfileTutor.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Register/Register.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Register/Register.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -138,7 +136,7 @@
       <workItem from="1575384182912" duration="605000" />
       <workItem from="1575897622582" duration="2942000" />
       <workItem from="1575900732068" duration="15255000" />
-      <workItem from="1575963739376" duration="50934000" />
+      <workItem from="1575963739376" duration="55094000" />
     </task>
     <servers />
   </component>

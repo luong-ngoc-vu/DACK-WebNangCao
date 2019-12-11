@@ -213,7 +213,7 @@ class RegisterForm extends React.Component {
                                     />
                                 )}
                             </Form.Item>
-                            <div>{this.err}</div>
+                            <div><b>{this.err}</b></div>
                             <Form.Item>
                                 <Button
                                     size="large"
@@ -222,6 +222,9 @@ class RegisterForm extends React.Component {
                                     className="btn-sign-up"
                                     onClick={event => {
                                         event.preventDefault();
+                                        if (this.name === "" || this.phone === "" || this.email === "" || this.password === ""
+                                            || this.repassword === "")
+                                            this.err = 'Vui lòng nhập đủ các dữ liệu đăng ký';
                                         if (this.name !== "" && this.phone !== "" && this.email !== "" && this.password !== ""
                                             && this.repassword !== "")
                                             st.Register(this.name, this.phone, this.email, this.password, this.typeUser);

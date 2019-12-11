@@ -18,6 +18,7 @@ class ProfileForm extends React.Component {
         this.phone = '';
         this.image = '';
         this.address = '';
+        this.addressCity = '';
         this.moreInfo = '';
         this.err = '';
     }
