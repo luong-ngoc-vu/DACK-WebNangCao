@@ -1,16 +1,16 @@
 import React from 'react';
 import './SideBar.css';
 import 'antd/dist/antd.css';
-import {Icon, Layout, Menu} from 'antd';
-import {Link} from "react-router-dom";
+import { Icon, Layout, Menu } from 'antd';
+import { Link } from "react-router-dom";
 
-const {Sider} = Layout;
-const {SubMenu} = Menu;
+const { Sider } = Layout;
+const { SubMenu } = Menu;
 
 class SideBar extends React.Component {
     render() {
         return (
-            <Sider width={200} style={{background: '#fff'}}>
+            <Sider width={200} style={{ background: '#fff' }}>
                 <div className="logo">
                     <img
                         sizes="50"
@@ -24,14 +24,14 @@ class SideBar extends React.Component {
                     mode="inline"
                     defaultSelectedKeys={['1']}
                     defaultOpenKeys={['sub1']}
-                    style={{height: '100%', borderRight: 0}}
+                    style={{ height: '100%', borderRight: 0 }}
                 >
                     <SubMenu
                         key="sub1"
                         title={
                             <span>
-                <Icon type="user"/>
-                Quản lý tài khoản
+                                <Icon type="user" />
+                                Quản lý tài khoản
               </span>
                         }
                     >
@@ -43,8 +43,8 @@ class SideBar extends React.Component {
                         key="sub2"
                         title={
                             <span>
-                <Icon type="laptop"/>
-                Quản lý kỹ năng
+                                <Icon type="laptop" />
+                                Quản lý kỹ năng
               </span>
                         }
                     >
@@ -59,8 +59,8 @@ class SideBar extends React.Component {
                         key="sub3"
                         title={
                             <span>
-                <Icon type="notification"/>
-                Quản lý hợp đồng
+                                <Icon type="notification" />
+                                Quản lý hợp đồng
               </span>
                         }
                     >
@@ -71,8 +71,8 @@ class SideBar extends React.Component {
                         key="sub4"
                         title={
                             <span>
-                <Icon type="notification"/>
-                Quản lý khiếu nại
+                                <Icon type="notification" />
+                                Quản lý khiếu nại
               </span>
                         }
                     >
