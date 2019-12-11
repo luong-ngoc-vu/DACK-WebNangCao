@@ -2,9 +2,7 @@ import React from 'react';
 
 import 'antd/dist/antd.css';
 import './FormContact.css';
-import { Form, Icon, Input, Button, Checkbox, Typography } from 'antd';
-
-const { Text } = Typography;
+import { Form, Icon, Button } from 'antd';
 
 class ContactForm extends React.Component {
   handleSubmit = e => {
@@ -17,7 +15,6 @@ class ContactForm extends React.Component {
   };
 
   render() {
-    const { getFieldDecorator } = this.props.form;
     return (
       <div className="side-form-contact">
         <Button size="large" type="primary" className="contact-button">

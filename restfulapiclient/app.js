@@ -2,11 +2,12 @@ const express = require('express');
 const passport = require('passport');
 const cors = require('cors');
 const mongoose = require('mongoose');
+const path = require('path');
 const url = require('./db').mongoURI;
 
 const userRoute = require('./api/routes/user');
-const introduce = require('./api/routes/introduce');
-const userSkill = require('./api/routes/userSkill');
+// const introduce = require('./api/routes/introduce');
+// const userSkill = require('./api/routes/userSkill');
 mongoose.connect(url, {
     useNewUrlParser: true,
     useUnifiedTopology: true
@@ -19,23 +20,29 @@ const app = express();
 app.use(cors());
 app.disable('etag');
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({extended: false}));
+
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'hbs');
 
 app.use(function (req, res, next) {
     res.locals.user = req.user || null;
     next();
 });
 
+
 app.use('/user', userRoute);
-
-app.use('/introduce', passport.authenticate('jwt', { session: false }), introduce);
-app.use('/userskill', passport.authenticate('jwt', { session: false }), userRoute);
-
-app.get('/me', passport.authenticate('jwt', { session: false }), (req, res) => {
+app.use(express.static(path.join(__dirname, 'build')));
+app.get('/*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
+app.get('/me', passport.authenticate('jwt', {session: false}), (req, res) => {
     res.status(200).json(
         req.user
     );
 });
+// app.use('/introduce', passport.authenticate('jwt', {session: false}), introduce);
+// app.use('/userskill', passport.authenticate('jwt', {session: false}), userRoute);
 
 
 app.use(function (req, res, next) {

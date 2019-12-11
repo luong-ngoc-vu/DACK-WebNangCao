@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import './Footer.css';
 import 'antd/dist/antd.css';
 import { Link } from 'react-router-dom';
-import { Icon, Form, Row, Col, Typography, Button } from 'antd';
+import { Icon, Row, Col, Typography, Button } from 'antd';
 
 const { Text } = Typography;
 class Footer extends Component {

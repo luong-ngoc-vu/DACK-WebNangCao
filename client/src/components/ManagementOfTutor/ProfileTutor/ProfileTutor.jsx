@@ -8,7 +8,7 @@ import Redirect from 'react-router-dom/Redirect';
 
 const {TextArea} = Input;
 
-const {Title, Text} = Typography;
+const {Title} = Typography;
 
 class ProfileForm extends React.Component {
     constructor() {
@@ -40,7 +40,7 @@ class ProfileForm extends React.Component {
     };
 
     componentDidMount() {
-        fetch('http://localhost:4000/user/getSkills')
+        fetch('https://apiclientwebsitethuegiasu.herokuapp.com/user/getSkills')
             .then(response => response.json())
             .then(data => this.setState({dataSkills: data}));
     }

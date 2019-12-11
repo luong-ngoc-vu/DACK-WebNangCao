@@ -6,10 +6,6 @@ import 'antd/dist/antd.css';
 import {Button, Card, Col, Row, Select, Tag} from 'antd';
 import axios from 'axios';
 
-const {Option} = Select;
-
-const {Meta} = Card;
-
 class OutstandingTutorList extends React.Component {
     constructor(props) {
         super(props);
@@ -22,7 +18,7 @@ class OutstandingTutorList extends React.Component {
 
     OnClick(addressCity) {
         return axios
-            .post('http://localhost:4000/user/getTutorialCity', {
+            .post('https://apiclientwebsitethuegiasu.herokuapp.com/user/getTutorialCity', {
                 addressCity
             })
             .catch(error => {
@@ -37,7 +33,7 @@ class OutstandingTutorList extends React.Component {
     };
 
     componentDidMount() {
-        fetch('http://localhost:4000/user/getTutorialUser')
+        fetch('https://apiclientwebsitethuegiasu.herokuapp.com/user/getTutorialUser')
             .then(response => response.json())
             .then(data => this.setState({data: data}));
     }

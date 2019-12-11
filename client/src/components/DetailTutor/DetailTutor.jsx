@@ -114,6 +114,7 @@ class DetailTutor extends Component {
                             <Col span={7} style={{padding: '0px 15px 0px 0px'}}>
                                 {' '}
                                 <img
+                                    alt="alt"
                                     className="avatar"
                                     src={st.image}
                                 ></img>

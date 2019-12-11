@@ -26,7 +26,7 @@ class ViewListAdminForm extends React.Component {
     }
 
     componentDidMount() {
-        fetch('http://localhost:4000/rootAdmin/getAllAdmin')
+        fetch('https://apiadminwebsitethuegiasu.herokuapp.com/rootAdmin/getAllAdmin')
             .then(response => response.json())
             .then(data => this.setState({dataAdmin: data}));
     }
