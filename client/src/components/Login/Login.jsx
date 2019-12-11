@@ -36,9 +36,9 @@ class LoginForm extends React.Component {
       this.err = 'Email hoặc mật khẩu không chính xác !';
     }
     if (st.isLogin === true && st.typeUser === 1) {
-      return <Redirect to="/hirer-manage/profile" />;
+      return <Redirect to="/hirer-manage/profile"/>;
     } else if (st.isLogin === true && st.typeUser === 2) {
-      return <Redirect to="/tutor-manage/profile" />;
+      return <Redirect to="/tutor-manage/profile"/>;
     }
 
     return (
@@ -60,7 +60,7 @@ class LoginForm extends React.Component {
                 <Input
                   size="large"
                   prefix={
-                    <Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />
+                    <Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }}/>
                   }
                   placeholder="Nhập tài khoản email"
                   onChange={event => {
@@ -80,7 +80,7 @@ class LoginForm extends React.Component {
                 <Input
                   size="large"
                   prefix={
-                    <Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />
+                    <Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }}/>
                   }
                   type="password"
                   placeholder="Nhập mật khẩu"

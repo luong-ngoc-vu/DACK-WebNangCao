@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import './SideBar.css';
 import 'antd/dist/antd.css';
 import {Icon, Layout, Menu} from 'antd';
@@ -34,8 +35,12 @@ class SideBar extends React.Component {
               </span>
                         }
                     >
-                        <Menu.Item key="1">Tạo mới admin</Menu.Item>
-                        <Menu.Item key="2">Xem danh sách</Menu.Item>
+                        <Menu.Item key="1">
+                            <Link to="/dashboard">Thêm tài khoản</Link>
+                        </Menu.Item>
+                        <Menu.Item key="2">
+                            <Link to="/admins">Xem danh sách</Link>
+                        </Menu.Item>
                     </SubMenu>
                 </Menu>
             </Sider>

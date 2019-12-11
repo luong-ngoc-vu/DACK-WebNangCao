@@ -2,8 +2,37 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1e3d978d-558f-45bc-a75a-84fa5d11e4de" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/admin/src/components/Menu/NavBar/NavBarContainer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/src/components/ViewDetailUser/ViewDetaiUser.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/src/components/ViewDetailUser/ViewDetailUser.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/src/components/ViewDetailUser/ViewDetailUserContainer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/src/components/ViewListUsers/ViewListUserAction.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/src/components/ViewListUsers/ViewListUserReducer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/src/components/ViewListUsers/ViewListUsers.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/src/components/ViewListUsers/ViewListUsersContainer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/restfulapiadmin/api/controllers/RootAdmin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/restfulapiadmin/api/middlewares/passport.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/restfulapiadmin/api/routes/admin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/src/components/CreateAdmin/CreateAdmin.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/components/CreateAdmin/CreateAdmin.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/components/LoginAdmin/Login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/components/LoginAdmin/Login.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/components/LoginAdmin/LoginAction.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/components/LoginAdmin/LoginAction.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/components/LoginAdmin/LoginContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/components/LoginAdmin/LoginContainer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/components/LoginAdmin/LoginReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/components/LoginAdmin/LoginReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/components/Menu/NavBar/NavBar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/components/Menu/NavBar/NavBar.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/components/Menu/SideBar/SlideBarAdmin.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/components/Menu/SideBar/SlideBarAdmin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/components/RootComponent.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/components/RootComponent.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/components/RootReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/components/RootReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/client/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Common/NavBar/NavBarContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Common/NavBar/NavBarContainer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Login/Login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Login/Login.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restfulapiadmin/api/controllers/admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/restfulapiadmin/api/controllers/admin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restfulapiadmin/api/middlewares/middleware.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/components/Menu/NavBar/NavBarAction.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restfulapiadmin/api/routes/rootAdmin.js" beforeDir="false" afterPath="$PROJECT_DIR$/restfulapiadmin/api/routes/rootAdmin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restfulapiadmin/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/restfulapiadmin/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restfulapiadmin/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/restfulapiadmin/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restfulapiadmin/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/restfulapiadmin/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restfulapiclient/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/restfulapiclient/app.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +48,12 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
   </component>
   <component name="PackageJsonUpdateNotifier">
     <dismissed value="$PROJECT_DIR$/admin/package.json" />
@@ -44,6 +79,15 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="C:\Users\Vu\AppData\Roaming\npm\node_modules\prettier" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\Study\React apps\DACK-WebNangCao\admin\src\components\ViewDetailUser" />
+      <recent name="F:\Study\React apps\DACK-WebNangCao\admin\src\components\ViewListUsers" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\Study\React apps\DACK-WebNangCao\restfulapiadmin\api\controllers" />
+    </key>
   </component>
   <component name="RunManager" selected="npm.test">
     <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
@@ -112,7 +156,7 @@
       <workItem from="1575384182912" duration="605000" />
       <workItem from="1575897622582" duration="2942000" />
       <workItem from="1575900732068" duration="15255000" />
-      <workItem from="1575963739376" duration="8465000" />
+      <workItem from="1575963739376" duration="24562000" />
     </task>
     <servers />
   </component>
@@ -136,30 +180,38 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="435" y="176" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1575982425602">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="435" y="176" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1575982425602" />
     <state x="413" y="115" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1575968881539">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="413" y="115" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1575968881539" />
-    <state x="463" y="122" key="FileChooserDialogImpl" timestamp="1575972679291">
+    <state x="463" y="122" key="FileChooserDialogImpl" timestamp="1575984947249">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="463" y="122" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1575972679291" />
-    <state width="1345" height="179" key="GridCell.Tab.0.bottom" timestamp="1575973221469">
+    <state x="463" y="122" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1575984947249" />
+    <state width="1345" height="179" key="GridCell.Tab.0.bottom" timestamp="1575981297387">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1575973221469" />
-    <state width="1345" height="179" key="GridCell.Tab.0.center" timestamp="1575973221469">
+    <state width="1345" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1575981297387" />
+    <state width="1345" height="179" key="GridCell.Tab.0.center" timestamp="1575981297386">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1575973221469" />
-    <state width="1345" height="179" key="GridCell.Tab.0.left" timestamp="1575973221468">
+    <state width="1345" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1575981297386" />
+    <state width="1345" height="179" key="GridCell.Tab.0.left" timestamp="1575981297386">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1575973221468" />
-    <state width="1345" height="179" key="GridCell.Tab.0.right" timestamp="1575973221469">
+    <state width="1345" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1575981297386" />
+    <state width="1345" height="179" key="GridCell.Tab.0.right" timestamp="1575981297386">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1575973221469" />
+    <state width="1345" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1575981297386" />
+    <state x="395" y="131" width="575" height="466" key="find.popup" timestamp="1575989372762">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="395" y="131" width="575" height="466" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1575989372762" />
     <state x="339" y="162" key="run.anything.popup" timestamp="1575973066784">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

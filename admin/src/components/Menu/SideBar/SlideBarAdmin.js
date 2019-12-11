@@ -2,6 +2,7 @@ import React from 'react';
 import './SideBar.css';
 import 'antd/dist/antd.css';
 import {Icon, Layout, Menu} from 'antd';
+import {Link} from "react-router-dom";
 
 const {Sider} = Layout;
 const {SubMenu} = Menu;
@@ -34,9 +35,9 @@ class SideBar extends React.Component {
               </span>
                         }
                     >
-                        <Menu.Item key="1">Tạo mới admin</Menu.Item>
-                        <Menu.Item key="2">Xem danh sách</Menu.Item>
-                        <Menu.Item key="3">Mở khóa tài khoản</Menu.Item>
+                        <Menu.Item key="2">
+                            <Link to="/home">Xem danh sách</Link>
+                        </Menu.Item>
                     </SubMenu>
                     <SubMenu
                         key="sub2"

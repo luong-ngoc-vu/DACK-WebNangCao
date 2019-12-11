@@ -1,37 +1,36 @@
 export const initialState = {
-    userID: '',
-    username: '',
+    email: '',
     password: '',
     token: '',
     isLogin: false,
-    isRightPassword: '',
-    role: '',
 };
 
 const LoginReducer = (state = initialState, action) => {
     switch (action.type) {
         case 'LOGIN': {
-            const st = { ...state };
-
-            const data = action.data.res.data;
-            if (action.data.res.message === "Username or password is incorrect") {
+            const st = {...state};
+            console.log(action.data.res.message);
+            if (action.data.res.message === "Request failed with status code 400") {
                 st.token = 'err';
                 return st;
             } else {
-                st.username = data.username;
-                st.userID = data._id;
-                st.token = data.token;
-                st.firstName = data.firstName;
-                st.lastName = data.lastName;
-                st.role = data.role;
-                st.isLogin =true;
-                console.log(st);
+                st.email = action.data.res.data.admin.email;
+                st.password = action.data.res.data.admin.password;
+                try {
+                    st.token = action.data.res.data.token;
+                    st.isLogin = true;
+                } catch (err) {
+                    st.token = 'err';
+                }
                 return st;
             }
         }
-        default: return state;
+        case 'LOGOUT': {
+            return initialState;
+        }
+        default:
+            return state;
     }
-    //return state;
 };
 
 export default LoginReducer;
