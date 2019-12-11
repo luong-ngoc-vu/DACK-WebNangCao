@@ -10,8 +10,8 @@ const {Text} = Typography;
 class DetailTutor extends Component {
     render() {
         const st = this.props;
-        const schedule = [21, 22, 31, 32, 33, 41];
-        const object = ['Toán lớp 12', 'Anh văn lớp 6', 'Hóa lớp 12'];
+        console.log("Skills: " + st.skills[0]);
+        const schedule = [21, 22, 31, 32, 33, 41, 71];
         const day = [
             'Thứ hai',
             'Thứ ba',
@@ -180,11 +180,18 @@ class DetailTutor extends Component {
                                 Hoa dong nhanh nhen va luon nhiet tinh trong cong viec
                             </Text>
                             <Text className="title-info">Chủ đề dạy</Text>
-                            <div>
-                                {object.map(item => (
-                                    <Tag style={{fontSize: 14}}>{item}</Tag>
-                                ))}
-                            </div>
+                            {st.skills !== undefined && (
+                                <div>
+                                    {st.skills.map(item => (
+                                        <Tag style={{fontSize: 14}}>{item}</Tag>
+                                    ))}
+                                </div>
+                            )}
+                            {st.skills === null && (
+                                <div>
+                                    <Tag style={{fontSize: 14}}>Chưa cập nhật</Tag>
+                                </div>
+                            )}
                             <Text className="title-info">Lịch dạy</Text>
 
                             <div style={{width: '100%'}}>

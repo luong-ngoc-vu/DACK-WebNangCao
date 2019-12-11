@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import './OutstandingTutorList.css';
 import 'antd/dist/antd.css';
 
-import {Button, Card, Col, Row, Select, Tag} from 'antd';
+import {Card, Col, Row, Select, Tag} from 'antd';
 import axios from 'axios';
 
 const {Option} = Select;
@@ -152,9 +152,16 @@ class OutstandingTutorList extends React.Component {
                                         />
                                     }
                                     actions={[
-                                        <Button type="primary" icon="plus">
-                                            Xem chi tiết
-                                        </Button>
+                                        <Link
+                                            to="/detailTutor"
+                                            size="large"
+                                            onClick={event => {
+                                                st.viewDetailTutor(teacher.email);
+                                            }}
+                                            type="primary"
+                                            htmlType="submit"
+                                            className="login-form-button">
+                                            Xem chi tiết</Link>
                                     ]}
                                 >
                                     <div className="info-tutor">

@@ -10,7 +10,8 @@ const mapStateToProps = (st) => {
         addressCity: st.ViewDetailTutorReducer.addressCity,
         moreInfo: st.ViewDetailTutorReducer.moreInfo,
         typeUser: st.ViewDetailTutorReducer.typeUser,
-        image: st.ViewDetailTutorReducer.image
+        image: st.ViewDetailTutorReducer.image,
+        skills: st.ViewDetailTutorReducer.skills
     };
 };
 

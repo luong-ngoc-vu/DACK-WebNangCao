@@ -2,26 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1e3d978d-558f-45bc-a75a-84fa5d11e4de" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/client/src/components/DetailTutor/DetailTutorAction.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/DetailTutor/DetailTutorContainer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/DetailTutor/DetailTutorReducer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/restfulapiclient/api/models/skill.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/src/components/RootReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/components/RootReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/src/components/ViewDetailSkill/ViewDetailSkillAction.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/components/ViewDetailSkill/ViewDetailSkillAction.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/components/CreateAdmin/CreateAdmin.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/components/CreateAdmin/CreateAdmin.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/DetailTutor/DetailTutor.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/DetailTutor/DetailTutor.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Home/Home.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Home/Home.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/DetailTutor/DetailTutorContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/DetailTutor/DetailTutorContainer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/DetailTutor/DetailTutorReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/DetailTutor/DetailTutorReducer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/Home/OutstandingTutorList/OutstandingTutorList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Home/OutstandingTutorList/OutstandingTutorList.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Home/OutstandingTutorList/OutstandingTutorListAction.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Home/OutstandingTutorList/OutstandingTutorListAction.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Home/OutstandingTutorList/OutstandingTutorListContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Home/OutstandingTutorList/OutstandingTutorListContainer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/RootComponent.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/RootComponent.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/RootReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/RootReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Login/LoginReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Login/LoginReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/ManagementOfHirer/ProfileHirer/ProfileHirer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ManagementOfHirer/ProfileHirer/ProfileHirer.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/ManagementOfTutor/ProfileTutor/ProfileTutor.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ManagementOfTutor/ProfileTutor/ProfileTutor.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/ManagementOfTutor/ProfileTutor/ProfileTutorAction.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ManagementOfTutor/ProfileTutor/ProfileTutorAction.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/ManagementOfTutor/ProfileTutor/ProfileTutorContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ManagementOfTutor/ProfileTutor/ProfileTutorContainer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/restfulapiclient/api/controllers/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/restfulapiclient/api/controllers/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restfulapiclient/api/models/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/restfulapiclient/api/models/user.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/restfulapiclient/api/routes/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/restfulapiclient/api/routes/user.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="DACK-WebNangCao" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -142,7 +145,7 @@
       <workItem from="1575384182912" duration="605000" />
       <workItem from="1575897622582" duration="2942000" />
       <workItem from="1575900732068" duration="15255000" />
-      <workItem from="1575963739376" duration="39430000" />
+      <workItem from="1575963739376" duration="50680000" />
     </task>
     <servers />
   </component>
@@ -194,10 +197,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1345" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1575981297386" />
-    <state x="395" y="131" width="575" height="466" key="find.popup" timestamp="1576024018812">
+    <state x="394" y="83" width="575" height="580" key="find.popup" timestamp="1576035920271">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="395" y="131" width="575" height="466" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1576024018812" />
+    <state x="394" y="83" width="575" height="580" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1576035920271" />
     <state x="339" y="162" key="run.anything.popup" timestamp="1575973066784">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

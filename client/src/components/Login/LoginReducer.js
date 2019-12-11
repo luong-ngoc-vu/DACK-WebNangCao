@@ -7,6 +7,7 @@ export const initialState = {
     address: '',
     addressCity: '',
     moreInfo: '',
+    skills: '',
     token: '',
     typeUser: 1,
     isLogin: false,
@@ -32,6 +33,7 @@ const LoginReducer = (state = initialState, action) => {
                     st.phone = action.data.res.data.user.phone;
                     st.address = action.data.res.data.user.address;
                     st.addressCity = action.data.res.data.user.addressCity;
+                    st.skills = action.data.res.data.user.skills;
                     st.moreInfo = action.data.res.data.user.moreInfo;
                     st.typeUser = action.data.res.data.user.typeUser;
                     st.isLogin = true;
@@ -88,6 +90,7 @@ const LoginReducer = (state = initialState, action) => {
             st.address = action.data.res.data.address;
             st.addressCity = action.data.res.data.addressCity;
             st.moreInfo = action.data.res.data.moreInfo;
+            st.skills = action.data.res.data.skills;
             return st;
         }
 
@@ -100,17 +103,6 @@ const LoginReducer = (state = initialState, action) => {
                 st.password = action.data.newpassword;
                 st.isRightPassword = 'success';
             }
-            return st;
-        }
-
-        case "REGISTER_SOCIAL": {
-            const st = {...state};
-            st.email = action.data.email;
-            st.name = action.data.name;
-            st.phone = action.data.phone;
-            st.image = action.data.image;
-            st.address = action.data.address;
-            st.moreInfo = action.data.moreInfo;
             return st;
         }
 
