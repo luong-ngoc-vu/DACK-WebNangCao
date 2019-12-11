@@ -24,7 +24,7 @@ class ProfileForm extends React.Component {
                             <Form.Item label="Địa chỉ email">
                                 <Input
                                     size="large"
-                                    defaultValue={st.email}
+                                    value={st.email}
                                     readOnly
                                     name="email"
                                 />
@@ -33,7 +33,7 @@ class ProfileForm extends React.Component {
                                 <Input
                                     size="large"
                                     readOnly
-                                    defaultValue={st.name}
+                                    value={st.name}
                                     name="name"
                                 />
                             </Form.Item>
@@ -41,7 +41,7 @@ class ProfileForm extends React.Component {
                                 <Input
                                     size="large"
                                     readOnly
-                                    defaultValue={st.phone}
+                                    value={st.phone}
                                     name="phone"
                                 />
                             </Form.Item>
@@ -69,15 +69,15 @@ class ProfileForm extends React.Component {
                                 <Input
                                     size="large"
                                     readOnly
-                                    defaultValue={st.addressCity}
-                                    name="phone"
+                                    value={st.addressCity}
+                                    name="addressCity"
                                 />
                             </Form.Item>
                             <Form.Item label="Địa chỉ cụ thể">
                                 <Input
                                     size="large"
                                     readOnly
-                                    defaultValue={st.address}
+                                    value={st.address}
                                     name="address"
                                 />
                             </Form.Item>
@@ -85,7 +85,7 @@ class ProfileForm extends React.Component {
                                 <TextArea
                                     rows={3}
                                     readOnly
-                                    defaultValue={st.moreInfo}
+                                    value={st.moreInfo}
                                     name="moreInfo"
                                 />
                             </Form.Item>

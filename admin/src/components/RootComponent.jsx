@@ -8,8 +8,11 @@ import SideBar from '../components/Menu/SideBar/SideBar';
 import SlideBarAdmin from '../components/Menu/SideBar/SlideBarAdmin';
 import NavBarContainer from '../components/Menu/NavBar/NavBarContainer';
 import ViewListAdmin from "./ViewListAdmin/ViewListAdmin";
+import ViewListSkillContainer from "./ViewListSkill/ViewListSkillContainer";
 import ViewListUserContainer from "./ViewListUsers/ViewListUsersContainer";
 import ViewDetailUserContainer from './ViewDetailUser/ViewDetailUserContainer';
+import ViewDetailSkillContainer from "./ViewDetailSkill/ViewDetailSkillContainer";
+import CreateSkillContainer from './CreateSkill/CreateSkillContainer';
 import CreateAdminContainer from '../components/CreateAdmin/CreateAdminContainer';
 import LoginContainer from '../components/LoginAdmin/LoginContainer';
 
@@ -113,6 +116,79 @@ class App extends React.PureComponent {
                                     }}
                                 >
                                     <Route path="/detailUser" component={ViewDetailUserContainer}/>
+                                </Content>
+                            </Layout>
+                        </Layout>
+                    </Layout>
+                </Route>
+                <Route path="/createSkill">
+                    <Layout style={{height: '100vh'}}>
+                        <SlideBarAdmin/>
+                        <Layout>
+                            <NavBarContainer/>
+                            <Layout style={{padding: '0 24px 24px'}}>
+                                <Breadcrumb style={{margin: '16px 0'}}>
+                                    <Breadcrumb.Item>Dashboard</Breadcrumb.Item>
+                                    <Breadcrumb.Item>Quản lý kỹ năng</Breadcrumb.Item>
+                                    <Breadcrumb.Item>Thêm kỹ năng</Breadcrumb.Item>
+                                </Breadcrumb>
+                                <Content
+                                    style={{
+                                        background: '#fff',
+                                        padding: 24,
+                                        margin: 0,
+                                        minHeight: 280,
+                                    }}
+                                >
+                                    <Route path="/createSkill" component={CreateSkillContainer}/>
+                                </Content>
+                            </Layout>
+                        </Layout>
+                    </Layout>
+                </Route>
+                <Route path="/skills">
+                    <Layout style={{height: '100vh'}}>
+                        <SlideBarAdmin/>
+                        <Layout>
+                            <NavBarContainer/>
+                            <Layout style={{padding: '0 24px 24px'}}>
+                                <Breadcrumb style={{margin: '16px 0'}}>
+                                    <Breadcrumb.Item>Dashboard</Breadcrumb.Item>
+                                    <Breadcrumb.Item>Danh sách kỹ năng</Breadcrumb.Item>
+                                </Breadcrumb>
+                                <Content
+                                    style={{
+                                        background: '#fff',
+                                        padding: 24,
+                                        margin: 0,
+                                        minHeight: 280,
+                                    }}
+                                >
+                                    <Route path="/skills" component={ViewListSkillContainer}/>
+                                </Content>
+                            </Layout>
+                        </Layout>
+                    </Layout>
+                </Route>
+                <Route path="/detailSkill">
+                    <Layout style={{height: '100%'}}>
+                        <SlideBarAdmin/>
+                        <Layout>
+                            <NavBarContainer/>
+                            <Layout style={{padding: '0 24px 24px'}}>
+                                <Breadcrumb style={{margin: '16px 0'}}>
+                                    <Breadcrumb.Item>Dashboard</Breadcrumb.Item>
+                                    <Breadcrumb.Item>Thông tin chi tiết kỹ năng</Breadcrumb.Item>
+                                </Breadcrumb>
+                                <Content
+                                    style={{
+                                        background: '#fff',
+                                        padding: 24,
+                                        margin: 0,
+                                        minHeight: 280,
+                                    }}
+                                >
+                                    <Route path="/detailSkill" component={ViewDetailSkillContainer}/>
                                 </Content>
                             </Layout>
                         </Layout>

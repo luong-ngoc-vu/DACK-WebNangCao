@@ -1,0 +1,22 @@
+.typo-data {
+    padding: 10px 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.avatar-user {
+    height: 252px;
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+}
+.avatar-uploader {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.avatar-uploader > .ant-upload {
+    width: 150px;
+    height: 150px;
+}
