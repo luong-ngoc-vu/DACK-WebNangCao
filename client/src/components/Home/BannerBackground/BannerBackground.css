@@ -1,14 +1,15 @@
 .banner-bg {
-  background-image: url('../../../bg-bmentor.jpg');
+  background: url('../../../bg-bmentor.jpg');
   height: 100vh;
+  width: auto;
   background-position: center center;
   background-size: cover;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  margin: 0 -200px;
-  padding: 0 200px;
+
+  padding: 0px 200px;
   max-height: 500px;
   margin-top: -10px;
 }
