@@ -1,0 +1,58 @@
+.detail-tutor__info {
+  padding: 20px;
+  box-shadow: hsla(200, 90%, 16%, 0.35) 0px 1px 6px 0px;
+}
+.general-info {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+.avatar {
+  object-fit: fill;
+  max-width: 100%;
+  width: 100%;
+  height: 200px;
+  max-height: 200px;
+}
+.info-personal {
+  display: flex;
+
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.rate {
+  position: absolute;
+  height: auto;
+  width: 100px;
+  right: 0;
+}
+.rate-text {
+  float: left;
+  width: 100%;
+  border-bottom: 3px solid #14bff4;
+  font-size: 20px;
+}
+.ant-typography {
+  color: black;
+}
+.profile-tutor {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.title-info {
+  width: auto;
+  border-bottom: 1.5px solid #2c3236;
+  font-size: 17px;
+  margin: 15px 0px 10px 0px;
+}
+.beside-info {
+  display: flex;
+  flex-direction: column;
+  padding: 5px 5px;
+  width: auto;
+}

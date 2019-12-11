@@ -11,10 +11,14 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-.ant-layout {
-  background: whitesmoke;
-}
+
 .ant-layout,
 .ant-layout-has-sider {
   background-color: whitesmoke;
+}
+p {
+  color: black;
+}
+.ant-typography {
+  color: black;
 }

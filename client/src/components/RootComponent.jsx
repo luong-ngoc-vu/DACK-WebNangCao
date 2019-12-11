@@ -8,6 +8,7 @@ import ManagementTutorContriner from './ManagementOfTutor/ManagementTutorContain
 import ManagementHirerContainer from './ManagementOfHirer/ManagementHirerContainer';
 import NavBarContriner from './Common/NavBar/NavBarContainer';
 import Home from './Home/Home';
+import DetailTutor from './DetailTutor/DetailTutor';
 
 const { Content } = Layout;
 
@@ -15,7 +16,7 @@ function Root() {
   return (
     <BrowserRouter>
       <Layout style={{ textAlign: 'center', backgroundColor: 'white' }}>
-        <NavBarContriner/>
+        <NavBarContriner />
         <Row>
           <Col span={3}></Col>
           <Col span={18}>
@@ -26,10 +27,10 @@ function Root() {
                 backgroundColor: 'white'
               }}
             >
-              <Route exact path="/" component={Home}/>
-              <Route exact path="/home" component={Home}/>
-              <Route path="/register" component={RegisterContainer}/>
-              <Route path="/login" component={LoginContainer}/>
+              <Route exact path="/" component={Home} />
+              <Route exact path="/home" component={Home} />
+              <Route path="/register" component={RegisterContainer} />
+              <Route path="/login" component={LoginContainer} />
               <Route
                 path="/tutor-manage"
                 component={ManagementTutorContriner}
@@ -38,6 +39,7 @@ function Root() {
                 path="/hirer-manage"
                 component={ManagementHirerContainer}
               />
+              <Route path="/detail" component={DetailTutor} />
             </Content>
           </Col>
           <Col span={3}></Col>
