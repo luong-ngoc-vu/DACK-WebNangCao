@@ -1,0 +1,18 @@
+.register-form {
+    background: white;
+    width: 400px;
+    margin: 3px auto;
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 1px 6px rgba(57, 73, 76, 0.35);
+    border-radius: 2px;
+}
+
+.ant-form-item {
+    margin-bottom: 10px;
+}
+
+.btn-sign-up {
+    width: 100%;
+    margin-bottom: 10px;
+}

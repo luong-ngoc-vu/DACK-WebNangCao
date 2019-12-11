@@ -8,7 +8,7 @@ export const initialState = {
     moreInfo: ''
 };
 
-const ViewListUserReducer = (state = initialState, action) => {
+const ViewDetailUserReducer = (state = initialState, action) => {
     switch (action.type) {
         case 'VIEW_DETAIL_USER': {
             const st = {...state};
@@ -27,4 +27,4 @@ const ViewListUserReducer = (state = initialState, action) => {
     }
 };
 
-export default ViewListUserReducer;
+export default ViewDetailUserReducer;

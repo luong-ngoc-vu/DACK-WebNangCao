@@ -48,8 +48,12 @@ class SideBar extends React.Component {
               </span>
                         }
                     >
-                        <Menu.Item key="5">Thêm mới kỹ năng</Menu.Item>
-                        <Menu.Item key="6">Xem danh sách </Menu.Item>
+                        <Menu.Item key="5">
+                            <Link to="/createSkill">Thêm mới kỹ năng</Link>
+                        </Menu.Item>
+                        <Menu.Item key="6">
+                            <Link to="/skills">Danh sách kỹ năng</Link>
+                        </Menu.Item>
                     </SubMenu>
                     <SubMenu
                         key="sub3"
@@ -62,8 +66,6 @@ class SideBar extends React.Component {
                     >
                         <Menu.Item key="9">Phê duyệt hợp đồng</Menu.Item>
                         <Menu.Item key="10">Xem danh sách</Menu.Item>
-                        <Menu.Item key="11">option11</Menu.Item>
-                        <Menu.Item key="12">option12</Menu.Item>
                     </SubMenu>
                     <SubMenu
                         key="sub4"
