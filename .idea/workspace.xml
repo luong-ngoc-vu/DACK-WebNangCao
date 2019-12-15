@@ -2,26 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1e3d978d-558f-45bc-a75a-84fa5d11e4de" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/client/src/components/DetailTutor/InteractForm/InteractForm.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/DetailTutor/InteractForm/InteractForm.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/HireOrder/HireOrder.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/Home/HotTopic/HotTopic.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/Home/StepGuide/StepGuide.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/Home/StepGuide/StepGuide.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/Home/StepGuide/step01.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/Home/StepGuide/step02.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/Home/StepGuide/step03.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/Home/StepGuide/step04.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/ManagementOfHirer/OrderContract/OrderContract.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/ManagementOfTutor/OrderContract/OrderContract.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/DetailTutor/DetailTutor.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/DetailTutor/DetailTutor.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/DetailTutor/FormContact/FormContact.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/DetailTutor/FormContact/FormContact.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Home/Home.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Home/Home.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/ManagementOfHirer/ManagementHirer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ManagementOfHirer/ManagementHirer.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/ManagementOfHirer/SideBarHirer/SideBarHirer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ManagementOfHirer/SideBarHirer/SideBarHirer.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/RootComponent.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/RootComponent.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/.eslintrc" beforeDir="false" afterPath="$PROJECT_DIR$/client/.eslintrc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/.prettierrc" beforeDir="false" afterPath="$PROJECT_DIR$/client/.prettierrc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/ManagementOfHirer/OrderContract/OrderContract.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ManagementOfHirer/OrderContract/OrderContract.jsx" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -72,6 +58,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="C:\Users\Vu\AppData\Roaming\npm\node_modules\prettier" />
+    <property name="settings.editor.selected.configurable" value="MTConfigurable" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2019.1\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
@@ -156,6 +143,8 @@
       <workItem from="1576055699898" duration="2069000" />
       <workItem from="1576391691539" duration="12000" />
       <workItem from="1576391728577" duration="392000" />
+      <workItem from="1576408758873" duration="56000" />
+      <workItem from="1576408830078" duration="128000" />
     </task>
     <servers />
   </component>
