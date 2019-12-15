@@ -1,0 +1,16 @@
+.step-guide__item {
+  display: flex;
+  flex-direction: column;
+
+  margin-top: 10px;
+}
+.img-step-guide {
+  object-fit: cover;
+  width: 60%;
+  height: auto;
+  margin: 0px auto;
+}
+.des-step-guide {
+  display: flex;
+  flex-direction: column;
+}
