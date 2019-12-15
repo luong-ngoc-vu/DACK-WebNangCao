@@ -47,7 +47,7 @@ class SideBarHirer extends React.Component {
                 </span>
               }
             >
-              <Menu.Item key="5">Gia sư đang chờ</Menu.Item>
+              <Menu.Item key="5"><Link to="/hirer-manage/manage-contract">Gia sư đang chờ</Link></Menu.Item>
               <Menu.Item key="6">Gia sư đang thuê</Menu.Item>
               <Menu.Item key="7">Gia sư đã thuê</Menu.Item>
             </SubMenu>

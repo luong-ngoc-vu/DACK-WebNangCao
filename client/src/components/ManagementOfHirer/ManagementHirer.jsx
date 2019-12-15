@@ -6,6 +6,7 @@ import { Route } from 'react-router-dom';
 import ProfileHirerContainer from './ProfileHirer/ProfileHirerContainer';
 import SideBarHirer from './SideBarHirer/SideBarHirer';
 import ChangePasswordContainer from '../ChangePassword/ChangePasswordContainer';
+import OrderContract from './OrderContract/OrderContract';
 
 const { Content } = Layout;
 
@@ -32,6 +33,10 @@ class ManagementHirer extends React.Component {
             <Route
               path="/hirer-manage/change-password"
               component={ChangePasswordContainer}
+            ></Route>
+            <Route
+              path="/hirer-manage/manage-contract"
+              component={OrderContract}
             ></Route>
           </Content>
         </Layout>
