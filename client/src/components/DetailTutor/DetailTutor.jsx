@@ -10,7 +10,6 @@ const { Text } = Typography;
 class DetailTutor extends Component {
   render() {
     const st = this.props;
-    console.log('Skills: ' + st.skills[0]);
     const schedule = [21, 22, 31, 32, 33, 41, 71];
     const day = [
       'Thứ hai',

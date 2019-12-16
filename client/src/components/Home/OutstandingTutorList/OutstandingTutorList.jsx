@@ -87,10 +87,10 @@ class OutstandingTutorList extends React.Component {
                         data.map(teacher => (
                             <Col span={6}>
                                 <Link
-                                    to="/detailTutor"
+                                    to={"detailTutor/" + (teacher._id)}
                                     size="large"
                                     onClick={event => {
-                                        st.viewDetailTutor(teacher.email);
+                                        st.viewDetailTutor(teacher._id);
                                     }}
                                 >
                                     <Card
@@ -144,10 +144,10 @@ class OutstandingTutorList extends React.Component {
                         dataTutorialCity.map(teacher => (
                             <Col span={6}>
                                 <Link
-                                    to="/detailTutor"
+                                    to={"detailTutor/" + (teacher._id)}
                                     size="large"
                                     onClick={event => {
-                                        st.viewDetailTutor(teacher.email);
+                                        st.viewDetailTutor(teacher._id);
                                     }}
                                 >
                                     <Card

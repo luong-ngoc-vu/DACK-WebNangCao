@@ -12,8 +12,8 @@ const mapStateToProps = (st) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        viewDetailTutor: (email) => {
-            dispatch(viewDetailTutorRequest(email));
+        viewDetailTutor: (id) => {
+            dispatch(viewDetailTutorRequest(id));
         },
     };
 };

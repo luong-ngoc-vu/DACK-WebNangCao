@@ -26,7 +26,7 @@ class ProfileForm extends React.Component {
     state = {
         loading: false,
         selectedItemsSubject: [],
-        addressCity: '',
+        addressCity: this.addressCity,
         dataSkills: []
     };
 
@@ -195,12 +195,12 @@ class ProfileForm extends React.Component {
                             {st.isLoginFB === false && st.isLoginGG === false && (
                                 <Form.Item label="Thông tin mô tả bản thân">
                                     <TextArea placeholder="Mô tả ngắn gọn về bản thân"
-                                        rows={2}
-                                        defaultValue={st.moreInfo}
-                                        name="moreInfo"
-                                        onChange={event => {
-                                            this.moreInfo = event.target.value;
-                                        }}
+                                              rows={4}
+                                              defaultValue={st.moreInfo}
+                                              name="moreInfo"
+                                              onChange={event => {
+                                                  this.moreInfo = event.target.value;
+                                              }}
                                     />
                                 </Form.Item>
                             )}
@@ -243,7 +243,6 @@ class ProfileForm extends React.Component {
                                     />
                                 </Form.Item>
                             )}
-                            <div>{this.err}</div>
                         </Form>
                     </div>
                 </Typography>
@@ -311,29 +310,21 @@ class ProfileForm extends React.Component {
                             />
                         </Form.Item>
                         <Form.Item label={<span>Môn học bạn sẽ dạy&nbsp;</span>}>
-                            {getFieldDecorator('subject', {
-                                rules: [
-                                    {
-                                        required: true,
-                                        message: 'Vui lòng chọn môn học'
-                                    }
-                                ]
-                            })(
-                                <Select
-                                    name="skills"
-                                    mode="multiple"
-                                    defaultValue={st.skills}
-                                    onChange={value => {
-                                        this.setState({ selectedItemsSubject: value });
-                                    }}
-                                    style={{ width: '100%' }}
-                                >
-                                    {filteredOptions.map(item => (
-                                        <Select.Option key={item} value={item}>
-                                            {item}
-                                        </Select.Option>
-                                    ))}
-                                </Select>)}
+                            <Select
+                                name="skills"
+                                mode="multiple"
+                                defaultValue={st.skills}
+                                onChange={value => {
+                                    this.setState({selectedItemsSubject: value});
+                                }}
+                                style={{width: '100%'}}
+                            >
+                                {filteredOptions.map(item => (
+                                    <Select.Option key={item} value={item}>
+                                        {item}
+                                    </Select.Option>
+                                ))}
+                            </Select>
                         </Form.Item>
                         <Form.Item label={<span>Phí dạy 1 giờ (VND)&nbsp;</span>}>
                             {getFieldDecorator('fee', {
@@ -393,7 +384,9 @@ class ProfileForm extends React.Component {
                                 </div>
                             )}
                         </Form.Item>
-                        <Form.Item style={{width: '100%', display:'flex', flexDirection:'row', justifyContent:'center' }}>
+                        <div><strong>{this.err}</strong></div>
+                        <Form.Item
+                            style={{width: '100%', display: 'flex', flexDirection: 'row', justifyContent: 'center'}}>
                             <Button
                                 style={{minWidth: '150px'}}
                                 size="large"
