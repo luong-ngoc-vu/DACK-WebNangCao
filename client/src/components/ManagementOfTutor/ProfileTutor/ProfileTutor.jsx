@@ -20,14 +20,13 @@ class ProfileForm extends React.Component {
         this.address = '';
         this.addressCity = '';
         this.moreInfo = '';
-        this.skills = [];
         this.err = '';
     }
 
     state = {
         loading: false,
         selectedItemsSubject: [],
-        addressCity: this.addressCity,
+        addressCity: '',
         dataSkills: []
     };
 
@@ -41,7 +40,7 @@ class ProfileForm extends React.Component {
     };
 
     componentDidMount() {
-        fetch('http://localhost:4000/user/getSkills')
+        fetch('https://apiclientwebsitethuegiasu.herokuapp.com/user/getSkills')
             .then(response => response.json())
             .then(data => this.setState({dataSkills: data}));
     }
@@ -49,7 +48,6 @@ class ProfileForm extends React.Component {
     render() {
         const st = this.props;
         const {dataSkills} = this.state;
-        console.log(dataSkills);
 
         this.name = st.name;
         this.email = st.email;
@@ -58,7 +56,6 @@ class ProfileForm extends React.Component {
         this.address = st.address;
         this.addressCity = st.addressCity;
         this.moreInfo = st.moreInfo;
-        this.skills = st.skills;
 
         if (st.isLogin === false) {
             return <Redirect to="/login"/>;
@@ -197,8 +194,8 @@ class ProfileForm extends React.Component {
                             )}
                             {st.isLoginFB === false && st.isLoginGG === false && (
                                 <Form.Item label="Thông tin mô tả bản thân">
-                                    <TextArea
-                                        rows={3}
+                                    <TextArea placeholder="Mô tả ngắn gọn về bản thân"
+                                        rows={2}
                                         defaultValue={st.moreInfo}
                                         name="moreInfo"
                                         onChange={event => {
@@ -287,7 +284,7 @@ class ProfileForm extends React.Component {
                             })(
                                 <Select
                                     showSearch
-                                    style={{width: 400}}
+                                    style={{width: '50%'}}
                                     placeholder="Chọn chức danh, cấp bậc của bạn"
                                     optionFilterProp="children"
                                     filterOption={(input, option) =>
@@ -314,22 +311,29 @@ class ProfileForm extends React.Component {
                             />
                         </Form.Item>
                         <Form.Item label={<span>Môn học bạn sẽ dạy&nbsp;</span>}>
-                            <Select
-                                name="skills"
-                                maxTagCount={5}
-                                mode="multiple"
-                                defaultValue={this.skills}
-                                onChange={value => {
-                                    this.setState({selectedItemsSubject: value});
-                                }}
-                                style={{width: '100%'}}
-                            >
-                                {filteredOptions.map(item => (
-                                    <Select.Option key={item} value={item}>
-                                        {item}
-                                    </Select.Option>
-                                ))}
-                            </Select>
+                            {getFieldDecorator('subject', {
+                                rules: [
+                                    {
+                                        required: true,
+                                        message: 'Vui lòng chọn môn học'
+                                    }
+                                ]
+                            })(
+                                <Select
+                                    name="skills"
+                                    mode="multiple"
+                                    defaultValue={st.skills}
+                                    onChange={value => {
+                                        this.setState({ selectedItemsSubject: value });
+                                    }}
+                                    style={{ width: '100%' }}
+                                >
+                                    {filteredOptions.map(item => (
+                                        <Select.Option key={item} value={item}>
+                                            {item}
+                                        </Select.Option>
+                                    ))}
+                                </Select>)}
                         </Form.Item>
                         <Form.Item label={<span>Phí dạy 1 giờ (VND)&nbsp;</span>}>
                             {getFieldDecorator('fee', {
@@ -355,11 +359,11 @@ class ProfileForm extends React.Component {
                             )}
                         </Form.Item>
                         <Form.Item label="Lịch bạn có thể nhận lớp">
-                            {getFieldDecorator('fee', {
+                            {getFieldDecorator('schedule', {
                                 rules: [
                                     {
                                         required: true,
-                                        message: 'Xin nhập thông tin học phí theo giờ!'
+                                        message: 'Vui lòng chọn lịch dạy của bạn!'
                                     }
                                 ]
                             })(
@@ -389,9 +393,9 @@ class ProfileForm extends React.Component {
                                 </div>
                             )}
                         </Form.Item>
-                        <Form.Item>
+                        <Form.Item style={{width: '100%', display:'flex', flexDirection:'row', justifyContent:'center' }}>
                             <Button
-                                style={{width: '150px', margin: '10px 300px'}}
+                                style={{minWidth: '150px'}}
                                 size="large"
                                 type="primary"
                                 htmlType="submit"

@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1e3d978d-558f-45bc-a75a-84fa5d11e4de" name="Default Changelist" comment="">
+<<<<<<< HEAD
       <change afterPath="$PROJECT_DIR$/restfulapiclient/views/error.hbs" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/restfulapiclient/views/index.hbs" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/restfulapiclient/views/layout.hbs" afterDir="false" />
@@ -83,7 +84,16 @@
       <change beforePath="$PROJECT_DIR$/restfulapiclient/build/static/media/bg-bmentor.53e2e884.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/restfulapiclient/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/restfulapiclient/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/restfulapiclient/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/restfulapiclient/package.json" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/.eslintrc" beforeDir="false" afterPath="$PROJECT_DIR$/client/.eslintrc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/.prettierrc" beforeDir="false" afterPath="$PROJECT_DIR$/client/.prettierrc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/ManagementOfHirer/OrderContract/OrderContract.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ManagementOfHirer/OrderContract/OrderContract.jsx" afterDir="false" />
+>>>>>>> e9190f3c6d6feda789b4f7eaa817fb85ad77187c
     </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -101,7 +111,10 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+<<<<<<< HEAD
     <option name="ROOT_SYNC" value="SYNC" />
+=======
+>>>>>>> e9190f3c6d6feda789b4f7eaa817fb85ad77187c
   </component>
   <component name="JsFlowSettings">
     <service-enabled>true</service-enabled>
@@ -126,13 +139,19 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+<<<<<<< HEAD
     <property name="javascript.nodejs.core.library.configured.version" value="10.15.1" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+=======
+    <property name="javascript.nodejs.core.library.configured.version" value="11.1.0" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/client" />
+>>>>>>> e9190f3c6d6feda789b4f7eaa817fb85ad77187c
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="C:\Users\Vu\AppData\Roaming\npm\node_modules\prettier" />
+    <property name="settings.editor.selected.configurable" value="MTConfigurable" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2019.1\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
@@ -145,6 +164,18 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="F:\Study\React apps\DACK-WebNangCao\restfulapiadmin\api\controllers" />
     </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
   </component>
   <component name="RunManager" selected="npm.test">
     <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
@@ -185,18 +216,6 @@
       </list>
     </recent_temporary>
   </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
-  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -214,10 +233,18 @@
       <workItem from="1575897622582" duration="2942000" />
       <workItem from="1575900732068" duration="15255000" />
       <workItem from="1575963739376" duration="56738000" />
+<<<<<<< HEAD
       <workItem from="1576055699898" duration="8959000" />
       <workItem from="1576079757948" duration="219000" />
       <workItem from="1576139512194" duration="331000" />
       <workItem from="1576478722945" duration="8587000" />
+=======
+      <workItem from="1576055699898" duration="2069000" />
+      <workItem from="1576391691539" duration="12000" />
+      <workItem from="1576391728577" duration="392000" />
+      <workItem from="1576408758873" duration="56000" />
+      <workItem from="1576408830078" duration="128000" />
+>>>>>>> e9190f3c6d6feda789b4f7eaa817fb85ad77187c
     </task>
     <servers />
   </component>
@@ -241,6 +268,7 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
+<<<<<<< HEAD
     <state x="435" y="176" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1575982425602">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -281,5 +309,27 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1575993680706" />
+=======
+    <state x="435" y="176" key="#com.intellij.fileTypes.FileTypeChooser" />
+    <state x="435" y="176" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" />
+    <state x="413" y="115" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" />
+    <state x="413" y="115" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" />
+    <state x="463" y="122" key="FileChooserDialogImpl" />
+    <state x="463" y="122" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" />
+    <state width="1345" height="179" key="GridCell.Tab.0.bottom" />
+    <state width="1345" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" />
+    <state width="1345" height="179" key="GridCell.Tab.0.center" />
+    <state width="1345" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" />
+    <state width="1345" height="179" key="GridCell.Tab.0.left" />
+    <state width="1345" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" />
+    <state width="1345" height="179" key="GridCell.Tab.0.right" />
+    <state width="1345" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" />
+    <state x="394" y="83" width="683" height="580" key="find.popup" />
+    <state x="394" y="83" width="683" height="580" key="find.popup/0.0.1366.728@0.0.1366.728" />
+    <state x="339" y="162" key="run.anything.popup" />
+    <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" />
+>>>>>>> e9190f3c6d6feda789b4f7eaa817fb85ad77187c
   </component>
 </project>

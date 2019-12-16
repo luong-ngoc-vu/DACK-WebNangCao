@@ -1,26 +1,36 @@
 import React from 'react';
 
 import 'antd/dist/antd.css';
-import './FormContact.css';
-import { Form, Icon, Button } from 'antd';
+import './InteractForm.css';
+import { Form, Icon, Button, Modal } from 'antd';
+import HireOrder from '../../HireOrder/HireOrder';
 
 class ContactForm extends React.Component {
-  handleSubmit = e => {
-    e.preventDefault();
-    this.props.form.validateFields((err, values) => {
-      if (!err) {
-        console.log('Received values of form: ', values);
-      }
+  state = {
+    loading: false,
+    visible: false
+  };
+
+  showModal = () => {
+    this.setState({
+      visible: true
     });
   };
 
   render() {
+    const { visible, loading } = this.state;
     return (
       <div className="side-form-contact">
-        <Button size="large" type="primary" className="contact-button">
+        <Button
+          size="large"
+          type="primary"
+          className="contact-button"
+          onClick={this.showModal}
+        >
           <Icon type="solution" />
           Thuê gia sư
         </Button>
+
         <Button size="large" type="primary" className="contact-button">
           <Icon type="wechat" />
           Chat với gia sư
@@ -28,6 +38,8 @@ class ContactForm extends React.Component {
         <Button size="large" type="primary" className="contact-button">
           <Icon type="heart" /> Lưu
         </Button>
+
+        <HireOrder visible={visible} />
       </div>
     );
   }

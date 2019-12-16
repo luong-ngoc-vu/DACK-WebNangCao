@@ -34,9 +34,9 @@
   border-bottom: 3px solid #14bff4;
   font-size: 20px;
 }
-.ant-typography {
-  color: black;
-}
+/* .ant-typography {
+  color: rgb(59, 58, 58);
+} */
 .profile-tutor {
   margin-top: 20px;
   display: flex;
@@ -46,7 +46,7 @@
 
 .title-info {
   width: auto;
-  border-bottom: 1.5px solid #2c3236;
+  border-bottom: 1.5px solid #4f89af;
   font-size: 17px;
   margin: 15px 0px 10px 0px;
 }
