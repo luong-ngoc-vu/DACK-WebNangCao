@@ -38,7 +38,22 @@ const UserSchema = new Schema({
     typeUser: {
         type: Intl,
         require: true
-    }
+    },
+    levelStudy: {
+        type: String
+    },
+    curPosition: {
+        type: String
+    },
+    certificates: {
+        type: String
+    },
+    school: {
+        type: String
+    },
+    salary: {
+        type: String
+    },
 });
 
 UserSchema.methods.isValidPassword = async function (password) {

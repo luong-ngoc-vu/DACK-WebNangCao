@@ -17,14 +17,20 @@ const mapStateToProps = state => {
         addressCity: st.addressCity,
         moreInfo: st.moreInfo,
         typeUser: st.typeUser,
-        skills: st.skills
+        skills: st.skills,
+        levelStudy: st.levelStudy,
+        curPosition: st.curPosition,
+        certificates: st.certificates,
+        school: st.school
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
-        updateUser: (name, phone, email, image, address, addressCity, moreInfo, skills) => {
-            dispatch(actions.updateRequest(name, phone, email, image, address, addressCity, moreInfo, skills))
+        updateUser: (name, phone, email, image, moreInfo, address, addressCity,
+                     levelStudy, curPosition, certificates, school, skills) => {
+            dispatch(actions.updateRequest(name, phone, email, image, moreInfo, address, addressCity,
+                levelStudy, curPosition, certificates, school, skills))
         },
     };
 };

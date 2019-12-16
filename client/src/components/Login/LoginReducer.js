@@ -8,6 +8,10 @@ export const initialState = {
     addressCity: '',
     moreInfo: '',
     skills: '',
+    levelStudy: '',
+    curPosition: '',
+    certificates: '',
+    school: '',
     token: '',
     typeUser: 1,
     isLogin: false,
@@ -34,8 +38,12 @@ const LoginReducer = (state = initialState, action) => {
                     st.address = action.data.res.data.user.address;
                     st.addressCity = action.data.res.data.user.addressCity;
                     st.skills = action.data.res.data.user.skills;
+                    st.levelStudy = action.data.res.data.user.levelStudy;
+                    st.curPosition = action.data.res.data.user.curPosition;
+                    st.certificates = action.data.res.data.user.certificates;
                     st.moreInfo = action.data.res.data.user.moreInfo;
                     st.typeUser = action.data.res.data.user.typeUser;
+                    st.school = action.data.res.data.user.school;
                     st.isLogin = true;
                     st.isLoginFB = false;
                     st.isLoginGG = false;
@@ -91,6 +99,10 @@ const LoginReducer = (state = initialState, action) => {
             st.addressCity = data.addressCity;
             st.moreInfo = data.moreInfo;
             st.skills = data.skills;
+            st.levelStudy = data.levelStudy;
+            st.curPosition = data.curPosition;
+            st.certificates = data.certificates;
+            st.school = data.school;
             console.log(st);
             return st;
         }

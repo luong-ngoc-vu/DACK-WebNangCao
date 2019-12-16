@@ -37,10 +37,11 @@ module.exports = {
     },
 
     updateUser: async (req, res) => {
-        await User.findOneAndUpdate({"email": req.body.email}, req.body, {new: true}, (err, user) => {
+        await User.findOne({"email": req.body.email}, async (err, user) => {
+            Object.assign(user, req.body);
+            await user.save();
             res.status(200).json(user);
-        });
-
+        })
     },
 
     changePassword: async (req, res) => {
