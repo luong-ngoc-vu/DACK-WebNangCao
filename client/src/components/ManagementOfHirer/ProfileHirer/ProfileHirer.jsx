@@ -25,7 +25,7 @@ class ProfileForm extends React.Component {
 
     state = {
         loading: false,
-        addressCity: ''
+        addressCity: this.addressCity
     };
 
     handleSubmit = e => {

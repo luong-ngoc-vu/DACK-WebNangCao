@@ -3,8 +3,6 @@ import 'antd/dist/antd.css';
 import './ViewDetailSkill.css';
 import {Button, Form, Input, Typography} from 'antd';
 
-const {TextArea} = Input;
-
 const {Title} = Typography;
 
 

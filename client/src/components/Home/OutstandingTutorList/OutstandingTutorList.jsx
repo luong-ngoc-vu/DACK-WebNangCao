@@ -18,7 +18,7 @@ class OutstandingTutorList extends React.Component {
 
     OnClick(addressCity) {
         return axios
-            .post('https://apiclientwebsitethuegiasu.herokuapp.com/user/getTutorialCity', {
+            .post('http://localhost:4000/user/getTutorialCity', {
                 addressCity
             })
             .catch(error => {
@@ -33,7 +33,7 @@ class OutstandingTutorList extends React.Component {
     };
 
     componentDidMount() {
-        fetch('https://apiclientwebsitethuegiasu.herokuapp.com/user/getTutorialUser')
+        fetch('http://localhost:4000/user/getTutorialUser')
             .then(response => response.json())
             .then(data => this.setState({data: data}));
     }

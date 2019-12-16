@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const passport = require('passport');
+const User = require('../models/user');
+const ObjectId = require('mongodb').ObjectID;
 
 const controller = require('../controllers/user');
 const controllerLogin = require('../controllers/auth');
@@ -12,7 +13,9 @@ router.post('/changePass', controller.changePassword);
 
 router.get('/getTutorialUser', controller.getTeacher);
 router.post('/getTutorialCity', controller.getTeacherCity);
-router.post('/detailTutor', controller.getDetailTeacher);
+
+router.get('/detailTutor/:id', controller.getDetailTeacher);
+
 router.get('/getSkills', controller.getSkills);
 
 router.get('/me', controller.getUser);

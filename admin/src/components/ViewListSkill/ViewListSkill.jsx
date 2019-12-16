@@ -1,10 +1,8 @@
 import React from 'react';
 // import './CreateAdmin.css';
 import 'antd/dist/antd.css';
-import { Button, Form, Table, Typography } from 'antd';
+import { Button, Form, Table } from 'antd';
 import { Link, Redirect } from 'react-router-dom';
-
-const { Title, Text } = Typography;
 
 const columns = [
   {

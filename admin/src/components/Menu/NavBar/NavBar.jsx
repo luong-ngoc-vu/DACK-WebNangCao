@@ -53,7 +53,7 @@ class NavBar extends React.Component {
                 </div>
                 <div>
                     <Dropdown overlay={menu} style={{marginLeft: '20px'}}>
-                        <a className="ant-dropdown-link" href="#">
+                        <a className="ant-dropdown-link" href="/">
                             <Avatar
                                 src="https://2game.vn/imgstore/pictures/2game/2019/10/09/2game-natra-ma-dong-h5-logo-1.png"/>{' '}
                             &nbsp;&nbsp;{st.email}

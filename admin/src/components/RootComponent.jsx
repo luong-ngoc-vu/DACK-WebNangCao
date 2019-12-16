@@ -17,7 +17,7 @@ import CreateSkillContainer from './CreateSkill/CreateSkillContainer';
 import CreateAdminContainer from '../components/CreateAdmin/CreateAdminContainer';
 import LoginContainer from '../components/LoginAdmin/LoginContainer';
 
-const { Header, Sider, Content } = Layout;
+const { Content } = Layout;
 
 class App extends React.PureComponent {
   render() {

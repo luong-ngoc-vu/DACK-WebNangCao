@@ -83,6 +83,7 @@ const LoginReducer = (state = initialState, action) => {
 
         case 'UPDATE': {
             const st = {...state};
+            console.log("user: " + action.data.res.data.name);
             st.email = action.data.res.data.email;
             st.name = action.data.res.data.name;
             st.phone = action.data.res.data.phone;

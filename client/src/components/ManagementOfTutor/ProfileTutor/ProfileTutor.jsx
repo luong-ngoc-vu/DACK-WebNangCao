@@ -20,13 +20,14 @@ class ProfileForm extends React.Component {
         this.address = '';
         this.addressCity = '';
         this.moreInfo = '';
+        this.skills = [];
         this.err = '';
     }
 
     state = {
         loading: false,
         selectedItemsSubject: [],
-        addressCity: '',
+        addressCity: this.addressCity,
         dataSkills: []
     };
 
@@ -40,7 +41,7 @@ class ProfileForm extends React.Component {
     };
 
     componentDidMount() {
-        fetch('https://apiclientwebsitethuegiasu.herokuapp.com/user/getSkills')
+        fetch('http://localhost:4000/user/getSkills')
             .then(response => response.json())
             .then(data => this.setState({dataSkills: data}));
     }
@@ -48,6 +49,7 @@ class ProfileForm extends React.Component {
     render() {
         const st = this.props;
         const {dataSkills} = this.state;
+        console.log(dataSkills);
 
         this.name = st.name;
         this.email = st.email;
@@ -56,6 +58,7 @@ class ProfileForm extends React.Component {
         this.address = st.address;
         this.addressCity = st.addressCity;
         this.moreInfo = st.moreInfo;
+        this.skills = st.skills;
 
         if (st.isLogin === false) {
             return <Redirect to="/login"/>;
@@ -315,7 +318,7 @@ class ProfileForm extends React.Component {
                                 name="skills"
                                 maxTagCount={5}
                                 mode="multiple"
-                                defaultValue={st.skills}
+                                defaultValue={this.skills}
                                 onChange={value => {
                                     this.setState({selectedItemsSubject: value});
                                 }}
