@@ -3,7 +3,7 @@ import 'antd/dist/antd.css';
 import './DetailTutor.css';
 
 import { Col, Icon, Row, Tag, Typography } from 'antd';
-import Contact from './InteractForm/InteractForm';
+import ContactContainer from './InteractForm/InteractFormContainer';
 
 const { Text } = Typography;
 
@@ -135,10 +135,20 @@ class DetailTutor extends Component {
                     &ensp;Giá thuê:&ensp;
                     <span style={{ fontWeight: 500 }}>150,000 vnđ/h</span>
                   </Text>
+                  <Text style={{ marginBottom: 10 }}>
+                    <Icon type="phone" />
+                    &ensp;Số điện thoại:&ensp;
+                    <span style={{ fontWeight: 500 }}>{st.phone}</span>
+                  </Text>
+                  <Text style={{ marginBottom: 10 }}>
+                    <Icon type="container" />
+                    &ensp;Trình độ học vấn:&ensp;
+                    <span style={{ fontWeight: 500 }}>{st.levelStudy}</span>
+                  </Text>
                   <Text>
                     <Icon type="user" />
                     &ensp;Hiện đang là:&ensp;
-                    <span style={{ fontWeight: 500 }}>Sinh viên</span>
+                    <span style={{ fontWeight: 500 }}>{st.curPosition}</span>
                   </Text>
                   <Row
                     style={{
@@ -169,7 +179,7 @@ class DetailTutor extends Component {
               <Text>{st.moreInfo}</Text>
               <Text className="title-info">Kinh nghiệm đi dạy</Text>
               <Text>
-                Hoa dong nhanh nhen va luon nhiet tinh trong cong viec
+                {st.certificates}
               </Text>
               <Text className="title-info">Chủ đề dạy</Text>
               {st.skills !== undefined && (
@@ -208,7 +218,7 @@ class DetailTutor extends Component {
           </div>
         </Col>
         <Col span={6}>
-          <Contact />
+          <ContactContainer/>
         </Col>
       </Row>
     );

@@ -13,13 +13,7 @@ const {Title} = Typography;
 class ProfileForm extends React.Component {
     constructor(props) {
         super(props);
-        this.name = '';
-        this.email = '';
-        this.phone = '';
-        this.image = '';
-        this.address = '';
         this.addressCity = '';
-        this.moreInfo = '';
         this.err = '';
     }
 
@@ -40,13 +34,7 @@ class ProfileForm extends React.Component {
     render() {
         const st = this.props;
 
-        this.name = st.name;
-        this.email = st.email;
-        this.phone = st.phone;
-        this.image = st.image;
-        this.address = st.address;
         this.addressCity = st.addressCity;
-        this.moreInfo = st.moreInfo;
 
         if (st.isLogin === false) {
             return <Redirect to="/login"/>
@@ -190,9 +178,15 @@ class ProfileForm extends React.Component {
                                         }}/>
                                 </Form.Item>
                             )}
-                            <div>{this.err}</div>
+                            <div><strong>{this.err}</strong></div>
                             {st.isLogin === true && st.isLoginGG === false && st.isLoginFB === false && (
-                                <Form.Item>
+                                <Form.Item
+                                    style={{
+                                        width: '100%',
+                                        display: 'flex',
+                                        flexDirection: 'row',
+                                        justifyContent: 'center'
+                                    }}>
                                     <Button
                                         style={{width: '150px', margin: '10px 300px'}}
                                         size="large"

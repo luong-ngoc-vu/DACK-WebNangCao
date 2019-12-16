@@ -402,8 +402,6 @@ class ProfileForm extends React.Component {
                                 className="btn-sign-up"
                                 onClick={event => {
                                     event.preventDefault();
-                                    console.log(this.state.levelStudy + ", " + this.state.curPosition + ", " +
-                                        this.certificates + ", được chết mịa :v " + this.school);
                                     st.updateUser(
                                         this.name,
                                         this.phone,

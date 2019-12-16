@@ -11,7 +11,7 @@ import Home from './Home/Home';
 import DetailTutorContainer from './DetailTutor/DetailTutorContainer';
 import Footer from './Common/Footer/Footer';
 import BannerBackground from './Home/BannerBackground/BannerBackground';
-import HireOrder from './HireOrder/HireOrder';
+import HireOrderContainer from './HireOrder/HireOrderContainer';
 
 const {Content} = Layout;
 
@@ -50,7 +50,7 @@ function Root() {
                                     component={ManagementHirerContainer}
                                 />
                                 <Route path="/detailTutor/:id" component={DetailTutorContainer}/>
-                                <Route path="/order" component={HireOrder}/>
+                                <Route path="/detailTutor/:id" component={HireOrderContainer}/>
                             </Content>
                         </Col>
                         <Col span={3}></Col>
