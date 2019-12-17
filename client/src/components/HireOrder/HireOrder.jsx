@@ -8,6 +8,13 @@ const {Text} = Typography;
 const OPTIONS = ['Apples', 'Nails', 'Bananas', 'Helicopters'];
 
 class HireOrderForm extends Component {
+
+    constructor() {
+        super();
+        this.numberOfLesson = 1;
+        this.err = '';
+    }
+
     state = {
         loading: false,
         visible: false,
@@ -120,6 +127,20 @@ class HireOrderForm extends Component {
                             readOnly
                         />
                     </Form.Item>
+                    <Form.Item label={<span>Phí dạy 1 buổi (VND)&nbsp;</span>}>
+                        <InputNumber
+                            style={{width: '100%'}}
+                            value={st.money}
+                            readOnly
+                            min={50000}
+                            step={10000}
+                            size="large"
+                            formatter={value =>
+                                `${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+                            }
+                            parser={value => value.replace(/\$\s?|(,*)/g, '')}
+                        />
+                    </Form.Item>
                     <Form.Item label="Môn học">
                         {getFieldDecorator('subject', {
                             rules: [
@@ -144,15 +165,24 @@ class HireOrderForm extends Component {
                             </Select>
                         )}
                     </Form.Item>
-                    <Form.Item label="Số lượng người học">
+                    <Form.Item label="Số lượng buổi học học">
                         {getFieldDecorator('fee', {
                             rules: [
                                 {
                                     required: true,
-                                    message: 'Vui lòng điền số lượng người học'
+                                    message: 'Vui lòng điền số lượng buổi học'
                                 }
                             ]
-                        })(<InputNumber style={{width: '100%'}} min={1} max={10} defaultValue={2}/>)}
+                        })
+                        (<Input
+                                style={{width: '100%'}}
+                                onChange={event => {
+                                    this.numberOfLesson = event.target.value.toString();
+                                }}
+                                min={1}
+                                defaultValue={2}
+                            />
+                        )}
                     </Form.Item>
                     <Form.Item label="Địa điểm diễn ra">
                         {getFieldDecorator('address', {
@@ -206,7 +236,7 @@ class HireOrderForm extends Component {
                                             flexDirection: 'row'
                                         }}
                                     >
-                                        {day.map((day) => <div style={{width: '14%'}}>{day}</div>)}
+                                        {day.map((day) => <div style={{width: '14%'}}><strong>{day}</strong></div>)}
                                     </div>
                                 </div>
                                 <Row>
@@ -223,6 +253,11 @@ class HireOrderForm extends Component {
                             Bạn đồng ý với những điều khoản của Bmentor
                         </Checkbox>
                     </Form.Item>
+                    {st.curMoney < st.money * parseInt(this.numberOfLesson) && (
+                        <div style={{justifyContent: 'center'}}>
+                            <strong>Số tiền hiện có ({st.curMoney}) không đủ để thuê gia sư này</strong>
+                        </div>
+                    )}
                     <Form.Item
                         style={{
                             width: '100%',
@@ -234,9 +269,11 @@ class HireOrderForm extends Component {
                         <Button onClick={this.handleCancel} style={{marginRight: 20}}>
                             Hủy
                         </Button>
-                        <Button type="primary" htmlType="submit" onClick={this.handleOk}>
-                            Gửi yêu cầu
-                        </Button>
+                        {st.curMoney >= st.money * parseInt(this.numberOfLesson) && (
+                            <Button type="primary" htmlType="submit" onClick={this.handleOk}>
+                                Gửi yêu cầu
+                            </Button>
+                        )}
                     </Form.Item>
                 </Form>
             </Modal>

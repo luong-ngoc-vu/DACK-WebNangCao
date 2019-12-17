@@ -15,6 +15,7 @@ const mapStateToProps = (st) => {
         curPosition: st.ViewDetailTutorReducer.curPosition,
         levelStudy: st.ViewDetailTutorReducer.levelStudy,
         certificates: st.ViewDetailTutorReducer.certificates,
+        money: st.ViewDetailTutorReducer.money,
 
         isLogin: st.LoginReducer.isLogin,
     };

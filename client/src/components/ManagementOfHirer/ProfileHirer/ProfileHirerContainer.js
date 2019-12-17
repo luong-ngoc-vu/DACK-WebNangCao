@@ -16,7 +16,8 @@ const mapStateToProps = state => {
         moreInfo: st.moreInfo,
         isLoginFB: st.isLoginFB,
         isLoginGG: st.isLoginGG,
-        typeUser: st.typeUser
+        typeUser: st.typeUser,
+        curMoney: st.curMoney
     };
 };
 

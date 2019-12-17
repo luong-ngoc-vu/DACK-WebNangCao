@@ -12,6 +12,8 @@ export const initialState = {
     curPosition: '',
     certificates: '',
     school: '',
+    money: '',
+    curMoney: '',
     token: '',
     typeUser: 1,
     isLogin: false,
@@ -44,6 +46,9 @@ const LoginReducer = (state = initialState, action) => {
                     st.moreInfo = action.data.res.data.user.moreInfo;
                     st.typeUser = action.data.res.data.user.typeUser;
                     st.school = action.data.res.data.user.school;
+                    st.money = action.data.res.data.user.money;
+                    st.curMoney = action.data.res.data.user.curMoney;
+                    console.log(st.curMoney);
                     st.isLogin = true;
                     st.isLoginFB = false;
                     st.isLoginGG = false;
@@ -103,7 +108,7 @@ const LoginReducer = (state = initialState, action) => {
             st.curPosition = data.curPosition;
             st.certificates = data.certificates;
             st.school = data.school;
-            console.log(st);
+            st.money = data.money;
             return st;
         }
 

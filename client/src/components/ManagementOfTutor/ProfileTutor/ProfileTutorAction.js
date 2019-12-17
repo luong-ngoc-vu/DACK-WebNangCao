@@ -4,7 +4,7 @@ export const UPDATE = 'UPDATE';
 
 /* ==================== UPDATE USER INFORMATION ==================== */
 function onClickUpdate(name, phone, email, image, moreInfo, address, addressCity,
-                       levelStudy, curPosition, certificates, school, skills) {
+                       levelStudy, curPosition, certificates, school, money, skills) {
     return axios.post('http://localhost:4000/user/update', {
         name,
         phone,
@@ -17,6 +17,7 @@ function onClickUpdate(name, phone, email, image, moreInfo, address, addressCity
         curPosition,
         certificates,
         school,
+        money,
         skills
     }).catch(err => {
         return err
@@ -31,10 +32,10 @@ export const update = (res) => {
 };
 
 export const updateRequest = (name, phone, email, image, moreInfo, address, addressCity,
-                              levelStudy, curPosition, certificates, school, skills) => {
+                              levelStudy, curPosition, certificates, school, money, skills) => {
     return (dispatch => {
         return onClickUpdate(name, phone, email, image, moreInfo, address, addressCity,
-            levelStudy, curPosition, certificates, school, skills).then(res => {
+            levelStudy, curPosition, certificates, school, money, skills).then(res => {
             dispatch(update(res))
         })
     })

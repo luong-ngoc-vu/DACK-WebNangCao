@@ -3,7 +3,7 @@ import 'antd/dist/antd.css';
 import './ProfileHirer.css';
 
 import Redirect from 'react-router-dom/Redirect';
-import {Avatar, Button, Form, Input, Select, Typography} from 'antd';
+import {Avatar, Button, Form, Input, InputNumber, Select, Typography} from 'antd';
 
 const {TextArea} = Input;
 
@@ -128,6 +128,21 @@ class ProfileForm extends React.Component {
                                             this.address = event.target.value;
                                         }}
                                         name="address"
+                                    />
+                                </Form.Item>
+                            )}
+                            {st.isLoginFB === false && st.isLoginGG === false && (
+                                <Form.Item label={<span>Số tiền hiện có&nbsp;</span>}>
+                                    <InputNumber
+                                        style={{width: '100%'}}
+                                        value={st.curMoney}
+                                        min={50000}
+                                        step={10000}
+                                        size="large"
+                                        formatter={value =>
+                                            `${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+                                        }
+                                        parser={value => value.replace(/\$\s?|(,*)/g, '')}
                                     />
                                 </Form.Item>
                             )}

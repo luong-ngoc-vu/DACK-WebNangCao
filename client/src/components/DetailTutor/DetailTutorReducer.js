@@ -10,7 +10,8 @@ export const initialState = {
     skills: '',
     curPosition: '',
     certificates: '',
-    levelStudy: ''
+    levelStudy: '',
+    money: ''
 };
 
 const ViewDetailTutorReducer = (state = initialState, action) => {
@@ -30,6 +31,7 @@ const ViewDetailTutorReducer = (state = initialState, action) => {
             st.curPosition = data.curPosition;
             st.certificates = data.certificates;
             st.levelStudy = data.levelStudy;
+            st.money = data.money;
             return st;
         }
         default:

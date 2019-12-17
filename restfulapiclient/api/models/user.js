@@ -51,8 +51,11 @@ const UserSchema = new Schema({
     school: {
         type: String
     },
-    salary: {
-        type: String
+    money: {
+        type: Intl
+    },
+    curMoney: {
+        type: Intl
     },
 });
 

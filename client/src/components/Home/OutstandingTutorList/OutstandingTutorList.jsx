@@ -123,9 +123,7 @@ class OutstandingTutorList extends React.Component {
                                             <p>
                                                 Học phí:{' '}
                                                 <span style={{fontWeight: 'bolder'}}>
-                            140,000 vnđ
-                          </span>
-                                                /h
+                                                    {teacher.money} vnđ</span>/buổi
                                             </p>
                                         </div>
                                         <hr style={{border: '1px solid #e0e0e0'}}></hr>

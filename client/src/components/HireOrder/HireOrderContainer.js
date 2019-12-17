@@ -8,6 +8,9 @@ const mapStateToProps = (st) => {
         address: st.ViewDetailTutorReducer.address,
         addressCity: st.ViewDetailTutorReducer.addressCity,
         skills: st.ViewDetailTutorReducer.skills,
+        money: st.ViewDetailTutorReducer.money,
+
+        curMoney: st.LoginReducer.curMoney,
         isLogin: st.LoginReducer.isLogin,
         nameStudent: st.LoginReducer.name,
     };

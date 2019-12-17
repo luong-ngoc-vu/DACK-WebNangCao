@@ -133,7 +133,7 @@ class DetailTutor extends Component {
                   <Text style={{ marginBottom: 10 }}>
                     <Icon type="dollar" />
                     &ensp;Giá thuê:&ensp;
-                    <span style={{ fontWeight: 500 }}>150,000 vnđ/h</span>
+                    <span style={{ fontWeight: 500 }}>{st.money} VNĐ/ buổi</span>
                   </Text>
                   <Text style={{ marginBottom: 10 }}>
                     <Icon type="phone" />

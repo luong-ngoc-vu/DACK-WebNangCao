@@ -17,6 +17,7 @@ class ProfileForm extends React.Component {
         this.levelStudy = '';
         this.curPosition = '';
         this.skills = [];
+        this.money = '';
         this.err = '';
     }
 
@@ -353,9 +354,11 @@ class ProfileForm extends React.Component {
                             })(
                                 <InputNumber
                                     style={{width: 400}}
+                                    onChange={event => {
+                                        this.money = event.valueOf();
+                                    }}
                                     min={50000}
                                     step={10000}
-                                    max={2000000}
                                     size="large"
                                     formatter={value =>
                                         `${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')
@@ -414,6 +417,7 @@ class ProfileForm extends React.Component {
                                         this.state.curPosition,
                                         this.certificates,
                                         this.school,
+                                        this.money,
                                         this.state.skills
                                     );
                                     this.err = 'Cập nhật thành công';
