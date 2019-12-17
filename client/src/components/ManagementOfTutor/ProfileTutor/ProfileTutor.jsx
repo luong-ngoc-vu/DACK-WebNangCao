@@ -2,7 +2,7 @@ import React from 'react';
 import 'antd/dist/antd.css';
 import './ProfileTutor.css';
 
-import {Avatar, Button, Checkbox, Form, Icon, Input, InputNumber, Row, Select, Tooltip, Typography} from 'antd';
+import {Avatar, Button, Checkbox, Form, Input, InputNumber, Row, Select, Typography} from 'antd';
 
 import Redirect from 'react-router-dom/Redirect';
 
@@ -13,21 +13,21 @@ const {Title} = Typography;
 class ProfileForm extends React.Component {
     constructor() {
         super();
-        this.name = '';
-        this.email = '';
-        this.phone = '';
-        this.image = '';
-        this.address = '';
         this.addressCity = '';
-        this.moreInfo = '';
+        this.levelStudy = '';
+        this.curPosition = '';
+        this.skills = [];
+        this.money = '';
         this.err = '';
     }
 
     state = {
         loading: false,
-        selectedItemsSubject: [],
-        addressCity: '',
-        dataSkills: []
+        addressCity: this.addressCity,
+        levelStudy: this.levelStudy,
+        curPosition: this.curPosition,
+        dataSkills: [],
+        skills: this.skills = []
     };
 
     handleSubmit = e => {
@@ -40,7 +40,7 @@ class ProfileForm extends React.Component {
     };
 
     componentDidMount() {
-        fetch('https://apiclientwebsitethuegiasu.herokuapp.com/user/getSkills')
+        fetch('http://localhost:4000/user/getSkills')
             .then(response => response.json())
             .then(data => this.setState({dataSkills: data}));
     }
@@ -49,13 +49,10 @@ class ProfileForm extends React.Component {
         const st = this.props;
         const {dataSkills} = this.state;
 
-        this.name = st.name;
-        this.email = st.email;
-        this.phone = st.phone;
-        this.image = st.image;
-        this.address = st.address;
         this.addressCity = st.addressCity;
-        this.moreInfo = st.moreInfo;
+        this.levelStudy = st.levelStudy;
+        this.curPosition = st.curPosition;
+        this.skills = st.skills;
 
         if (st.isLogin === false) {
             return <Redirect to="/login"/>;
@@ -66,7 +63,7 @@ class ProfileForm extends React.Component {
         }
 
         const {getFieldDecorator} = this.props.form;
-        const {selectedItemsSubject} = this.state;
+        const {skills} = this.state;
 
         const day = [
             'Thứ hai',
@@ -102,7 +99,7 @@ class ProfileForm extends React.Component {
         ];
 
         const OPTIONS = dataSkills.map(row => (row.name));
-        const filteredOptions = OPTIONS.filter(o => !selectedItemsSubject.includes(o));
+        const filteredOptions = OPTIONS.filter(o => !skills.includes(o));
 
         return (
             <div>
@@ -195,12 +192,12 @@ class ProfileForm extends React.Component {
                             {st.isLoginFB === false && st.isLoginGG === false && (
                                 <Form.Item label="Thông tin mô tả bản thân">
                                     <TextArea placeholder="Mô tả ngắn gọn về bản thân"
-                                        rows={2}
-                                        defaultValue={st.moreInfo}
-                                        name="moreInfo"
-                                        onChange={event => {
-                                            this.moreInfo = event.target.value;
-                                        }}
+                                              rows={4}
+                                              defaultValue={st.moreInfo}
+                                              name="moreInfo"
+                                              onChange={event => {
+                                                  this.moreInfo = event.target.value;
+                                              }}
                                     />
                                 </Form.Item>
                             )}
@@ -243,7 +240,6 @@ class ProfileForm extends React.Component {
                                     />
                                 </Form.Item>
                             )}
-                            <div>{this.err}</div>
                         </Form>
                     </div>
                 </Typography>
@@ -255,119 +251,124 @@ class ProfileForm extends React.Component {
                         layout="vertical"
                         onSubmit={this.handleSubmit}
                     >
-                        <Form.Item
-                            label={
-                                <span>
-                  Học vấn của bạn&nbsp;
-                                    <Tooltip title="Hãy cung cấp những thông tin gần đây nhất của bạn?">
-                    <Icon type="question-circle-o"/>
-                  </Tooltip>
-                </span>
-                            }
-                        >
-                            {getFieldDecorator('school', {
-                                rules: [
-                                    {
-                                        required: true,
-                                        message: 'Xin nhập thông tin học vấn của bạn!'
-                                    }
-                                ]
-                            })(<Input size="large" placeholder="Trường bạn đã theo học"/>)}
+                        <Form.Item label="Chọn trình độ học vấn">
+                            <Select
+                                style={{width: '100%'}}
+                                placeholder="Chọn trình độ học vấn"
+                                name="levelStudy"
+                                defaultValue={st.levelStudy}
+                                onChange={value => {
+                                    this.setState({levelStudy: value});
+                                }}
+                                size="large"
+                                optionFilterProp="children"
+                                showSearch
+                                filterOption={(input, option) =>
+                                    option.props.children
+                                        .toLowerCase()
+                                        .indexOf(input.toLowerCase()) >= 0
+                                }
+                            >
+                                <Select.Option value={"Đại học"}>Đại học</Select.Option>
+                                <Select.Option value={"Cao đẳng"}>Cao đẳng</Select.Option>
+                                <Select.Option value={"Cao học"}>Cao học</Select.Option>
+                                <Select.Option value={"Tiến sĩ"}>Tiến sĩ</Select.Option>
+                                <Select.Option value={"Thạc sĩ"}>Thạc sĩ</Select.Option>
+                                <Select.Option value={"Trung học"}>Trung học</Select.Option>
+                            </Select>
+                        </Form.Item>
+                        <Form.Item label="Nhập tên trường đã theo học">
+                            <Input
+                                size="large"
+                                placeholder="Trường bạn đã theo học"
+                                defaultValue={st.school}
+                                name="school"
+                                onChange={event => {
+                                    this.school = event.target.value;
+                                }}
+                            />
                         </Form.Item>
                         <Form.Item label="Hiện tại là">
-                            {getFieldDecorator('degree', {
-                                rules: [
-                                    {
-                                        required: true
-                                    }
-                                ]
-                            })(
-                                <Select
-                                    showSearch
-                                    style={{width: '50%'}}
-                                    placeholder="Chọn chức danh, cấp bậc của bạn"
-                                    optionFilterProp="children"
-                                    filterOption={(input, option) =>
-                                        option.props.children
-                                            .toLowerCase()
-                                            .indexOf(input.toLowerCase()) >= 0
-                                    }
-                                    size="large"
-                                >
-                                    <Select.Option value="1">Gia sư</Select.Option>
-                                    <Select.Option value="2">Sinh viên</Select.Option>
-                                    <Select.Option value="3">Giáo viên</Select.Option>
-                                    <Select.Option value="4">Du học sinh</Select.Option>
-                                    <Select.Option value="5">Người đi làm</Select.Option>
-                                    <Select.Option value="6">Học sinh</Select.Option>
-                                    <Select.Option value="7">Chức danh khác</Select.Option>
-                                </Select>
-                            )}
+                            <Select
+                                style={{width: '100%'}}
+                                placeholder="Chọn chức danh, cấp bậc của bạn"
+                                optionFilterProp="children"
+                                showSearch
+                                name="curPosition"
+                                defaultValue={st.curPosition}
+                                onChange={value => {
+                                    this.setState({curPosition: value});
+                                }}
+                                filterOption={(input, option) =>
+                                    option.props.children
+                                        .toLowerCase()
+                                        .indexOf(input.toLowerCase()) >= 0
+                                }
+                                size="large"
+                            >
+                                <Select.Option value={"Gia sư"}>Gia sư</Select.Option>
+                                <Select.Option value={"Sinh viên"}>Sinh viên</Select.Option>
+                                <Select.Option value={"Giáo viên"}>Giáo viên</Select.Option>
+                                <Select.Option value={"Du học sinh"}>Du học sinh</Select.Option>
+                                <Select.Option value={"Người đi làm"}>Người đi làm</Select.Option>
+                                <Select.Option value={"Học sinh"}>Học sinh</Select.Option>
+                                <Select.Option value={"Chức danh khác"}>Chức danh khác</Select.Option>
+                            </Select>
                         </Form.Item>
                         <Form.Item label="Thành tích, bằng cấp và kinh nghiệm giảng dạy">
                             <TextArea
                                 rows={3}
                                 placeholder="Mô tả chi tiết về kinh nghiệm, thành tích bản thân trong công tác giảng dạy..."
+                                defaultValue={st.certificates}
+                                name="certificates"
+                                onChange={event => {
+                                    this.certificates = event.target.value;
+                                }}
                             />
                         </Form.Item>
                         <Form.Item label={<span>Môn học bạn sẽ dạy&nbsp;</span>}>
-                            {getFieldDecorator('subject', {
-                                rules: [
-                                    {
-                                        required: true,
-                                        message: 'Vui lòng chọn môn học'
-                                    }
-                                ]
-                            })(
-                                <Select
-                                    name="skills"
-                                    mode="multiple"
-                                    defaultValue={st.skills}
-                                    onChange={value => {
-                                        this.setState({ selectedItemsSubject: value });
-                                    }}
-                                    style={{ width: '100%' }}
-                                >
-                                    {filteredOptions.map(item => (
-                                        <Select.Option key={item} value={item}>
-                                            {item}
-                                        </Select.Option>
-                                    ))}
-                                </Select>)}
+                            <Select
+                                name="skills"
+                                mode="multiple"
+                                defaultValue={st.skills}
+                                onChange={value => {
+                                    this.setState({skills: value});
+                                }}
+                                style={{width: '100%'}}
+                            >
+                                {filteredOptions.map(item => (
+                                    <Select.Option key={item} value={item}>
+                                        {item}
+                                    </Select.Option>
+                                ))}
+                            </Select>
                         </Form.Item>
-                        <Form.Item label={<span>Phí dạy 1 giờ (VND)&nbsp;</span>}>
-                            {getFieldDecorator('fee', {
-                                rules: [
-                                    {
-                                        required: true,
-                                        message: 'Xin nhập thông tin học phí theo giờ!'
-                                    }
-                                ]
-                            })(
-                                <InputNumber
-                                    style={{width: 400}}
-                                    min={50000}
-                                    step={10000}
-                                    max={2000000}
-                                    size="large"
-                                    formatter={value =>
-                                        `${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')
-                                    }
-                                    parser={value => value.replace(/\$\s?|(,*)/g, '')}
-                                    placeholder="Nhập học phí thuê theo giờ"
-                                />
-                            )}
+                        <Form.Item label={<span>Phí dạy 1 buổi (VND)&nbsp;</span>}>
+                            <InputNumber
+                                style={{width: '100%'}}
+                                onChange={event => {
+                                    this.money = event.valueOf();
+                                }}
+                                defaultValue={st.money}
+                                min={50000}
+                                step={10000}
+                                size="large"
+                                formatter={value =>
+                                    `${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+                                }
+                                parser={value => value.replace(/\$\s?|(,*)/g, '')}
+                                placeholder="Nhập học phí thuê theo giờ"
+                            />
                         </Form.Item>
                         <Form.Item label="Lịch bạn có thể nhận lớp">
-                            {getFieldDecorator('schedule', {
-                                rules: [
-                                    {
-                                        required: true,
-                                        message: 'Vui lòng chọn lịch dạy của bạn!'
-                                    }
-                                ]
-                            })(
-                                <div>
+                            <div>
+                                <div
+                                    style={{
+                                        width: '100%',
+                                        display: 'flex',
+                                        flexDirection: 'row'
+                                    }}
+                                >
                                     <div
                                         style={{
                                             width: '100%',
@@ -375,25 +376,19 @@ class ProfileForm extends React.Component {
                                             flexDirection: 'row'
                                         }}
                                     >
-                                        <div
-                                            style={{
-                                                width: '100%',
-                                                display: 'flex',
-                                                flexDirection: 'row'
-                                            }}
-                                        >
-                                            {day.map(day => (
-                                                <div style={{width: '14%'}}>{day}</div>
-                                            ))}
-                                        </div>
+                                        {day.map(day => (
+                                            <div style={{width: '14%'}}><strong>{day}</strong></div>
+                                        ))}
                                     </div>
-                                    <Row>
-                                        <Checkbox.Group options={timeDay}/>
-                                    </Row>
                                 </div>
-                            )}
+                                <Row>
+                                    <Checkbox.Group options={timeDay}/>
+                                </Row>
+                            </div>
                         </Form.Item>
-                        <Form.Item style={{width: '100%', display:'flex', flexDirection:'row', justifyContent:'center' }}>
+                        <div><strong>{this.err}</strong></div>
+                        <Form.Item
+                            style={{width: '100%', display: 'flex', flexDirection: 'row', justifyContent: 'center'}}>
                             <Button
                                 style={{minWidth: '150px'}}
                                 size="large"
@@ -407,10 +402,15 @@ class ProfileForm extends React.Component {
                                         this.phone,
                                         st.email,
                                         this.image,
+                                        this.moreInfo,
                                         this.address,
                                         this.state.addressCity,
-                                        this.moreInfo,
-                                        selectedItemsSubject
+                                        this.state.levelStudy,
+                                        this.state.curPosition,
+                                        this.certificates,
+                                        this.school,
+                                        this.money,
+                                        this.state.skills
                                     );
                                     this.err = 'Cập nhật thành công';
                                 }}

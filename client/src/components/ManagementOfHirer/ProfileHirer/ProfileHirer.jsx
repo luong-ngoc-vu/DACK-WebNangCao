@@ -3,7 +3,7 @@ import 'antd/dist/antd.css';
 import './ProfileHirer.css';
 
 import Redirect from 'react-router-dom/Redirect';
-import {Avatar, Button, Form, Input, Select, Typography} from 'antd';
+import {Avatar, Button, Form, Input, InputNumber, Select, Typography} from 'antd';
 
 const {TextArea} = Input;
 
@@ -13,19 +13,13 @@ const {Title} = Typography;
 class ProfileForm extends React.Component {
     constructor(props) {
         super(props);
-        this.name = '';
-        this.email = '';
-        this.phone = '';
-        this.image = '';
-        this.address = '';
         this.addressCity = '';
-        this.moreInfo = '';
         this.err = '';
     }
 
     state = {
         loading: false,
-        addressCity: ''
+        addressCity: this.addressCity
     };
 
     handleSubmit = e => {
@@ -40,13 +34,7 @@ class ProfileForm extends React.Component {
     render() {
         const st = this.props;
 
-        this.name = st.name;
-        this.email = st.email;
-        this.phone = st.phone;
-        this.image = st.image;
-        this.address = st.address;
         this.addressCity = st.addressCity;
-        this.moreInfo = st.moreInfo;
 
         if (st.isLogin === false) {
             return <Redirect to="/login"/>
@@ -144,6 +132,21 @@ class ProfileForm extends React.Component {
                                 </Form.Item>
                             )}
                             {st.isLoginFB === false && st.isLoginGG === false && (
+                                <Form.Item label={<span>Số tiền hiện có&nbsp;</span>}>
+                                    <InputNumber
+                                        style={{width: '100%'}}
+                                        value={st.curMoney}
+                                        min={50000}
+                                        step={10000}
+                                        size="large"
+                                        formatter={value =>
+                                            `${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+                                        }
+                                        parser={value => value.replace(/\$\s?|(,*)/g, '')}
+                                    />
+                                </Form.Item>
+                            )}
+                            {st.isLoginFB === false && st.isLoginGG === false && (
                                 <Form.Item label="Thông tin mô tả bản thân">
                                     <TextArea
                                         rows={3}
@@ -190,9 +193,15 @@ class ProfileForm extends React.Component {
                                         }}/>
                                 </Form.Item>
                             )}
-                            <div>{this.err}</div>
+                            <div><strong>{this.err}</strong></div>
                             {st.isLogin === true && st.isLoginGG === false && st.isLoginFB === false && (
-                                <Form.Item>
+                                <Form.Item
+                                    style={{
+                                        width: '100%',
+                                        display: 'flex',
+                                        flexDirection: 'row',
+                                        justifyContent: 'center'
+                                    }}>
                                     <Button
                                         style={{width: '150px', margin: '10px 300px'}}
                                         size="large"

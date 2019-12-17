@@ -1,10 +1,7 @@
 import React from 'react';
 // import './CreateAdmin.css';
 import 'antd/dist/antd.css';
-import {Form, Table, Typography} from 'antd';
-
-
-const {Title, Text} = Typography;
+import {Form, Table} from 'antd';
 
 const columns = [
     {

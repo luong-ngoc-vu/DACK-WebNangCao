@@ -1,5 +1,5 @@
 import React from 'react';
-import OutstandingTutorListContainer from './OutstandingTutorList/OutstandingTutorListContainer';
+import {ViewListOutStandingContainer} from './OutstandingTutorList/OutstandingTutorListContainer';
 import { Col, Row } from 'antd';
 import StepGuide from './StepGuide/StepGuide';
 
@@ -9,7 +9,7 @@ class Home extends React.Component {
       <Row gutter={24}>
         <Col span={3}></Col>
         <Col span={18}>
-          <OutstandingTutorListContainer />
+          <ViewListOutStandingContainer />
           <StepGuide />
         </Col>
       </Row>

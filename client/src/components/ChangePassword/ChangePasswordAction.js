@@ -4,7 +4,7 @@ export const CHANGE_PASSWORD = 'CHANGE_PASSWORD';
 
 /* ====================== CHANGE PASSWORD ====================== */
 function onClickChangePassword(email, password, newpassword) {
-  return axios.post('https://apiclientwebsitethuegiasu.herokuapp.com/user/changePass', {
+  return axios.post('http://localhost:4000/user/changePass', {
     email, password, newpassword
   }).catch(err => {
     return err;

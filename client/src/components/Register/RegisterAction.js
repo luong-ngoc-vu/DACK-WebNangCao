@@ -4,7 +4,7 @@ export const REGISTER = 'REGISTER';
 
 /* ========================= REGISTER ========================= */
 function OnclickRegister(name, phone, email, password, typeUser) {
-    return axios.post('https://apiclientwebsitethuegiasu.herokuapp.com/user/register', {
+    return axios.post('http://localhost:4000/user/register', {
         name, phone, email, password, typeUser
     }).catch(error => {
         return error;

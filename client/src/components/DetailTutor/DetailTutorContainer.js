@@ -11,7 +11,13 @@ const mapStateToProps = (st) => {
         moreInfo: st.ViewDetailTutorReducer.moreInfo,
         typeUser: st.ViewDetailTutorReducer.typeUser,
         image: st.ViewDetailTutorReducer.image,
-        skills: st.ViewDetailTutorReducer.skills
+        skills: st.ViewDetailTutorReducer.skills,
+        curPosition: st.ViewDetailTutorReducer.curPosition,
+        levelStudy: st.ViewDetailTutorReducer.levelStudy,
+        certificates: st.ViewDetailTutorReducer.certificates,
+        money: st.ViewDetailTutorReducer.money,
+
+        isLogin: st.LoginReducer.isLogin,
     };
 };
 

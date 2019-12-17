@@ -14,6 +14,7 @@ class SideBar extends React.Component {
         <div className="logo">
           <img
             sizes="50"
+            alt="alt"
             className="avatar-admin"
             src="https://2game.vn/imgstore/pictures/2game/2019/10/09/2game-natra-ma-dong-h5-logo-1.png"
           ></img>

@@ -7,7 +7,11 @@ export const initialState = {
     typeUser: '',
     moreInfo: '',
     image: '',
-    skills: ''
+    skills: '',
+    curPosition: '',
+    certificates: '',
+    levelStudy: '',
+    money: ''
 };
 
 const ViewDetailTutorReducer = (state = initialState, action) => {
@@ -24,6 +28,10 @@ const ViewDetailTutorReducer = (state = initialState, action) => {
             st.moreInfo = data.moreInfo;
             st.image = data.image;
             st.skills = data.skills;
+            st.curPosition = data.curPosition;
+            st.certificates = data.certificates;
+            st.levelStudy = data.levelStudy;
+            st.money = data.money;
             return st;
         }
         default:

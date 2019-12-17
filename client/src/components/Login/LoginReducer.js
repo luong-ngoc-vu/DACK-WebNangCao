@@ -8,6 +8,12 @@ export const initialState = {
     addressCity: '',
     moreInfo: '',
     skills: '',
+    levelStudy: '',
+    curPosition: '',
+    certificates: '',
+    school: '',
+    money: '',
+    curMoney: '',
     token: '',
     typeUser: 1,
     isLogin: false,
@@ -34,8 +40,15 @@ const LoginReducer = (state = initialState, action) => {
                     st.address = action.data.res.data.user.address;
                     st.addressCity = action.data.res.data.user.addressCity;
                     st.skills = action.data.res.data.user.skills;
+                    st.levelStudy = action.data.res.data.user.levelStudy;
+                    st.curPosition = action.data.res.data.user.curPosition;
+                    st.certificates = action.data.res.data.user.certificates;
                     st.moreInfo = action.data.res.data.user.moreInfo;
                     st.typeUser = action.data.res.data.user.typeUser;
+                    st.school = action.data.res.data.user.school;
+                    st.money = action.data.res.data.user.money;
+                    st.curMoney = action.data.res.data.user.curMoney;
+                    console.log(st.curMoney);
                     st.isLogin = true;
                     st.isLoginFB = false;
                     st.isLoginGG = false;
@@ -83,14 +96,19 @@ const LoginReducer = (state = initialState, action) => {
 
         case 'UPDATE': {
             const st = {...state};
-            st.email = action.data.res.data.email;
-            st.name = action.data.res.data.name;
-            st.phone = action.data.res.data.phone;
-            st.image = action.data.res.data.image;
-            st.address = action.data.res.data.address;
-            st.addressCity = action.data.res.data.addressCity;
-            st.moreInfo = action.data.res.data.moreInfo;
-            st.skills = action.data.res.data.skills;
+            const data = action.data.res.data;
+            st.name = data.name;
+            st.phone = data.phone;
+            st.image = data.image;
+            st.address = data.address;
+            st.addressCity = data.addressCity;
+            st.moreInfo = data.moreInfo;
+            st.skills = data.skills;
+            st.levelStudy = data.levelStudy;
+            st.curPosition = data.curPosition;
+            st.certificates = data.certificates;
+            st.school = data.school;
+            st.money = data.money;
             return st;
         }
 

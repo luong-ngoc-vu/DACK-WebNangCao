@@ -1,6 +1,7 @@
 const User = require('../models/user');
 const Skill = require('../models/skill');
 const bcrypt = require('bcryptjs');
+const ObjectId = require('mongodb').ObjectID;
 
 module.exports = {
     register: (req, res, next) => {
@@ -10,11 +11,6 @@ module.exports = {
             name: req.body.name,
             phone: req.body.phone,
             typeUser: req.body.typeUser,
-            image: "",
-            address: "",
-            moreInfo: "",
-            addressCity: "",
-            skills: "",
         });
         User.findOne({"email": req.body.email}, (err, user) => {
             if (user) {
@@ -40,17 +36,11 @@ module.exports = {
 
     },
 
-    updateUser: (req, res) => {
-        User.findOne({"email": req.body.email}, (err, user) => {
-            user.name = req.body.name;
-            user.phone = req.body.phone;
-            user.image = req.body.image;
-            user.address = req.body.address;
-            user.moreInfo = req.body.moreInfo;
-            user.addressCity = req.body.addressCity;
-            user.skills = req.body.skills;
-            user.save();
-            return res.status(200).json(user);
+    updateUser: async (req, res) => {
+        await User.findOne({"email": req.body.email}, async (err, user) => {
+            Object.assign(user, req.body);
+            await user.save();
+            res.status(200).json(user);
         })
     },
 
@@ -97,12 +87,20 @@ module.exports = {
     },
 
     getDetailTeacher: async (req, res) => {
-        const teacher = await User.find({"email": req.body.email});
-        return res.status(200).json(teacher);
+        const id = req.params.id;
+        await User.find({"_id": ObjectId(id)}, function (err, teacher) {
+            return res.status(200).json(teacher);
+        });
     },
 
     getSkills: async (req, res) => {
         const skills = await Skill.find();
         return res.status(200).json(skills);
+    },
+
+    getTeachersBySkill: async (req, res) => {
+        const nameSkill = req.body.name;
+        const tutorrials = await User.find({"skills": {$in: [nameSkill]}, "typeUser": 2});
+        return res.status(200).json(tutorrials);
     },
 };

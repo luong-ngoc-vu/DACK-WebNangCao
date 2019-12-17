@@ -19,7 +19,7 @@ import LoginContainer from '../components/LoginAdmin/LoginContainer';
 import ViewListContract from './ViewListContract/ViewListContract';
 import ViewDetailContract from './ViewDetailContract/ViewDetailContract';
 
-const { Header, Sider, Content } = Layout;
+const { Content } = Layout;
 
 class App extends React.PureComponent {
 	render() {

@@ -4,7 +4,7 @@ import 'antd/dist/antd.css';
 import {Button, Form, Input, Typography} from 'antd';
 
 
-const {Title, Text} = Typography;
+const {Title} = Typography;
 
 class CreateAdminForm extends React.Component {
     constructor() {

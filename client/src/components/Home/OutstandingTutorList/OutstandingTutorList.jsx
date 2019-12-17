@@ -12,13 +12,14 @@ class OutstandingTutorList extends React.Component {
         this.state = {
             data: [],
             dataTutorialCity: [],
+            dataTutorialBySkill: [],
             addressCity: 'Chọn thành phố'
         };
     }
 
     OnClick(addressCity) {
         return axios
-            .post('https://apiclientwebsitethuegiasu.herokuapp.com/user/getTutorialCity', {
+            .post('http://localhost:4000/user/getTutorialCity', {
                 addressCity
             })
             .catch(error => {
@@ -33,7 +34,7 @@ class OutstandingTutorList extends React.Component {
     };
 
     componentDidMount() {
-        fetch('https://apiclientwebsitethuegiasu.herokuapp.com/user/getTutorialUser')
+        fetch('http://localhost:4000/user/getTutorialUser')
             .then(response => response.json())
             .then(data => this.setState({data: data}));
     }
@@ -62,12 +63,8 @@ class OutstandingTutorList extends React.Component {
                         }
                         size="large"
                     >
-                        <Select.Option value={'Chọn thành phố'}>
-                            Chọn thành phố
-                        </Select.Option>
-                        <Select.Option value={'Thành phố Hồ Chí Minh'}>
-                            Thành phố Hồ Chí Minh
-                        </Select.Option>
+                        <Select.Option value={'Chọn thành phố'}>Chọn thành phố</Select.Option>
+                        <Select.Option value={'Thành phố Hồ Chí Minh'}>Thành phố Hồ Chí Minh</Select.Option>
                         <Select.Option value={'Hà Nội'}>Hà Nội</Select.Option>
                         <Select.Option value={'Đà Nẵng'}>Đà Nẵng</Select.Option>
                         <Select.Option value={'Huế'}>Huế</Select.Option>
@@ -87,10 +84,10 @@ class OutstandingTutorList extends React.Component {
                         data.map(teacher => (
                             <Col span={6}>
                                 <Link
-                                    to="/detailTutor"
+                                    to={"detailTutor/" + (teacher._id)}
                                     size="large"
                                     onClick={event => {
-                                        st.viewDetailTutor(teacher.email);
+                                        st.viewDetailTutor(teacher._id);
                                     }}
                                 >
                                     <Card
@@ -123,18 +120,14 @@ class OutstandingTutorList extends React.Component {
                                             <p>
                                                 Học phí:{' '}
                                                 <span style={{fontWeight: 'bolder'}}>
-                            140,000 vnđ
-                          </span>
-                                                /h
+                                                    {teacher.money} VNĐ</span>/buổi
                                             </p>
                                         </div>
                                         <hr style={{border: '1px solid #e0e0e0'}}></hr>
                                         <div>
-                                            <Tag style={{fontWeight: 'bold'}}>Toán ôn thi ĐH</Tag>
-                                            <Tag style={{fontWeight: 'bold'}}>Lý ôn thi ĐH</Tag>
-                                            <Tag style={{fontWeight: 'bold', marginTop: 5}}>
-                                                Hóa ôn thi ĐH
-                                            </Tag>
+                                            {teacher.skills.map(skill => (
+                                                <Tag style={{fontWeight: 'bold'}}>{skill}</Tag>
+                                            ))}
                                         </div>
                                     </Card>
                                 </Link>
@@ -144,10 +137,10 @@ class OutstandingTutorList extends React.Component {
                         dataTutorialCity.map(teacher => (
                             <Col span={6}>
                                 <Link
-                                    to="/detailTutor"
+                                    to={"detailTutor/" + (teacher._id)}
                                     size="large"
                                     onClick={event => {
-                                        st.viewDetailTutor(teacher.email);
+                                        st.viewDetailTutor(teacher._id);
                                     }}
                                 >
                                     <Card

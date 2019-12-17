@@ -6,7 +6,7 @@ export const LOGIN_GOOGLE = 'LOGIN_GOOGLE';
 
 /* ========================= LOG IN ========================= */
 function OnClickLogin(email, password) {
-    return axios.post('https://apiclientwebsitethuegiasu.herokuapp.com/user/login', {
+    return axios.post('http://localhost:4000/user/login', {
         email, password
     }).catch(error => {
         return error;

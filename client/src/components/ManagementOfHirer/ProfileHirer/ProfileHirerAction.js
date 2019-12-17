@@ -4,7 +4,7 @@ export const UPDATE = 'UPDATE';
 
 /* ==================== UPDATE USER INFORMATION ==================== */
 function onClickUpdate(name, phone, email, image, address, addressCity, moreInfo) {
-    return axios.post('https://apiclientwebsitethuegiasu.herokuapp.com/user/update', {
+    return axios.post('http://localhost:4000/user/update', {
         name, phone, email, image, address, addressCity, moreInfo
     }).catch(err => {
         return err
