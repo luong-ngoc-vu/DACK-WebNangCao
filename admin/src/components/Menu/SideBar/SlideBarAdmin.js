@@ -23,9 +23,12 @@ class SideBar extends React.Component {
                     theme="dark"
                     mode="inline"
                     defaultSelectedKeys={['1']}
-                    defaultOpenKeys={['sub1']}
+
                     style={{ height: '100%', borderRight: 0 }}
                 >
+                    <Menu.Item key='1'>
+                        <Link to="/admin-normal/dashboard"><Icon type="home" />Trang chủ</Link>
+                    </Menu.Item>
                     <SubMenu
                         key="sub1"
                         title={
@@ -36,27 +39,18 @@ class SideBar extends React.Component {
                         }
                     >
                         <Menu.Item key="2">
-                            <Link to="/admin-normal/home">Xem danh sách</Link>
+                            <Link to="/admin-normal/view-list-user">Xem danh sách</Link>
                         </Menu.Item>
                     </SubMenu>
+
+
+
+                    <Menu.Item key="3">
+                        <Link to="/admin-normal/skills"><Icon type="tags" />Danh sách kỹ năng</Link>
+                    </Menu.Item>
+
                     <SubMenu
-                        key="sub2"
-                        title={
-                            <span>
-                                <Icon type="laptop" />
-                                Quản lý kỹ năng
-              </span>
-                        }
-                    >
-                        <Menu.Item key="5">
-                            <Link to="/admin-normal/createSkill">Thêm mới kỹ năng</Link>
-                        </Menu.Item>
-                        <Menu.Item key="6">
-                            <Link to="/admin-normal/skills">Danh sách kỹ năng</Link>
-                        </Menu.Item>
-                    </SubMenu>
-                    <SubMenu
-                        key="sub3"
+                        key="4"
                         title={
                             <span>
                                 <Icon type="notification" />
@@ -64,11 +58,11 @@ class SideBar extends React.Component {
               </span>
                         }
                     >
-                        <Menu.Item key="9">Phê duyệt hợp đồng</Menu.Item>
-                        <Menu.Item key="10">Xem danh sách</Menu.Item>
+                        <Menu.Item key="5"><Link to="/admin-normal/contract"></Link>Phê duyệt hợp đồng</Menu.Item>
+                        <Menu.Item key="6">Xem danh sách</Menu.Item>
                     </SubMenu>
                     <SubMenu
-                        key="sub4"
+                        key="7"
                         title={
                             <span>
                                 <Icon type="notification" />
@@ -76,8 +70,8 @@ class SideBar extends React.Component {
               </span>
                         }
                     >
-                        <Menu.Item key="9">Phê duyệt khiếu nại</Menu.Item>
-                        <Menu.Item key="10">Xem danh sách</Menu.Item>
+                        <Menu.Item key="8">Phê duyệt khiếu nại</Menu.Item>
+                        <Menu.Item key="19">Xem danh sách</Menu.Item>
                     </SubMenu>
                 </Menu>
             </Sider>

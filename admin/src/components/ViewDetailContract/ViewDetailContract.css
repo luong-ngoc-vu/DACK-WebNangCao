@@ -1,0 +1,33 @@
+.info-user {
+	width: auto;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+.info-tutor,
+.info-hirer {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	padding: 0px 15px;
+	width: fit-content;
+}
+.header-detail-contract {
+	display: flex;
+	flex-direction: row;
+	margin: 0px 0px 10px 0px;
+	align-items: center;
+	position: relative;
+}
+.avatar-user {
+	width: 100%;
+	max-width: 170px;
+	max-height: 150px;
+	height: 150px;
+	object-fit: fill;
+	margin-right: 10px;
+}
+.action-button {
+	width: 100%;
+	margin-bottom: 10px;
+}
