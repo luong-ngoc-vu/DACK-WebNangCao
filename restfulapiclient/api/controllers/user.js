@@ -97,4 +97,10 @@ module.exports = {
         const skills = await Skill.find();
         return res.status(200).json(skills);
     },
+
+    getTeachersBySkill: async (req, res) => {
+        const nameSkill = req.body.name;
+        const tutorrials = await User.find({"skills": {$in: [nameSkill]}, "typeUser": 2});
+        return res.status(200).json(tutorrials);
+    },
 };

@@ -153,7 +153,7 @@ class Footer extends Component {
                   </Text>
                   <Text style={{ fontSize: 15, color: 'white' }}>
                     <Icon type="mail" />
-                    &ensp;&ensp; baongaymoi@gmail.com
+                    &ensp;&ensp; bmentor@gmail.com
                   </Text>
                 </div>
                 <div

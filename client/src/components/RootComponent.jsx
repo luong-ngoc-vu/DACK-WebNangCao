@@ -12,6 +12,8 @@ import DetailTutorContainer from './DetailTutor/DetailTutorContainer';
 import Footer from './Common/Footer/Footer';
 import BannerBackground from './Home/BannerBackground/BannerBackground';
 import HireOrderContainer from './HireOrder/HireOrderContainer';
+import {ListTutorialsBySkillContainer} from "./Home/OutstandingTutorList/OutstandingTutorListContainer";
+import StepGuide from "./Home/StepGuide/StepGuide";
 
 const {Content} = Layout;
 
@@ -29,6 +31,16 @@ function Root() {
                     <Route exact path="/home">
                         <BannerBackground/>
                         <Home/>
+                    </Route>
+                    <Route exact path="/listTutorialsBySkill">
+                        <BannerBackground/>
+                        <Row gutter={24}>
+                            <Col span={3}></Col>
+                            <Col span={18}>
+                                <ListTutorialsBySkillContainer/>
+                                <StepGuide/>
+                            </Col>
+                        </Row>
                     </Route>
                     <Row>
                         <Col span={3}></Col>

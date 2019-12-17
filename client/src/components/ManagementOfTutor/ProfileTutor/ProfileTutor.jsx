@@ -343,30 +343,22 @@ class ProfileForm extends React.Component {
                                 ))}
                             </Select>
                         </Form.Item>
-                        <Form.Item label={<span>Phí dạy 1 giờ (VND)&nbsp;</span>}>
-                            {getFieldDecorator('fee', {
-                                rules: [
-                                    {
-                                        required: true,
-                                        message: 'Xin nhập thông tin học phí theo giờ!'
-                                    }
-                                ]
-                            })(
-                                <InputNumber
-                                    style={{width: 400}}
-                                    onChange={event => {
-                                        this.money = event.valueOf();
-                                    }}
-                                    min={50000}
-                                    step={10000}
-                                    size="large"
-                                    formatter={value =>
-                                        `${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')
-                                    }
-                                    parser={value => value.replace(/\$\s?|(,*)/g, '')}
-                                    placeholder="Nhập học phí thuê theo giờ"
-                                />
-                            )}
+                        <Form.Item label={<span>Phí dạy 1 buổi (VND)&nbsp;</span>}>
+                            <InputNumber
+                                style={{width: '100%'}}
+                                onChange={event => {
+                                    this.money = event.valueOf();
+                                }}
+                                defaultValue={st.money}
+                                min={50000}
+                                step={10000}
+                                size="large"
+                                formatter={value =>
+                                    `${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+                                }
+                                parser={value => value.replace(/\$\s?|(,*)/g, '')}
+                                placeholder="Nhập học phí thuê theo giờ"
+                            />
                         </Form.Item>
                         <Form.Item label="Lịch bạn có thể nhận lớp">
                             <div>
@@ -385,7 +377,7 @@ class ProfileForm extends React.Component {
                                         }}
                                     >
                                         {day.map(day => (
-                                            <div style={{width: '14%'}}>{day}</div>
+                                            <div style={{width: '14%'}}><strong>{day}</strong></div>
                                         ))}
                                     </div>
                                 </div>

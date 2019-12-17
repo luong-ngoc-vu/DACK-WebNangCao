@@ -1,12 +1,15 @@
 import {connect} from 'react-redux';
 import {viewDetailTutorRequest} from "./OutstandingTutorListAction";
 import OutstandingTutorList from "./OutstandingTutorList";
+import ListTutorialsBySkill from "./ListTutorialsBySkill";
 
 const mapStateToProps = (st) => {
     return {
         email: st.LoginReducer.email,
         token: st.LoginReducer.token,
-        isLogin: st.LoginReducer.isLogin
+        isLogin: st.LoginReducer.isLogin,
+
+        skillName: st.NavBarReducer.skillName
     };
 };
 
@@ -18,6 +21,7 @@ const mapDispatchToProps = (dispatch) => {
     };
 };
 
-const ViewListOutStandingContainer = connect(mapStateToProps, mapDispatchToProps)(OutstandingTutorList);
+export const ViewListOutStandingContainer = connect(mapStateToProps, mapDispatchToProps)(OutstandingTutorList);
+export const ListTutorialsBySkillContainer = connect(mapStateToProps, mapDispatchToProps)(ListTutorialsBySkill);
 
-export default ViewListOutStandingContainer;
+export default {ViewListOutStandingContainer, ListTutorialsBySkillContainer};

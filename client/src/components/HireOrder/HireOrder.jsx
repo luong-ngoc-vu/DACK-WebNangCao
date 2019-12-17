@@ -165,7 +165,7 @@ class HireOrderForm extends Component {
                             </Select>
                         )}
                     </Form.Item>
-                    <Form.Item label="Số lượng buổi học học">
+                    <Form.Item label="Số lượng buổi học">
                         {getFieldDecorator('fee', {
                             rules: [
                                 {
