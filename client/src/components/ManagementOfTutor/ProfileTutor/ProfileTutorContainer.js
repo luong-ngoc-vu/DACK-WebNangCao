@@ -24,16 +24,18 @@ const mapStateToProps = state => {
         curPosition: st.curPosition,
         certificates: st.certificates,
         school: st.school,
-        money: st.money
+        money: st.money,
+        teacherTimeDay: st.teacherTimeDay,
+        gender: st.gender
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
-        updateUser: (name, phone, email, image, moreInfo, address, provinceName, districtName, wardName,
-                     levelStudy, curPosition, certificates, school, money, skills) => {
-            dispatch(actions.updateRequest(name, phone, email, image, moreInfo, address, provinceName, districtName, wardName,
-                levelStudy, curPosition, certificates, school, money, skills))
+        updateUser: (name, phone, email, image,gender, moreInfo, address, provinceName, districtName, wardName,
+                     levelStudy, curPosition, certificates, school, money, teacherTimeDay, skills) => {
+            dispatch(actions.updateRequest(name, phone, email, image,gender, moreInfo, address, provinceName, districtName, wardName,
+                levelStudy, curPosition, certificates, school, money, teacherTimeDay, skills))
         },
     };
 };

@@ -10,7 +10,7 @@ const { Text } = Typography;
 class DetailTutor extends Component {
   render() {
     const st = this.props;
-    const schedule = [21, 22, 31, 32, 33, 41, 71];
+    const schedule = st.teacherTimeDay;
     const day = [
       'Thứ hai',
       'Thứ ba',
@@ -151,6 +151,16 @@ class DetailTutor extends Component {
                     &ensp;Hiện đang là:&ensp;
                     <span style={{ fontWeight: 500 }}>{st.curPosition}</span>
                   </Text>
+                  <Text>
+                    {st.gender==="Nam" && (
+                        <Icon type="man" />
+                    )}
+                    {st.gender==="Nữ" && (
+                        <Icon type="woman" />
+                    )}
+                    &ensp;Giới tính:&ensp;
+                    <span style={{ fontWeight: 500 }}>{st.gender}</span>
+                  </Text>
                   <Row
                     style={{
                       display: 'flex',
@@ -190,18 +200,13 @@ class DetailTutor extends Component {
                   ))}
                 </div>
               )}
-              {st.skills === null && (
-                <div>
-                  <Tag style={{ fontSize: 14 }}>Chưa cập nhật</Tag>
-                </div>
-              )}
               <Text className="title-info">Lịch dạy</Text>
 
               <div style={{ width: '100%' }}>
                 <Row style={{ width: '100%' }}>
                   {day.map(item => (
                     <Col span={3}>
-                      <Text>{item}</Text>
+                      <Text><strong>{item}</strong></Text>
                     </Col>
                   ))}
                 </Row>

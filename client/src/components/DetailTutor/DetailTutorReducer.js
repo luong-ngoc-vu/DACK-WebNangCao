@@ -13,7 +13,9 @@ export const initialState = {
     curPosition: '',
     certificates: '',
     levelStudy: '',
-    money: ''
+    money: '',
+    teacherTimeDay: '',
+    gender: ''
 };
 
 const ViewDetailTutorReducer = (state = initialState, action) => {
@@ -36,6 +38,8 @@ const ViewDetailTutorReducer = (state = initialState, action) => {
             st.certificates = data.certificates;
             st.levelStudy = data.levelStudy;
             st.money = data.money;
+            st.gender = data.gender;
+            st.teacherTimeDay = data.teacherTimeDay;
             return st;
         }
         default:

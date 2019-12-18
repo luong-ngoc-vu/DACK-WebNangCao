@@ -18,6 +18,8 @@ const mapStateToProps = (st) => {
         levelStudy: st.ViewDetailTutorReducer.levelStudy,
         certificates: st.ViewDetailTutorReducer.certificates,
         money: st.ViewDetailTutorReducer.money,
+        teacherTimeDay: st.ViewDetailTutorReducer.teacherTimeDay,
+        gender: st.ViewDetailTutorReducer.gender,
 
         isLogin: st.LoginReducer.isLogin,
     };

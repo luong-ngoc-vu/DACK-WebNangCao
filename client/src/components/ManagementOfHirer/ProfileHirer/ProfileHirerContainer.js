@@ -19,14 +19,15 @@ const mapStateToProps = state => {
         isLoginFB: st.isLoginFB,
         isLoginGG: st.isLoginGG,
         typeUser: st.typeUser,
-        curMoney: st.curMoney
+        curMoney: st.curMoney,
+        gender: st.gender,
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
-        updateUser: (name, phone, email, image, address, provinceName, districtName, wardName, moreInfo, curMoney) => {
-            dispatch(actions.updateRequest(name, phone, email, image, address,
+        updateUser: (name, phone, email, image, gender, address, provinceName, districtName, wardName, moreInfo, curMoney) => {
+            dispatch(actions.updateRequest(name, phone, email, image, gender, address,
                 provinceName, districtName, wardName, moreInfo, curMoney))
         },
     };

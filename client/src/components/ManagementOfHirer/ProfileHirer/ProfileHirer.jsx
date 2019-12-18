@@ -20,6 +20,7 @@ class ProfileForm extends React.Component {
         this.districtName = '';
         this.wardCode = '';
         this.wardName = '';
+        this.gender = '';
         this.err = '';
     }
 
@@ -28,6 +29,7 @@ class ProfileForm extends React.Component {
         provinceCode: this.provinceCode,
         districtCode: this.districtCode,
         wardCode: this.wardCode,
+        gender: this.gender
     };
 
     handleSubmit = e => {
@@ -90,6 +92,20 @@ class ProfileForm extends React.Component {
                                         }}
                                         name="phone"
                                     />
+                                </Form.Item>
+                            )}
+                            {st.isLoginFB === false && st.isLoginGG === false && (
+                                <Form.Item label="Giới tính">
+                                    <Select
+                                        defaultValue={st.gender}
+                                        onChange={value => {
+                                            this.setState({gender: value});
+                                        }}
+                                        size="large"
+                                    >
+                                        <Select.Option value={'Nam'}>Nam</Select.Option>
+                                        <Select.Option value={'Nữ'}>Nữ</Select.Option>
+                                    </Select>
                                 </Form.Item>
                             )}
                             {st.isLoginFB === false && st.isLoginGG === false && (
@@ -254,7 +270,7 @@ class ProfileForm extends React.Component {
                                         htmlType="submit"
                                         className="btn-sign-up"
                                         onClick={(event) => {
-                                            st.updateUser(this.name, this.phone, st.email, this.image,
+                                            st.updateUser(this.name, this.phone, st.email, this.image, this.state.gender,
                                                 this.address, this.state.provinceName, this.state.districtName,
                                                 this.state.wardName, this.moreInfo, this.curMoney);
                                             this.err = 'Cập nhật thành công';
