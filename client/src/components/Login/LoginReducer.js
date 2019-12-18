@@ -10,9 +10,11 @@ export const initialState = {
     wardName: '',
     moreInfo: '',
     skills: '',
+    teacherTimeDay: '',
     levelStudy: '',
     curPosition: '',
     certificates: '',
+    gender: '',
     school: '',
     money: 1,
     curMoney: 1,
@@ -53,6 +55,8 @@ const LoginReducer = (state = initialState, action) => {
                     st.school = data.school;
                     st.money = data.money;
                     st.curMoney = data.curMoney;
+                    st.teacherTimeDay = data.teacherTimeDay;
+                    st.gender = data.gender;
                     st.isLogin = true;
                     st.isLoginFB = false;
                     st.isLoginGG = false;
@@ -116,6 +120,8 @@ const LoginReducer = (state = initialState, action) => {
             st.school = data.school;
             st.money = data.money;
             st.curMoney = data.curMoney;
+            st.teacherTimeDay = data.teacherTimeDay;
+            st.gender = data.gender;
             return st;
         }
 

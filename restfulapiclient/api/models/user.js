@@ -60,9 +60,15 @@ const UserSchema = new Schema({
     money: {
         type: Intl
     },
+    gender: {
+        type: Intl
+    },
     curMoney: {
         type: Intl
     },
+    teacherTimeDay: [{
+        type: [Number]
+    }],
 });
 
 UserSchema.methods.isValidPassword = async function (password) {

@@ -11,6 +11,39 @@ const {TextArea} = Input;
 
 const {Title} = Typography;
 
+const day = [
+    'Thứ hai',
+    'Thứ ba',
+    'Thứ tư',
+    'Thứ năm',
+    'Thứ sáu',
+    'Thứ bảy',
+    'Chủ nhật'
+];
+const timeDay = [
+    {label: 'Sáng', value: 21},
+    {label: 'Sáng', value: 31},
+    {label: 'Sáng', value: 41},
+    {label: 'Sáng', value: 51},
+    {label: 'Sáng', value: 61},
+    {label: 'Sáng', value: 71},
+    {label: 'Sáng', value: 81},
+    {label: 'Chiều', value: 22},
+    {label: 'Chiều', value: 32},
+    {label: 'Chiều', value: 42},
+    {label: 'Chiều', value: 52},
+    {label: 'Chiều', value: 62},
+    {label: 'Chiều', value: 72},
+    {label: 'Chiều', value: 82},
+    {label: 'Tối', value: 23},
+    {label: 'Tối', value: 33},
+    {label: 'Tối', value: 43},
+    {label: 'Tối', value: 53},
+    {label: 'Tối', value: 63},
+    {label: 'Tối', value: 73},
+    {label: 'Tối', value: 83}
+];
+
 class ProfileForm extends React.Component {
     constructor() {
         super();
@@ -23,7 +56,10 @@ class ProfileForm extends React.Component {
 
         this.levelStudy = '';
         this.curPosition = '';
+        this.teacherTimeDay = [];
         this.skills = [];
+
+        this.gender = '';
         this.err = '';
     }
 
@@ -36,7 +72,11 @@ class ProfileForm extends React.Component {
         levelStudy: this.levelStudy,
         curPosition: this.curPosition,
         dataSkills: [],
-        skills: this.skills = []
+        skills: this.skills = [],
+        gender: this.gender,
+
+        checkedList: [],
+        indeterminate: true,
     };
 
     handleSubmit = e => {
@@ -54,6 +94,13 @@ class ProfileForm extends React.Component {
             .then(data => this.setState({dataSkills: data}));
     }
 
+    onChange = checkedList => {
+        this.setState({
+            checkedList,
+            indeterminate: !!checkedList.length && checkedList.length < timeDay.length,
+        });
+    };
+
     render() {
         const st = this.props;
         const {dataSkills} = this.state;
@@ -61,6 +108,8 @@ class ProfileForm extends React.Component {
         this.levelStudy = st.levelStudy;
         this.curPosition = st.curPosition;
         this.skills = st.skills;
+        this.gender = st.gender;
+        this.teacherTimeDay = st.teacherTimeDay;
 
         if (st.isLogin === false) {
             return <Redirect to="/login"/>;
@@ -72,39 +121,6 @@ class ProfileForm extends React.Component {
 
         const {getFieldDecorator} = this.props.form;
         const {skills} = this.state;
-
-        const day = [
-            'Thứ hai',
-            'Thứ ba',
-            'Thứ tư',
-            'Thứ năm',
-            'Thứ sáu',
-            'Thứ bảy',
-            'Chủ nhật'
-        ];
-        const timeDay = [
-            {label: 'Sáng', value: '21'},
-            {label: 'Sáng', value: '31'},
-            {label: 'Sáng', value: '41'},
-            {label: 'Sáng', value: '51'},
-            {label: 'Sáng', value: '61'},
-            {label: 'Sáng', value: '71'},
-            {label: 'Sáng', value: '81'},
-            {label: 'Chiều', value: '22'},
-            {label: 'Chiều', value: '32'},
-            {label: 'Chiều', value: '42'},
-            {label: 'Chiều', value: '52'},
-            {label: 'Chiều', value: '62'},
-            {label: 'Chiều', value: '72'},
-            {label: 'Chiều', value: '82'},
-            {label: 'Tối', value: '23'},
-            {label: 'Tối', value: '33'},
-            {label: 'Tối', value: '43'},
-            {label: 'Tối', value: '53'},
-            {label: 'Tối', value: '63'},
-            {label: 'Tối', value: '73'},
-            {label: 'Tối', value: '83'}
-        ];
 
         const OPTIONS = dataSkills.map(row => (row.name));
         const filteredOptions = OPTIONS.filter(o => !skills.includes(o));
@@ -149,6 +165,20 @@ class ProfileForm extends React.Component {
                                         }}
                                         name="phone"
                                     />
+                                </Form.Item>
+                            )}
+                            {st.isLoginFB === false && st.isLoginGG === false && (
+                                <Form.Item label="Giới tính">
+                                    <Select
+                                        defaultValue={st.gender}
+                                        onChange={value => {
+                                            this.setState({gender: value});
+                                        }}
+                                        size="large"
+                                    >
+                                        <Select.Option value={'Nam'}>Nam</Select.Option>
+                                        <Select.Option value={'Nữ'}>Nữ</Select.Option>
+                                    </Select>
                                 </Form.Item>
                             )}
                             {st.isLoginFB === false && st.isLoginGG === false && (
@@ -373,6 +403,7 @@ class ProfileForm extends React.Component {
                             <Select
                                 name="skills"
                                 mode="multiple"
+                                maxTagCount={3}
                                 defaultValue={st.skills}
                                 onChange={value => {
                                     this.setState({skills: value});
@@ -405,30 +436,31 @@ class ProfileForm extends React.Component {
                         </Form.Item>
                         <Form.Item label="Lịch bạn có thể nhận lớp">
                             <div>
-                                <div
-                                    style={{
+                                <div style={{
+                                    width: '100%',
+                                    display: 'flex',
+                                    flexDirection: 'row'
+                                }}>
+                                    <div style={{
                                         width: '100%',
                                         display: 'flex',
                                         flexDirection: 'row'
-                                    }}
-                                >
-                                    <div
-                                        style={{
-                                            width: '100%',
-                                            display: 'flex',
-                                            flexDirection: 'row'
-                                        }}
-                                    >
+                                    }}>
                                         {day.map(day => (
                                             <div style={{width: '14%'}}><strong>{day}</strong></div>
                                         ))}
                                     </div>
                                 </div>
                                 <Row>
-                                    <Checkbox.Group options={timeDay}/>
+                                    <Checkbox.Group
+                                        defaultValue={st.teacherTimeDay}
+                                        options={timeDay}
+                                        onChange={this.onChange}
+                                    />
                                 </Row>
                             </div>
                         </Form.Item>
+                        <div>{console.log(this.state.checkedList)}</div>
                         <div><strong>{this.err}</strong></div>
                         <Form.Item
                             style={{width: '100%', display: 'flex', flexDirection: 'row', justifyContent: 'center'}}>
@@ -439,12 +471,12 @@ class ProfileForm extends React.Component {
                                 htmlType="submit"
                                 className="btn-sign-up"
                                 onClick={event => {
-                                    event.preventDefault();
                                     st.updateUser(
                                         this.name,
                                         this.phone,
                                         st.email,
                                         this.image,
+                                        this.state.gender,
                                         this.moreInfo,
                                         this.address,
                                         this.state.provinceName,
@@ -455,6 +487,7 @@ class ProfileForm extends React.Component {
                                         this.certificates,
                                         this.school,
                                         this.money,
+                                        this.state.checkedList,
                                         this.state.skills
                                     );
                                     this.err = 'Cập nhật thành công';
