@@ -11,9 +11,11 @@ const mapStateToProps = state => {
         token: st.token,
         isLogin: st.isLogin,
         image: st.image,
-        address: st.address,
-        addressCity: st.addressCity,
         moreInfo: st.moreInfo,
+        provinceName: st.provinceName,
+        districtName: st.districtName,
+        wardName: st.wardName,
+        address: st.address,
         isLoginFB: st.isLoginFB,
         isLoginGG: st.isLoginGG,
         typeUser: st.typeUser,
@@ -23,8 +25,9 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        updateUser: (name, phone, email, image, address, addressCity, moreInfo) => {
-            dispatch(actions.updateRequest(name, phone, email, image, address, addressCity, moreInfo))
+        updateUser: (name, phone, email, image, address, provinceName, districtName, wardName, moreInfo, curMoney) => {
+            dispatch(actions.updateRequest(name, phone, email, image, address,
+                provinceName, districtName, wardName, moreInfo, curMoney))
         },
     };
 };

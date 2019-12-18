@@ -23,7 +23,13 @@ const UserSchema = new Schema({
     image: {
         type: String
     },
-    addressCity: {
+    provinceName: {
+        type: String
+    },
+    districtName: {
+        type: String
+    },
+    wardName: {
         type: String
     },
     address: {

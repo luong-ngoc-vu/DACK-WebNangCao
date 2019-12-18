@@ -14,7 +14,9 @@ const mapStateToProps = state => {
         isLoginGG: st.isLoginGG,
         image: st.image,
         address: st.address,
-        addressCity: st.addressCity,
+        provinceName: st.provinceName,
+        districtName: st.districtName,
+        wardName: st.wardName,
         moreInfo: st.moreInfo,
         typeUser: st.typeUser,
         skills: st.skills,
@@ -28,9 +30,9 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        updateUser: (name, phone, email, image, moreInfo, address, addressCity,
+        updateUser: (name, phone, email, image, moreInfo, address, provinceName, districtName, wardName,
                      levelStudy, curPosition, certificates, school, money, skills) => {
-            dispatch(actions.updateRequest(name, phone, email, image, moreInfo, address, addressCity,
+            dispatch(actions.updateRequest(name, phone, email, image, moreInfo, address, provinceName, districtName, wardName,
                 levelStudy, curPosition, certificates, school, money, skills))
         },
     };

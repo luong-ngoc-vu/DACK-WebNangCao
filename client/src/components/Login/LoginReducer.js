@@ -5,15 +5,17 @@ export const initialState = {
     phone: '',
     image: '',
     address: '',
-    addressCity: '',
+    provinceName: '',
+    districtName: '',
+    wardName: '',
     moreInfo: '',
     skills: '',
     levelStudy: '',
     curPosition: '',
     certificates: '',
     school: '',
-    money: '',
-    curMoney: '',
+    money: 1,
+    curMoney: 1,
     token: '',
     typeUser: 1,
     isLogin: false,
@@ -26,29 +28,31 @@ const LoginReducer = (state = initialState, action) => {
     switch (action.type) {
         case 'LOGIN': {
             const st = {...state};
+            const data = action.data.res.data.user;
             if (action.data.res.message === "Request failed with status code 400") {
                 st.token = 'err';
                 return st;
             } else {
-                st.email = action.data.res.data.user.email;
-                st.password = action.data.res.data.user.password;
+                st.email = data.email;
+                st.password = data.password;
                 try {
                     st.token = action.data.res.data.token;
-                    st.name = action.data.res.data.user.name;
-                    st.image = action.data.res.data.user.image;
-                    st.phone = action.data.res.data.user.phone;
-                    st.address = action.data.res.data.user.address;
-                    st.addressCity = action.data.res.data.user.addressCity;
-                    st.skills = action.data.res.data.user.skills;
-                    st.levelStudy = action.data.res.data.user.levelStudy;
-                    st.curPosition = action.data.res.data.user.curPosition;
-                    st.certificates = action.data.res.data.user.certificates;
-                    st.moreInfo = action.data.res.data.user.moreInfo;
-                    st.typeUser = action.data.res.data.user.typeUser;
-                    st.school = action.data.res.data.user.school;
-                    st.money = action.data.res.data.user.money;
-                    st.curMoney = action.data.res.data.user.curMoney;
-                    console.log(st.curMoney);
+                    st.name = data.name;
+                    st.image = data.image;
+                    st.phone = data.phone;
+                    st.address = data.address;
+                    st.provinceName = data.provinceName;
+                    st.districtName = data.districtName;
+                    st.wardName = data.wardName;
+                    st.skills = data.skills;
+                    st.levelStudy = data.levelStudy;
+                    st.curPosition = data.curPosition;
+                    st.certificates = data.certificates;
+                    st.moreInfo = data.moreInfo;
+                    st.typeUser = data.typeUser;
+                    st.school = data.school;
+                    st.money = data.money;
+                    st.curMoney = data.curMoney;
                     st.isLogin = true;
                     st.isLoginFB = false;
                     st.isLoginGG = false;
@@ -101,7 +105,9 @@ const LoginReducer = (state = initialState, action) => {
             st.phone = data.phone;
             st.image = data.image;
             st.address = data.address;
-            st.addressCity = data.addressCity;
+            st.provinceName = data.provinceName;
+            st.districtName = data.districtName;
+            st.wardName = data.wardName;
             st.moreInfo = data.moreInfo;
             st.skills = data.skills;
             st.levelStudy = data.levelStudy;
@@ -109,6 +115,7 @@ const LoginReducer = (state = initialState, action) => {
             st.certificates = data.certificates;
             st.school = data.school;
             st.money = data.money;
+            st.curMoney = data.curMoney;
             return st;
         }
 

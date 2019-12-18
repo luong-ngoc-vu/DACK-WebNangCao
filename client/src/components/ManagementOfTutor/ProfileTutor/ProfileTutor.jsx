@@ -5,6 +5,7 @@ import './ProfileTutor.css';
 import {Avatar, Button, Checkbox, Form, Input, InputNumber, Row, Select, Typography} from 'antd';
 
 import Redirect from 'react-router-dom/Redirect';
+import {getDistrictsByProvinceCode, getProvinces, getWardsByDistrictCode} from "sub-vn";
 
 const {TextArea} = Input;
 
@@ -13,17 +14,25 @@ const {Title} = Typography;
 class ProfileForm extends React.Component {
     constructor() {
         super();
-        this.addressCity = '';
+        this.provinceCode = '';
+        this.provinceName = '';
+        this.districtCode = '';
+        this.districtName = '';
+        this.wardCode = '';
+        this.wardName = '';
+
         this.levelStudy = '';
         this.curPosition = '';
         this.skills = [];
-        this.money = '';
         this.err = '';
     }
 
     state = {
+        provinceCode: this.provinceCode,
+        districtCode: this.districtCode,
+        wardCode: this.wardCode,
+
         loading: false,
-        addressCity: this.addressCity,
         levelStudy: this.levelStudy,
         curPosition: this.curPosition,
         dataSkills: [],
@@ -49,7 +58,6 @@ class ProfileForm extends React.Component {
         const st = this.props;
         const {dataSkills} = this.state;
 
-        this.addressCity = st.addressCity;
         this.levelStudy = st.levelStudy;
         this.curPosition = st.curPosition;
         this.skills = st.skills;
@@ -59,7 +67,7 @@ class ProfileForm extends React.Component {
         }
 
         if (st.typeUser === 1) {
-            return <Redirect to="/student-profile"/>;
+            return <Redirect to="/hire-manage"/>;
         }
 
         const {getFieldDecorator} = this.props.form;
@@ -146,11 +154,10 @@ class ProfileForm extends React.Component {
                             {st.isLoginFB === false && st.isLoginGG === false && (
                                 <Form.Item label="Chọn tỉnh/ Thành phố">
                                     <Select
-                                        name="addressCity"
-                                        placeholder="Chọn thành phố"
-                                        defaultValue={st.addressCity}
+                                        labelInValue
+                                        defaultValue={{key: st.provinceName}}
                                         onChange={value => {
-                                            this.setState({addressCity: value});
+                                            this.setState({provinceCode: value.key, provinceName: value.label});
                                         }}
                                         showSearch
                                         optionFilterProp="children"
@@ -161,19 +168,55 @@ class ProfileForm extends React.Component {
                                         }
                                         size="large"
                                     >
-                                        <Select.Option value={'Thành phố Hồ Chí Minh'}>
-                                            Thành phố Hồ Chí Minh
-                                        </Select.Option>
-                                        <Select.Option value={'Hà Nội'}>Hà Nội</Select.Option>
-                                        <Select.Option value={'Đà Nẵng'}>Đà Nẵng</Select.Option>
-                                        <Select.Option value={'Huế'}>Huế</Select.Option>
-                                        <Select.Option value={'Quảng Nam'}>Quảng Nam</Select.Option>
-                                        <Select.Option value={'Quảng Ngãi'}>Quảng Ngãi</Select.Option>
-                                        <Select.Option value={'Quảng Bình'}>Quảng Bình</Select.Option>
-                                        <Select.Option value={'Bình Định'}>Bình Định</Select.Option>
-                                        <Select.Option value={'Bình Dương'}>Bình Dương</Select.Option>
-                                        <Select.Option value={'Bình Phước'}>Bình Phước</Select.Option>
-                                        <Select.Option value={'Tây Ninh'}>Tây Ninh</Select.Option>
+                                        {getProvinces().map(con => (
+                                            <Select.Option value={con.code}>{con.name}</Select.Option>
+                                        ))}
+                                    </Select>
+                                </Form.Item>
+                            )}
+                            {st.isLoginFB === false && st.isLoginGG === false && (
+                                <Form.Item label="Chọn huyện/ thị xã">
+                                    <Select
+                                        showSearch
+                                        labelInValue
+                                        defaultValue={{key: st.districtName}}
+                                        onChange={value => {
+                                            this.setState({districtCode: value.key, districtName: value.label});
+                                        }}
+                                        optionFilterProp="children"
+                                        filterOption={(input, option) =>
+                                            option.props.children
+                                                .toLowerCase()
+                                                .indexOf(input.toLowerCase()) >= 0
+                                        }
+                                        size="large"
+                                    >
+                                        {getDistrictsByProvinceCode(this.state.provinceCode).map(con => (
+                                            <Select.Option value={con.code}>{con.name}</Select.Option>
+                                        ))}
+                                    </Select>
+                                </Form.Item>
+                            )}
+                            {st.isLoginFB === false && st.isLoginGG === false && (
+                                <Form.Item label="Chọn phường">
+                                    <Select
+                                        defaultValue={{key: st.wardName}}
+                                        labelInValue
+                                        onChange={value => {
+                                            this.setState({wardCode: value.key, wardName: value.label});
+                                        }}
+                                        showSearch
+                                        optionFilterProp="children"
+                                        filterOption={(input, option) =>
+                                            option.props.children
+                                                .toLowerCase()
+                                                .indexOf(input.toLowerCase()) >= 0
+                                        }
+                                        size="large"
+                                    >
+                                        {getWardsByDistrictCode(this.state.districtCode).map(con => (
+                                            <Select.Option value={con.code}>{con.name}</Select.Option>
+                                        ))}
                                     </Select>
                                 </Form.Item>
                             )}
@@ -404,7 +447,9 @@ class ProfileForm extends React.Component {
                                         this.image,
                                         this.moreInfo,
                                         this.address,
-                                        this.state.addressCity,
+                                        this.state.provinceName,
+                                        this.state.districtName,
+                                        this.state.wardName,
                                         this.state.levelStudy,
                                         this.state.curPosition,
                                         this.certificates,

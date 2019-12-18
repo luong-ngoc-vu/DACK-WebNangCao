@@ -128,12 +128,13 @@ class DetailTutor extends Component {
                   >
                     <Icon type="environment" />
                     &ensp;Địa chỉ:
-                    <span style={{ fontWeight: 500 }}>&ensp; {st.address}</span>
+                    <span style={{ fontWeight: 500 }}>&ensp; {st.address+", "+ st.wardName+", "+ st.districtName+", "+
+                    st.provinceName}</span>
                   </Text>
                   <Text style={{ marginBottom: 10 }}>
                     <Icon type="dollar" />
                     &ensp;Giá thuê:&ensp;
-                    <span style={{ fontWeight: 500 }}>{st.money} VNĐ/ buổi</span>
+                    <span style={{ fontWeight: 500 }}>{st.money} VNĐ/h</span>
                   </Text>
                   <Text style={{ marginBottom: 10 }}>
                     <Icon type="phone" />

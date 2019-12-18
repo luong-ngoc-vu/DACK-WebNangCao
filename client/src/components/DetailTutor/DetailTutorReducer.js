@@ -3,7 +3,9 @@ export const initialState = {
     name: '',
     phone: '',
     address: '',
-    addressCity: '',
+    provinceName: '',
+    districtName: '',
+    wardName: '',
     typeUser: '',
     moreInfo: '',
     image: '',
@@ -24,7 +26,9 @@ const ViewDetailTutorReducer = (state = initialState, action) => {
             st.phone = data.phone;
             st.typeUser = data.typeUser;
             st.address = data.address;
-            st.addressCity = data.addressCity;
+            st.provinceName = data.provinceName;
+            st.districtName = data.districtName;
+            st.wardName = data.wardName;
             st.moreInfo = data.moreInfo;
             st.image = data.image;
             st.skills = data.skills;

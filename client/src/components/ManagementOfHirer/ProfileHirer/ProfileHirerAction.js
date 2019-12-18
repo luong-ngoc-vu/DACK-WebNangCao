@@ -2,10 +2,9 @@ import axios from 'axios';
 
 export const UPDATE = 'UPDATE';
 
-/* ==================== UPDATE USER INFORMATION ==================== */
-function onClickUpdate(name, phone, email, image, address, addressCity, moreInfo) {
+function onClickUpdate(name, phone, email, image, address, provinceName, districtName, wardName, moreInfo, curMoney) {
     return axios.post('http://localhost:4000/user/update', {
-        name, phone, email, image, address, addressCity, moreInfo
+        name, phone, email, image, address, provinceName, districtName, wardName, moreInfo, curMoney
     }).catch(err => {
         return err
     })
@@ -18,9 +17,11 @@ export const update = (res) => {
     }
 };
 
-export const updateRequest = (name, phone, email, image, address, addressCity, moreInfo) => {
+export const updateRequest = (name, phone, email, image, address,
+                              provinceName, districtName, wardName, moreInfo, curMoney) => {
     return (dispatch => {
-        return onClickUpdate(name, phone, email, image, address, addressCity, moreInfo).then(res => {
+        return onClickUpdate(name, phone, email, image, address,
+            provinceName, districtName, wardName, moreInfo, curMoney).then(res => {
             dispatch(update(res))
         })
     })

@@ -46,7 +46,7 @@ class OutstandingTutorList extends React.Component {
             <div className="out-tutor">
                 <div className="filter-tutor">
                     <h2 style={{textAlign: 'left', margin: '20px 0px'}}>
-                        Gia sư nổi bật
+                        <strong>Gia sư nổi bật</strong>
                     </h2>
                     <Select
                         style={{marginBottom: 10}}
@@ -116,11 +116,11 @@ class OutstandingTutorList extends React.Component {
                                             >
                                                 {teacher.name}
                                             </p>
-                                            <p>Địa chỉ: {teacher.addressCity}</p>
+                                            <p>Địa chỉ: {teacher.provinceName}</p>
                                             <p>
                                                 Học phí:{' '}
                                                 <span style={{fontWeight: 'bolder'}}>
-                                                    {teacher.money} VNĐ</span>/buổi
+                                                    {teacher.money} VNĐ</span>/h
                                             </p>
                                         </div>
                                         <hr style={{border: '1px solid #e0e0e0'}}></hr>
@@ -169,7 +169,7 @@ class OutstandingTutorList extends React.Component {
                                             >
                                                 {teacher.name}
                                             </p>
-                                            <p>Địa chỉ: {teacher.addressCity}</p>
+                                            <p>Địa chỉ: {teacher.provinceName}</p>
                                             <p>
                                                 Học phí:{' '}
                                                 <span style={{fontWeight: 'bolder'}}>
