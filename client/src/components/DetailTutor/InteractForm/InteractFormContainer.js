@@ -4,7 +4,6 @@ import InteractForm from './InteractForm';
 const mapStateToProps = (st) => {
     return {
         isLogin: st.LoginReducer.isLogin,
-        nameStudent: st.LoginReducer.name,
         typeUser: st.LoginReducer.typeUser,
     };
 };

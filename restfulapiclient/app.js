@@ -6,6 +6,8 @@ const path = require('path');
 const url = require('./db').mongoURI;
 
 const userRoute = require('./api/routes/user');
+const contractRoute = require('./api/routes/contract');
+
 mongoose.connect(url, {
     useNewUrlParser: true,
     useUnifiedTopology: true
@@ -30,6 +32,8 @@ app.use(function (req, res, next) {
 
 
 app.use('/user', userRoute);
+app.use('/contract', contractRoute);
+
 app.get('/me', passport.authenticate('jwt', {session: false}), (req, res) => {
     res.status(200).json(
         req.user

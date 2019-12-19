@@ -1,4 +1,5 @@
 export const initialState = {
+    idUser: '',
     email: '',
     password: '',
     name: '',
@@ -39,6 +40,7 @@ const LoginReducer = (state = initialState, action) => {
                 st.password = data.password;
                 try {
                     st.token = action.data.res.data.token;
+                    st.idUser = data._id;
                     st.name = data.name;
                     st.image = data.image;
                     st.phone = data.phone;

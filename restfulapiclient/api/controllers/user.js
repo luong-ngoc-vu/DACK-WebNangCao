@@ -1,5 +1,6 @@
 const User = require('../models/user');
 const Skill = require('../models/skill');
+const Contract = require('../models/contract');
 const bcrypt = require('bcryptjs');
 const ObjectId = require('mongodb').ObjectID;
 

@@ -21,6 +21,7 @@ const mapStateToProps = state => {
         typeUser: st.typeUser,
         curMoney: st.curMoney,
         gender: st.gender,
+        idUser: st.idUser
     };
 };
 

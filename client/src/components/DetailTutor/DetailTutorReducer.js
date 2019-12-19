@@ -15,7 +15,8 @@ export const initialState = {
     levelStudy: '',
     money: '',
     teacherTimeDay: '',
-    gender: ''
+    gender: '',
+    idTeacher:'',
 };
 
 const ViewDetailTutorReducer = (state = initialState, action) => {
@@ -23,6 +24,7 @@ const ViewDetailTutorReducer = (state = initialState, action) => {
         case 'VIEW_DETAIL_TUTOR': {
             const st = {...state};
             const data = action.data.res.data[0];
+            st.idTeacher = data._id;
             st.email = data.email;
             st.name = data.name;
             st.phone = data.phone;

@@ -26,7 +26,8 @@ const mapStateToProps = state => {
         school: st.school,
         money: st.money,
         teacherTimeDay: st.teacherTimeDay,
-        gender: st.gender
+        gender: st.gender,
+        idUser: st.idUser
     };
 };
 

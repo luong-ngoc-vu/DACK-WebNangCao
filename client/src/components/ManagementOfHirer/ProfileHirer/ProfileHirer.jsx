@@ -43,6 +43,7 @@ class ProfileForm extends React.Component {
 
     render() {
         const st = this.props;
+        console.log("id: " + st.idUser);
 
         if (st.isLogin === false) {
             return <Redirect to="/login"/>

@@ -20,6 +20,7 @@ const mapStateToProps = (st) => {
         money: st.ViewDetailTutorReducer.money,
         teacherTimeDay: st.ViewDetailTutorReducer.teacherTimeDay,
         gender: st.ViewDetailTutorReducer.gender,
+        idTeacher: st.ViewDetailTutorReducer.idTeacher,
 
         isLogin: st.LoginReducer.isLogin,
     };

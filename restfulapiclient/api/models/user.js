@@ -69,6 +69,9 @@ const UserSchema = new Schema({
     teacherTimeDay: [{
         type: [Number]
     }],
+    status: {
+        type: String
+    },
 });
 
 UserSchema.methods.isValidPassword = async function (password) {

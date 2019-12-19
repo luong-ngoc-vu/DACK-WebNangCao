@@ -1,23 +1,37 @@
 import {connect} from 'react-redux';
 import HireOrder from './HireOrder';
+import * as actions from "../HireOrder/HireOrderAction";
 
 const mapStateToProps = (st) => {
     return {
-        name: st.ViewDetailTutorReducer.name,
+        nameTeacher: st.ViewDetailTutorReducer.name,
         phone: st.ViewDetailTutorReducer.phone,
         address: st.ViewDetailTutorReducer.address,
-        addressCity: st.ViewDetailTutorReducer.addressCity,
+        provinceName: st.ViewDetailTutorReducer.provinceName,
+        districtName: st.ViewDetailTutorReducer.districtName,
+        wardName: st.ViewDetailTutorReducer.wardName,
         skills: st.ViewDetailTutorReducer.skills,
-        money: st.ViewDetailTutorReducer.money,
+        moneyTeacherPerHour: st.ViewDetailTutorReducer.money,
+        idTeacher: st.ViewDetailTutorReducer.idTeacher,
 
-        curMoney: st.LoginReducer.curMoney,
+        curMoneyStudent: st.LoginReducer.curMoney,
         isLogin: st.LoginReducer.isLogin,
         nameStudent: st.LoginReducer.name,
+        idStudent: st.LoginReducer.idUser,
+        genderStudent: st.LoginReducer.gender,
+
+        isSendRequestStatus: st.OrderReducer.isSendRequestStatus,
     };
 };
 
 const mapDispatchToProps = (dispatch) => {
-    return {};
+    return {
+        addNewContract: (idStudent, idTeacher, nameStudent, nameTeacher, genderStudent, moneyTeacherPerHour, totalMoneyContract, skills,
+                         schedule, numberOfLesson, address, provinceName, districtName, wardName, hourPerLesson, note, dateContract) => {
+            dispatch(actions.addNewContractRequest(idStudent, idTeacher, nameStudent, nameTeacher, genderStudent, moneyTeacherPerHour, totalMoneyContract, skills,
+                schedule, numberOfLesson, address, provinceName, districtName, wardName, hourPerLesson, note, dateContract));
+        }
+    };
 };
 
 const HireOrderContainer = connect(mapStateToProps, mapDispatchToProps)(HireOrder);
