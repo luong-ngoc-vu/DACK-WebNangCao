@@ -6,12 +6,14 @@ import './Chat.css'
 import InfoBar from './InfoBar';
 import Input from './Input';
 import Messages from './Messages';
+import axios from 'axios';
 
 let socket;
 const ENDPOINT = 'localhost:4000';
 socket = io(ENDPOINT);
 const ChatForm = (props) => {
-    const { dataRoom, target } = props;         //Target là email người mình muốn chat(người dạy)
+    const { dataRoom, target } = props;         //Target là email người mình muốn chat(người dạy) t chưa biết thêm sao.
+    
     const [name, setName] = useState('');
     const [room, setRoom] = useState('');
 
@@ -20,7 +22,10 @@ const ChatForm = (props) => {
 
     useEffect(() => {
         const { name, room } = { name: dataRoom, room: target };
-
+        //Fetch message cũ:
+        // Axios với jwt_token của máy ông
+        // axios.get(`http://localhost:4000/message/getAll?to=${target}&limit=50`).then(res=> {console.log(res)});
+        // Lấy res append vô list message done.
         setName(name);
         setRoom(room);
 
@@ -43,7 +48,7 @@ const ChatForm = (props) => {
 
         event.preventDefault();
         if (message) {
-            socket.emit('sendMessage', message, () =>
+            socket.emit('sendMessage', {message, target}, () =>
                 setMessage(''));
         }
     }
