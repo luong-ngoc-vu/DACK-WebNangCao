@@ -6,11 +6,8 @@
     "antd": "^3.25.3",
     "axios": "^0.19.0",
     "lodash": "^4.17.15",
-<<<<<<< HEAD
     "moment": "^2.24.0",
-=======
     "query-string": "^6.9.0",
->>>>>>> ab92f953e59da4901d895ea05dc09cfe4a7b184a
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-emoji": "^0.5.0",
