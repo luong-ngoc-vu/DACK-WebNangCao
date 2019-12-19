@@ -30,13 +30,9 @@ app.use(function (req, res, next) {
     next();
 });
 app.use('/user', userRoute);
-<<<<<<< HEAD
 app.use('/contract', contractRoute);
 
-app.get('/me', passport.authenticate('jwt', {session: false}), (req, res) => {
-=======
 app.get('/me', passport.authenticate('jwt', { session: false }), (req, res) => {
->>>>>>> ab92f953e59da4901d895ea05dc09cfe4a7b184a
     res.status(200).json(
         req.user
     );
