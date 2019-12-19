@@ -4,7 +4,7 @@ import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import throttle from 'lodash/throttle';
 import { applyMiddleware, createStore } from 'redux';
-
+import { composeWithDevTools } from 'redux-devtools-extension';
 import indexReducer from './components/RootReducer';
 import Container from './components/RootContainer';
 
@@ -24,13 +24,16 @@ const saveState = state => {
   try {
     const serializedState = JSON.stringify(state);
     localStorage.setItem('state', serializedState);
-  } catch (e) {
-  }
+  } catch (e) {}
 };
 
 const peristedState = loadState();
 
-const store = createStore(indexReducer, peristedState, applyMiddleware(thunk));
+const store = createStore(
+  indexReducer,
+  peristedState,
+  composeWithDevTools(applyMiddleware(thunk))
+);
 
 store.subscribe(
   throttle(() => {
@@ -40,7 +43,7 @@ store.subscribe(
 
 ReactDOM.render(
   <Provider store={store}>
-    <Container/>
+    <Container />
   </Provider>,
   document.getElementById('root')
 );
