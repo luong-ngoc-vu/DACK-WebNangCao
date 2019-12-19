@@ -11,7 +11,7 @@ let socket;
 const ENDPOINT = 'localhost:4000';
 socket = io(ENDPOINT);
 const ChatForm = (props) => {
-    const { dataRoom } = props;
+    const { dataRoom, target } = props;         //Target là email người mình muốn chat(người dạy)
     const [name, setName] = useState('');
     const [room, setRoom] = useState('');
 
@@ -19,7 +19,7 @@ const ChatForm = (props) => {
     const [messages, setMessages] = useState([]);
 
     useEffect(() => {
-        const { name, room } = { name: dataRoom, room: 'room' };
+        const { name, room } = { name: dataRoom, room: target };
 
         setName(name);
         setRoom(room);
