@@ -8,6 +8,18 @@ const { Option } = Select;
 const { Text } = Typography;
 const { TabPane } = Tabs;
 class OrderContract extends Component {
+	changeStatus(idContract, status) {
+		fetch(`http://localhost:4000/contract/changeStatus/${idContract}/${status}`, { method: 'PUT' })
+			.then((response) => response.json())
+			.then((data) =>
+				this.setState({
+					message: data.message
+				})
+			)
+			.catch((error) => {
+				return error;
+			});
+	}
 	render() {
 		const { listData } = this.props;
 		return (
@@ -35,8 +47,8 @@ class OrderContract extends Component {
 							actions={
 								item.status === 0 ? (
 									[
-										<Button size="large" icon="edit" type="primary" key="list-loadmore-edit" />,
-										<Button size="large" icon="close" type="danger" key="list-loadmore-edit" />
+										<Button size="large" icon="edit" type="primary" key={item.idContract} />,
+										<Button size="large" icon="close" type="danger" key={item.idContract} />
 									]
 								) : item.status === 1 ? (
 									[
@@ -44,12 +56,13 @@ class OrderContract extends Component {
 											size="large"
 											icon="check-circle"
 											type="primary"
-											key="list-loadmore-edit"
+											key={item.idContract}
+											onClick={this.changeStatus(item.idContract, 2)}
 										/>,
-										<Button size="large" icon="stop" type="danger" key="list-loadmore-edit" />
+										<Button size="large" icon="stop" type="danger" key={item.idContract} />
 									]
 								) : (
-									[ <Button size="large" icon="warning" type="danger" key="list-loadmore-edit" /> ]
+									[ <Button size="large" icon="warning" type="danger" key={item.idContract} /> ]
 								)
 							}
 						>
@@ -57,46 +70,65 @@ class OrderContract extends Component {
 								avatar={
 									<Avatar
 										size="large"
-										style={{ minHeight: 100, minWidth: 100 }}
+										style={{ minHeight: 100, minWidth: 100, marginTop: 25 }}
 										src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
 									/>
 								}
 								description={
 									<div>
+										<div
+											style={{
+												marginBottom: 5,
+												position: 'relative',
+												width: '100%',
+												borderBottom: '1px solid #e0e0e0',
+												paddingBottom: 10
+											}}
+										>
+											<Text
+												strong
+												style={{
+													fontSize: 16,
+													position: 'absolute',
+													left: 0
+												}}
+											>
+												Hợp đồng:&ensp;{item.idContract}
+											</Text>
+											{item.status === 0 ? (
+												<Tag color="blue">Chờ xác nhận</Tag>
+											) : item.status === 1 ? (
+												<Tag color="green">Đang thuê</Tag>
+											) : (
+												<Tag color="orange">Đã kết thúc</Tag>
+											)}
+											<Text style={{ position: 'absolute', right: 0 }}>{item.dateContract}</Text>
+										</div>
 										<div className="item-list-info-tutor">
 											<div
 												className="info-personal"
 												style={{ width: '100%', position: 'relative' }}
 											>
-												<div style={{ marginBottom: 5, position: 'relative', width: '100%' }}>
-													<Text
-														style={{
-															fontSize: 20,
-															position: 'absolute',
-															left: 0,
-															color: '#1890FF'
-														}}
-													>
-														{item.name}
-													</Text>
-													{item.status === 0 ? (
-														<Tag color="blue">Chờ xác nhận</Tag>
-													) : item.status === 1 ? (
-														<Tag color="green">Đang thuê</Tag>
-													) : (
-														<Tag color="orange">Đã kết thúc</Tag>
-													)}
-													<Text style={{ position: 'absolute', right: 0 }}>{item.date}</Text>
-												</div>
+												<Text
+													style={{
+														fontSize: 20,
+
+														color: '#1890FF'
+													}}
+												>
+													Gia sư:&ensp;{item.nameTeacher}
+												</Text>
 												<Text style={{ marginBottom: 5 }}>
 													<Icon type="idcard" />
 													&ensp;Mã số:&ensp;
-													<span style={{ fontWeight: 500 }}>102254</span>
+													<span style={{ fontWeight: 500 }}>{item.idContract}</span>
 												</Text>
 												<Text style={{ marginBottom: 5 }}>
 													<Icon type="dollar" />
 													&ensp;Giá thuê:&ensp;
-													<span style={{ fontWeight: 500 }}>150,000 vnđ/h</span>
+													<span style={{ fontWeight: 500 }}>
+														{item.moneyTeacherPerHour} vnđ/h
+													</span>
 												</Text>
 												<Text style={{ marginBottom: 5 }}>
 													<Icon type="phone" />
@@ -120,7 +152,7 @@ class OrderContract extends Component {
 														display: 'flex',
 														flexDirection: 'row',
 														width: '100%',
-														margin: '5px 0px'
+														marginBottom: 10
 													}}
 												>
 													<Text style={{ marginRight: 10 }}>
@@ -142,28 +174,56 @@ class OrderContract extends Component {
 											</div>
 										</div>
 										<div className="item-list-info-hire">
-											<Text strong style={{ fontSize: 18, margin: '10px 0px' }}>
-												Thông tin thuê từ bạn
+											<Text
+												style={{
+													fontSize: 20,
+													color: '#1890FF',
+													marginBottom: 5,
+													marginTop: 10
+												}}
+											>
+												Người thuê:&ensp;{item.nameStudent}
 											</Text>
 											<Text style={{ marginBottom: 5 }}>
-												<Icon type="book" />&ensp;Môn bạn chọn:{' '}
-												<Tag style={{ fontSize: 16 }}>Toán</Tag>
+												<Icon type="woman" />
+												&ensp;Giới tính học viên:&ensp;
+												<span style={{ fontWeight: 500 }}>Nữ</span>
+											</Text>
+											<Text style={{ marginBottom: 5 }}>
+												<Icon type="phone" />
+												&ensp;Số điện thoại:&ensp;
+												<span style={{ fontWeight: 500 }}>0335 205 969</span>
+											</Text>
+											<Text style={{ marginBottom: 5 }}>
+												<Icon type="book" />&ensp;Môn thuê:{' '}
+												{item.skills.map((item) => <Tag style={{ fontSize: 16 }}>{item}</Tag>)}
 											</Text>
 											<Text style={{ marginBottom: 5 }}>
 												<Icon type="clock-circle" />
 												&ensp;Số giờ mỗi buổi:&ensp;
-												<span style={{ fontWeight: 500 }}>2.5 giờ/buổi</span>
+												<span style={{ fontWeight: 500 }}>{item.hourPerLesson} giờ/buổi</span>
+											</Text>
+											<Text style={{ marginBottom: 5 }}>
+												<Icon type="table" />
+												&ensp;Số buổi:&ensp;
+												<span style={{ fontWeight: 500 }}>{item.numberOfLesson} buổi</span>
+											</Text>
+											<Text style={{ marginBottom: 5 }}>
+												<Icon type="team" />
+												&ensp;Số người học:&ensp;
+												<span style={{ fontWeight: 500 }}>3</span>
 											</Text>
 											<Text style={{ marginBottom: 5 }}>
 												<Icon type="schedule" />
 												&ensp;Lịch học:&ensp;
-												<span style={{ fontWeight: 500 }}>Thứ 2 - Sáng, Thứ 3 - Sáng</span>
+												<span style={{ fontWeight: 500 }}>{item.schedule.toString()}</span>
 											</Text>
 											<Text style={{ marginBottom: 5, textAlign: 'left' }}>
 												<Icon type="home" />
 												&ensp;Địa chỉ học:&ensp;
 												<span style={{ fontWeight: 500 }}>
-													ĐƯờng Nam kỳ, phường Nam kỳ, quận 1, TP Hồ Chí Minh
+													{item.address}, {item.wardName}, {item.districtName},{' '}
+													{item.provinceName}
 												</span>
 											</Text>
 										</div>

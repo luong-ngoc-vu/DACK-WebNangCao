@@ -7,6 +7,7 @@ const url = require('./db').mongoURI;
 
 const userRoute = require('./api/routes/user');
 const contractRoute = require('./api/routes/contract');
+const messageRoute = require('./api/routes/message');
 
 mongoose.connect(url, {
     useNewUrlParser: true,
@@ -23,7 +24,7 @@ app.set('view engine', 'hbs');
 app.use(cors());
 app.disable('etag');
 app.use(express.json());
-app.use(express.urlencoded({extended: false}));
+app.use(express.urlencoded({ extended: false }));
 
 app.use(function (req, res, next) {
     res.locals.user = req.user || null;
@@ -31,9 +32,9 @@ app.use(function (req, res, next) {
 });
 app.use('/user', userRoute);
 app.use('/contract', contractRoute);
-
-
-app.get('/me', passport.authenticate('jwt', {session: false}), (req, res) => {
+messageRoute
+app.use('/mesage', passport.authenticate('jwt', { session: false }), messageRoute);
+app.get('/me', passport.authenticate('jwt', { session: false }), (req, res) => {
     res.status(200).json(
         req.user
     );
