@@ -5,7 +5,7 @@ const controller = require('../controllers/message');
 
 router.patch('/create', controller.markRead);
 router.get('/id', controller.getById);
-router.put('/update', controller.update);
+
 router.get('/getAll', controller.getAll);
 
 module.exports = router;
