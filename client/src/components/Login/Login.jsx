@@ -17,7 +17,8 @@ class LoginForm extends React.Component {
     }
 
     state = {
-        typeUser: 1
+        typeUser: 1,
+        isLocked: false,
     };
 
     handleSubmit = e => {
@@ -29,6 +30,7 @@ class LoginForm extends React.Component {
         });
     };
 
+
     render() {
         const {getFieldDecorator} = this.props.form;
         const st = this.props;
@@ -39,6 +41,10 @@ class LoginForm extends React.Component {
             return <Redirect to="/hirer-manage/profile"/>;
         } else if (st.isLogin === true && st.typeUser === 2) {
             return <Redirect to="/tutor-manage/profile"/>;
+        }
+
+        if (this.state.isLocked === true) {
+            this.err = 'Tài khoản đã khóa bởi Admin !';
         }
 
         return (
@@ -65,6 +71,17 @@ class LoginForm extends React.Component {
                                     placeholder="Nhập tài khoản email"
                                     onChange={event => {
                                         this.email = event.target.value;
+                                        fetch('http://localhost:4000/user/getUserByEmail', {
+                                            method: 'POST',
+                                            headers: {
+                                                'Accept': 'application/json',
+                                                'Content-Type': 'application/json'
+                                            },
+                                            body: JSON.stringify({email: event.target.value})
+                                        }).then(value => value.json()).then(teachers => {
+                                            this.setState({isLocked: teachers.isLocked});
+                                        }).catch(error => {
+                                        });
                                     }}
                                     name="email"
                                     autoFocus
@@ -107,7 +124,7 @@ class LoginForm extends React.Component {
                                 className="login-form-button"
                                 onClick={event => {
                                     event.preventDefault();
-                                    if (this.name !== '' && this.password !== '')
+                                    if (this.name !== '' && this.password !== '' && this.state.isLocked === false)
                                         st.Login(this.email, this.password);
                                 }}
                             >

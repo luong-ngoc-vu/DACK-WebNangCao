@@ -2,6 +2,7 @@ import React from 'react';
 import 'antd/dist/antd.css';
 import './ViewDetailSkill.css';
 import {Button, Form, Input, Typography} from 'antd';
+import {Redirect} from "react-router-dom";
 
 const {Title} = Typography;
 
@@ -17,6 +18,9 @@ class ProfileForm extends React.Component {
         const st = this.props;
         if (st.checkUpdateSkill === true) {
             this.msg = 'Cập nhật kỹ năng thành công !';
+        }
+        if (st.isLogin === false) {
+            return <Redirect to="/admin-login"/>;
         }
         this.name = st.name;
         return (

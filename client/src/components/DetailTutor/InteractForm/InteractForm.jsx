@@ -53,6 +53,17 @@ class ContactForm extends React.Component {
           </Button>
         )}
 
+        {st.isLogin === true && st.typeUser === 1 && st.isSent === true && (
+            <Button
+                size="large"
+                type="primary"
+                className="contact-button"
+            >
+              <Icon type="solution" />
+              Chờ gia sư xác nhận
+            </Button>
+        )}
+
         {st.isLogin === true && st.typeUser === 1 && (
           <Button
             size="large"

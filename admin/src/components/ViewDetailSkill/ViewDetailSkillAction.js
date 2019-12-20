@@ -3,7 +3,7 @@ import axios from 'axios';
 export const UPDATE_SKILL = 'UPDATE_SKILL';
 
 function onClickUpdateSkill(_id, name) {
-    return axios.post('https://apiadminwebsitethuegiasu.herokuapp.com/admin/updateSkill', {
+    return axios.post('http://localhost:4000/admin/updateSkill', {
         _id, name
     }).catch(err => {
         return err

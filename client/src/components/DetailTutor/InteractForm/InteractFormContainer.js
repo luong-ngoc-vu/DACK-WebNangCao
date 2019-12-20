@@ -5,6 +5,7 @@ const mapStateToProps = (st) => {
     return {
         isLogin: st.LoginReducer.isLogin,
         typeUser: st.LoginReducer.typeUser,
+        isSent: st.OrderReducer.isSent,
     };
 };
 

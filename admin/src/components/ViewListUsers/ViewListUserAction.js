@@ -1,10 +1,10 @@
 import axios from "axios";
 
 export const VIEW_DETAIL_USER = 'VIEW_DETAIL_USER';
+export const LOCK_USER = 'LOCK_USER';
 
-/* ========================= LOG IN ========================= */
 function OnClickViewDetail(_id) {
-    return axios.post('https://apiadminwebsitethuegiasu.herokuapp.com/admin/user', {
+    return axios.post('http://localhost:4000/admin/user', {
         _id
     }).catch(error => {
         return error;
@@ -20,6 +20,28 @@ export const viewDetailRequest = (_id) => {
     return dispatch => {
         return OnClickViewDetail(_id).then(res => {
             dispatch(viewDetail(res));
+        })
+    }
+};
+
+// LOCK USER
+function OnClickLockUser(email) {
+    return axios.post('http://localhost:4000/admin/lockAccount', {
+        email
+    }).catch(error => {
+        return error;
+    });
+}
+
+export const lockUser = (res) => ({
+    type: LOCK_USER,
+    data: {res}
+});
+
+export const lockUserRequest = (email) => {
+    return dispatch => {
+        return OnClickLockUser(email).then(res => {
+            dispatch(lockUser(res));
         })
     }
 };

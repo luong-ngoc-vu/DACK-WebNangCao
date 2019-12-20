@@ -22,17 +22,60 @@ const UserSchema = new Schema({
     },
     image: {
         type: String
-    },    
+    },
+    provinceName: {
+        type: String
+    },
+    districtName: {
+        type: String
+    },
+    wardName: {
+        type: String
+    },
     address: {
         type: String
     },
     moreInfo: {
         type: String
     },
+    skills: [{
+        type: String
+    }],
     typeUser: {
         type: Intl,
         require: true
-    }
+    },
+    levelStudy: {
+        type: String
+    },
+    curPosition: {
+        type: String
+    },
+    certificates: {
+        type: String
+    },
+    school: {
+        type: String
+    },
+    money: {
+        type: Intl
+    },
+    gender: {
+        type: Intl
+    },
+    curMoney: {
+        type: Intl
+    },
+    teacherTimeDay: [{
+        type: [Number]
+    }],
+    status: {
+        type: String
+    },
+    isLocked: {
+        type: Boolean,
+        default: false,
+    },
 });
 
 UserSchema.methods.isValidPassword = async function (password) {

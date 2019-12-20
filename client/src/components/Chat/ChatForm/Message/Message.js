@@ -4,7 +4,7 @@ import './Message.css';
 
 import ReactEmoji from 'react-emoji';
 
-const Message = ({ message: { text, user }, name }) => {
+const Message = ({message: {text, user}, name}) => {
     let isSentByCurrentUser = false;
 
     const trimmedName = name.trim().toLowerCase();
@@ -32,6 +32,6 @@ const Message = ({ message: { text, user }, name }) => {
                 </div>
             )
     );
-}
+};
 
 export default Message;

@@ -14,6 +14,8 @@ router.get('/getTutorialUser', controller.getTeacher);
 router.get('/detailTutor/:id', controller.getDetailTeacher);
 router.get('/getSkills', controller.getSkills);
 router.post('/getTeachesrBySkill', controller.getTeachersBySkill);
+router.post('/lockAccount', controller.lockAccount);
+router.post('/getUserByEmail', controller.getUserByEmail);
 
 router.get('/me', controller.getUser);
 

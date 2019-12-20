@@ -87,4 +87,42 @@ module.exports = {
             return res.status(200).json(response);
         });
     },
+
+    lockAccount: async (req, res) => {
+        await User.findOne({"email": req.body.email}, async (err, user) => {
+            user.isLocked = !user.isLocked;
+            await user.save();
+            res.status(200).json(user);
+        })
+    },
+
+    getUserByEmail: async (req, res) => {
+        await User.findOne({"email": req.body.email}, async (err, user) => {
+            res.status(200).json(user);
+        })
+    },
+
+    getTeachers: async (req, res) => {
+        await User.find({"typeUser": 2}, async (err, user) => {
+            res.status(200).json(user);
+        })
+    },
+
+    getStudents: async (req, res) => {
+        await User.find({"typeUser": 1}, async (err, user) => {
+            res.status(200).json(user);
+        })
+    },
+
+    getUserByName: async (req, res) => {
+        await User.find({"name": {'$regex': req.body.name}}, async (err, user) => {
+            res.status(200).json(user);
+        })
+    },
+
+    getSkillByName: async (req, res) => {
+        await Skill.find({"name": {'$regex': req.body.name}}, async (err, user) => {
+            res.status(200).json(user);
+        })
+    },
 };

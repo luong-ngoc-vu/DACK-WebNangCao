@@ -7,7 +7,12 @@ const mapStateToProps = (st) => {
         name: st.ViewDetailUserReducer.name,
         phone: st.ViewDetailUserReducer.phone,
         address: st.ViewDetailUserReducer.address,
-        addressCity: st.ViewDetailUserReducer.addressCity,
+        isLogin: st.LoginReducer.isLogin,
+
+        provinceName: st.ViewDetailUserReducer.provinceName,
+        districtName: st.ViewDetailUserReducer.districtName,
+        wardName: st.ViewDetailUserReducer.wardName,
+
         moreInfo: st.ViewDetailUserReducer.moreInfo,
         typeUser: st.ViewDetailUserReducer.typeUser
     };

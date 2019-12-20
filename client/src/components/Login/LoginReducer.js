@@ -21,6 +21,7 @@ export const initialState = {
     curMoney: 1,
     token: '',
     typeUser: 1,
+    isLocked: false,
     isLogin: false,
     isLoginFB: false,
     isLoginGG: false,
@@ -31,11 +32,11 @@ const LoginReducer = (state = initialState, action) => {
     switch (action.type) {
         case 'LOGIN': {
             const st = {...state};
-            const data = action.data.res.data.user;
             if (action.data.res.message === "Request failed with status code 400") {
                 st.token = 'err';
                 return st;
             } else {
+                const data = action.data.res.data.user;
                 st.email = data.email;
                 st.password = data.password;
                 try {
@@ -60,6 +61,7 @@ const LoginReducer = (state = initialState, action) => {
                     st.teacherTimeDay = data.teacherTimeDay;
                     st.gender = data.gender;
                     st.isLogin = true;
+                    st.isLocked = data.isLocked;
                     st.isLoginFB = false;
                     st.isLoginGG = false;
                 } catch (err) {

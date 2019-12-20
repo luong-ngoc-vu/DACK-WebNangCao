@@ -4,7 +4,7 @@ export const LOGIN = 'LOGIN';
 
 /* ========================= LOG IN ========================= */
 function OnClickLogin(email, password) {
-    return axios.post('https://apiadminwebsitethuegiasu.herokuapp.com/admin/login', {
+    return axios.post('http://localhost:4000/admin/login', {
         email, password
     }).catch(error => {
         return error;

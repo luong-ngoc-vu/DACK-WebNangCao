@@ -11,7 +11,6 @@ import Home from './Home/Home';
 import DetailTutorContainer from './DetailTutor/DetailTutorContainer';
 import Footer from './Common/Footer/Footer';
 import BannerBackground from './Home/BannerBackground/BannerBackground';
-import HireOrderContainer from './HireOrder/HireOrderContainer';
 import { ListTutorialsBySkillContainer } from './Home/OutstandingTutorList/OutstandingTutorListContainer';
 import StepGuide from './Home/StepGuide/StepGuide';
 

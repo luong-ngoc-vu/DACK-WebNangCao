@@ -15,12 +15,6 @@ class NavBar extends React.Component {
         const menu = (
             <Menu>
                 <Menu.Item>
-                    <Link>
-                        <Icon type="user"/>
-                        &nbsp;&nbsp;Thông tin tài khoản
-                    </Link>
-                </Menu.Item>
-                <Menu.Item>
                     <Link
                         onClick={e => {
                             e.preventDefault();

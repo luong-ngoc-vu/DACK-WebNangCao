@@ -17,6 +17,7 @@ export const initialState = {
     note: '',
     dateContract: '',
     isSendRequestStatus: '',
+    isSent: false,
 };
 
 const OrderReducer = (state = initialState, action) => {
@@ -43,7 +44,7 @@ const OrderReducer = (state = initialState, action) => {
                 st.note = data.note;
                 st.dateContract = data.dateContract;
                 st.isSendRequestStatus = 'success';
-                console.log("Order Reducer: " + st);
+                st.isSent = true;
             } catch (error) {
                 st.isSendRequestStatus = 'err';
             }

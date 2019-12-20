@@ -7,6 +7,8 @@ const mapStateToProps = (st) => {
         name: st.Skill.name,
         _id: st.Skill._id,
         checkUpdateSkill: st.Skill.checkUpdateSkill,
+
+        isLogin: st.LoginReducer.isLogin,
     };
 };
 

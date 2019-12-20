@@ -21,6 +21,7 @@ const mapStateToProps = (st) => {
         genderStudent: st.LoginReducer.gender,
 
         isSendRequestStatus: st.OrderReducer.isSendRequestStatus,
+        isSent: st.OrderReducer.isSent,
     };
 };
 

@@ -104,4 +104,18 @@ module.exports = {
         const tutorrials = await User.find({"skills": {$in: [nameSkill]}, "typeUser": 2});
         return res.status(200).json(tutorrials);
     },
+
+    lockAccount: async (req, res) => {
+        await User.findOne({"email": req.body.email}, async (err, user) => {
+            user.isLocked = !user.isLocked;
+            await user.save();
+            res.status(200).json(user);
+        })
+    },
+
+    getUserByEmail: async (req, res) => {
+        await User.findOne({"email": req.body.email}, async (err, user) => {
+            res.status(200).json(user);
+        })
+    },
 };

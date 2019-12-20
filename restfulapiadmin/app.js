@@ -14,6 +14,8 @@ const adminRoute = require('./api/routes/admin');
 require('./api/middlewares/passport');
 
 const app = express();
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'hbs');
 app.use(cors());
 app.disable('etag');
 app.use(express.json());
@@ -30,11 +32,6 @@ app.use(function (req, res, next) {
 
 app.use('/rootAdmin', rootAdminRoute);
 app.use('/admin', adminRoute);
-
-app.use(express.static(path.join(__dirname, 'build')));
-app.get('/*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'build', 'index.html'));
-});
 
 
 app.get('/me', passport.authenticate('jwt', {session: false}), (req, res) => {

@@ -15,7 +15,7 @@ module.exports = {
 
     update: async (req, res) => {
         const introduction = await tutorialSkill.findById(req.user._id);
-        
+
         // validate
         if (!introduction) return null;
 

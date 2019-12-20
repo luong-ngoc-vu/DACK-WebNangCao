@@ -8,6 +8,7 @@ const mapStateToProps = state => {
         password: state.LoginReducer.password,
         typeUser: state.LoginReducer.typeUser,
         isLogin: state.LoginReducer.isLogin,
+        isLocked: state.LoginReducer.isLocked,
         isLoginFB: state.LoginReducer.isLoginFB,
         isLoginGG: state.LoginReducer.isLoginGG,
         token: state.LoginReducer.token

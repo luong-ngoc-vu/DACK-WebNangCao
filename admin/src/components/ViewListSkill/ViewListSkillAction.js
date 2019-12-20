@@ -4,7 +4,7 @@ export const VIEW_DETAIL_SKILL = 'VIEW_DETAIL_SKILL';
 export const DELETE_SKILL = 'DELETE_SKILL';
 
 function OnClickViewDetailSkill(_id) {
-    return axios.post('https://apiadminwebsitethuegiasu.herokuapp.com/admin/skill', {
+    return axios.post('http://localhost:4000/admin/skill', {
         _id
     }).catch(error => {
         return error;
@@ -26,7 +26,7 @@ export const viewDetailSkillRequest = (_id) => {
 
 ///////
 function onClickDeleteSkill(_id) {
-    return axios.post('https://apiadminwebsitethuegiasu.herokuapp.com/admin/deleteSkill', {
+    return axios.post('http://localhost:4000/admin/deleteSkill', {
         _id
     }).catch(err => {
         return err

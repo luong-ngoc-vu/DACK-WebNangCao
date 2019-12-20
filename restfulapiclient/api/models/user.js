@@ -72,6 +72,10 @@ const UserSchema = new Schema({
     status: {
         type: String
     },
+    isLocked: {
+        type: Boolean,
+        default: false,
+    },
 });
 
 UserSchema.methods.isValidPassword = async function (password) {
