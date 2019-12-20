@@ -40,5 +40,16 @@ module.exports = {
         const idTeacher = req.params.idTeacher;
         const listContractByIdTeacher = await Contract.find({ "idTeacher": idTeacher });
         return res.status(200).json(listContractByIdTeacher)
+    },
+
+    changeStatus: async (req, res) => {
+        const idContract = req.params.idContract;
+        const status = req.params.status;
+        await Contract.updateOne({ idContract: idContract }, {
+            $set: {
+                status: status
+            }
+        }).then(() => res.json({ message: "Change success!" }))
+            .catch(err => next(err));
     }
 };

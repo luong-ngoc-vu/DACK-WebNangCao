@@ -8,6 +8,18 @@ const { Option } = Select;
 const { Text } = Typography;
 const { TabPane } = Tabs;
 class OrderContract extends Component {
+	changeStatus(idContract, status) {
+		fetch(`http://localhost:4000/contract/changeStatus/${idContract}/${status}`, { method: 'PUT' })
+			.then((response) => response.json())
+			.then((data) =>
+				this.setState({
+					message: data.message
+				})
+			)
+			.catch((error) => {
+				return error;
+			});
+	}
 	render() {
 		const { listData } = this.props;
 		return (
@@ -35,8 +47,8 @@ class OrderContract extends Component {
 							actions={
 								item.status === 0 ? (
 									[
-										<Button size="large" icon="edit" type="primary" key="list-loadmore-edit" />,
-										<Button size="large" icon="close" type="danger" key="list-loadmore-edit" />
+										<Button size="large" icon="edit" type="primary" key={item.idContract} />,
+										<Button size="large" icon="close" type="danger" key={item.idContract} />
 									]
 								) : item.status === 1 ? (
 									[
@@ -44,12 +56,13 @@ class OrderContract extends Component {
 											size="large"
 											icon="check-circle"
 											type="primary"
-											key="list-loadmore-edit"
+											key={item.idContract}
+											onClick={this.changeStatus(item.idContract, 2)}
 										/>,
-										<Button size="large" icon="stop" type="danger" key="list-loadmore-edit" />
+										<Button size="large" icon="stop" type="danger" key={item.idContract} />
 									]
 								) : (
-									[ <Button size="large" icon="warning" type="danger" key="list-loadmore-edit" /> ]
+									[ <Button size="large" icon="warning" type="danger" key={item.idContract} /> ]
 								)
 							}
 						>

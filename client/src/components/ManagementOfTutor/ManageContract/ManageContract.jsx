@@ -23,7 +23,15 @@ class ManageContract extends React.Component {
 
 		fetch(`http://localhost:4000/contract/getListContractByIdTeacher/${idTeacher}`)
 			.then((response) => response.json())
-			.then((data) => this.setState({ listAll: data, listDataPending: data }))
+			.then((data) =>
+				this.setState({
+					listAll: data,
+					listAll: data,
+					listDataPending: data.filter((number) => number.status === 0),
+					listDataRunning: data.filter((item) => item.status === 1),
+					listDataFinished: data.filter((item) => item.status === 2)
+				})
+			)
 			.catch((error) => {
 				return error;
 			});
