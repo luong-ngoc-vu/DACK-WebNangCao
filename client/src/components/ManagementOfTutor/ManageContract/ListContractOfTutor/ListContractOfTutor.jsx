@@ -76,7 +76,7 @@ class OrderContract extends Component {
 													}}
 												>
 													<Text style={{ fontSize: 16, color: 'white' }}>
-														Phí nhận hợp đồng: 500,000 vnđ
+														Hợp đồng: {item.idContract} - Phí nhận: 500,000 vnđ
 													</Text>
 												</div>
 												<div style={{ marginBottom: 5, position: 'relative', width: '100%' }}>
@@ -88,7 +88,7 @@ class OrderContract extends Component {
 															color: '#1890FF'
 														}}
 													>
-														{item.name}
+														{item.nameTeacher}
 													</Text>
 													{item.status === 0 ? (
 														<Tag color="blue">Chờ xác nhận</Tag>
@@ -153,28 +153,56 @@ class OrderContract extends Component {
 											</div>
 										</div>
 										<div className="item-list-info-hire">
-											<Text strong style={{ fontSize: 18, margin: '10px 0px' }}>
-												Thông tin người thuê
+											<Text
+												style={{
+													fontSize: 20,
+													color: '#1890FF',
+													marginBottom: 5,
+													marginTop: 10
+												}}
+											>
+												Người thuê:&ensp;{item.nameStudent}
 											</Text>
 											<Text style={{ marginBottom: 5 }}>
-												<Icon type="book" />&ensp;Môn học:{' '}
-												<Tag style={{ fontSize: 16 }}>Toán</Tag>
+												<Icon type="woman" />
+												&ensp;Giới tính học viên:&ensp;
+												<span style={{ fontWeight: 500 }}>Nữ</span>
+											</Text>
+											<Text style={{ marginBottom: 5 }}>
+												<Icon type="phone" />
+												&ensp;Số điện thoại:&ensp;
+												<span style={{ fontWeight: 500 }}>0335 205 969</span>
+											</Text>
+											<Text style={{ marginBottom: 5 }}>
+												<Icon type="book" />&ensp;Môn thuê:{' '}
+												{item.skills.map((item) => <Tag style={{ fontSize: 16 }}>{item}</Tag>)}
 											</Text>
 											<Text style={{ marginBottom: 5 }}>
 												<Icon type="clock-circle" />
 												&ensp;Số giờ mỗi buổi:&ensp;
-												<span style={{ fontWeight: 500 }}>2.5 giờ/buổi</span>
+												<span style={{ fontWeight: 500 }}>{item.hourPerLesson} giờ/buổi</span>
+											</Text>
+											<Text style={{ marginBottom: 5 }}>
+												<Icon type="table" />
+												&ensp;Số buổi:&ensp;
+												<span style={{ fontWeight: 500 }}>{item.numberOfLesson} buổi</span>
+											</Text>
+											<Text style={{ marginBottom: 5 }}>
+												<Icon type="team" />
+												&ensp;Số người học:&ensp;
+												<span style={{ fontWeight: 500 }}>3</span>
 											</Text>
 											<Text style={{ marginBottom: 5 }}>
 												<Icon type="schedule" />
 												&ensp;Lịch học:&ensp;
-												<span style={{ fontWeight: 500 }}>Thứ 2 - Sáng, Thứ 3 - Sáng</span>
+												<span style={{ fontWeight: 500 }}>{item.schedule.toString()}</span>
 											</Text>
-											<Text style={{ marginBottom: 5 }}>
+											<Text style={{ marginBottom: 5, textAlign: 'left' }}>
 												<Icon type="home" />
 												&ensp;Địa chỉ học:&ensp;
 												<span style={{ fontWeight: 500 }}>
-													ĐƯờng Nam kỳ, phường Nam kỳ, quận 1, TP Hồ Chí Minh
+													{item.address}, {item.wardName}, {item.districtName},{' '}
+													{item.provinceName}
 												</span>
 											</Text>
 										</div>

@@ -12,7 +12,7 @@ const ContractSchema = new Schema({
     },
     idTeacher: {
         type: String,
-    },    
+    },
     nameStudent: {
         type: String,
     },
@@ -44,7 +44,7 @@ const ContractSchema = new Schema({
         type: String
     },
     status: {
-        type: String
+        type: Number
     },
     hourPerLesson: {
         type: Number

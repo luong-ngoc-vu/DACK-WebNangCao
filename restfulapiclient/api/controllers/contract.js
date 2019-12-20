@@ -22,7 +22,7 @@ module.exports = {
             skills: req.body.skills,
             schedule: req.body.schedule,
             dateContract: new Date(req.body.dateContract),
-            status: "Chờ xác nhận",
+            status: 0,
         });
         newContract.save().then(contract => {
             res.status(200).json(contract);
@@ -30,4 +30,15 @@ module.exports = {
             res.status(400).json(err);
         })
     },
+
+    getListContractByIdStudent: async (req, res) => {
+        const idStudent = req.params.idStudent;
+        const listContractByIdStudent = await Contract.find({ "idStudent": idStudent });
+        return res.status(200).json(listContractByIdStudent)
+    },
+    getListContractByIdTeacher: async (req, res) => {
+        const idTeacher = req.params.idTeacher;
+        const listContractByIdTeacher = await Contract.find({ "idTeacher": idTeacher });
+        return res.status(200).json(listContractByIdTeacher)
+    }
 };

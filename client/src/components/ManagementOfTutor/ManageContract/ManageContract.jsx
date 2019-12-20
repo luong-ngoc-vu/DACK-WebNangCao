@@ -1,49 +1,36 @@
 import React, { Component } from 'react';
 
 import 'antd/dist/antd.css';
-import { Tabs, Row, Col } from 'antd';
+import { Tabs } from 'antd';
 import OrderContract from './ListContractOfTutor/ListContractOfTutor';
-
+import { connect } from 'react-redux';
 const { TabPane } = Tabs;
 
 class ManageContract extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			listAll: [],
+			listDataPending: [],
+			listDataRunning: [],
+			listDataFinished: []
+		};
+	}
+
+	componentDidMount() {
+		console.log('Load');
+		const { idTeacher } = this.props;
+
+		fetch(`http://localhost:4000/contract/getListContractByIdTeacher/${idTeacher}`)
+			.then((response) => response.json())
+			.then((data) => this.setState({ listAll: data, listDataPending: data }))
+			.catch((error) => {
+				return error;
+			});
+	}
 	render() {
-		const listDataPending = [];
-		for (let i = 0; i < 10; i++) {
-			listDataPending.push({
-				name: `Bùi Tuấn Vũ`,
-				address: 'Đường 3/2, phường 14, quận 10, TP Hồ Chí Minh',
-				position: `Sinh viên`,
-				date: `20/12/2019`,
-				avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
-				skills: [ 'Toán', 'Lý' ],
-				status: 0
-			});
-		}
-		const listDataRunning = [];
-		for (let i = 0; i < 10; i++) {
-			listDataRunning.push({
-				name: `Bùi Tuấn Vũ`,
-				address: 'Đường 3/2, phường 14, quận 10, TP Hồ Chí Minh',
-				position: `Sinh viên`,
-				date: `20/12/2019`,
-				avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
-				skills: [ 'Toán', 'Lý' ],
-				status: 1
-			});
-		}
-		const listDataFinished = [];
-		for (let i = 0; i < 10; i++) {
-			listDataFinished.push({
-				name: `Bùi Tuấn Vũ`,
-				address: 'Đường 3/2, phường 14, quận 10, TP Hồ Chí Minh',
-				position: `Sinh viên`,
-				date: `20/12/2019`,
-				avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
-				skills: [ 'Toán', 'Lý' ],
-				status: 2
-			});
-		}
+		const { listDataPending, listDataRunning, listDataFinished } = this.state;
+
 		return (
 			<Tabs defaultActiveKey="1">
 				<TabPane tab="Yêu cầu chờ phản hồi" key="1">
@@ -59,4 +46,9 @@ class ManageContract extends React.Component {
 		);
 	}
 }
-export default ManageContract;
+const mapStateToProps = (state) => ({
+	isLogin: state.LoginReducer.isLogin,
+	nameTeacher: state.LoginReducer.name,
+	idTeacher: state.LoginReducer.idUser
+});
+export default connect(mapStateToProps, null)(ManageContract);
