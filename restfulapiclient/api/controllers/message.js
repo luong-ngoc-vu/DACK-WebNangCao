@@ -34,7 +34,11 @@ exports.markRead = (req, res, next) => {
         .then(() => res.json({}))
         .catch(err => next(err));
 }
-
+exports.getUnreadMessage = (req, res, next) => {
+    messageService.getUnreadMessage(req.params.to)
+        .then((mes) => res.json(mes))
+        .catch(err => next(err));
+}
 exports._delete = (req, res, next) => {
     messageService.delete(req.params.id)
         .then(() => res.json('Deleted'))

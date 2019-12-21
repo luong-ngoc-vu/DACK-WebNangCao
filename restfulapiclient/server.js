@@ -48,12 +48,14 @@ io.on('connect', (socket) => {
         const user2 = getUserByName(target);
         console.log(message);
         io.to(user.id).emit('message', { user: user.name, text: message });
-        //Save message
-        mesServices.create(user.name, target, message);
+        let status = false;
         if (user2) {
-
+            status = true;
             io.to(user2.id).emit('message', { user: user.name, text: message });
         }
+        //Save message
+        mesServices.create(user.name, target, message, status);
+
         callback();
     });
 
