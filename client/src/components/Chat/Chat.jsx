@@ -11,9 +11,10 @@ const ENDPOINT = 'localhost:4000';
 socket = io(ENDPOINT);
 class Chat extends Component {
 	render() {
-		//TODO: thêm vào dataRoom 1 props chứa email của user mình muốn chat 
+		console.log(this.props.emailTutor);
+		//TODO: thêm vào dataRoom 1 props chứa email của user mình muốn chat
 		//ChatForm dataRoom={this.props.email, this.props.targetUser}
-		return <ChatForm dataRoom={this.props.email} />;
+		return <ChatForm dataRoom={this.props.email} target={this.props.emailTutor} />;
 	}
 }
 
