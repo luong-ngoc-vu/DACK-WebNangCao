@@ -434,6 +434,18 @@ class ProfileForm extends React.Component {
                                 placeholder="Nhập học phí thuê theo giờ"
                             />
                         </Form.Item>
+                        <Form.Item label={<span>Tổng tiền hiện có (VND)&nbsp;</span>}>
+                            <InputNumber
+                                style={{width: '100%'}}
+                                readOnly
+                                defaultValue={st.totalMoney}
+                                size="large"
+                                formatter={value =>
+                                    `${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+                                }
+                                parser={value => value.replace(/\$\s?|(,*)/g, '')}
+                            />
+                        </Form.Item>
                         <Form.Item label="Lịch bạn có thể nhận lớp">
                             <div>
                                 <div style={{

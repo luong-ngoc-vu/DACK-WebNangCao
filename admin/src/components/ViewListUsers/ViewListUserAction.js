@@ -2,6 +2,7 @@ import axios from "axios";
 
 export const VIEW_DETAIL_USER = 'VIEW_DETAIL_USER';
 export const LOCK_USER = 'LOCK_USER';
+export const VIEW_CONTRACT = 'VIEW_CONTRACT';
 
 function OnClickViewDetail(_id) {
     return axios.post('http://localhost:4000/admin/user', {
@@ -24,7 +25,17 @@ export const viewDetailRequest = (_id) => {
     }
 };
 
-// LOCK USER
+export const viewContract = (idContract, idStudent, idTeacher) => ({
+    type: VIEW_CONTRACT,
+    data: {idContract, idStudent, idTeacher}
+});
+
+export const viewContractRequest = (idContract, idStudent, idTeacher) => {
+    return dispatch => {
+        dispatch(viewContract(idContract, idStudent, idTeacher));
+    }
+};
+
 function OnClickLockUser(email) {
     return axios.post('http://localhost:4000/admin/lockAccount', {
         email

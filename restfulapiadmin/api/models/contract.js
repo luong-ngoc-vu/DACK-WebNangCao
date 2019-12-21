@@ -66,6 +66,9 @@ const ContractSchema = new Schema({
     }],
     dateContract: {
         type: Date
+    },
+    dateContractEnd: {
+        type: Date,
     }
 });
 

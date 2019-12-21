@@ -1,6 +1,5 @@
 const User = require('../models/user');
 const Skill = require('../models/skill');
-const Contract = require('../models/contract');
 const bcrypt = require('bcryptjs');
 const ObjectId = require('mongodb').ObjectID;
 
@@ -82,8 +81,8 @@ module.exports = {
     },
 
     getTeacherCity: async (req, res) => {
-        const city = req.body.addressCity;
-        const tutorrialsCity = await User.find({"addressCity": city, "typeUser": 2});
+        const city = req.params.provinceName;
+        const tutorrialsCity = await User.find({"provinceName": city, "typeUser": 2});
         return res.status(200).json(tutorrialsCity);
     },
 
@@ -114,7 +113,7 @@ module.exports = {
     },
 
     getUserByEmail: async (req, res) => {
-        await User.findOne({"email": req.body.email}, async (err, user) => {
+        await User.findOne({"email": req.params.email}, async (err, user) => {
             res.status(200).json(user);
         })
     },

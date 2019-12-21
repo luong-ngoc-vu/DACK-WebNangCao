@@ -19,6 +19,7 @@ export const initialState = {
     school: '',
     money: 1,
     curMoney: 1,
+    totalMoney: 1,
     token: '',
     typeUser: 1,
     isLocked: false,
@@ -57,6 +58,7 @@ const LoginReducer = (state = initialState, action) => {
                     st.typeUser = data.typeUser;
                     st.school = data.school;
                     st.money = data.money;
+                    st.totalMoney = data.totalMoney;
                     st.curMoney = data.curMoney;
                     st.teacherTimeDay = data.teacherTimeDay;
                     st.gender = data.gender;

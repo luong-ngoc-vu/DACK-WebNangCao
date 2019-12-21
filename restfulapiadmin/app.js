@@ -10,6 +10,7 @@ require('./api/utils/db');
 
 const rootAdminRoute = require('./api/routes/rootAdmin');
 const adminRoute = require('./api/routes/admin');
+const contractRoute = require('./api/routes/contract');
 
 require('./api/middlewares/passport');
 
@@ -32,6 +33,7 @@ app.use(function (req, res, next) {
 
 app.use('/rootAdmin', rootAdminRoute);
 app.use('/admin', adminRoute);
+app.use('/contract', contractRoute);
 
 
 app.get('/me', passport.authenticate('jwt', {session: false}), (req, res) => {

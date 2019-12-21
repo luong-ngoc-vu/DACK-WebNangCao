@@ -66,6 +66,10 @@ const UserSchema = new Schema({
     curMoney: {
         type: Intl
     },
+    totalMoney: {
+        type: Intl,
+        default: 0,
+    },
     teacherTimeDay: [{
         type: [Number]
     }],

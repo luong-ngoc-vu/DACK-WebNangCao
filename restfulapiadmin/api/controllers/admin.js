@@ -36,6 +36,11 @@ module.exports = {
         return res.status(200).json(users);
     },
 
+    getUserId: async (req, res) => {
+        const users = await User.findOne({"_id": ObjectId(req.params.id)});
+        return res.status(200).json(users);
+    },
+
     createSkill: async (req, res) => {
         const newSkill = new Skill({
             name: req.body.name,

@@ -71,17 +71,14 @@ class LoginForm extends React.Component {
                                     placeholder="Nhập tài khoản email"
                                     onChange={event => {
                                         this.email = event.target.value;
-                                        fetch('http://localhost:4000/user/getUserByEmail', {
-                                            method: 'POST',
-                                            headers: {
-                                                'Accept': 'application/json',
-                                                'Content-Type': 'application/json'
-                                            },
-                                            body: JSON.stringify({email: event.target.value})
-                                        }).then(value => value.json()).then(teachers => {
-                                            this.setState({isLocked: teachers.isLocked});
-                                        }).catch(error => {
-                                        });
+                                        fetch(`http://localhost:4000/user/getUserByEmail/${this.email}`)
+                                            .then((response) => response.json())
+                                            .then((teachers) => {
+                                                this.setState({isLocked: teachers.isLocked});
+                                            })
+                                            .catch((error) => {
+                                                return error;
+                                            });
                                     }}
                                     name="email"
                                     autoFocus

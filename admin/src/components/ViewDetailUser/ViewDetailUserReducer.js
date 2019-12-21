@@ -9,6 +9,9 @@ export const initialState = {
     typeUser: '',
     moreInfo: '',
     isLocked: false,
+    idContract: '',
+    idStudent: '',
+    idTeacher: ''
 };
 
 const ViewDetailUserReducer = (state = initialState, action) => {
@@ -27,6 +30,13 @@ const ViewDetailUserReducer = (state = initialState, action) => {
             st.moreInfo = data.moreInfo;
             st.isLocked = data.isLocked;
             return st;
+        }
+
+        case 'VIEW_CONTRACT': {
+            state.idContract = action.data.idContract;
+            state.idStudent = action.data.idStudent;
+            state.idTeacher = action.data.idTeacher;
+            return state;
         }
 
         case 'LOCK_USER': {

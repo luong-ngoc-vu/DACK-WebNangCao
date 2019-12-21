@@ -72,7 +72,7 @@ class OutstandingTutorList extends React.Component {
                                             >
                                                 {teacher.name}
                                             </p>
-                                            <p>Địa chỉ: {teacher.addressCity}</p>
+                                            <p>Địa chỉ: {teacher.provinceName}</p>
                                             <p>
                                                 Học phí:{' '}
                                                 <span style={{fontWeight: 'bolder'}}>

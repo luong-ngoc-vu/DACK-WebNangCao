@@ -8,14 +8,14 @@ router.post('/register', controller.register);
 router.post('/login', controllerLogin.authLogin);
 router.post('/update', controller.updateUser);
 router.post('/changePass', controller.changePassword);
-router.post('/getTutorialCity', controller.getTeacherCity);
+router.get('/getTutorialCity/:provinceName', controller.getTeacherCity);
 
 router.get('/getTutorialUser', controller.getTeacher);
 router.get('/detailTutor/:id', controller.getDetailTeacher);
 router.get('/getSkills', controller.getSkills);
 router.post('/getTeachesrBySkill', controller.getTeachersBySkill);
 router.post('/lockAccount', controller.lockAccount);
-router.post('/getUserByEmail', controller.getUserByEmail);
+router.get('/getUserByEmail/:email', controller.getUserByEmail);
 
 router.get('/me', controller.getUser);
 

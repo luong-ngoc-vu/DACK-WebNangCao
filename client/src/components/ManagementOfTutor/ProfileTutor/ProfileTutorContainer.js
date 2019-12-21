@@ -25,6 +25,7 @@ const mapStateToProps = state => {
         certificates: st.certificates,
         school: st.school,
         money: st.money,
+        totalMoney: st.totalMoney,
         teacherTimeDay: st.teacherTimeDay,
         gender: st.gender,
         idUser: st.idUser
@@ -33,9 +34,9 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        updateUser: (name, phone, email, image,gender, moreInfo, address, provinceName, districtName, wardName,
+        updateUser: (name, phone, email, image, gender, moreInfo, address, provinceName, districtName, wardName,
                      levelStudy, curPosition, certificates, school, money, teacherTimeDay, skills) => {
-            dispatch(actions.updateRequest(name, phone, email, image,gender, moreInfo, address, provinceName, districtName, wardName,
+            dispatch(actions.updateRequest(name, phone, email, image, gender, moreInfo, address, provinceName, districtName, wardName,
                 levelStudy, curPosition, certificates, school, money, teacherTimeDay, skills))
         },
     };

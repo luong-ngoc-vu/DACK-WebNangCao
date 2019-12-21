@@ -15,6 +15,7 @@ router.post('/deleteSkill', controller.deleteSkill);
 router.post('/lockAccount', controller.lockAccount);
 router.post('/getUserByEmail', controller.getUserByEmail);
 
+router.get('/getUserId/:id', controller.getUserId);
 router.get('/teachers', controller.getTeachers);
 router.get('/students', controller.getStudents);
 router.post('/getUserByName', controller.getUserByName);
