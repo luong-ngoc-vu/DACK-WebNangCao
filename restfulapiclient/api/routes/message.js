@@ -6,6 +6,6 @@ const controller = require('../controllers/message');
 router.patch('/create', controller.markRead);
 router.get('/id', controller.getById);
 
-router.get('/getAll', controller.getAll);
+router.get('/getAll/:from/:to/:limit', controller.getAll);
 
 module.exports = router;

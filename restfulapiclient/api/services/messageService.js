@@ -9,7 +9,8 @@ module.exports = {
     delete: _delete
 };
 async function getAll(from, to, limit) {
-    return await Messages.find({ users: { "$in": [from, to] } }).sort({ created_at: 'desc' }).limit(limit);
+    console.log(from, to);
+    return await Messages.find({ users: { "$in": [from, to] } });
 }
 
 async function getById(id) {
@@ -19,10 +20,10 @@ async function getById(id) {
 async function create(from, to, message) {
 
     const mes = new Messages({
-        users:[from,to],
-        from:from,
-        to:to,
-        message_body:message
+        users: [from, to],
+        from: from,
+        to: to,
+        message_body: message
     });
     await mes.save();
     return mes;

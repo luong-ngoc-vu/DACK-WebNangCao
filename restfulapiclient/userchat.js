@@ -1,6 +1,6 @@
 const users = [];
 
-const addUser = ({ id, name }) => {
+const addUser = (id, name) => {
     name = name;
     let user = getUserByName(name);
     if (!user) {
@@ -24,4 +24,4 @@ const getUserByName = (name) => users.find((user) => user.name === name);
 
 const getUsersInRoom = (room) => users.filter((user) => user.room === room);
 
-module.exports = { addUser, removeUser, getUser, getUsersInRoom };
+module.exports = { addUser, removeUser, getUser, getUsersInRoom, getUserByName };

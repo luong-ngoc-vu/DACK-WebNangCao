@@ -11,7 +11,7 @@ const mesServices = require('./api/services/messageService');
 const socketIO = require('socket.io');
 const io = socketIO(server);
 const cors = require('cors');
-const { addUser, removeUser, getUser, getUsersInRoom } = require('./userchat');
+const { addUser, removeUser, getUser, getUsersInRoom, getUserByName } = require('./userchat');
 
 io.on('connect', (socket) => {
     console.log('We has new connection!');
@@ -37,17 +37,23 @@ io.on('connect', (socket) => {
         // io.to(user.room).emit('roomData', { room: user.rom, users: getUsersInRoom(user.room), messageGame });
 
         //Get information
-        addUser(socket.id, name);
+        console.log(name);
+        console.log(addUser(socket.id, name));
         callback();
     })
 
-    socket.on('sendMessage', ({ message, targetName }, callback) => {
+    socket.on('sendMessage', ({ message, target }, callback) => {
         const user = getUser(socket.id);
-        const reciver = getUserByName(targetName);
+
+        const user2 = getUserByName(target);
+        console.log(message);
+        io.to(user.id).emit('message', { user: user.name, text: message });
         //Save message
-        mesServices.create(user.name, targetName, message);
-        if (reciver)
-            io.to(reciver.id).emit('message', { user: user.name, text: message });
+        mesServices.create(user.name, target, message);
+        if (user2) {
+
+            io.to(user2.id).emit('message', { user: user.name, text: message });
+        }
         callback();
     });
 
