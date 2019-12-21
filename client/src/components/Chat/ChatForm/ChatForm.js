@@ -24,7 +24,9 @@ const ChatForm = (props) => {
         const { name, room } = { name: dataRoom, room: target };
         //Fetch message cũ:
         // Axios với jwt_token của máy ông
-        axios.get(`http://localhost:4000/message/getAll/${name}/${target}/50`).then(res => { console.log(res) });
+        axios.get(`http://localhost:4000/message/getAll/${name}/${target}/50`).then(res => {
+            setMessages([...messages, ...res.data]);
+        });
         // Lấy res append vô list message done.
         setName(name);
         setRoom(room);
