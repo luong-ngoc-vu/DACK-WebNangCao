@@ -6,24 +6,53 @@ module.exports = {
     getById,
     create,
     update,
-    delete: _delete
+    delete: _delete,
+    getUnreadMessage
 };
-
 async function getAll(from, to, limit) {
-    return await Messages.find({users: {"$in": [from, to]}}).sort({created_at: 'desc'}).limit(limit);
+    console.log(from, to);
+    const messages = await Messages.find({ users: { $all: [from, to] } }).sort([['created_at', 'ascending']]);
+    const result = [];
+    messages.map(mes => {
+        result.push({
+            id: _id,
+            user: mes.from,
+            text: mes.message_body,
+            time: mes.created_at,
+            read: mes.message_status
+        })
+        return 0;
+    });
+    return result;
 }
+async function getUnreadMessage(to) {
 
+    const messages = await Messages.find({ "to": to, "message_status": false }).sort([['created_at', 'ascending']]);
+    const result = [];
+    messages.map(mes => {
+        result.push({
+            id: _id,
+            user: mes.from,
+            text: mes.message_body,
+            time: mes.created_at,
+            read: mes.message_status
+        })
+        return 0;
+    });
+    return result;
+}
 async function getById(id) {
     return await Messages.findById(id);
 }
 
-async function create(from, to, message) {
-
+async function create(from, to, message, status) {
+    if (!status) status = false;
     const mes = new Messages({
         users: [from, to],
         from: from,
         to: to,
-        message_body: message
+        message_body: message,
+        message_status: status
     });
     await mes.save();
     return mes;
@@ -34,10 +63,9 @@ async function update(id) {
 
     // validate
     if (mes) {
-        Object.assign(mes, {message_status: true});
+        Object.assign(mes, { message_status: true });
         await mes.save();
-    }
-
+    };
 }
 
 async function _delete(id) {

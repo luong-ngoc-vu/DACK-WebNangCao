@@ -24,7 +24,7 @@ app.set('view engine', 'hbs');
 app.use(cors());
 app.disable('etag');
 app.use(express.json());
-app.use(express.urlencoded({extended: false}));
+app.use(express.urlencoded({ extended: false }));
 
 app.use(function (req, res, next) {
     res.locals.user = req.user || null;
@@ -32,8 +32,8 @@ app.use(function (req, res, next) {
 });
 app.use('/user', userRoute);
 app.use('/contract', contractRoute);
-app.use('/mesage', passport.authenticate('jwt', {session: false}), messageRoute);
-app.get('/me', passport.authenticate('jwt', {session: false}), (req, res) => {
+app.use('/message', messageRoute);
+app.get('/me', passport.authenticate('jwt', { session: false }), (req, res) => {
     res.status(200).json(
         req.user
     );
