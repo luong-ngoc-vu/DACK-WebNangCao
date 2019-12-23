@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import './OutstandingTutorList.css';
 import 'antd/dist/antd.css';
 
-import {Button, Card, Col, Form, Row, Select, Tag} from 'antd';
+import {Button, Card, Col, Form, Rate, Row, Select, Tag} from 'antd';
 import {getProvinces} from "sub-vn";
 
 class OutstandingTutorList extends React.Component {
@@ -108,12 +108,13 @@ class OutstandingTutorList extends React.Component {
                                                 }}
                                             >
                                                 {teacher.name}
+                                                <Rate disabled defaultValue={4}/>
                                             </p>
                                             <p>Địa chỉ: {teacher.provinceName}</p>
                                             <p>
                                                 Học phí:{' '}
                                                 <span style={{fontWeight: 'bolder'}}>
-                                                    {teacher.money} VNĐ</span>/h
+                                                    {teacher.money.toLocaleString('vi', {style : 'currency', currency : 'VND'})}</span>/<strong>h</strong>
                                             </p>
                                         </div>
                                         <hr style={{border: '1px solid #e0e0e0'}}></hr>

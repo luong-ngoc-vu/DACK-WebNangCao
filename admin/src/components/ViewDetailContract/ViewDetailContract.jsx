@@ -73,7 +73,7 @@ class ViewDetailContract extends Component {
                                 ) : item.status === -1 ? (
                                     <Tag color="red" style={{height: 25}}>Bị từ chối</Tag>
                                 ) : (
-                                    <Tag color="blue" style={{height: 25}}>Khiếu nại</Tag>
+                                    <Tag color="yellow" style={{height: 25}}>Khiếu nại</Tag>
                                 )}
                                 <Text style={{position: 'absolute', right: 0}}>{item.date}</Text>
                             </div>
@@ -181,9 +181,9 @@ class ViewDetailContract extends Component {
                                                     <Icon type="home"/>
                                                     &ensp;Nội dung khiếu nại từ giáo viên:&ensp;
                                                     <span style={{fontWeight: 500}}>
-                                                 {item.noiDungKhieuNaiGV}
-											</span>
-                                                </Text>
+                                                        {item.noiDungKhieuNaiGV}
+											        </span>
+                                            </Text>
                                             )}
                                         </div>
                                     </div>

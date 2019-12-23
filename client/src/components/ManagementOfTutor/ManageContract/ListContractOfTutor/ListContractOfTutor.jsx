@@ -1,32 +1,34 @@
 import React, {Component} from 'react';
 import './ListContractOfTutor.css';
 import 'antd/dist/antd.css';
-import {Avatar, Button, Icon, List, Select, Tabs, Tag, Typography} from 'antd';
+import {Avatar, Button, Form, Icon, Input, List, Modal, Select, Tag, Typography} from 'antd';
 
 const {Option} = Select;
 const {Text} = Typography;
-const {TabPane} = Tabs;
 
 class OrderContract extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            message: ''
+            message: '',
+            visibleReport: false,
+            idContract: '',
+            idTeacher: '',
         };
     }
 
-    changeStatus(idContract, status) {
-        fetch(`http://localhost:4000/contract/changeStatus/${idContract}/${status}`, {method: 'PUT'})
-            .then((response) => response.json())
-            .then((data) =>
-                this.setState({
-                    message: data.message
-                })
-            )
-            .catch((error) => {
-                return error;
-            });
-    }
+    showModalReport = e => {
+        this.setState({
+            visibleReport: true
+        });
+    };
+
+    handleCancelReport = e => {
+        console.log(e);
+        this.setState({
+            visibleReport: false
+        });
+    };
 
     render() {
         const {listData} = this.props;
@@ -96,7 +98,27 @@ class OrderContract extends Component {
                                         />
                                     ]
                                 ) : item.status === 1 ? (
-                                    [null]
+                                    [
+                                        <Button
+                                            size="large"
+                                            icon="warning"
+                                            type="danger"
+                                            onClick={event => {
+                                                this.showModalReport();
+                                                this.setState({idContract: item.idContract, idTeacher: item.idTeacher});
+                                                const newStatus = -2;
+                                                fetch(`http://localhost:4000/contract/changeStatus/${item.idContract}/${newStatus}`,
+                                                    {method: 'PUT'})
+                                                    .then((response) => response.json())
+                                                    .then((data) => {
+                                                            console.log(data);
+                                                        }
+                                                    )
+                                                    .catch((error) => {
+                                                        return error;
+                                                    });
+                                            }}/>
+                                    ]
                                 ) : (
                                     [null]
                                 )
@@ -107,7 +129,7 @@ class OrderContract extends Component {
                                     <Avatar
                                         size="large"
                                         style={{minHeight: 100, minWidth: 100}}
-                                        src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+                                        src={item.imgTeacher}
                                     />
                                 }
                                 description={
@@ -126,7 +148,10 @@ class OrderContract extends Component {
                                                 >
                                                     <Text style={{fontSize: 16, color: 'white'}}>
                                                         Mã hợp đồng: {item.idContract} - Tổng tiền hợp
-                                                        đồng: {item.totalMoneyContract} vnđ
+                                                        đồng: {item.totalMoneyContract.toLocaleString('vi', {
+                                                        style: 'currency',
+                                                        currency: 'VND'
+                                                    })}
                                                     </Text>
                                                 </div>
                                                 <div style={{marginBottom: 5, position: 'relative', width: '100%'}}>
@@ -144,10 +169,12 @@ class OrderContract extends Component {
                                                         <Tag color="blue">Chờ xác nhận</Tag>
                                                     ) : item.status === 1 ? (
                                                         <Tag color="green">Đang thuê</Tag>
-                                                    ) : item.status === -1 ? (
-                                                        <Tag color="green">Đã từ chối</Tag>
-                                                    ) : (
+                                                    ) : item.status === 2 ? (
                                                         <Tag color="orange">Đã kết thúc</Tag>
+                                                    ) : item.status === -1 ? (
+                                                        <Tag color="red">Bị từ chối</Tag>
+                                                    ) : (
+                                                        <Tag color="yellow">Khiếu nại</Tag>
                                                     )}
                                                     <Text style={{position: 'absolute', right: 0}}>{item.date}</Text>
                                                 </div>
@@ -159,12 +186,24 @@ class OrderContract extends Component {
                                                 <Text style={{marginBottom: 5}}>
                                                     <Icon type="dollar"/>
                                                     &ensp;Giá thuê:&ensp;
-                                                    <span style={{fontWeight: 500}}>150,000 vnđ/h</span>
+                                                    <span
+                                                        style={{fontWeight: 500}}>
+                                                        {item.moneyTeacherPerHour.toLocaleString('vi', {
+                                                            style: 'currency',
+                                                            currency: 'VND'
+                                                        })}/h</span>
                                                 </Text>
                                                 <Text style={{marginBottom: 5}}>
                                                     <Icon type="phone"/>
                                                     &ensp;Số điện thoại:&ensp;
-                                                    <span style={{fontWeight: 500}}>0335 205 969</span>
+                                                    <span
+                                                        style={{fontWeight: 500}}>{item.phoneTeacher}</span>
+                                                </Text>
+                                                <Text style={{marginBottom: 5}}>
+                                                    <Icon type="man"/>
+                                                    &ensp;Giới tính:&ensp;
+                                                    <span
+                                                        style={{fontWeight: 500}}>{item.genderTeacher}</span>
                                                 </Text>
                                                 <Text
                                                     style={{
@@ -174,8 +213,9 @@ class OrderContract extends Component {
                                                     }}
                                                 >
                                                     <Icon type="environment"/>
-                                                    &ensp;Địa chỉ:
-                                                    <span style={{fontWeight: 500}}>&ensp; {item.address}</span>
+                                                    &ensp;Địa chỉ gia sư:
+                                                    <span
+                                                        style={{fontWeight: 500}}>&ensp; {item.addressTeacher}</span>
                                                 </Text>
 
                                                 <div
@@ -191,7 +231,7 @@ class OrderContract extends Component {
                                                     </Text>
                                                     {item.skills !== undefined && (
                                                         <div>
-                                                            {item.skills.map((item) => (
+                                                            {item.teacherTopic.map((item) => (
                                                                 <Tag style={{fontSize: 16}}>{item}</Tag>
                                                             ))}
                                                         </div>
@@ -202,9 +242,24 @@ class OrderContract extends Component {
                                                         </div>
                                                     )}
                                                 </div>
+                                                {item.noiDungKhieuNaiGV !== "" && item.noiDungKhieuNaiHS === "" && item.status === -2 && (
+                                                    <Text style={{marginBottom: 5, textAlign: 'left'}}>
+                                                        <Icon type="info-circle"/>
+                                                        &ensp;Nội dung bạn đã khiếu
+                                                        nại <strong>{item.nameStudent}</strong>:&ensp;
+                                                        <span style={{fontWeight: 500}}>
+													{item.noiDungKhieuNaiGV}
+												</span>
+                                                    </Text>
+                                                )}
                                             </div>
                                         </div>
                                         <div className="item-list-info-hire">
+                                            <Avatar
+                                                size="large"
+                                                style={{minHeight: 100, minWidth: 100}}
+                                                src={item.imgStudent}
+                                            />
                                             <Text
                                                 style={{
                                                     fontSize: 20,
@@ -217,13 +272,13 @@ class OrderContract extends Component {
                                             </Text>
                                             <Text style={{marginBottom: 5}}>
                                                 <Icon type="woman"/>
-                                                &ensp;Giới tính học viên:&ensp;
+                                                &ensp;Giới tính :&ensp;
                                                 <span style={{fontWeight: 500}}>Nữ</span>
                                             </Text>
                                             <Text style={{marginBottom: 5}}>
                                                 <Icon type="phone"/>
                                                 &ensp;Số điện thoại:&ensp;
-                                                <span style={{fontWeight: 500}}>0335 205 969</span>
+                                                <span style={{fontWeight: 500}}>{item.phoneStudent}</span>
                                             </Text>
                                             <Text style={{marginBottom: 5}}>
                                                 <Icon type="book"/>&ensp;Môn thuê:{' '}
@@ -257,6 +312,16 @@ class OrderContract extends Component {
                                                     {item.provinceName}
 												</span>
                                             </Text>
+                                            {item.noiDungKhieuNaiHS !== "" && item.noiDungKhieuNaiGV === "" && item.status === -2 && (
+                                                <Text style={{marginBottom: 5, textAlign: 'left'}}>
+                                                    <Icon type="info-circle"/>
+                                                    &ensp;Nội dung bạn đã khiếu
+                                                    nại <strong>{item.nameTeacher}</strong>:&ensp;
+                                                    <span style={{fontWeight: 500}}>
+													{item.noiDungKhieuNaiHS}
+												</span>
+                                                </Text>
+                                            )}
                                         </div>
                                     </div>
                                 }
@@ -264,6 +329,51 @@ class OrderContract extends Component {
                         </List.Item>
                     )}
                 />
+                <Modal
+                    title="Gửi khiếu nại"
+                    visible={this.state.visibleReport}
+                    onCancel={this.handleCancelReport}
+                    onOk={event => {
+                        fetch(`http://localhost:4000/contract/complaintFromTeacher/${this.state.idContract}/${this.state.idTeacher}/${this.state.name}`,
+                            {method: 'PUT'})
+                            .then((response) => response.json())
+                            .then((data) => {
+                                console.log(data);
+                            })
+                            .catch((error) => {
+                                return error;
+                            });
+                        this.err = 'Gửi khiếu nại thành công !';
+                    }}
+                >
+                    <Form layout="vertical" style={{textAlign: 'center'}}>
+                        <Form.Item>
+                            <Input
+                                size="large"
+                                placeholder="Nội dung khiếu nại"
+                                onChange={(event) => {
+                                    this.setState({name: event.target.value});
+                                }}
+                                name="name"
+                                autoFocus
+                            />
+                        </Form.Item>
+                        <b>{this.err}</b>
+                        <Form.Item>
+                            <div
+                                style={{
+                                    display: 'flex',
+                                    flexDirection: 'row',
+                                    justifyItems: 'center',
+                                    alignItems: 'center'
+                                }}
+                            >
+                            </div>
+                        </Form.Item>
+                    </Form>
+                    <b>{this.err}</b>
+                </Modal>
+
             </div>
         );
     }

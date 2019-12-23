@@ -117,4 +117,10 @@ module.exports = {
             res.status(200).json(user);
         })
     },
+
+    getUserById: async (req, res) => {
+        await User.findOne({"_id": req.params.id}, async (err, user) => {
+            res.status(200).json(user);
+        })
+    }
 };

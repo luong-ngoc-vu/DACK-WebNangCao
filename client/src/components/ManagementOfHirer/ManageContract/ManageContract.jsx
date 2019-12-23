@@ -47,19 +47,19 @@ class ManageContract extends React.Component {
     }
     return (
       <Tabs defaultActiveKey="1">
-        <TabPane tab="Khiếu nại" key="5">
+        <TabPane tab="Khiếu nại" key="1">
           <OrderContract listData={listDataComplained}/>
         </TabPane>
-        <TabPane tab="Yêu cầu bị từ chối" key="4">
+        <TabPane tab="Yêu cầu bị từ chối" key="2">
           <OrderContract listData={listDataRejected}/>
         </TabPane>
-        <TabPane tab="Yêu cầu chờ phản hồi" key="1">
+        <TabPane tab="Yêu cầu chờ phản hồi" key="3">
           <OrderContract listData={listDataPending}/>
         </TabPane>
-        <TabPane tab="Gia sư đang thuê" key="2">
+        <TabPane tab="Gia sư đang thuê" key="4">
           <OrderContract listData={listDataRunning}/>
         </TabPane>
-        <TabPane tab="Gia sư đã thuê" key="3">
+        <TabPane tab="Gia sư đã thuê" key="5">
           <OrderContract listData={listDataFinished}/>
         </TabPane>
       </Tabs>

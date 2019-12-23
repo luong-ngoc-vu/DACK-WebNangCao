@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 import 'antd/dist/antd.css';
-import {Link} from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 import {Button, Input, Select, Table, Tag, Typography} from 'antd';
 import {viewContractRequest} from "../ViewListUsers/ViewListUserAction";
 
@@ -69,7 +69,11 @@ class ViewListContract extends React.Component {
 
     render() {
         let contract_data;
-        const {viewContract} = this.props;
+        const {viewContract, isLogin} = this.props;
+        if (isLogin === false) {
+            return <Redirect to="/admin-login"/>;
+        }
+
         let {allContracts, contractsByStatus, selectedStatusContract} = this.state;
 
         if (selectedStatusContract !== 3) {
@@ -93,7 +97,7 @@ class ViewListContract extends React.Component {
                 ) : item.status === -1 ? (
                     <Tag color="red">Bị từ chối</Tag>
                 ) : (
-                    <Tag color="blue">Khiếu nại</Tag>
+                    <Tag color="yellow">Khiếu nại</Tag>
                 ),
             cost: item.totalMoneyContract,
             action: (

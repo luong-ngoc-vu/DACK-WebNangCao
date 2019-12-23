@@ -16,7 +16,8 @@ class ManageContract extends React.Component {
             listDataPending: [],
             listDataRunning: [],
             listDataFinished: [],
-            listDataRejected: []
+            listDataRejected: [],
+            listDataComplained: []
         };
     }
 
@@ -31,7 +32,8 @@ class ManageContract extends React.Component {
                     listDataPending: data.filter((number) => number.status === 0),
                     listDataRunning: data.filter((item) => item.status === 1),
                     listDataFinished: data.filter((item) => item.status === 2),
-                    listDataRejected: data.filter((item) => item.status === -1)
+                    listDataRejected: data.filter((item) => item.status === -1),
+                    listDataComplained: data.filter((item) => item.status === -2)
                 })
             )
             .catch((error) => {
@@ -40,7 +42,7 @@ class ManageContract extends React.Component {
     }
 
     render() {
-        const {listDataPending, listDataRunning, listDataFinished, listDataRejected} = this.state;
+        const {listDataPending, listDataRunning, listDataFinished, listDataRejected, listDataComplained} = this.state;
 
         const {isLogin} = this.props;
         if (!isLogin) {
@@ -49,6 +51,9 @@ class ManageContract extends React.Component {
 
         return (
             <Tabs defaultActiveKey="1">
+                <TabPane tab="Khiếu nại" key="5">
+                    <OrderContract listData={listDataComplained}/>
+                </TabPane>
                 <TabPane tab="Hợp đồng đã từ chối" key="4">
                     <OrderContract listData={listDataRejected}/>
                 </TabPane>

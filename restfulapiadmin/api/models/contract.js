@@ -68,8 +68,26 @@ const ContractSchema = new Schema({
         type: Date
     },
     dateContractEnd: {
-        type: Date,
-    }
+        type: Date
+    },
+    genderTeacher: {
+        type: String
+    },
+    imgTeacher: {
+        type: String
+    },
+    imgStudent: {
+        type: String
+    },
+    phoneTeacher: {
+        type: String
+    },
+    addressTeacher: {
+        type: String
+    },
+    addressStudent: {
+        type: String
+    },
 });
 
 

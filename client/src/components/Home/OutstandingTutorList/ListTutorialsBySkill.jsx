@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import './OutstandingTutorList.css';
 import 'antd/dist/antd.css';
 
-import {Button, Card, Col, Row, Tag} from 'antd';
+import {Button, Card, Col, Rate, Row, Tag} from 'antd';
 
 class OutstandingTutorList extends React.Component {
     constructor(props) {
@@ -71,12 +71,13 @@ class OutstandingTutorList extends React.Component {
                                                 }}
                                             >
                                                 {teacher.name}
+                                                <Rate disabled defaultValue={4}/>
                                             </p>
                                             <p>Địa chỉ: {teacher.provinceName}</p>
                                             <p>
                                                 Học phí:{' '}
                                                 <span style={{fontWeight: 'bolder'}}>
-                                                    {teacher.money} VNĐ
+                                                    {teacher.money.toLocaleString('vi', {style : 'currency', currency : 'VND'})}
                                                 </span>/buổi
                                             </p>
                                         </div>

@@ -30,6 +30,7 @@ class ViewListAdminForm extends React.Component {
 
     render() {
         const {dataAdmin} = this.state;
+
         console.log(dataAdmin);
         const data = dataAdmin.map(row => ({
             email: row.email,

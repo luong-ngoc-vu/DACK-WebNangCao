@@ -11,6 +11,9 @@ router.put('/changeStatus/:idContract/:status', controller.changeStatus);
 router.get('/checkContractHiring/:idStudent/:idTeacher', controller.checkContractPendingHiring);
 router.get('/checkContractHired/:idStudent/:idTeacher', controller.checkContractHired);
 
-router.put('/complaintStudent/:idContract/:idStudent/:noiDungKhieuNaiHS', controller.complaintStudent);
+router.put('/complaintFromStudent/:idContract/:idStudent/:noiDungKhieuNaiHS', controller.complaintFromStudent);
+router.put('/complaintFromTeacher/:idContract/:idTeacher/:noiDungKhieuNaiGV', controller.complaintFromTeacher);
+router.post('/addNewEvaluation', controller.addNewEvaluation);
+router.get('/getListEvaluationByIdTeacher/:idTeacher', controller.getListEvaluationByIdTeacher);
 
 module.exports = router;

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import 'antd/dist/antd.css';
-import {Link} from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 import {Button, Input, Select, Table, Tag, Typography} from 'antd';
 import {viewContractRequest} from "../ViewListUsers/ViewListUserAction";
 import {connect} from "react-redux";
@@ -67,7 +67,10 @@ class ViewListComplaint extends React.Component {
 
     render() {
         let {complaintContracts} = this.state;
-        const {viewContract} = this.props;
+        const {viewContract, isLogin} = this.props;
+        if (isLogin === false) {
+            return <Redirect to="/admin-login"/>;
+        }
 
         const listContract = complaintContracts.map((item) => ({
             idContract: item.idContract,

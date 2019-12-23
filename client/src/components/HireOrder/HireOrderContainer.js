@@ -3,34 +3,44 @@ import HireOrder from './HireOrder';
 import * as actions from "../HireOrder/HireOrderAction";
 
 const mapStateToProps = (st) => {
+    let detailTutorReducer = st.ViewDetailTutorReducer;
+    let loginReducer = st.LoginReducer;
     return {
-        nameTeacher: st.ViewDetailTutorReducer.name,
-        phone: st.ViewDetailTutorReducer.phone,
-        address: st.ViewDetailTutorReducer.address,
-        provinceName: st.ViewDetailTutorReducer.provinceName,
-        districtName: st.ViewDetailTutorReducer.districtName,
-        wardName: st.ViewDetailTutorReducer.wardName,
-        skills: st.ViewDetailTutorReducer.skills,
-        moneyTeacherPerHour: st.ViewDetailTutorReducer.money,
-        idTeacher: st.ViewDetailTutorReducer.idTeacher,
+        nameTeacher: detailTutorReducer.name,
+        phone: detailTutorReducer.phone,
+        address: detailTutorReducer.address,
+        provinceName: detailTutorReducer.provinceName,
+        districtName: detailTutorReducer.districtName,
+        wardName: detailTutorReducer.wardName,
+        skills: detailTutorReducer.skills,
+        moneyTeacherPerHour: detailTutorReducer.money,
+        idTeacher: detailTutorReducer.idTeacher,
+        genderTeacher: detailTutorReducer.gender,
+        imgTeacher: detailTutorReducer.image,
+        phoneTeacher: detailTutorReducer.phone,
+        addressTeacher: detailTutorReducer.address + ", " + detailTutorReducer.wardName + ", " +
+            detailTutorReducer.districtName + ", " + detailTutorReducer.provinceName,
 
-        curMoneyStudent: st.LoginReducer.curMoney,
-        isLogin: st.LoginReducer.isLogin,
-        nameStudent: st.LoginReducer.name,
-        idStudent: st.LoginReducer.idUser,
-        genderStudent: st.LoginReducer.gender,
-
-        isSendRequestStatus: st.OrderReducer.isSendRequestStatus,
-        isSent: st.OrderReducer.isSent,
+        curMoneyStudent: loginReducer.curMoney,
+        isLogin: loginReducer.isLogin,
+        nameStudent: loginReducer.name,
+        idStudent: loginReducer.idUser,
+        genderStudent: loginReducer.gender,
+        phoneStudent: loginReducer.phone,
+        imgStudent: loginReducer.image,
+        addressStudent: loginReducer.address + ", " + loginReducer.wardName + ", " +
+            loginReducer.districtName + ", " + loginReducer.provinceName,
     };
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
         addNewContract: (idStudent, idTeacher, nameStudent, nameTeacher, genderStudent, moneyTeacherPerHour, totalMoneyContract, skills,
-                         schedule, numberOfLesson, address, provinceName, districtName, wardName, hourPerLesson, note, dateContract) => {
-            dispatch(actions.addNewContractRequest(idStudent, idTeacher, nameStudent, nameTeacher, genderStudent, moneyTeacherPerHour, totalMoneyContract, skills,
-                schedule, numberOfLesson, address, provinceName, districtName, wardName, hourPerLesson, note, dateContract));
+                         schedule, numberOfLesson, address, provinceName, districtName, wardName, hourPerLesson, note, dateContract, genderTeacher,
+                         imgTeacher, imgStudent, phoneTeacher, addressTeacher, addressStudent, teacherTopic, phoneStudent) => {
+            dispatch(actions.addNewContractRequest(idStudent, idTeacher, nameStudent, nameTeacher, genderStudent, moneyTeacherPerHour, totalMoneyContract
+                , skills, schedule, numberOfLesson, address, provinceName, districtName, wardName, hourPerLesson, note,
+                dateContract, genderTeacher, imgTeacher, imgStudent, phoneTeacher, addressTeacher, addressStudent, teacherTopic, phoneStudent));
         }
     };
 };

@@ -16,6 +16,7 @@ router.get('/getSkills', controller.getSkills);
 router.post('/getTeachesrBySkill', controller.getTeachersBySkill);
 router.post('/lockAccount', controller.lockAccount);
 router.get('/getUserByEmail/:email', controller.getUserByEmail);
+router.get('/getUserById/:id', controller.getUserById);
 
 router.get('/me', controller.getUser);
 

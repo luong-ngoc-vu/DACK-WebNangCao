@@ -5,8 +5,14 @@ const ContractSchema = new Schema({
     idContract: {
         type: Number,
     },
-    point:{
-      type: Intl
+    point: {
+        type: Number
+    },
+    titleEvaluation: {
+        type: String,
+    },
+    contentEvaluation: {
+        type: String,
     },
     idStudent: {
         type: String,
@@ -14,13 +20,16 @@ const ContractSchema = new Schema({
     idTeacher: {
         type: String,
     },
-    content:{
-        type: String,
-    },
     nameStudent: {
         type: String,
     },
     nameTeacher: {
+        type: String,
+    },
+    imageTeacher: {
+        type: String,
+    },
+    imageStudent: {
         type: String,
     },
 });
