@@ -8,6 +8,7 @@ import ChangePasswordContainer from '../ChangePassword/ChangePasswordContainer';
 import ManageContract from '../ManagementOfTutor/ManageContract/ManageContract';
 import Chat from '../Chat/Chat';
 import ManageChat from './ManageChat/ManageChat';
+import ManageRevenue from './ManageRevenue/ManageRevenue';
 
 const { Content } = Layout;
 
@@ -40,6 +41,7 @@ class ManagementTutor extends React.Component {
               component={ManageContract}
             />
             <Route path="/tutor-manage/chat" component={ManageChat} />
+            <Route path="/tutor-manage/revenue" component={ManageRevenue} />
           </Content>
         </Layout>
       </div>
