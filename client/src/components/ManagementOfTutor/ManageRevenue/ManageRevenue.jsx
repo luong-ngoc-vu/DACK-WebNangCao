@@ -59,7 +59,7 @@ class ManageRevenue extends Component {
 			.then((response) => response.json())
 			.then((data) =>
 				this.setState({
-					allContracts: data
+					allContracts: data.filter((item) => item.status === 2)
 				})
 			)
 			.catch((error) => {
