@@ -11,6 +11,7 @@ require('./api/utils/db');
 const rootAdminRoute = require('./api/routes/rootAdmin');
 const adminRoute = require('./api/routes/admin');
 const contractRoute = require('./api/routes/contract');
+const messageRoute = require('./api/routes/message');
 
 require('./api/middlewares/passport');
 
@@ -20,7 +21,7 @@ app.set('view engine', 'hbs');
 app.use(cors());
 app.disable('etag');
 app.use(express.json());
-app.use(express.urlencoded({extended: false}));
+app.use(express.urlencoded({ extended: false }));
 
 app.use(function (req, res, next) {
     res.locals.user = req.user || null;
@@ -34,9 +35,9 @@ app.use(function (req, res, next) {
 app.use('/rootAdmin', rootAdminRoute);
 app.use('/admin', adminRoute);
 app.use('/contract', contractRoute);
+app.use('/message', messageRoute);
 
-
-app.get('/me', passport.authenticate('jwt', {session: false}), (req, res) => {
+app.get('/me', passport.authenticate('jwt', { session: false }), (req, res) => {
     res.status(200).json(
         req.user
     );
