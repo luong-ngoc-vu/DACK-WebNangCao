@@ -4,11 +4,12 @@ const addUser = (id, name) => {
     name = name;
     let user = getUserByName(name);
     if (!user) {
-        user = { id, name, online: true }
+        user = { id, name, online: true, target: [] }
         users.push(user);
     } else {
         user.id = id;
         user.online = online;
+        user.target = [];
     }
     return { user };
 }

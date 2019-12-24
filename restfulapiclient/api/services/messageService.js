@@ -15,7 +15,7 @@ async function getAll(from, to, limit) {
     const result = [];
     messages.map(mes => {
         result.push({
-            id: _id,
+            id: mes._id,
             user: mes.from,
             text: mes.message_body,
             time: mes.created_at,
@@ -31,7 +31,7 @@ async function getUnreadMessage(to) {
     const result = [];
     messages.map(mes => {
         result.push({
-            id: _id,
+            id: mes._id,
             user: mes.from,
             text: mes.message_body,
             time: mes.created_at,

@@ -44,7 +44,10 @@ io.on('connect', (socket) => {
 
     socket.on('sendMessage', ({ message, target }, callback) => {
         const user = getUser(socket.id);
-
+        if (!user) {
+            io.to(socket.id).emit('error', { message: "You need to send your username" });
+            callback();
+        }
         const user2 = getUserByName(target);
         console.log(message);
         io.to(user.id).emit('message', { user: user.name, text: message });

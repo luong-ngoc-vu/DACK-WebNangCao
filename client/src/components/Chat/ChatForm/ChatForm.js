@@ -7,11 +7,13 @@ import InfoBar from './InfoBar';
 import Input from './Input';
 import Messages from './Messages';
 import axios from 'axios';
+import { connect } from 'react-redux'
 
 let socket;
 const ENDPOINT = 'localhost:4000';
 socket = io(ENDPOINT);
 const ChatForm = (props) => {
+    console.log(props.typeUser)
     const { dataRoom, target } = props;         //Target là email người mình muốn chat(người dạy) t chưa biết thêm sao.
 
     const [name, setName] = useState('');
@@ -21,13 +23,11 @@ const ChatForm = (props) => {
     const [messages, setMessages] = useState([]);
 
     useEffect(() => {
+
         const { name, room } = { name: dataRoom, room: target };
-        //Fetch message cũ:
-        // Axios với jwt_token của máy ông
         axios.get(`http://localhost:4000/message/getAll/${name}/${target}/50`).then(res => {
             setMessages([...messages, ...res.data]);
         });
-        // Lấy res append vô list message done.
         setName(name);
         setRoom(room);
 
@@ -80,4 +80,16 @@ const ChatForm = (props) => {
 }
 
 
-export default withRouter(ChatForm);
+const mapStateToProps = (state) => {
+    return {
+
+        isLogin: state.LoginReducer.isLogin,
+        typeUser: state.LoginReducer.typeUser,
+    };
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {};
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(ChatForm));
