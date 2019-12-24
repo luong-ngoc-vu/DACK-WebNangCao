@@ -80,6 +80,10 @@ const UserSchema = new Schema({
         type: Boolean,
         default: false,
     },
+    averagePoint: {
+        type: Number,
+        default: 0,
+    }
 });
 
 UserSchema.methods.isValidPassword = async function (password) {

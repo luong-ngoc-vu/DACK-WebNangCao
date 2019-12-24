@@ -103,20 +103,12 @@ class ViewListSkillForm extends React.Component {
                         <Search
                             placeholder="Tìm kỹ năng"
                             onSearch={value => {
-                                fetch('http://localhost:4000/admin/getSkillByName', {
-                                    method: 'POST',
-                                    headers: {
-                                        'Accept': 'application/json',
-                                        'Content-Type': 'application/json'
-                                    },
-                                    body: JSON.stringify({name: value})
-                                }).then(value => value.json()).then(skills => {
-                                    this.setState({
-                                        dataSkillByName: skills,
+                                fetch(`http://localhost:4000/admin/getSkillByName/${value}`)
+                                    .then(response => response.json())
+                                    .then(data => this.setState({
+                                        dataSkillByName: data,
                                         checkSearchByname: true
-                                    });
-                                }).catch(error => {
-                                });
+                                    }));
                             }}
                             enterButton
                             style={{width: 200, marginRight: '10px'}}

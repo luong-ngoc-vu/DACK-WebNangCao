@@ -16,7 +16,7 @@ class SideBar extends React.Component {
                         sizes="50"
                         alt="alt"
                         className="avatar-admin"
-                        src="https://2game.vn/imgstore/pictures/2game/2019/10/09/2game-natra-ma-dong-h5-logo-1.png"
+                        src="https://cdn4.iconfinder.com/data/icons/business-color-4/512/businessman-512.png"
                     ></img>
                     <span className="name-admin">Member Admin</span>
                 </div>

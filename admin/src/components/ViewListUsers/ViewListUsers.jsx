@@ -147,18 +147,13 @@ class ViewListUserForm extends React.Component {
                             enterButton
                             placeholder="Tìm người dùng theo tên"
                             onSearch={value => {
-                                fetch('http://localhost:4000/admin/getUserByName', {
-                                    method: 'POST',
-                                    headers: {
-                                        'Accept': 'application/json',
-                                        'Content-Type': 'application/json'
-                                    },
-                                    body: JSON.stringify({name: value})
-                                }).then(value => value.json()).then(teachers => {
-                                    console.log(teachers);
-                                    this.setState({dataUserSearch: teachers, searchName: value, selectedTypeUser: ''});
-                                }).catch(error => {
-                                });
+                                fetch(`http://localhost:4000/admin/getUserByName/${value}`)
+                                    .then(response => response.json())
+                                    .then(data => this.setState({
+                                        dataUserSearch: data,
+                                        searchName: value,
+                                        selectedTypeUser: ''
+                                    }));
                             }}
                             style={{width: 250, margin: '0px 10px'}}
                         />

@@ -120,14 +120,54 @@ module.exports = {
     },
 
     getUserByName: async (req, res) => {
-        await User.find({"name": {'$regex': req.body.name}}, async (err, user) => {
+        await User.find({"name": {'$regex': req.params.name}}, async (err, user) => {
             res.status(200).json(user);
         })
     },
 
     getSkillByName: async (req, res) => {
-        await Skill.find({"name": {'$regex': req.body.name}}, async (err, user) => {
+        await Skill.find({"name": {'$regex': req.params.name}}, async (err, user) => {
             res.status(200).json(user);
         })
+    },
+
+    getASkillByName: async (req, res) => {
+        await Skill.findOne({"name": req.params.name}, async (err, user) => {
+            res.status(200).json(user);
+        })
+    },
+
+    createSkillV2: async (req, res) => {
+        // update children
+        const name = req.body.name;
+        const content = req.body.content;
+
+
+        Skill.findOne({"name": name}, (err, skill) => {
+            skill.children.push(content);
+            skill.save();
+            return res.status(200).json(skill);
+        });
+    },
+
+    createSkillV3: async (req, res) => {
+        // create a new collection
+        const newSkill = new Skill({
+            name: req.body.name,
+            children: req.body.content
+        });
+        Skill.findOne({"name": req.body.name}, (err, skill) => {
+            if (skill) {
+                return res.status(400).json({
+                    message: 'Tên skill đã tồn tại !',
+                });
+            } else {
+                newSkill.save().then(skill => {
+                    res.status(200).json(skill);
+                }).catch(err => {
+                    res.status(400).json(err);
+                })
+            }
+        });
     },
 };

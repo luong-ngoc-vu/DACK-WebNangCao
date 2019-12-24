@@ -12,7 +12,6 @@ class DetailTutor extends Component {
     state = {
         hiringPending: 3,
         dataEvaluation: [],
-        averagePoint: 0,
     };
 
     componentDidMount() {
@@ -26,10 +25,11 @@ class DetailTutor extends Component {
             .catch((error) => {
                 return error;
             });
+
         fetch(`http://localhost:4000/contract/getListEvaluationByIdTeacher/${st.idTeacher}`)
             .then((response) => response.json())
             .then((data) => {
-                    this.setState({dataEvaluation: data, averagePoint: data[0].point});
+                    this.setState({dataEvaluation: data});
                 }
             )
             .catch((error) => {
@@ -39,9 +39,13 @@ class DetailTutor extends Component {
 
     render() {
         const st = this.props;
-        const {dataEvaluation, averagePoint} = this.state;
+        const {dataEvaluation} = this.state;
+        let sum = 0;
+        dataEvaluation.map(item => {
+            sum = sum + item.point;
+        });
+        const averagePoint = Math.floor(sum / (dataEvaluation.length));
         const schedule = st.teacherTimeDay;
-        dataEvaluation.map(item => console.log(item));
         const day = ['Thứ hai', 'Thứ ba', 'Thứ tư', 'Thứ năm', 'Thứ sáu', 'Thứ bảy', 'Chủ nhật'];
         const Morning = () => {
             const temp = [];
@@ -198,7 +202,7 @@ class DetailTutor extends Component {
                                     <Text>
                                         <Icon type="star"/>
                                         &ensp;Tỉ lệ đánh giá:&ensp;
-                                        <Rate disabled defaultValue={4}/>
+                                        <Rate disabled value={averagePoint}/>
                                     </Text>
                                     <Row
                                         style={{
@@ -254,7 +258,7 @@ class DetailTutor extends Component {
                                 </Row>
                             </div>
                             <Text className="title-info">Nhận xét của các học viên</Text>
-                            {dataEvaluation !== [] && (
+                            {dataEvaluation.length !== 0 && (
                                 <Text>
                                     <Icon type="star"/>
                                     &ensp;Tỉ lệ đánh giá:&ensp;
@@ -263,14 +267,14 @@ class DetailTutor extends Component {
                                     )}
                                 </Text>
                             )}
-                            {dataEvaluation !== [] && (
+                            {dataEvaluation.length !== 0 && (
                                 <Text>
                                     {dataEvaluation.map(item =>
                                         <Text>{item.titleEvaluation}</Text>
                                     )}
                                 </Text>
                             )}
-                            {dataEvaluation !== [] && (
+                            {dataEvaluation.length !== 0 && (
                                 <Text>
                                     {dataEvaluation.map(item =>
                                         <Text>{item.contentEvaluation}</Text>

@@ -18,7 +18,10 @@ router.post('/getUserByEmail', controller.getUserByEmail);
 router.get('/getUserId/:id', controller.getUserId);
 router.get('/teachers', controller.getTeachers);
 router.get('/students', controller.getStudents);
-router.post('/getUserByName', controller.getUserByName);
-router.post('/getSkillByName', controller.getSkillByName);
+router.get('/getUserByName/:name', controller.getUserByName);
+router.get('/getSkillByName/:name', controller.getSkillByName);
+router.get('/getASkillByName/:name', controller.getASkillByName);
+router.put('/createSkillV2', controller.createSkillV2);
+router.post('/createSkillV3', controller.createSkillV3);
 
 module.exports = router;

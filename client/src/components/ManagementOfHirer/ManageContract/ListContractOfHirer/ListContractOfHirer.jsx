@@ -3,6 +3,7 @@ import './ListContractOfHirer.css';
 import 'antd/dist/antd.css';
 import {Avatar, Button, Form, Icon, Input, List, Modal, Rate, Select, Tabs, Tag, Typography} from 'antd';
 import {connect} from "react-redux";
+import moment from "moment";
 
 const {Option} = Select;
 const {Text} = Typography;
@@ -127,8 +128,7 @@ class OrderContract extends Component {
                                                     imageStudent: item.imgStudent,
                                                 });
                                                 const newStatus = 2;
-                                                // chua update money
-                                                fetch(`http://localhost:4000/contract/changeStatus/${item.idContract}/${newStatus}`,
+                                                fetch(`http://localhost:4000/contract/changeStatusAndUpdateMoney/${item.idContract}/${newStatus}/${item.idStudent}/${item.idTeacher}`,
                                                     {method: 'PUT'})
                                                     .then((response) => response.json())
                                                     .then((data) => {
@@ -205,7 +205,9 @@ class OrderContract extends Component {
                                             ) : (
                                                 <Tag color="yellow">Khiếu nại</Tag>
                                             )}
-                                            <Text style={{position: 'absolute', right: 0}}>{item.dateContract}</Text>
+                                            <Text style={{position: 'absolute', right: 0}}>
+                                                {moment(item.dateContract).format('DD/MM/YYYY')}
+                                            </Text>
                                         </div>
                                         <div className="item-list-info-tutor">
                                             <div

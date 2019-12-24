@@ -15,13 +15,11 @@ class ContactForm extends React.Component {
         visibleChat: false
     };
     handleCancelContract = (e) => {
-        console.log(e);
         this.setState({
             visibleContract: false
         });
     };
     handleCancelChat = (e) => {
-        console.log(e);
         this.setState({
             visibleChat: false
         });
@@ -41,7 +39,6 @@ class ContactForm extends React.Component {
         const {visibleContract, visibleChat, loading} = this.state;
         const st = this.props;
         const {hiringPending} = this.props;
-        console.log("HP: ", hiringPending);
         return (
             <div className="side-form-contact">
                 {st.isLogin === true &&

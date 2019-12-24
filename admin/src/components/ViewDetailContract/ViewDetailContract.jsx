@@ -5,6 +5,7 @@ import './ViewDetailContract.css';
 import {Button, Col, Icon, Row, Select, Tabs, Tag, Typography} from 'antd';
 import {Link, Redirect} from 'react-router-dom';
 import {connect} from "react-redux";
+import moment from 'moment';
 
 const {Option} = Select;
 const {Text} = Typography;
@@ -107,13 +108,18 @@ class ViewDetailContract extends Component {
                                             <Text style={{marginBottom: 5}}>
                                                 <Icon type="calendar"/>
                                                 &ensp;Bắt đầu hợp đồng:&ensp;
-                                                <span style={{fontWeight: 500}}>{item.dateContract}</span>
+                                                <span style={{fontWeight: 500}}>
+                                                    {moment(item.dateContract).format('DD/MM/YYYY')}
+                                                </span>
                                             </Text>
                                             {item.status === 2 && (
                                                 <Text style={{marginBottom: 5}}>
                                                     <Icon type="container"/>
                                                     &ensp;Kết thúc hợp đồng:&ensp;
-                                                    <span style={{fontWeight: 500}}>{item.dateContractEnd}</span>
+                                                    <span
+                                                        style={{fontWeight: 500}}>
+                                                        {moment(item.dateContractEnd).format('DD/MM/YYYY')}
+                                                    </span>
                                                 </Text>
                                             )}
                                             <Text style={{marginBottom: 5}}>
@@ -125,12 +131,15 @@ class ViewDetailContract extends Component {
                                                 <Icon type="dollar"/>
                                                 &ensp;Giá thuê:&ensp;
                                                 <span
-                                                    style={{fontWeight: 500}}>{item.moneyTeacherPerHour} VNĐ/giờ</span>
+                                                    style={{fontWeight: 500}}>
+                                                    {item.moneyTeacherPerHour} VNĐ/giờ
+                                                </span>
                                             </Text>
                                             <Text style={{marginBottom: 5}}>
                                                 <Icon type="euro"/>
                                                 &ensp;Tổng tiền thuê:&ensp;
-                                                <span style={{fontWeight: 500}}>{item.totalMoneyContract} VNĐ</span>
+                                                <span
+                                                    style={{fontWeight: 500}}>{item.totalMoneyContract} VNĐ</span>
                                             </Text>
                                             <Text style={{marginBottom: 5}}>
                                                 <Icon type="phone"/>
@@ -163,14 +172,14 @@ class ViewDetailContract extends Component {
                                                 <Text style={{marginRight: 10}}>
                                                     <Icon type="appstore"/>&ensp;Chủ đề dạy:{' '}
                                                 </Text>
-                                                {item.skills !== undefined && (
+                                                {dataTeacher.skills !== undefined && (
                                                     <div>
-                                                        {item.skills.map((item) => (
+                                                        {dataTeacher.skills.map((item) => (
                                                             <Tag style={{fontSize: 16}}>{item}</Tag>
                                                         ))}
                                                     </div>
                                                 )}
-                                                {item.skills === null && (
+                                                {dataTeacher.skills === null && (
                                                     <div>
                                                         <Tag style={{fontSize: 16}}>Chưa cập nhật</Tag>
                                                     </div>
@@ -183,7 +192,7 @@ class ViewDetailContract extends Component {
                                                     <span style={{fontWeight: 500}}>
                                                         {item.noiDungKhieuNaiGV}
 											        </span>
-                                            </Text>
+                                                </Text>
                                             )}
                                         </div>
                                     </div>

@@ -49,7 +49,7 @@ class NavBar extends React.Component {
                     <Dropdown overlay={menu} style={{marginLeft: '20px'}}>
                         <a className="ant-dropdown-link" href="/">
                             <Avatar
-                                src="https://2game.vn/imgstore/pictures/2game/2019/10/09/2game-natra-ma-dong-h5-logo-1.png"/>{' '}
+                                src="https://cdn4.iconfinder.com/data/icons/business-color-4/512/businessman-512.png"/>{' '}
                             &nbsp;&nbsp;{st.email}
                         </a>
                     </Dropdown>

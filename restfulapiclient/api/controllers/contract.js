@@ -59,8 +59,6 @@ module.exports = {
         const idTeacher = req.params.idTeacher;
         const status = req.params.status;
 
-        console.log(idStudent + ", " + idTeacher);
-
         await Contract.findOne({"idContract": idContract}, async (err, contract) => {
             await User.findOne({"_id": ObjectId(idTeacher), "typeUser": 2}, async (err, teacher) => {
                 if (!teacher.totalMoney) {
@@ -76,7 +74,7 @@ module.exports = {
         });
 
         await Contract.updateOne({idContract: idContract}, {
-            $set: {status: status}
+            $set: {status: status, dateContractEnd: Date.now()}
         }).then(() => res.json({message: "Change success!"}))
             .catch(err => next(err));
     },
@@ -148,7 +146,8 @@ module.exports = {
             .catch(err => next(err));
     },
 
-    addNewEvaluation: (req, res, next) => {
+    addNewEvaluation: async (req, res, next) => {
+        let averagePoint = 0;
         const newEvaluation = new Evaluation({
             idContract: req.body.idContract,
             idStudent: req.body.idStudent,
@@ -161,11 +160,33 @@ module.exports = {
             imageStudent: req.body.imageStudent,
             imageTeacher: req.body.imageTeacher,
         });
+
         newEvaluation.save().then(evaluation => {
             res.status(200).json(evaluation);
         }).catch(err => {
             res.status(400).json(err);
-        })
+        });
+
+        const data = await Evaluation.find({"idTeacher": req.body.idTeacher});
+
+        if (data.length === 0) {
+            await User.updateOne({_id: req.body.idTeacher}, {
+                $set: {averagePoint: req.body.point}
+            }).then(() => res.json({message: "Student complains successfully!"}))
+                .catch(err => next(err));
+        } else {
+            let totalPoint = 0;
+            data.map(evaluation => {
+                console.log("evaluation.point", evaluation.point);
+                totalPoint += evaluation.point;
+                averagePoint = Math.floor(totalPoint / (data.length));
+            });
+
+            await User.updateOne({_id: req.body.idTeacher}, {
+                $set: {averagePoint: averagePoint}
+            }).then(() => res.json({message: "Student complains successfully!"}))
+                .catch(err => next(err));
+        }
     },
 
     getListEvaluationByIdTeacher: async (req, res, next) => {

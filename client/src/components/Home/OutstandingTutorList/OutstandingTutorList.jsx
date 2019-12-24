@@ -108,7 +108,7 @@ class OutstandingTutorList extends React.Component {
                                                 }}
                                             >
                                                 {teacher.name}
-                                                <Rate disabled defaultValue={4}/>
+                                                <Rate disabled defaultValue={teacher.averagePoint}/>
                                             </p>
                                             <p>Địa chỉ: {teacher.provinceName}</p>
                                             <p>

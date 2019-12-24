@@ -5,6 +5,7 @@ import {Link, Redirect} from 'react-router-dom';
 import {Button, Input, Select, Table, Tag, Typography} from 'antd';
 import {viewContractRequest} from "../ViewListUsers/ViewListUserAction";
 import {connect} from "react-redux";
+import moment from "moment";
 
 const {Title, Text} = Typography;
 const {Option} = Select;
@@ -76,8 +77,8 @@ class ViewListComplaint extends React.Component {
             idContract: item.idContract,
             tutorName: item.nameTeacher,
             hirerName: item.nameStudent,
-            dateContract: item.dateContract,
-            totalMoneyContract: item.totalMoneyContract + ' VNĐ',
+            dateContract: moment(item.dateContract).format('DD/MM/YYYY'),
+            totalMoneyContract: item.totalMoneyContract.toLocaleString('vi', {style: 'currency', currency: 'VND'}),
             status:
                 item.status === 0 ? (
                     <Tag color="blue">Chờ xác nhận</Tag>
@@ -104,10 +105,6 @@ class ViewListComplaint extends React.Component {
                         }}
                     >
 						<Button type="primary" icon="eye"/>
-					</Link>
-
-					<Link to="#" size="large" type="primary" htmlType="submit" className="login-form-button">
-						<Button type="danger" icon="stop"/>
 					</Link>
 				</span>
             )

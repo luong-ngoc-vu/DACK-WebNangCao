@@ -16,7 +16,7 @@ export const initialState = {
     money: '',
     teacherTimeDay: '',
     gender: '',
-    idTeacher:'',
+    idTeacher: '',
 };
 
 const ViewDetailTutorReducer = (state = initialState, action) => {

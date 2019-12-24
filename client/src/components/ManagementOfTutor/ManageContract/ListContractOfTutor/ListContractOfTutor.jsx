@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import './ListContractOfTutor.css';
 import 'antd/dist/antd.css';
 import {Avatar, Button, Form, Icon, Input, List, Modal, Select, Tag, Typography} from 'antd';
+import moment from "moment";
 
 const {Option} = Select;
 const {Text} = Typography;
@@ -176,7 +177,9 @@ class OrderContract extends Component {
                                                     ) : (
                                                         <Tag color="yellow">Khiếu nại</Tag>
                                                     )}
-                                                    <Text style={{position: 'absolute', right: 0}}>{item.date}</Text>
+                                                    <Text style={{position: 'absolute', right: 0}}>
+                                                        {moment(item.dateContract).format('DD/MM/YYYY')}
+                                                    </Text>
                                                 </div>
                                                 <Text style={{marginBottom: 5}}>
                                                     <Icon type="idcard"/>
