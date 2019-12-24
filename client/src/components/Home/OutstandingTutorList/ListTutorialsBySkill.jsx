@@ -13,25 +13,21 @@ class OutstandingTutorList extends React.Component {
         };
     }
 
+    componentDidMount() {
+        const st = this.props;
+        fetch(`http://localhost:4000/user/getTeacherBySkillName/${st.subSkillName}`)
+            .then(response => response.json())
+            .then(data => this.setState({dataTutorialBySkill: data}));
+    }
+
     render() {
         const st = this.props;
-        fetch('http://localhost:4000/user/getTeachesrBySkill', {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({name: st.skillName})
-        }).then(value => value.json()).then(teachers => {
-            this.setState({dataTutorialBySkill: teachers});
-        }).catch(error => {
-        });
         const {dataTutorialBySkill} = this.state;
         return (
             <div className="out-tutor">
                 <div className="filter-tutor">
                     <h2 style={{textAlign: 'left', margin: '20px 0px'}}>
-                        Gia sư dạy <strong>{st.skillName}</strong>
+                        Gia sư dạy <strong>{st.subSkillName}</strong>
                     </h2>
                 </div>
                 <div className="out-tutor__list">
@@ -77,7 +73,10 @@ class OutstandingTutorList extends React.Component {
                                             <p>
                                                 Học phí:{' '}
                                                 <span style={{fontWeight: 'bolder'}}>
-                                                    {teacher.money.toLocaleString('vi', {style : 'currency', currency : 'VND'})}
+                                                    {teacher.money.toLocaleString('vi', {
+                                                        style: 'currency',
+                                                        currency: 'VND'
+                                                    })}
                                                 </span>/buổi
                                             </p>
                                         </div>

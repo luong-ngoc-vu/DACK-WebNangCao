@@ -8,14 +8,14 @@ export const LogOut = () => {
     };
 };
 
-export const ViewByList = (skillName) => {
+export const ViewByList = (subSkillName) => {
     return {
-        type: VIEW_BY_LIST_TUTORIAL, skillName
+        type: VIEW_BY_LIST_TUTORIAL, subSkillName
     };
 };
 
-export const ViewByListRequest = (skillName) => {
+export const ViewByListRequest = (subSkillName) => {
     return dispatch => {
-        return dispatch(ViewByList(skillName));
+        return dispatch(ViewByList(subSkillName));
     };
 };

@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 import 'antd/dist/antd.css';
 import './NavBar.css';
 import {Avatar, Col, Icon, Layout, Menu, Row} from 'antd';
+import Dropdown from "antd/es/dropdown";
 
 const {Header} = Layout;
 const {SubMenu} = Menu;
@@ -11,7 +12,10 @@ const {SubMenu} = Menu;
 class NavBar extends React.Component {
     state = {
         current: 'home',
-        skills: []
+        skills: [],
+        subSkillBySkillName: [],
+        skillNameSelected: '',
+        subSkillSelected: '',
     };
 
     handleClick = e => {
@@ -27,7 +31,24 @@ class NavBar extends React.Component {
 
     render() {
         const st = this.props;
-        const {skills} = this.state;
+        const {skills, subSkillBySkillName} = this.state;
+
+        const subMenuSkill = (
+            <Menu>
+                {subSkillBySkillName.map(item =>
+                    <Menu.Item key={item}>
+                        <Link onClick={event => {
+                            this.setState({subSkillSelected: item});
+                            st.viewByList(item);
+                        }}
+                              to="/listTutorialsBySkill">
+                            {item}
+                        </Link>
+                    </Menu.Item>
+                )}
+            </Menu>
+        );
+
         return (
             <div style={{display: 'flex', flexDirection: 'column'}}>
                 <Header style={{height: '60px'}}>
@@ -56,9 +77,9 @@ class NavBar extends React.Component {
                                     <SubMenu
                                         title={
                                             <span className="submenu-title-wrapper">
-                        <Icon type="setting"/>
-                        Cài đặt
-                      </span>
+                                                <Icon type="setting"/>
+                                                Cài đặt
+                                            </span>
                                         }
                                     >
                                         <Menu.ItemGroup title="Thông tin cá nhân">
@@ -128,22 +149,18 @@ class NavBar extends React.Component {
                 <Row className="sub-nav">
                     <Col span={3}></Col>
                     <Col span={18}>
-                        <Menu
-                            mode="horizontal"
-                            style={{height: '100%', border: '0', lineHeight: '43px'}}
-                        >
-                            {skills.map(item => (
-                                <Menu.Item key={item.name}>
-                                    <Link onClick={event => {
-                                        st.viewByList(item.name);
-                                    }}
-                                          to="/listTutorialsBySkill"
-                                    >
-                                        {item.name}
-                                    </Link>
-                                </Menu.Item>
-                            ))}
-                        </Menu>
+                        {skills.map(item =>
+                            <Dropdown overlay={subMenuSkill} trigger={['click']} placement="bottomLeft">
+                                <Link onClick={event => {
+                                    this.setState({skillNameSelected: item.name});
+                                    fetch(`http://localhost:4000/user/getChildrenBySkillName/${item.name}`)
+                                        .then(response => response.json())
+                                        .then(data => this.setState({subSkillBySkillName: data}));
+                                }}>
+                                    {item.name}
+                                </Link>
+                            </Dropdown>
+                        )}
                     </Col>
                 </Row>
             </div>

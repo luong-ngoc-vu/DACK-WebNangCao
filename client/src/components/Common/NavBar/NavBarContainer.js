@@ -9,7 +9,10 @@ const mapStateToProps = (st) => {
         token: st.LoginReducer.token,
         image: st.LoginReducer.image,
         typeUser: st.LoginReducer.typeUser,
-        isLogin: st.LoginReducer.isLogin
+        isLogin: st.LoginReducer.isLogin,
+
+        skillName: st.NavBarReducer.skillName,
+        subSkillName: st.NavBarReducer.subSkillName
     };
 };
 
@@ -18,8 +21,8 @@ const mapDispatchToProps = (dispatch) => {
         logOut: () => {
             dispatch(action.LogOut());
         },
-        viewByList: (skillName) => {
-            dispatch(action.ViewByListRequest(skillName));
+        viewByList: (subSkillName) => {
+            dispatch(action.ViewByListRequest(subSkillName));
         }
     };
 };

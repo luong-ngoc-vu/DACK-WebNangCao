@@ -1,5 +1,6 @@
 export const initialState = {
     skillName: '',
+    subSkillName: '',
 };
 
 const NavBarReducer = (state = initialState, action) => {
@@ -7,6 +8,7 @@ const NavBarReducer = (state = initialState, action) => {
         case "VIEW_BY_LIST_TUTORIAL": {
             const st = {...state};
             st.skillName = action.skillName;
+            st.subSkillName = action.subSkillName;
             return st;
         }
         default:

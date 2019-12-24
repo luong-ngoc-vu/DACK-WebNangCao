@@ -13,6 +13,11 @@
   float: left;
 }
 
+#components-dropdown-demo-placement .ant-btn {
+  margin-right: 8px;
+  margin-bottom: 8px;
+}
+
 .ant-layout-header {
   padding: 0px;
   background: white;

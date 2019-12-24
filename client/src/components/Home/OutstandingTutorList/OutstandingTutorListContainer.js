@@ -9,7 +9,8 @@ const mapStateToProps = (st) => {
         token: st.LoginReducer.token,
         isLogin: st.LoginReducer.isLogin,
 
-        skillName: st.NavBarReducer.skillName
+        skillName: st.NavBarReducer.skillName,
+        subSkillName: st.NavBarReducer.subSkillName
     };
 };
 

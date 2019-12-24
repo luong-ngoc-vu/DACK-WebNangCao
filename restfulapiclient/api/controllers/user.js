@@ -122,5 +122,18 @@ module.exports = {
         await User.findOne({"_id": req.params.id}, async (err, user) => {
             res.status(200).json(user);
         })
+    },
+
+    getChildrentByNameSkill: async (req, res) => {
+        const name = req.params.name;
+        const skill = await Skill.findOne({"name": name});
+        return res.status(200).json(skill.children);
+    },
+
+    getTeacherBySkillNameAndSubSkill: async (req, res) => {
+        const subSkillName = req.params.subSkillName;
+
+        const listUserBySkill = await User.find({"skills": {$in: [subSkillName]}, "typeUser": 2});
+        return res.status(200).json(listUserBySkill)
     }
 };

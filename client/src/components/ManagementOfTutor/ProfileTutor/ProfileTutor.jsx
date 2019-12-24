@@ -84,6 +84,7 @@ class ProfileForm extends React.Component {
     };
 
     onTreeChange = value => {
+        console.log("select tree: " + value);
         this.setState({value});
     };
 
@@ -113,7 +114,7 @@ class ProfileForm extends React.Component {
         const st = this.props;
         const {dataSkills} = this.state;
 
-        let dataTree = dataSkills.map((item) => ({
+        const treeData = dataSkills.map((item) => ({
             title: item.name,
             value: item.name,
             key: item.name,
@@ -124,63 +125,38 @@ class ProfileForm extends React.Component {
             })),
         }));
 
-        const treeData = [
-            {
-                title: "Node1",
-                value: "0-0",
-                key: "0-0",
-                children: [
-                    {
-                        title: "Child Node1",
-                        value: "0-0-0",
-                        key: "0-0-0"
-                    }
-                ]
-            },
-            {
-                title: "Node2",
-                value: "0-1",
-                key: "0-1",
-                children: [
-                    {
-                        title: "Child Node3",
-                        value: "Child Node3",
-                        key: "0-1-0"
-                    },
-                    {
-                        title: "Child Node4",
-                        value: "0-1-1",
-                        key: "0-1-1"
-                    },
-                    {
-                        title: "Child Node5",
-                        value: "0-1-2",
-                        key: "0-1-2"
-                    }
-                ]
-            }
-        ];
-
-        console.log(dataTree);
-        console.log(treeData);
-
         this.levelStudy = st.levelStudy;
         this.curPosition = st.curPosition;
         this.skills = st.skills;
         this.gender = st.gender;
         this.teacherTimeDay = st.teacherTimeDay;
+        let tProps;
 
-        const tProps = {
-            treeData,
-            value: this.state.value,
-            onChange: this.onTreeChange,
-            treeCheckable: true,
-            showCheckedStrategy: SHOW_PARENT,
-            searchPlaceholder: "Please select",
-            style: {
-                width: "100%"
-            }
-        };
+        if (st.skills.length === 0) {
+            tProps = {
+                treeData,
+                value: this.state.value,
+                onChange: this.onTreeChange,
+                treeCheckable: true,
+                searchPlaceholder: "Please select",
+                style: {
+                    width: "100%"
+                },
+                maxTagCount: 3
+            };
+        } else {
+            tProps = {
+                treeData,
+                onChange: this.onTreeChange,
+                treeCheckable: true,
+                searchPlaceholder: "Please select",
+                style: {
+                    width: "100%"
+                },
+                defaultValue: st.skills,
+                maxTagCount: 3
+            };
+        }
 
         if (st.isLogin === false) {
             return <Redirect to="/login"/>;
@@ -591,7 +567,7 @@ class ProfileForm extends React.Component {
                                         this.school,
                                         this.money,
                                         this.state.checkedList,
-                                        this.state.skills
+                                        this.state.value
                                     );
                                     this.err = 'Cập nhật thành công';
                                 }}
