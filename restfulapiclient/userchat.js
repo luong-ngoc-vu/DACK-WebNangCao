@@ -8,7 +8,7 @@ const addUser = (id, name) => {
         users.push(user);
     } else {
         user.id = id;
-        user.online = online;
+        //  user.online = online;
         user.target = [];
     }
     return { user };
