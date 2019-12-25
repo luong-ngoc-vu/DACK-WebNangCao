@@ -3,7 +3,7 @@ const router = express.Router();
 
 const controller = require('../controllers/message');
 
-router.patch('/markread/:id', controller.markRead);
+router.put('/markRead/:id', controller.markRead);
 router.get('/:id', controller.getById);
 
 router.get('/getAll/:from/:to/:limit', controller.getAll);

@@ -40,6 +40,15 @@ const ChatForm = (props) => {
     }, [ENDPOINT]);
 
     useEffect(() => {
+        const { name, room } = { name: dataRoom, room: target };
+        axios.get(`http://localhost:4000/message/getAll/${name}/${target}/50`).then(res => {
+            setMessages([...res.data]);
+        });
+        setName(name);
+        setRoom(room);
+    }, [props]);
+
+    useEffect(() => {
         socket.on('message', (message) => {
             setMessages([...messages, message]);
         })
@@ -78,7 +87,6 @@ const ChatForm = (props) => {
         </div>
     )
 }
-
 
 const mapStateToProps = (state) => {
     return {
