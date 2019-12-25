@@ -276,7 +276,7 @@ class OrderContract extends Component {
                                             <Text style={{marginBottom: 5}}>
                                                 <Icon type="woman"/>
                                                 &ensp;Giới tính :&ensp;
-                                                <span style={{fontWeight: 500}}>Nữ</span>
+                                                <span style={{fontWeight: 500}}>{item.genderStudent}</span>
                                             </Text>
                                             <Text style={{marginBottom: 5}}>
                                                 <Icon type="phone"/>

@@ -43,13 +43,13 @@ module.exports = {
 
     getListContractByIdStudent: async (req, res) => {
         const idStudent = req.params.idStudent;
-        const listContractByIdStudent = await Contract.find({ "idStudent": idStudent });
+        const listContractByIdStudent = await Contract.find({"idStudent": idStudent});
         return res.status(200).json(listContractByIdStudent)
     },
 
     getListContractByIdTeacher: async (req, res) => {
         const idTeacher = req.params.idTeacher;
-        const listContractByIdTeacher = await Contract.find({ "idTeacher": idTeacher });
+        const listContractByIdTeacher = await Contract.find({"idTeacher": idTeacher});
         return res.status(200).json(listContractByIdTeacher)
     },
 
@@ -59,32 +59,32 @@ module.exports = {
         const idTeacher = req.params.idTeacher;
         const status = req.params.status;
 
-        await Contract.findOne({ "idContract": idContract }, async (err, contract) => {
-            await User.findOne({ "_id": ObjectId(idTeacher), "typeUser": 2 }, async (err, teacher) => {
+        await Contract.findOne({"idContract": idContract}, async (err, contract) => {
+            await User.findOne({"_id": ObjectId(idTeacher), "typeUser": 2}, async (err, teacher) => {
                 if (!teacher.totalMoney) {
                     teacher.totalMoney = 0;
                 }
                 teacher.totalMoney = teacher.totalMoney + contract.totalMoneyContract;
                 await teacher.save();
             });
-            await User.findOne({ "_id": ObjectId(idStudent), "typeUser": 1 }, async (err, student) => {
+            await User.findOne({"_id": ObjectId(idStudent), "typeUser": 1}, async (err, student) => {
                 student.curMoney = student.curMoney - contract.totalMoneyContract;
                 await student.save();
             })
         });
 
-        await Contract.updateOne({ idContract: idContract }, {
-            $set: { status: status, dateContractEnd: Date.now(), noiDungKhieuNaiGV: "", noiDungKhieuNaiHS: "" }
-        }).then(() => res.json({ message: "Change success!" }))
+        await Contract.updateOne({idContract: idContract}, {
+            $set: {status: status, dateContractEnd: Date.now(), noiDungKhieuNaiGV: "", noiDungKhieuNaiHS: ""}
+        }).then(() => res.json({message: "Change success!"}))
             .catch(err => next(err));
     },
 
     changeStatus: async (req, res) => {
         const idContract = req.params.idContract;
         const status = req.params.status;
-        await Contract.updateOne({ idContract: idContract }, {
-            $set: { status: status }
-        }).then(() => res.json({ message: "Change success!" }))
+        await Contract.updateOne({idContract: idContract}, {
+            $set: {status: status}
+        }).then(() => res.json({message: "Change success!"}))
             .catch(err => next(err));
     },
 
@@ -94,7 +94,7 @@ module.exports = {
 
         // 3 là chưa ai thuê
         let hiring = 3;
-        const contracts = await Contract.find({ "idTeacher": idTeacher, "idStudent": idStudent });
+        const contracts = await Contract.find({"idTeacher": idTeacher, "idStudent": idStudent});
         contracts.map(contract => {
             if (contract.status === 0)
                 hiring = 0;
@@ -116,7 +116,7 @@ module.exports = {
         const idTeacher = req.params.idTeacher;
 
         let hired = false;
-        const contracts = await Contract.find({ "idTeacher": idTeacher, "idStudent": idStudent });
+        const contracts = await Contract.find({"idTeacher": idTeacher, "idStudent": idStudent});
         contracts.map(contract => {
             if (contract.status === 2) {
                 hired = true;
@@ -130,9 +130,9 @@ module.exports = {
         const idContract = req.params.idContract;
         const idStudent = req.params.idStudent;
         const noiDungKhieuNaiHS = req.params.noiDungKhieuNaiHS;
-        await Contract.updateOne({ idContract: idContract, idStudent: idStudent }, {
-            $set: { noiDungKhieuNaiHS: noiDungKhieuNaiHS, noiDungKhieuNaiGV: "" }
-        }).then(() => res.json({ message: "Student complains successfully!" }))
+        await Contract.updateOne({idContract: idContract, idStudent: idStudent}, {
+            $set: {noiDungKhieuNaiHS: noiDungKhieuNaiHS, noiDungKhieuNaiGV: ""}
+        }).then(() => res.json({message: "Student complains successfully!"}))
             .catch(err => next(err));
     },
 
@@ -140,9 +140,9 @@ module.exports = {
         const idContract = req.params.idContract;
         const idTeacher = req.params.idTeacher;
         const noiDungKhieuNaiGV = req.params.noiDungKhieuNaiGV;
-        await Contract.updateOne({ idContract: idContract, idTeacher: idTeacher }, {
-            $set: { noiDungKhieuNaiGV: noiDungKhieuNaiGV, noiDungKhieuNaiHS: "" }
-        }).then(() => res.json({ message: "Teacher complains successfully!" }))
+        await Contract.updateOne({idContract: idContract, idTeacher: idTeacher}, {
+            $set: {noiDungKhieuNaiGV: noiDungKhieuNaiGV, noiDungKhieuNaiHS: ""}
+        }).then(() => res.json({message: "Teacher complains successfully!"}))
             .catch(err => next(err));
     },
 
@@ -167,12 +167,12 @@ module.exports = {
             res.status(400).json(err);
         });
 
-        const data = await Evaluation.find({ "idTeacher": req.body.idTeacher });
+        const data = await Evaluation.find({"idTeacher": req.body.idTeacher});
 
         if (data.length === 0) {
-            await User.updateOne({ _id: req.body.idTeacher }, {
-                $set: { averagePoint: req.body.point }
-            }).then(() => res.json({ message: "Student complains successfully!" }))
+            await User.updateOne({_id: req.body.idTeacher}, {
+                $set: {averagePoint: req.body.point}
+            }).then(() => res.json({message: "Student complains successfully!"}))
                 .catch(err => next(err));
         } else {
             let totalPoint = 0;
@@ -182,16 +182,16 @@ module.exports = {
                 averagePoint = Math.floor(totalPoint / (data.length));
             });
 
-            await User.updateOne({ _id: req.body.idTeacher }, {
-                $set: { averagePoint: averagePoint }
-            }).then(() => res.json({ message: "Student complains successfully!" }))
+            await User.updateOne({_id: req.body.idTeacher}, {
+                $set: {averagePoint: averagePoint}
+            }).then(() => res.json({message: "Student complains successfully!"}))
                 .catch(err => next(err));
         }
     },
 
     getListEvaluationByIdTeacher: async (req, res, next) => {
         const idTeacher = req.params.idTeacher;
-        const listEvauationByIdTeacher = await Evaluation.find({ "idTeacher": idTeacher });
+        const listEvauationByIdTeacher = await Evaluation.find({"idTeacher": idTeacher});
         return res.status(200).json(listEvauationByIdTeacher);
     },
 
@@ -203,8 +203,8 @@ module.exports = {
                 {
                     $match: {
                         status: 2,
-                        noiDungKhieuNaiHS: undefined,
-                        noiDungKhieuNaiGV: undefined,
+                        noiDungKhieuNaiHS: "",
+                        noiDungKhieuNaiGV: "",
                         idTeacher: idTeacher,
                         dateContractEnd: {
                             $gte: new Date(year + '-01-01T00:00:00.000+00:00'),
@@ -216,8 +216,8 @@ module.exports = {
                     $project: {
                         idContract: "$idContract",
                         nameTeacher: "$nameTeacher",
-                        monthStart: { "$month": "$dateContract" },
-                        monthEnd: { "$month": "$dateContractEnd" },
+                        monthStart: {"$month": "$dateContract"},
+                        monthEnd: {"$month": "$dateContractEnd"},
                         totalProfitAContract: "$totalMoneyContract",
                     }
                 },
@@ -233,7 +233,7 @@ module.exports = {
                         idContract: item.idContract,
                         teacherName: item.nameTeacher,
                         month: month,
-                        totalProfitForAContract: Math.floor(item.totalProfitAContract / (item.monthEnd - item.monthStart + 1))
+                        revenue: Math.floor(item.totalProfitAContract / (item.monthEnd - item.monthStart + 1))
                     }));
                 }
             } else if (item.monthStart === item.monthEnd) {
@@ -241,51 +241,11 @@ module.exports = {
                     idContract: item.idContract,
                     teacherName: item.nameTeacher,
                     month: item.monthStart,
-                    totalProfitForAContract: item.totalProfitAContract,
+                    revenue: item.totalProfitAContract,
                 })
             }
         });
-        let data = [];
-        let primaryMonth = [];
-        let revenue = 0;
-        let n = dataRevenue.length;
-
-        for (let i = 0; i < n; i += 1) {
-            for (let j = i + 1; j < n; j += 1) {
-                if (dataRevenue[i].month === dataRevenue[j].month) {
-                    primaryMonth.push(dataRevenue[i].month);
-                    revenue = dataRevenue[i].totalProfitForAContract + dataRevenue[j].totalProfitForAContract;
-                    data.push({
-                        month: dataRevenue[i].month,
-                        revenue: revenue
-                    })
-                }
-            }
-        }
-
-        let monthExistedOnce = [];
-        let allMonth = [];
-
-        dataRevenue.map(item => {
-            allMonth.push(item.month);
-        });
-
-        monthExistedOnce = allMonth.filter(function (item) {
-            return !primaryMonth.includes(item);
-        });
-
-        monthExistedOnce.map(month => {
-            dataRevenue.map(item => {
-                if (month === item.month) {
-                    data.push({
-                        month: month,
-                        revenue: item.totalProfitForAContract
-                    })
-                }
-            })
-        });
-
-        return res.status(200).json(data);
+        return res.status(200).json(dataRevenue);
     },
 
     thongKeDoanhThuByYear: async (req, res) => {
@@ -296,19 +256,19 @@ module.exports = {
                 {
                     $match: {
                         status: 2,
-                        noiDungKhieuNaiHS: undefined,
-                        noiDungKhieuNaiGV: undefined,
+                        noiDungKhieuNaiHS: "",
+                        noiDungKhieuNaiGV: "",
                         idTeacher: idTeacher
                     }
                 },
                 {
                     $group:
-                    {
-                        _id: {
-                            year: { $year: "$dateContractEnd" },
-                        },
-                        revenue: { $sum: "$totalMoneyContract" }
-                    }
+                        {
+                            _id: {
+                                year: {$year: "$dateContractEnd"},
+                            },
+                            revenue: {$sum: "$totalMoneyContract"}
+                        }
                 }
             ]
         );
@@ -325,6 +285,8 @@ module.exports = {
                 {
                     $match: {
                         status: 2, idTeacher: idTeacher,
+                        noiDungKhieuNaiHS: "",
+                        noiDungKhieuNaiGV: "",
                         dateContractEnd: {
                             $gte: new Date(year + '-01-01T00:00:00.000+00:00'),
                             $lte: new Date(year + '-03-31T00:00:00.000+00:00')
@@ -333,10 +295,10 @@ module.exports = {
                 },
                 {
                     $group:
-                    {
-                        _id: "1",
-                        revenue: { $sum: "$totalMoneyContract" }
-                    }
+                        {
+                            _id: "1",
+                            revenue: {$sum: "$totalMoneyContract"}
+                        }
                 }
             ]
         );
@@ -349,6 +311,8 @@ module.exports = {
                     $match: {
                         status: 2,
                         idTeacher: idTeacher,
+                        noiDungKhieuNaiHS: "",
+                        noiDungKhieuNaiGV: "",
                         dateContractEnd: {
                             $gte: new Date(year + '-04-01T00:00:00.000+00:00'),
                             $lte: new Date(year + '-06-30T00:00:00.000+00:00')
@@ -357,10 +321,10 @@ module.exports = {
                 },
                 {
                     $group:
-                    {
-                        _id: "2",
-                        revenue: { $sum: "$totalMoneyContract" }
-                    }
+                        {
+                            _id: "2",
+                            revenue: {$sum: "$totalMoneyContract"}
+                        }
                 }
             ]
         );
@@ -372,6 +336,8 @@ module.exports = {
                 {
                     $match: {
                         status: 2, idTeacher: idTeacher,
+                        noiDungKhieuNaiHS: "",
+                        noiDungKhieuNaiGV: "",
                         dateContractEnd: {
                             $gte: new Date(year + '-07-01T00:00:00.000+00:00'),
                             $lte: new Date(year + '-09-30T00:00:00.000+00:00')
@@ -380,10 +346,10 @@ module.exports = {
                 },
                 {
                     $group:
-                    {
-                        _id: "3",
-                        revenue: { $sum: "$totalMoneyContract" }
-                    }
+                        {
+                            _id: "3",
+                            revenue: {$sum: "$totalMoneyContract"}
+                        }
                 }
             ]
         );
@@ -396,6 +362,8 @@ module.exports = {
                 {
                     $match: {
                         status: 2, idTeacher: idTeacher,
+                        noiDungKhieuNaiHS: "",
+                        noiDungKhieuNaiGV: "",
                         dateContractEnd: {
                             $gte: new Date(year + '-10-01T00:00:00.000+00:00'),
                             $lte: new Date(year + '-12-31T00:00:00.000+00:00')
@@ -404,10 +372,10 @@ module.exports = {
                 },
                 {
                     $group:
-                    {
-                        _id: "4",
-                        revenue: { $sum: "$totalMoneyContract" }
-                    }
+                        {
+                            _id: "4",
+                            revenue: {$sum: "$totalMoneyContract"}
+                        }
                 }
             ]
         );
