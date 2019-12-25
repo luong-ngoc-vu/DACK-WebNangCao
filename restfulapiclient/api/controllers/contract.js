@@ -421,7 +421,6 @@ module.exports = {
             );
         }
 
-        console.log(contract);
 
         return res.status(200).json(contract);
     }

@@ -11,9 +11,16 @@ router.get('/contracts', controller.getAllContract);
 router.get('/contractByStatus/:status', controller.getContractByStatus);
 router.get('/contractByIdContract/:idContract', controller.getContractByIdContract);
 
+
 router.get('/thongKeDoanhThuAllTutorByMonth/:year', controller.thongKeDoanhThuAllTutorByMonth);
+
+
 router.get('/thongKeDoanhThuAllTutorByYear', controller.thongKeDoanhThuAllTutorByYear);
-router.get('/thongKeDoanhThuAllTutorByQuarter/:year/:quater', controller.thongKeDoanhThuAllTutorByQuarter);
+router.get('/thongKeDoanhThuAllTutorByQuarter/:year', controller.thongKeDoanhThuAllTutorByQuarter);
+
 router.get('/getListTutorAndRevenue', controller.getListTutorAndRevenue);
+router.get('/getListTutorAndRevenueByMonth/:year/:month', controller.getListTutorAndRevenueByMonth);
+router.get('/getListTutorAndRevenueQuarter/:year/:quater', controller.getListTutorAndRevenueQuarter);
+router.get('/getListTutorAndRevenuCurrentWeek', controller.getListTutorAndRevenuCurrentWeek);
 
 module.exports = router;

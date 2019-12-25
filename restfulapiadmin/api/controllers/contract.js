@@ -45,55 +45,6 @@ module.exports = {
         }
     },
 
-    addNewEvaluation: async (req, res, next) => {
-        let averagePoint = 0;
-        const newEvaluation = new Evaluation({
-            idContract: req.body.idContract,
-            idStudent: req.body.idStudent,
-            idTeacher: req.body.idTeacher,
-            nameStudent: req.body.nameStudent,
-            nameTeacher: req.body.nameTeacher,
-            titleEvaluation: req.body.titleEvaluation,
-            contentEvaluation: req.body.contentEvaluation,
-            point: req.body.point,
-            imageStudent: req.body.imageStudent,
-            imageTeacher: req.body.imageTeacher,
-        });
-
-        newEvaluation.save().then(evaluation => {
-            res.status(200).json(evaluation);
-        }).catch(err => {
-            res.status(400).json(err);
-        });
-
-        const data = await Evaluation.find({"idTeacher": req.body.idTeacher});
-
-        if (data.length === 0) {
-            await User.updateOne({_id: req.body.idTeacher}, {
-                $set: {averagePoint: req.body.point}
-            }).then(() => res.json({message: "Student complains successfully!"}))
-                .catch(err => next(err));
-        } else {
-            let totalPoint = 0;
-            data.map(evaluation => {
-                console.log("evaluation.point", evaluation.point);
-                totalPoint += evaluation.point;
-                averagePoint = Math.floor(totalPoint / (data.length));
-            });
-
-            await User.updateOne({_id: req.body.idTeacher}, {
-                $set: {averagePoint: averagePoint}
-            }).then(() => res.json({message: "Student complains successfully!"}))
-                .catch(err => next(err));
-        }
-    },
-
-    getListEvaluationByIdTeacher: async (req, res, next) => {
-        const idTeacher = req.params.idTeacher;
-        const listEvauationByIdTeacher = await Evaluation.find({"idTeacher": idTeacher});
-        return res.status(200).json(listEvauationByIdTeacher);
-    },
-
     thongKeDoanhThuAllTutorByMonth: async (req, res) => {
         const year = req.params.year;
         const contract = await Contract.aggregate(
@@ -208,7 +159,224 @@ module.exports = {
 
     thongKeDoanhThuAllTutorByQuarter: async (req, res) => {
         const year = req.params.year;
+
+        const listData = [];
+
+        const contract1 = await Contract.aggregate(
+            [
+                {
+                    $match: {
+                        status: 2,
+                        dateContractEnd: {
+                            $gte: new Date(year + '-01-01T00:00:00.000+00:00'),
+                            $lte: new Date(year + '-03-31T00:00:00.000+00:00')
+                        }
+                    }
+                },
+                {
+                    $group:
+                        {
+                            _id: "1",
+                            revenue: {$sum: "$totalMoneyContract"}
+                        }
+                }
+            ]
+        );
+        if (contract1.length !== 0)
+            listData.push(contract1);
+
+        const contract2 = await Contract.aggregate(
+            [
+                {
+                    $match: {
+                        status: 2,
+                        dateContractEnd: {
+                            $gte: new Date(year + '-04-01T00:00:00.000+00:00'),
+                            $lte: new Date(year + '-06-30T00:00:00.000+00:00')
+                        }
+                    }
+                },
+                {
+                    $group:
+                        {
+                            _id: "2",
+                            revenue: {$sum: "$totalMoneyContract"}
+                        }
+                }
+            ]
+        );
+        if (contract2.length !== 0)
+            listData.push(contract2);
+
+        const contract3 = await Contract.aggregate(
+            [
+                {
+                    $match: {
+                        status: 2,
+                        dateContractEnd: {
+                            $gte: new Date(year + '-07-01T00:00:00.000+00:00'),
+                            $lte: new Date(year + '-09-30T00:00:00.000+00:00')
+                        }
+                    }
+                },
+                {
+                    $group:
+                        {
+                            _id: "3",
+                            revenue: {$sum: "$totalMoneyContract"}
+                        }
+                }
+            ]
+        );
+
+        if (contract3.length !== 0)
+            listData.push(contract3);
+
+        const contract4 = await Contract.aggregate(
+            [
+                {
+                    $match: {
+                        status: 2,
+                        dateContractEnd: {
+                            $gte: new Date(year + '-10-01T00:00:00.000+00:00'),
+                            $lte: new Date(year + '-12-31T00:00:00.000+00:00')
+                        }
+                    }
+                },
+                {
+                    $group:
+                        {
+                            _id: "4",
+                            revenue: {$sum: "$totalMoneyContract"}
+                        }
+                }
+            ]
+        );
+        if (contract4.length !== 0)
+            listData.push(contract4);
+
+        return res.status(200).json(listData);
+    },
+
+    getListTutorAndRevenue: async (req, res) => {
+        const contract = await Contract.aggregate(
+            [
+                {
+                    $match: {
+                        status: 2,
+                    }
+                },
+                {
+                    $group:
+                        {
+                            _id: {
+                                nameTeacher: "$nameTeacher",
+                                imageTeacher: "$imgTeacher"
+                            },
+                            revenue: {$sum: "$totalMoneyContract"}
+                        }
+                },
+                {
+                    $sort:
+                        {
+                            "revenue": -1
+                        }
+                },
+                {
+                    $limit: 5
+                }
+            ]
+        );
+
+        return res.status(200).json(contract);
+    },
+
+    getListTutorAndRevenueByMonth: async (req, res) => {
+        const month = req.params.month;
+        const year = req.params.year;
+        const contract = await Contract.aggregate(
+            [
+                {
+                    $match: {
+                        status: 2,
+                        dateContractEnd: {
+                            $gte: new Date(year + '-' + month + '-01T00:00:00.000+00:00'),
+                            $lte: new Date(year + '-' + month + '-31T00:00:00.000+00:00')
+                        }
+
+                    }
+                },
+                {
+                    $group:
+                        {
+                            _id: {
+                                nameTeacher: "$nameTeacher",
+                                imageTeacher: "$imgTeacher"
+                            },
+                            revenue: {$sum: "$totalMoneyContract"}
+                        }
+                },
+                {
+                    $sort:
+                        {
+                            "revenue": -1
+                        }
+                },
+                {
+                    $limit: 5
+                }
+            ]
+        );
+
+        return res.status(200).json(contract);
+    },
+
+    getListTutorAndRevenuCurrentWeek: async (req, res) => {
+        const today = new Date();
+        const tomorrow = new Date(today);
+        tomorrow.setDate(tomorrow.getDate() + 7);
+        const contract = await Contract.aggregate(
+            [
+                {
+                    $match: {
+                        status: 2,
+                        dateContractEnd: {
+                            $gte: today,
+                            $lte: tomorrow
+                        }
+                    }
+                },
+                {
+                    $group:
+                        {
+                            _id: {
+                                nameTeacher: "$nameTeacher",
+                                imageTeacher: "$imgTeacher"
+                            }
+                            ,
+                            revenue: {
+                                $sum: "$totalMoneyContract"
+                            }
+                        }
+                },
+                {
+                    $sort:
+                        {
+                            "revenue": -1
+                        }
+                },
+                {
+                    $limit: 5
+                }
+            ]
+        );
+
+        return res.status(200).json(contract);
+    },
+
+    getListTutorAndRevenueQuarter: async (req, res) => {
         const quater = req.params.quater;
+        const year = req.params.year;
 
         let contract;
 
@@ -227,9 +395,22 @@ module.exports = {
                     {
                         $group:
                             {
-                                _id: quater,
+                                _id: {
+                                    nameTeacher: "$nameTeacher",
+                                    imageTeacher: "$imgTeacher"
+
+                                },
                                 revenue: {$sum: "$totalMoneyContract"}
                             }
+                    },
+                    {
+                        $sort:
+                            {
+                                "revenue": -1
+                            }
+                    },
+                    {
+                        $limit: 5
                     }
                 ]
             );
@@ -248,9 +429,21 @@ module.exports = {
                     {
                         $group:
                             {
-                                _id: quater,
+                                _id: {
+                                    nameTeacher: "$nameTeacher",
+                                    imageTeacher: "$imgTeacher"
+                                },
                                 revenue: {$sum: "$totalMoneyContract"}
                             }
+                    },
+                    {
+                        $sort:
+                            {
+                                "revenue": -1
+                            }
+                    },
+                    {
+                        $limit: 5
                     }
                 ]
             );
@@ -269,9 +462,21 @@ module.exports = {
                     {
                         $group:
                             {
-                                _id: quater,
+                                _id: {
+                                    nameTeacher: "$nameTeacher",
+                                    imageTeacher: "$imgTeacher"
+                                },
                                 revenue: {$sum: "$totalMoneyContract"}
                             }
+                    },
+                    {
+                        $sort:
+                            {
+                                "revenue": -1
+                            }
+                    },
+                    {
+                        $limit: 5
                     }
                 ]
             );
@@ -290,37 +495,25 @@ module.exports = {
                     {
                         $group:
                             {
-                                _id: quater,
+                                _id: {
+                                    nameTeacher: "$nameTeacher",
+                                    imageTeacher: "$imgTeacher"
+                                },
                                 revenue: {$sum: "$totalMoneyContract"}
                             }
+                    },
+                    {
+                        $sort:
+                            {
+                                "revenue": -1
+                            }
+                    },
+                    {
+                        $limit: 5
                     }
                 ]
             );
         }
-
-        return res.status(200).json(contract);
-    },
-
-    getListTutorAndRevenue: async (req, res) => {
-        const contract = await Contract.aggregate(
-            [
-                {
-                    $match: {
-                        status: 2,
-                    }
-                },
-                {
-                    $group:
-                        {
-                            _id: {
-                                nameTeacher: "$nameTeacher"
-                            },
-                            revenue: {$sum: "$totalMoneyContract"}
-                        }
-                }
-            ]
-        );
-
         return res.status(200).json(contract);
     }
 };
