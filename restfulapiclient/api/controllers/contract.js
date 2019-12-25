@@ -195,8 +195,9 @@ module.exports = {
         return res.status(200).json(listEvauationByIdTeacher);
     },
 
-    thongKeDoanhThuFromDateToData: async (req, res) => {
+    thongKeDoanhThuByMonth: async (req, res) => {
         const idTeacher = req.params.idTeacher;
+        const year = req.params.year;
         const contract = await Contract.aggregate(
             [
                 {
@@ -204,7 +205,11 @@ module.exports = {
                         status: 2,
                         noiDungKhieuNaiHS: undefined,
                         noiDungKhieuNaiGV: undefined,
-                        idTeacher: idTeacher
+                        idTeacher: idTeacher,
+                        dateContractEnd: {
+                            $gte: new Date(year + '-01-01T00:00:00.000+00:00'),
+                            $lte: new Date(year + '-12-31T00:00:00.000+00:00')
+                        }
                     }
                 },
                 {
@@ -228,7 +233,7 @@ module.exports = {
                         idContract: item.idContract,
                         teacherName: item.nameTeacher,
                         month: month,
-                        totalProfitForAContract: item.totalProfitAContract / (item.monthEnd - item.monthStart + 1)
+                        totalProfitForAContract: Math.floor(item.totalProfitAContract / (item.monthEnd - item.monthStart + 1))
                     }));
                 }
             } else if (item.monthStart === item.monthEnd) {
@@ -240,7 +245,184 @@ module.exports = {
                 })
             }
         });
+        let data = [];
+        let primaryMonth = [];
+        let revenue = 0;
+        let n = dataRevenue.length;
 
-        return res.status(200).json(dataRevenue);
+        for (let i = 0; i < n; i += 1) {
+            for (let j = i + 1; j < n; j += 1) {
+                if (dataRevenue[i].month === dataRevenue[j].month) {
+                    primaryMonth.push(dataRevenue[i].month);
+                    revenue = dataRevenue[i].totalProfitForAContract + dataRevenue[j].totalProfitForAContract;
+                    data.push({
+                        month: dataRevenue[i].month,
+                        revenue: revenue
+                    })
+                }
+            }
+        }
+
+        let monthExistedOnce = [];
+        let allMonth = [];
+
+        dataRevenue.map(item => {
+            allMonth.push(item.month);
+        });
+
+        monthExistedOnce = allMonth.filter(function (item) {
+            return !primaryMonth.includes(item);
+        });
+
+        monthExistedOnce.map(month => {
+            dataRevenue.map(item => {
+                if (month === item.month) {
+                    data.push({
+                        month: month,
+                        revenue: item.totalProfitForAContract
+                    })
+                }
+            })
+        });
+
+        return res.status(200).json(data);
     },
+
+    thongKeDoanhThuByYear: async (req, res) => {
+        const idTeacher = req.params.idTeacher;
+
+        const contract = await Contract.aggregate(
+            [
+                {
+                    $match: {
+                        status: 2,
+                        noiDungKhieuNaiHS: undefined,
+                        noiDungKhieuNaiGV: undefined,
+                        idTeacher: idTeacher
+                    }
+                },
+                {
+                    $group:
+                        {
+                            _id: {
+                                year: {$year: "$dateContractEnd"},
+                            },
+                            revenue: {$sum: "$totalMoneyContract"}
+                        }
+                }
+            ]
+        );
+        return res.status(200).json(contract);
+    },
+
+    thongKeDoanhThuByQuater: async (req, res) => {
+
+        const idTeacher = req.params.idTeacher;
+        const year = req.params.year;
+        const quater = req.params.quater;
+
+        let contract;
+
+        if (quater === "1") {
+            contract = await Contract.aggregate(
+                [
+                    {
+                        $match: {
+                            status: 2,
+                            idTeacher: idTeacher,
+                            noiDungKhieuNaiHS: undefined,
+                            noiDungKhieuNaiGV: undefined,
+                            dateContractEnd: {
+                                $gte: new Date(year + '-01-01T00:00:00.000+00:00'),
+                                $lte: new Date(year + '-03-31T00:00:00.000+00:00')
+                            }
+                        }
+                    },
+                    {
+                        $group:
+                            {
+                                _id: quater,
+                                revenue: {$sum: "$totalMoneyContract"}
+                            }
+                    }
+                ]
+            );
+        } else if (quater === "2") {
+            contract = await Contract.aggregate(
+                [
+                    {
+                        $match: {
+                            status: 2,
+                            idTeacher: idTeacher,
+                            noiDungKhieuNaiHS: undefined,
+                            noiDungKhieuNaiGV: undefined,
+                            dateContractEnd: {
+                                $gte: new Date(year + '-04-01T00:00:00.000+00:00'),
+                                $lte: new Date(year + '-06-30T00:00:00.000+00:00')
+                            }
+                        }
+                    },
+                    {
+                        $group:
+                            {
+                                _id: quater,
+                                revenue: {$sum: "$totalMoneyContract"}
+                            }
+                    }
+                ]
+            );
+        } else if (quater === "3") {
+            contract = await Contract.aggregate(
+                [
+                    {
+                        $match: {
+                            status: 2,
+                            idTeacher: idTeacher,
+                            noiDungKhieuNaiHS: undefined,
+                            noiDungKhieuNaiGV: undefined,
+                            dateContractEnd: {
+                                $gte: new Date(year + '-07-01T00:00:00.000+00:00'),
+                                $lte: new Date(year + '-09-30T00:00:00.000+00:00')
+                            }
+                        }
+                    },
+                    {
+                        $group:
+                            {
+                                _id: quater,
+                                revenue: {$sum: "$totalMoneyContract"}
+                            }
+                    }
+                ]
+            );
+        } else if (quater === "4") {
+            contract = await Contract.aggregate(
+                [
+                    {
+                        $match: {
+                            status: 2,
+                            idTeacher: idTeacher,
+                            noiDungKhieuNaiHS: undefined,
+                            noiDungKhieuNaiGV: undefined,
+                            dateContractEnd: {
+                                $gte: new Date(year + '-10-01T00:00:00.000+00:00'),
+                                $lte: new Date(year + '-12-31T00:00:00.000+00:00')
+                            }
+                        }
+                    },
+                    {
+                        $group:
+                            {
+                                _id: quater,
+                                revenue: {$sum: "$totalMoneyContract"}
+                            }
+                    }
+                ]
+            );
+        }
+
+        console.log(contract);
+
+        return res.status(200).json(contract);
+    }
 };
