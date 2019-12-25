@@ -94,12 +94,17 @@ module.exports = {
         return res.status(200).json(listEvauationByIdTeacher);
     },
 
-    thongKeDoanhThuByMonth: async (req, res) => {
+    thongKeDoanhThuAllTutorByMonth: async (req, res) => {
+        const year = req.params.year;
         const contract = await Contract.aggregate(
             [
                 {
                     $match: {
                         status: 2,
+                        dateContractEnd: {
+                            $gte: new Date(year + '-01-01T00:00:00.000+00:00'),
+                            $lte: new Date(year + '-12-31T00:00:00.000+00:00')
+                        }
                     }
                 },
                 {
@@ -138,7 +143,7 @@ module.exports = {
         let revenue = 0;
         let n = dataRevenue.length;
 
-        for (let i = 0; i < n; i += 1) {
+        for (let i = 0; i < n - 1; i += 1) {
             for (let j = i + 1; j < n; j += 1) {
                 if (dataRevenue[i].month === dataRevenue[j].month) {
                     primaryMonth.push(dataRevenue[i].month);
@@ -162,6 +167,9 @@ module.exports = {
             return !primaryMonth.includes(item);
         });
 
+        console.log(allMonth);
+        console.log(monthExistedOnce);
+
         monthExistedOnce.map(month => {
             dataRevenue.map(item => {
                 if (month === item.month) {
@@ -176,17 +184,12 @@ module.exports = {
         return res.status(200).json(data);
     },
 
-    thongKeDoanhThuByYear: async (req, res) => {
-        const idTeacher = req.params.idTeacher;
-
+    thongKeDoanhThuAllTutorByYear: async (req, res) => {
         const contract = await Contract.aggregate(
             [
                 {
                     $match: {
                         status: 2,
-                        noiDungKhieuNaiHS: undefined,
-                        noiDungKhieuNaiGV: undefined,
-                        idTeacher: idTeacher
                     }
                 },
                 {
@@ -203,9 +206,7 @@ module.exports = {
         return res.status(200).json(contract);
     },
 
-    thongKeDoanhThuByQuater: async (req, res) => {
-
-        const idTeacher = req.params.idTeacher;
+    thongKeDoanhThuAllTutorByQuarter: async (req, res) => {
         const year = req.params.year;
         const quater = req.params.quater;
 
@@ -217,9 +218,6 @@ module.exports = {
                     {
                         $match: {
                             status: 2,
-                            idTeacher: idTeacher,
-                            noiDungKhieuNaiHS: undefined,
-                            noiDungKhieuNaiGV: undefined,
                             dateContractEnd: {
                                 $gte: new Date(year + '-01-01T00:00:00.000+00:00'),
                                 $lte: new Date(year + '-03-31T00:00:00.000+00:00')
@@ -241,9 +239,6 @@ module.exports = {
                     {
                         $match: {
                             status: 2,
-                            idTeacher: idTeacher,
-                            noiDungKhieuNaiHS: undefined,
-                            noiDungKhieuNaiGV: undefined,
                             dateContractEnd: {
                                 $gte: new Date(year + '-04-01T00:00:00.000+00:00'),
                                 $lte: new Date(year + '-06-30T00:00:00.000+00:00')
@@ -265,9 +260,6 @@ module.exports = {
                     {
                         $match: {
                             status: 2,
-                            idTeacher: idTeacher,
-                            noiDungKhieuNaiHS: undefined,
-                            noiDungKhieuNaiGV: undefined,
                             dateContractEnd: {
                                 $gte: new Date(year + '-07-01T00:00:00.000+00:00'),
                                 $lte: new Date(year + '-09-30T00:00:00.000+00:00')
@@ -289,9 +281,6 @@ module.exports = {
                     {
                         $match: {
                             status: 2,
-                            idTeacher: idTeacher,
-                            noiDungKhieuNaiHS: undefined,
-                            noiDungKhieuNaiGV: undefined,
                             dateContractEnd: {
                                 $gte: new Date(year + '-10-01T00:00:00.000+00:00'),
                                 $lte: new Date(year + '-12-31T00:00:00.000+00:00')
@@ -309,7 +298,28 @@ module.exports = {
             );
         }
 
-        console.log(contract);
+        return res.status(200).json(contract);
+    },
+
+    getListTutorAndRevenue: async (req, res) => {
+        const contract = await Contract.aggregate(
+            [
+                {
+                    $match: {
+                        status: 2,
+                    }
+                },
+                {
+                    $group:
+                        {
+                            _id: {
+                                nameTeacher: "$nameTeacher"
+                            },
+                            revenue: {$sum: "$totalMoneyContract"}
+                        }
+                }
+            ]
+        );
 
         return res.status(200).json(contract);
     }
