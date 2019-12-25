@@ -71,13 +71,6 @@ const ChatForm = (props) => {
     return (
         <div className="outerContainer">
             <div className="container">
-
-                <InfoBar room={room} />
-                {/* <input value={message}
-                    onChange={(event) => setMessage(event.target.value)}
-                    onKeyPress={event => event.key === 'Enter' ? sendMessage(event) : null
-                    }
-                /> */}
                 <Messages messages={messages} name={name} />
                 <Input message={message}
                     setMessage={setMessage}

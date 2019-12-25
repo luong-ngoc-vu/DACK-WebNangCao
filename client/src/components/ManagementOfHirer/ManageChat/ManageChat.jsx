@@ -15,7 +15,7 @@ class ManageChat extends Component {
 		data: [],
 		list: [],
 		visible: false,
-		recentHirer: ''
+		recentTeacher: ''
 	};
 
 	showModal = () => {
@@ -39,13 +39,13 @@ class ManageChat extends Component {
 	};
 
 	componentDidMount() {
-		const { mailTeacher } = this.props;
-		axios.get(`http://localhost:4000/message/getUnread/${mailTeacher}`).then((res) => {
+		const { mailHirer } = this.props;
+		axios.get(`http://localhost:4000/message/getUnread/${mailHirer}`).then((res) => {
 			this.setState({ list: res.data });
 		});
 	}
 	render() {
-		const { list, visible, recentHirer } = this.state;
+		const { list, visible, recentTeacher } = this.state;
 		return (
 			<div>
 				<List
@@ -56,7 +56,7 @@ class ManageChat extends Component {
 						<List.Item
 							onClick={() => {
 								this.showModal();
-								this.setState({ recentHirer: item.user });
+								this.setState({ recentTeacher: item.user });
 								axios
 									.put(`http://localhost:4000/message/markRead/${item.id}`)
 									.then((result) => result.json())
@@ -94,14 +94,14 @@ class ManageChat extends Component {
 					)}
 				/>
 				<Modal
-					style={{ top: 20 }}
-					title={`Chat với ${recentHirer}`}
+					title={`Chat với ${recentTeacher}`}
 					visible={visible}
 					onOk={this.handleOk}
 					onCancel={this.handleCancel}
 					footer={null}
+					style={{ top: 20 }}
 				>
-					<Chat emailHirer={recentHirer} />
+					<Chat emailTutor={recentTeacher} />
 				</Modal>
 			</div>
 		);
@@ -109,6 +109,6 @@ class ManageChat extends Component {
 }
 
 const mapStateToProps = (state) => ({
-	mailTeacher: state.LoginReducer.email
+	mailHirer: state.LoginReducer.email
 });
 export default connect(mapStateToProps, null)(ManageChat);

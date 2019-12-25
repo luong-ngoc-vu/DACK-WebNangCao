@@ -4,6 +4,7 @@ import 'antd/dist/antd.css';
 import {Avatar, Button, Form, Icon, Input, List, Modal, Rate, Select, Tabs, Tag, Typography} from 'antd';
 import {connect} from "react-redux";
 import moment from "moment";
+import numeral from 'numeral';
 
 const {Option} = Select;
 const {Text} = Typography;
@@ -88,7 +89,7 @@ class OrderContract extends Component {
                     itemLayout="horizontal"
                     dataSource={listData}
                     renderItem={(item) => (
-                        <List.Item
+                        <List.Item style={{borderBottom:'2px solid #62BFFF'}}
                             actions={
                                 item.status === 0 ? (
                                     [
@@ -169,7 +170,7 @@ class OrderContract extends Component {
                                 avatar={
                                     <Avatar
                                         size="large"
-                                        style={{minHeight: 100, minWidth: 100, marginTop: 25}}
+                                        style={{minHeight: 100, minWidth: 100, marginTop: 35, marginLeft:10}}
                                         src={item.imgTeacher}
                                     />
                                 }
@@ -232,21 +233,15 @@ class OrderContract extends Component {
                                                 <Text style={{marginBottom: 5}}>
                                                     <Icon type="dollar"/>
                                                     &ensp;Giá thuê:&ensp;
-                                                    <span style={{fontWeight: 500}}>
-														{item.moneyTeacherPerHour.toLocaleString('vi', {
-                                                            style: 'currency',
-                                                            currency: 'VND'
-                                                        })}/h
+                                                    <span style={{ fontWeight: 500 }}>
+                                                        {numeral(item.moneyTeacherPerHour).format('0,0')} vnđ/h
 													</span>
                                                 </Text>
                                                 <Text style={{marginBottom: 5}}>
                                                     <Icon type="euro"/>
                                                     &ensp;Tổng tiền hợp đồng:&ensp;
-                                                    <span style={{fontWeight: 500}}>
-														{item.totalMoneyContract.toLocaleString('vi', {
-                                                            style: 'currency',
-                                                            currency: 'VND'
-                                                        })}
+                                                    <span style={{ fontWeight: 500 }}>
+                                                        {numeral(item.totalMoneyContract).format('0,0')} vnđ
 													</span>
                                                 </Text>
                                                 <Text style={{marginBottom: 5}}>
@@ -267,7 +262,7 @@ class OrderContract extends Component {
                                                         style={{fontSize: 16}}>{item}</Tag>)}
                                                 </Text>
                                                 {item.noiDungKhieuNaiGV !== "" && item.noiDungKhieuNaiHS === "" && item.status === -2 && (
-                                                    <Text style={{marginBottom: 5, textAlign: 'left'}}>
+                                                    <Text style={{marginBottom: 5, textAlign: 'left', color: 'red'}}>
                                                         <Icon type="info-circle"/>
                                                         &ensp;Nội dung giáo viên đã khiếu nại bạn:&ensp;
                                                         <span style={{fontWeight: 500}}>
@@ -280,7 +275,7 @@ class OrderContract extends Component {
                                         <div className="item-list-info-hire">
                                             <Avatar
                                                 size="large"
-                                                style={{minHeight: 100, minWidth: 100, marginTop: 25}}
+                                                style={{minHeight: 100, minWidth: 100, marginTop: 15, position:'absolute', left: 5}}
                                                 src={item.imgStudent}
                                             />
                                             <Text
