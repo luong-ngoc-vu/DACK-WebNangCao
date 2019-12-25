@@ -32,9 +32,16 @@ module.exports = {
     changeStatus: async (req, res) => {
         const idContract = req.params.idContract;
         const status = req.params.status;
-        await Contract.updateOne({idContract: idContract}, {
-            $set: {status: status, dateContractEnd: Date.now()}
-        }).then(() => res.json({message: "Change success!"}))
-            .catch(err => console.log(err));
+        if (status === 2) {
+            await Contract.updateOne({idContract: idContract}, {
+                $set: {status: status, dateContractEnd: Date.now()}
+            }).then(() => res.json({message: "Change success!"}))
+                .catch(err => console.log(err));
+        } else {
+            await Contract.updateOne({idContract: idContract}, {
+                $set: {status: status, noiDungKhieuNaiHS: "", noiDungKhieuNaiGV: ""}
+            }).then(() => res.json({message: "Change success!"}))
+                .catch(err => console.log(err));
+        }
     },
 };

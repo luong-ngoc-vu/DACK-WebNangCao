@@ -44,23 +44,11 @@ class SideBarHirer extends React.Component {
                 Quản lý thuê gia sư
               </Link>
             </Menu.Item>
-            <Menu.Item key="4" className="item-sider">
-              <Icon type="heart" />
-              Gia sư đã thích
-            </Menu.Item>
             <Menu.Item key="5" className="item-sider">
               <Link to="/hirer-manage/chat">
                 <Icon type="message" />
                 Tin nhắn
               </Link>
-            </Menu.Item>
-            <Menu.Item key="6" className="item-sider">
-              <Icon type="bell" />
-              Thông báo
-            </Menu.Item>
-            <Menu.Item key="7" className="item-sider">
-              <Icon type="dollar" />
-              Quản lý Point
             </Menu.Item>
           </Menu>
         </Sider>

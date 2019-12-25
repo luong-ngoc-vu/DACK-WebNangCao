@@ -74,7 +74,7 @@ module.exports = {
         });
 
         await Contract.updateOne({idContract: idContract}, {
-            $set: {status: status, dateContractEnd: Date.now()}
+            $set: {status: status, dateContractEnd: Date.now(), noiDungKhieuNaiGV: "", noiDungKhieuNaiHS: ""}
         }).then(() => res.json({message: "Change success!"}))
             .catch(err => next(err));
     },
@@ -193,5 +193,54 @@ module.exports = {
         const idTeacher = req.params.idTeacher;
         const listEvauationByIdTeacher = await Evaluation.find({"idTeacher": idTeacher});
         return res.status(200).json(listEvauationByIdTeacher);
+    },
+
+    thongKeDoanhThuFromDateToData: async (req, res) => {
+        const idTeacher = req.params.idTeacher;
+        const contract = await Contract.aggregate(
+            [
+                {
+                    $match: {
+                        status: 2,
+                        noiDungKhieuNaiHS: undefined,
+                        noiDungKhieuNaiGV: undefined,
+                        idTeacher: idTeacher
+                    }
+                },
+                {
+                    $project: {
+                        idContract: "$idContract",
+                        nameTeacher: "$nameTeacher",
+                        monthStart: {"$month": "$dateContract"},
+                        monthEnd: {"$month": "$dateContractEnd"},
+                        totalProfitAContract: "$totalMoneyContract",
+                    }
+                },
+            ]
+        );
+
+        let dataRevenue = [];
+
+        contract.map(item => {
+            if (item.monthEnd > item.monthStart) {
+                for (let month = item.monthStart; month <= item.monthEnd; month++) {
+                    dataRevenue.push(({
+                        idContract: item.idContract,
+                        teacherName: item.nameTeacher,
+                        month: month,
+                        totalProfitForAContract: item.totalProfitAContract / (item.monthEnd - item.monthStart + 1)
+                    }));
+                }
+            } else if (item.monthStart === item.monthEnd) {
+                dataRevenue.push({
+                    idContract: item.idContract,
+                    teacherName: item.nameTeacher,
+                    month: item.monthStart,
+                    totalProfitForAContract: item.totalProfitAContract,
+                })
+            }
+        });
+
+        return res.status(200).json(dataRevenue);
     },
 };

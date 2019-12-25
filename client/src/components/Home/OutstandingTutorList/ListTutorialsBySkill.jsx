@@ -15,13 +15,13 @@ class OutstandingTutorList extends React.Component {
 
     componentDidMount() {
         const st = this.props;
-        fetch(`http://localhost:4000/user/getTeacherBySkillName/${st.subSkillName}`)
-            .then(response => response.json())
-            .then(data => this.setState({dataTutorialBySkill: data}));
     }
 
     render() {
         const st = this.props;
+        fetch(`http://localhost:4000/user/getTeacherBySkillName/${st.subSkillName}`)
+            .then(response => response.json())
+            .then(data => this.setState({dataTutorialBySkill: data}));
         const {dataTutorialBySkill} = this.state;
         return (
             <div className="out-tutor">

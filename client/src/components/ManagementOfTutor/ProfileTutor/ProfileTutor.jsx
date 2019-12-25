@@ -58,7 +58,6 @@ class ProfileForm extends React.Component {
         this.levelStudy = '';
         this.curPosition = '';
         this.teacherTimeDay = [];
-        this.skills = [];
 
         this.gender = '';
 
@@ -74,7 +73,6 @@ class ProfileForm extends React.Component {
         levelStudy: this.levelStudy,
         curPosition: this.curPosition,
         dataSkills: [],
-        skills: (this.skills = []),
         gender: this.gender,
 
         checkedList: [],
@@ -127,7 +125,6 @@ class ProfileForm extends React.Component {
 
         this.levelStudy = st.levelStudy;
         this.curPosition = st.curPosition;
-        this.skills = st.skills;
         this.gender = st.gender;
         this.teacherTimeDay = st.teacherTimeDay;
         let tProps;
@@ -165,12 +162,6 @@ class ProfileForm extends React.Component {
         if (st.typeUser === 1) {
             return <Redirect to="/hire-manage"/>;
         }
-
-        const {getFieldDecorator} = this.props.form;
-        const {skills} = this.state;
-
-        // const OPTIONS = dataSkills.map(row => row.name);
-        // const filteredOptions = OPTIONS.filter(o => !skills.includes(o));
 
         return (
             <div>

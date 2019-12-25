@@ -50,14 +50,6 @@ class SideBarTutor extends React.Component {
                 Tin nhắn
               </Link>
             </Menu.Item>
-            <Menu.Item key="5" className="item-sider">
-              <Icon type="bell" />
-              Thông báo
-            </Menu.Item>
-            <Menu.Item key="6" className="item-sider">
-              <Icon type="dollar" />
-              Quản lý Point
-            </Menu.Item>
             <Menu.Item key="6" className="item-sider">
               <Link to="/tutor-manage/revenue">
                 {' '}

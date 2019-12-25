@@ -15,5 +15,6 @@ router.put('/complaintFromStudent/:idContract/:idStudent/:noiDungKhieuNaiHS', co
 router.put('/complaintFromTeacher/:idContract/:idTeacher/:noiDungKhieuNaiGV', controller.complaintFromTeacher);
 router.post('/addNewEvaluation', controller.addNewEvaluation);
 router.get('/getListEvaluationByIdTeacher/:idTeacher', controller.getListEvaluationByIdTeacher);
+router.get('/thongKeDoanhThuFromDateToData/:idTeacher', controller.thongKeDoanhThuFromDateToData);
 
 module.exports = router;

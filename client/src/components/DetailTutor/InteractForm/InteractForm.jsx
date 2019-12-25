@@ -81,12 +81,6 @@ class ContactForm extends React.Component {
                     </Button>
                 )}
 
-                {st.isLogin === true &&
-                st.typeUser === 1 && (
-                    <Button size="large" type="primary" className="contact-button">
-                        <Icon type="heart"/> Lưu
-                    </Button>
-                )}
                 {st.isLogin === false && (
                     <Button size="large" type="primary" className="contact-button">
                         <Link to="/login">
