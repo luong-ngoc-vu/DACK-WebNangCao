@@ -156,7 +156,7 @@ class NavBar extends React.Component {
 						{skills.map((item) => (
 							<Dropdown overlay={subMenuSkill} trigger={[ 'click' ]} placement="bottomLeft">
 								<Link
-									style={{ marginRight: '60px' }}
+									style={{ marginRight: '30px' }}
 									onClick={(event) => {
 										this.setState({ skillNameSelected: item.name });
 										fetch(`http://localhost:4000/user/getChildrenBySkillName/${item.name}`)

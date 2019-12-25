@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import '../Home/OutstandingTutorList/OutstandingTutorList.css';
 import 'antd/dist/antd.css';
 
@@ -35,11 +35,7 @@ class ListTutor extends React.Component {
 			.then((data) => this.setState({ dataSkills: data }));
 	}
 
-	componentWillUpdate() {}
 	render() {
-		let { name } = useParams();
-
-		console.log(name);
 		const st = this.props;
 		let data_tutorial = [];
 		const { data, dataTutorialCity, dataSkills, dataTutorialSubject } = this.state;
