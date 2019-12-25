@@ -15,6 +15,9 @@ router.put('/complaintFromStudent/:idContract/:idStudent/:noiDungKhieuNaiHS', co
 router.put('/complaintFromTeacher/:idContract/:idTeacher/:noiDungKhieuNaiGV', controller.complaintFromTeacher);
 router.post('/addNewEvaluation', controller.addNewEvaluation);
 router.get('/getListEvaluationByIdTeacher/:idTeacher', controller.getListEvaluationByIdTeacher);
-router.get('/thongKeDoanhThuFromDateToData/:idTeacher', controller.thongKeDoanhThuFromDateToData);
+
+router.get('/thongKeDoanhThuByMonth/:idTeacher/:year', controller.thongKeDoanhThuByMonth);
+router.get('/thongKeDoanhThuByYear/:idTeacher', controller.thongKeDoanhThuByYear);
+router.get('/thongKeDoanhThuByQuater/:idTeacher/:year/:quater', controller.thongKeDoanhThuByQuater);
 
 module.exports = router;

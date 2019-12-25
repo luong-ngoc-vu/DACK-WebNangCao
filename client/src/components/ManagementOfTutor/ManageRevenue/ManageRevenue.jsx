@@ -50,6 +50,7 @@ class ManageRevenue extends Component {
         filteredInfo: null,
         sortedInfo: null,
         allContracts: [],
+        dataRevenueMonth: [],
         contractsByStatus: []
     };
 
@@ -66,10 +67,19 @@ class ManageRevenue extends Component {
             .catch((error) => {
                 return error;
             });
+
+        fetch(`http://localhost:4000/contract/thongKeDoanhThuByMonth/${idTeacher}`)
+            .then((response) => response.json())
+            .then((data) =>
+                this.setState({dataRevenueMonth: data})
+            )
+            .catch((error) => {
+                return error;
+            });
     }
 
     render() {
-        const {allContracts} = this.state;
+        const {allContracts, dataRevenueMonth} = this.state;
         const {isLogin} = this.props;
         const dataContracts = allContracts.map((item) => ({
             idContract: item.idContract,
@@ -86,12 +96,19 @@ class ManageRevenue extends Component {
             return <Redirect to="/admin-login"/>;
         }
 
-        for (let i = 0; i < 12; i += 1) {
+        dataRevenueMonth.map(item => {
+            revenueData.push({
+                x: `Tháng ${item.month}`,
+                y: item.revenue
+            });
+        });
+
+        /*for (let i = 0; i < 12; i += 1) {
             revenueData.push({
                 x: `Tháng ${i + 1}`,
                 y: Math.floor(Math.random() * 1000) + 200
             });
-        }
+        }*/
         return (
             <div style={{padding: '10px 20px'}}>
                 <Bar height={200} title="Thống kê doanh thu của gia sư" data={revenueData}/>
