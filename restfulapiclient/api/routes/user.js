@@ -13,7 +13,7 @@ router.get('/getTutorialCity/:provinceName', controller.getTeacherCity);
 router.get('/getTutorialUser', controller.getTeacher);
 router.get('/detailTutor/:id', controller.getDetailTeacher);
 router.get('/getSkills', controller.getSkills);
-router.post('/getTeachesrBySkill', controller.getTeachersBySkill);
+router.get('/getTeachesrBySkill/:name', controller.getTeachersBySkill);
 router.post('/lockAccount', controller.lockAccount);
 router.get('/getUserByEmail/:email', controller.getUserByEmail);
 router.get('/getUserById/:id', controller.getUserById);

@@ -41,7 +41,7 @@ class NavBar extends React.Component {
 								this.setState({ subSkillSelected: item });
 								st.viewByList(item);
 							}}
-							to="/listTutorialsBySkill"
+							to={`/view-more-tutor/${item}`}
 						>
 							{item}
 						</Link>
@@ -69,6 +69,12 @@ class NavBar extends React.Component {
 									<Link to="/home">
 										<Icon type="home" />
 										Trang chủ
+									</Link>
+								</Menu.Item>
+								<Menu.Item key="tutors">
+									<Link to="/view-more-tutor">
+										<Icon type="contacts" />
+										Tìm gia sư
 									</Link>
 								</Menu.Item>
 
@@ -150,7 +156,7 @@ class NavBar extends React.Component {
 						{skills.map((item) => (
 							<Dropdown overlay={subMenuSkill} trigger={[ 'click' ]} placement="bottomLeft">
 								<Link
-									style={{ marginRight: '20px' }}
+									style={{ marginRight: '60px' }}
 									onClick={(event) => {
 										this.setState({ skillNameSelected: item.name });
 										fetch(`http://localhost:4000/user/getChildrenBySkillName/${item.name}`)
