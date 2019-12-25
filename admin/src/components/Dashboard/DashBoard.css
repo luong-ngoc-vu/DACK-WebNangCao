@@ -1,0 +1,38 @@
+.card-show-data {
+	padding-left: 12px;
+	padding-right: 12px;
+	margin-bottom: 24px;
+}
+.ranking {
+	display: flex;
+	flex-direction: column;
+	justify-items: center;
+	justify-content: center;
+	width: 20px;
+	height: auto;
+	margin-top: 1.5px;
+	margin-right: 16px;
+	font-weight: 600;
+	font-size: 15px;
+}
+.text-ranking {
+	text-align: center;
+}
+.top-1 {
+	text-align: center;
+
+	color: #fff;
+	background-color: #237ac2;
+}
+.top-2 {
+	text-align: center;
+
+	color: #fff;
+	background-color: #dbd06b;
+}
+.top-3 {
+	text-align: center;
+
+	color: #fff;
+	background-color: #a0334a;
+}
