@@ -18,6 +18,6 @@ router.get('/getListEvaluationByIdTeacher/:idTeacher', controller.getListEvaluat
 
 router.get('/thongKeDoanhThuByMonth/:idTeacher/:year', controller.thongKeDoanhThuByMonth);
 router.get('/thongKeDoanhThuByYear/:idTeacher', controller.thongKeDoanhThuByYear);
-router.get('/thongKeDoanhThuByQuater/:idTeacher/:year/:quater', controller.thongKeDoanhThuByQuater);
+router.get('/thongKeDoanhThuByQuater/:idTeacher/:year', controller.thongKeDoanhThuByQuater);
 
 module.exports = router;
