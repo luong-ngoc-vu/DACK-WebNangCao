@@ -9,6 +9,8 @@ router.post('/login', controllerLogin.authLogin);
 router.post('/update', controller.updateUser);
 router.post('/changePass', controller.changePassword);
 router.get('/getTutorialCity/:provinceName', controller.getTeacherCity);
+router.get('/getTeacherByName/:name', controller.getTeacherByName);
+router.get('/getTeacherByMoneyPerHour/:option', controller.getTeacherByMoneyPerHour);
 
 router.get('/getTutorialUser', controller.getTeacher);
 router.get('/detailTutor/:id', controller.getDetailTeacher);

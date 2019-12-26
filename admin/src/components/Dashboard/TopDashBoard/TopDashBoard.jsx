@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import '../DashBoard.css';
 import 'antd/dist/antd.css';
-import {ChartCard, Field, MiniArea, MiniBar, MiniProgress, yuan} from 'ant-design-pro/lib/Charts';
+import {ChartCard, Field, MiniArea, MiniBar, MiniProgress} from 'ant-design-pro/lib/Charts';
 
 import {Redirect} from 'react-router-dom';
 import {Col, Icon, Row, Tooltip} from 'antd';
@@ -57,6 +57,8 @@ class TopDashBoard extends Component {
         sortedInfo: null,
         allContracts: [],
         topThreeTutorialHighestRevenue: [],
+        revenueAllTutorCurrentYear: [],
+        allNumberForDashboard: [],
         contractsByStatus: []
     };
 
@@ -84,10 +86,44 @@ class TopDashBoard extends Component {
             .catch((error) => {
                 return error;
             });
+        fetch(`http://localhost:4000/contract/thongKeDoanhThuAllTutorByYear`)
+            .then((response) => response.json())
+            .then((data) =>
+                this.setState({
+                    revenueAllTutorCurrentYear: data
+                })
+            )
+            .catch((error) => {
+                return error;
+            });
+        fetch(`http://localhost:4000/contract/getAllNumberForDashboard`)
+            .then((response) => response.json())
+            .then((data) =>
+                this.setState({
+                    allNumberForDashboard: data
+                })
+            )
+            .catch((error) => {
+                return error;
+            });
     }
 
     render() {
-        const {allContracts} = this.state;
+        const {allContracts, revenueAllTutorCurrentYear, allNumberForDashboard} = this.state;
+        let totalRevenueTutorByYear = 0;
+        let listData = [];
+
+        revenueAllTutorCurrentYear.map(item => {
+            totalRevenueTutorByYear = item.revenue;
+        });
+
+        allNumberForDashboard.map(item => {
+            item.map(sub => {
+                listData.push(sub.count);
+            })
+        });
+
+
         const {isLogin} = this.props;
         const dataContracts = allContracts.map((item) => ({
             idContract: item.idContract,
@@ -98,6 +134,7 @@ class TopDashBoard extends Component {
             totalMoneyContract: item.totalMoneyContract.toLocaleString('vi', {style: 'currency', currency: 'VND'}),
             cost: item.totalMoneyContract
         }));
+
 
         const revenueData = [];
         if (isLogin === false) {
@@ -115,24 +152,25 @@ class TopDashBoard extends Component {
                 <Row>
                     <Col span={6} className="card-show-data">
                         <ChartCard
-                            title="Doanh thu trong ngày"
+                            title="Doanh thu trong 2019"
                             action={
-                                <Tooltip title="指标说明">
+                                <Tooltip title="Doanh thu trong năm 2019">
                                     <Icon type="info-circle-o"/>
                                 </Tooltip>
                             }
-                            total={() => <span dangerouslySetInnerHTML={{__html: yuan(126560)}}/>}
-                            footer={<Field label="日均销售额" value={numeral(12423).format('0,0')}/>}
+                            total={() => <span
+                                dangerouslySetInnerHTML={{__html: (numeral(totalRevenueTutorByYear).format('0,0'))}}/>}
+                            footer={<Field label="Revenue (12)" value={numeral(listData[0]).format('0,0')}/>}
                             contentHeight={60}
                         >
 							<span>
-								周同比
+								Tăng trưởng
 								<Trend flag="up" style={{marginLeft: 8, color: 'rgba(0,0,0,.85)'}}>
 									12%
 								</Trend>
 							</span>
                             <span style={{marginLeft: 16}}>
-								日环比
+								Giảm
 								<Trend flag="down" style={{marginLeft: 8, color: 'rgba(0,0,0,.85)'}}>
 									11%
 								</Trend>
@@ -144,21 +182,21 @@ class TopDashBoard extends Component {
                             title="Số lượng người truy cập"
                             total={numeral(8860).format('0,0')}
                             contentHeight={60}
-                            footer={<Field label="Số hợp đồng hôm nay" value={numeral(1234).format('0,0')}/>}
+                            footer={<Field label="Truy cập hôm nay" value={numeral(1234).format('0,0')}/>}
                         >
                             <MiniArea line height={45} data={visitData}/>
                         </ChartCard>
                     </Col>
                     <Col span={6} className="card-show-data">
                         <ChartCard
-                            title="Số hợp đồng trong tuần"
+                            title="Hợp đồng năm 2019"
                             action={
-                                <Tooltip title="指标说明">
+                                <Tooltip title="Tổng số hợp đồng đã hoàn thành trong năm 2019">
                                     <Icon type="info-circle-o"/>
                                 </Tooltip>
                             }
-                            total={numeral(8860).format('0,0')}
-                            footer={<Field label="Số hợp đồng hôm nay" value={numeral(1234).format('0,0')}/>}
+                            total={numeral(listData[1]).format('0,0')}
+                            footer={<Field label="Hợp đồng tháng 12" value={numeral(listData[2]).format('0,0')}/>}
                             contentHeight={60}
                         >
                             <MiniBar height={60} data={visitData}/>
@@ -166,9 +204,9 @@ class TopDashBoard extends Component {
                     </Col>
                     <Col span={6} className="card-show-data">
                         <ChartCard
-                            title="线上购物转化率"
+                            title=""
                             action={
-                                <Tooltip title="指标说明">
+                                <Tooltip title="">
                                     <Icon type="info-circle-o"/>
                                 </Tooltip>
                             }
@@ -176,13 +214,12 @@ class TopDashBoard extends Component {
                             footer={
                                 <div>
 									<span>
-										周同比
+										abcd
 										<Trend flag="up" style={{marginLeft: 8, color: 'rgba(0,0,0,.85)'}}>
 											12%
 										</Trend>
 									</span>
                                     <span style={{marginLeft: 16}}>
-										日环比
 										<Trend flag="down" style={{marginLeft: 8, color: 'rgba(0,0,0,.85)'}}>
 											11%
 										</Trend>
