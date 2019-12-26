@@ -17,9 +17,11 @@ router.get('/thongKeDoanhThuAllTutorByYear', controller.thongKeDoanhThuAllTutorB
 router.get('/thongKeDoanhThuAllTutorByQuarter/:year', controller.thongKeDoanhThuAllTutorByQuarter);
 
 router.get('/getListTutorAndRevenue', controller.getListTutorAndRevenue);
+
 router.get('/getListTutorAndRevenueByMonth/:year/:month', controller.getListTutorAndRevenueByMonth);
 router.get('/getListTutorAndRevenueQuarter/:year/:quater', controller.getListTutorAndRevenueQuarter);
 router.get('/getListTutorAndRevenuCurrentWeek', controller.getListTutorAndRevenuCurrentWeek);
+
 router.get('/getAllNumberForDashboard', controller.getAllNumberForDashboard);
 
 module.exports = router;

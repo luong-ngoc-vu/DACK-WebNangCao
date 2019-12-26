@@ -50,6 +50,12 @@ class SideBarHirer extends React.Component {
                 Tin nhắn
               </Link>
             </Menu.Item>
+            <Menu.Item key="6" className="item-sider">
+              <Link to="/hirer-manage/money-management">
+                <Icon type="dollar" />
+                Quản lý tiền
+              </Link>
+            </Menu.Item>
           </Menu>
         </Sider>
       </div>

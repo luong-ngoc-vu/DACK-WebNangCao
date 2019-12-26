@@ -3,7 +3,7 @@ import axios from "axios";
 export const VIEW_DETAIL_TUTOR = 'VIEW_DETAIL_TUTOR';
 
 function OnClickViewDetailTutor(id) {
-    return axios.get(`http://localhost:4000/user/detailTutor/${id}`)
+    return axios.get(`https://apiclientwebsitethuegiasu.herokuapp.com/user/detailTutor/${id}`)
         .catch(error => {
             return error;
         });

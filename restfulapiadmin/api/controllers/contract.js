@@ -346,6 +346,9 @@ module.exports = {
         const quater = req.params.quater;
         const year = req.params.year;
 
+        console.log(typeof quater);
+        console.log(typeof year);
+
         let contract;
 
         if (quater === "1") {

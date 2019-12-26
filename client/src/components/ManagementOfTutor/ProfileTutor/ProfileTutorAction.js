@@ -5,7 +5,7 @@ export const UPDATE = 'UPDATE';
 /* ==================== UPDATE USER INFORMATION ==================== */
 function onClickUpdate(name, phone, email, image, gender, moreInfo, address, provinceName, districtName, wardName,
                        levelStudy, curPosition, certificates, school, money, teacherTimeDay, skills) {
-    return axios.post('http://localhost:4000/user/update', {
+    return axios.post('https://apiclientwebsitethuegiasu.herokuapp.com/user/update', {
         name,
         phone,
         email,

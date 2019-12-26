@@ -12,6 +12,8 @@ router.get('/getTutorialCity/:provinceName', controller.getTeacherCity);
 router.get('/getTeacherByName/:name', controller.getTeacherByName);
 router.get('/getTeacherByMoneyPerHour/:option', controller.getTeacherByMoneyPerHour);
 
+router.put('/updateCurMoney/:id/:curMoney', controller.updateMoney);
+
 router.get('/getTutorialUser', controller.getTeacher);
 router.get('/detailTutor/:id', controller.getDetailTeacher);
 router.get('/getSkills', controller.getSkills);

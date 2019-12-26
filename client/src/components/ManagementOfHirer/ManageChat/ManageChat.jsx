@@ -40,7 +40,7 @@ class ManageChat extends Component {
 
 	componentDidMount() {
 		const { mailHirer } = this.props;
-		axios.get(`http://localhost:4000/message/getUnread/${mailHirer}`).then((res) => {
+		axios.get(`https://apiclientwebsitethuegiasu.herokuapp.com/message/getUnread/${mailHirer}`).then((res) => {
 			this.setState({ list: res.data });
 		});
 	}
@@ -58,7 +58,7 @@ class ManageChat extends Component {
 								this.showModal();
 								this.setState({ recentTeacher: item.user });
 								axios
-									.put(`http://localhost:4000/message/markRead/${item.id}`)
+									.put(`https://apiclientwebsitethuegiasu.herokuapp.com/message/markRead/${item.id}`)
 									.then((result) => result.json())
 									.catch((error) => console.log(error));
 							}}

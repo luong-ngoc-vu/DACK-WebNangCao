@@ -206,22 +206,17 @@ class TopDashBoard extends Component {
                         <ChartCard
                             title=""
                             action={
-                                <Tooltip title="">
+                                <Tooltip title="Chỉ tiêu doanh thu trong năm 2020">
                                     <Icon type="info-circle-o"/>
                                 </Tooltip>
                             }
-                            total="78%"
+                            total="20%"
                             footer={
                                 <div>
 									<span>
-										abcd
+										Tăng trưởng
 										<Trend flag="up" style={{marginLeft: 8, color: 'rgba(0,0,0,.85)'}}>
-											12%
-										</Trend>
-									</span>
-                                    <span style={{marginLeft: 16}}>
-										<Trend flag="down" style={{marginLeft: 8, color: 'rgba(0,0,0,.85)'}}>
-											11%
+											20%
 										</Trend>
 									</span>
                                 </div>

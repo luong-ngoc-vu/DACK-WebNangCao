@@ -10,6 +10,7 @@ import ChangePasswordContainer from '../ChangePassword/ChangePasswordContainer';
 import ManageContract from './ManageContract/ManageContract';
 import Chat from '../Chat/Chat';
 import ManageChat from './ManageChat/ManageChat';
+import MoneyManagement from "../MoneyManagement/MoneyManagement";
 
 const { Content } = Layout;
 
@@ -31,6 +32,7 @@ class ManagementHirer extends React.Component {
 					>
 						<Route path="/hirer-manage/profile" component={ProfileHirerContainer} />
 						<Route path="/hirer-manage/change-password" component={ChangePasswordContainer} />
+						<Route path="/hirer-manage/money-management" component={MoneyManagement} />
 						<Route path="/hirer-manage/manage-contract" component={ManageContract} />
 						<Route path="/hirer-manage/chat" component={ManageChat} />
 					</Content>

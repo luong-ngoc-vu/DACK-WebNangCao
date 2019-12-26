@@ -1,5 +1,5 @@
-import { connect } from 'react-redux';
-import { viewDetailTutorRequest } from "../Home/OutstandingTutorList/OutstandingTutorListAction";
+import {connect} from 'react-redux';
+import {viewDetailTutorRequest} from "../Home/OutstandingTutorList/OutstandingTutorListAction";
 import ListTutor from "./ListTutor";
 
 
@@ -8,6 +8,8 @@ const mapStateToProps = (st) => {
         email: st.LoginReducer.email,
         token: st.LoginReducer.token,
         isLogin: st.LoginReducer.isLogin,
+
+        subSkillName: st.NavBarReducer.subSkillName
     };
 };
 

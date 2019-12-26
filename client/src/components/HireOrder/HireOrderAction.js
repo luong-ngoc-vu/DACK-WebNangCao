@@ -5,7 +5,7 @@ export const ADD_NEW_CONTRACT = 'ADD_NEW_CONTRACT';
 function OnclickAddNewContract(idStudent, idTeacher, nameStudent, nameTeacher, genderStudent, moneyTeacherPerHour, totalMoneyContract, skills,
                                schedule, numberOfLesson, address, provinceName, districtName, wardName, hourPerLesson, note, dateContract,
                                genderTeacher, imgTeacher, imgStudent, phoneTeacher, addressTeacher, addressStudent, teacherTopic, phoneStudent) {
-    return axios.post('http://localhost:4000/contract/addNewContract', {
+    return axios.post('https://apiclientwebsitethuegiasu.herokuapp.com/contract/addNewContract', {
         idStudent,
         idTeacher,
         nameStudent,

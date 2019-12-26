@@ -25,7 +25,7 @@ const ChatForm = (props) => {
     useEffect(() => {
 
         const { name, room } = { name: dataRoom, room: target };
-        axios.get(`http://localhost:4000/message/getAll/${name}/${target}/50`).then(res => {
+        axios.get(`https://apiclientwebsitethuegiasu.herokuapp.com/message/getAll/${name}/${target}/50`).then(res => {
             setMessages([...messages, ...res.data]);
         });
         setName(name);
@@ -41,7 +41,7 @@ const ChatForm = (props) => {
 
     useEffect(() => {
         const { name, room } = { name: dataRoom, room: target };
-        axios.get(`http://localhost:4000/message/getAll/${name}/${target}/50`).then(res => {
+        axios.get(`https://apiclientwebsitethuegiasu.herokuapp.com/message/getAll/${name}/${target}/50`).then(res => {
             setMessages([...res.data]);
         });
         setName(name);

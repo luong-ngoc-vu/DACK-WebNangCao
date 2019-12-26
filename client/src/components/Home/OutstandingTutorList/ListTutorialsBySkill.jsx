@@ -19,7 +19,7 @@ class OutstandingTutorList extends React.Component {
 
     render() {
         const st = this.props;
-        fetch(`http://localhost:4000/user/getTeacherBySkillName/${st.subSkillName}`)
+        fetch(`https://apiclientwebsitethuegiasu.herokuapp.com/user/getTeacherBySkillName/${st.subSkillName}`)
             .then(response => response.json())
             .then(data => this.setState({dataTutorialBySkill: data}));
         const {dataTutorialBySkill} = this.state;

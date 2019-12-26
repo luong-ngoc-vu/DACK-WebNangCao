@@ -78,7 +78,7 @@ class ManageRevenue extends Component {
 	componentDidMount() {
 		const { idTeacher } = this.props;
 
-		fetch(`http://localhost:4000/contract/getListContractByIdTeacher/${idTeacher}`)
+		fetch(`https://apiclientwebsitethuegiasu.herokuapp.com/contract/getListContractByIdTeacher/${idTeacher}`)
 			.then((response) => response.json())
 			.then((data) =>
 				this.setState({
@@ -89,19 +89,19 @@ class ManageRevenue extends Component {
 				return error;
 			});
 
-		fetch(`http://localhost:4000/contract/thongKeDoanhThuByMonth/${idTeacher}/${2019}`)
+		fetch(`https://apiclientwebsitethuegiasu.herokuapp.com/contract/thongKeDoanhThuByMonth/${idTeacher}/${2019}`)
 			.then((response) => response.json())
 			.then((data) => this.setState({ dataRevenueMonth: data }))
 			.catch((error) => {
 				return error;
 			});
-		fetch(`http://localhost:4000/contract/thongKeDoanhThuByQuater/${idTeacher}/${2019}`)
+		fetch(`https://apiclientwebsitethuegiasu.herokuapp.com/contract/thongKeDoanhThuByQuater/${idTeacher}/${2019}`)
 			.then((response) => response.json())
 			.then((data) => this.setState({ dataRevenueQuater: data }))
 			.catch((error) => {
 				return error;
 			});
-		fetch(`http://localhost:4000/contract/thongKeDoanhThuByYear/${idTeacher}`)
+		fetch(`https://apiclientwebsitethuegiasu.herokuapp.com/contract/thongKeDoanhThuByYear/${idTeacher}`)
 			.then((response) => response.json())
 			.then((data) => this.setState({ dataRevenueYear: data }))
 			.catch((error) => {

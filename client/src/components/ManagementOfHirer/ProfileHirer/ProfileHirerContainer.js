@@ -27,9 +27,9 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        updateUser: (name, phone, email, image, gender, address, provinceName, districtName, wardName, moreInfo, curMoney) => {
+        updateUser: (name, phone, email, image, gender, address, provinceName, districtName, wardName, moreInfo) => {
             dispatch(actions.updateRequest(name, phone, email, image, gender, address,
-                provinceName, districtName, wardName, moreInfo, curMoney))
+                provinceName, districtName, wardName, moreInfo))
         },
     };
 };

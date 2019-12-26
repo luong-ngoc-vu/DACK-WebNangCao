@@ -54,7 +54,7 @@ class OrderContract extends Component {
 
     componentDidMount() {
         const {idStudent, listData} = this.props;
-        fetch(`http://localhost:4000/user/getUserById/${idStudent}`)
+        fetch(`https://apiclientwebsitethuegiasu.herokuapp.com/user/getUserById/${idStudent}`)
             .then((response) => response.json())
             .then((data) => {
                 this.setState({dataStudent: data});
@@ -89,88 +89,91 @@ class OrderContract extends Component {
                     itemLayout="horizontal"
                     dataSource={listData}
                     renderItem={(item) => (
-                        <List.Item style={{borderBottom:'2px solid #62BFFF'}}
-                            actions={
-                                item.status === 0 ? (
-                                    [
-                                        <Button
-                                            size="large"
-                                            icon="stop"
-                                            type="danger"
-                                            onClick={event => {
-                                                const newStatus = -1;
-                                                fetch(`http://localhost:4000/contract/changeStatus/${item.idContract}/${newStatus}`,
-                                                    {method: 'PUT'})
-                                                    .then((response) => response.json())
-                                                    .then((data) => {
-                                                        console.log(data);
-                                                    })
-                                                    .catch((error) => {
-                                                        return error;
-                                                    });
-                                            }}
-                                        />
-                                    ]
-                                ) : item.status === 1 ? (
-                                    [
-                                        <Button
-                                            size="large"
-                                            icon="check-circle"
-                                            type="primary"
-                                            onClick={event => {
-                                                this.showModalHired();
-                                                this.setState({
-                                                    idContract: item.idContract,
-                                                    idStudent: item.idStudent,
-                                                    idTeacher: item.idTeacher,
-                                                    nameStudent: item.nameStudent,
-                                                    nameTeacher: item.nameTeacher,
-                                                    imageTeacher: item.imgTeacher,
-                                                    imageStudent: item.imgStudent,
-                                                });
-                                                const newStatus = 2;
-                                                fetch(`http://localhost:4000/contract/changeStatusAndUpdateMoney/${item.idContract}/${newStatus}/${item.idStudent}/${item.idTeacher}`,
-                                                    {method: 'PUT'})
-                                                    .then((response) => response.json())
-                                                    .then((data) => {
-                                                            console.log(data);
-                                                        }
-                                                    )
-                                                    .catch((error) => {
-                                                        return error;
-                                                    });
-                                            }}/>,
-                                        <Button
-                                            size="large"
-                                            icon="warning"
-                                            type="danger"
-                                            onClick={event => {
-                                                this.showModalReport();
-                                                this.setState({idContract: item.idContract, idStudent: item.idStudent});
-                                                const newStatus = -2;
-                                                fetch(`http://localhost:4000/contract/changeStatus/${item.idContract}/${newStatus}`,
-                                                    {method: 'PUT'})
-                                                    .then((response) => response.json())
-                                                    .then((data) => {
-                                                            console.log(data);
-                                                        }
-                                                    )
-                                                    .catch((error) => {
-                                                        return error;
-                                                    });
-                                            }}/>
-                                    ]
-                                ) : (
-                                    [null]
-                                )
+                        <List.Item style={{borderBottom: '2px solid #62BFFF'}}
+                                   actions={
+                                       item.status === 0 ? (
+                                           [
+                                               <Button
+                                                   size="large"
+                                                   icon="stop"
+                                                   type="danger"
+                                                   onClick={event => {
+                                                       const newStatus = -1;
+                                                       fetch(`https://apiclientwebsitethuegiasu.herokuapp.com/contract/changeStatus/${item.idContract}/${newStatus}`,
+                                                           {method: 'PUT'})
+                                                           .then((response) => response.json())
+                                                           .then((data) => {
+                                                               console.log(data);
+                                                           })
+                                                           .catch((error) => {
+                                                               return error;
+                                                           });
+                                                   }}
+                                               />
+                                           ]
+                                       ) : item.status === 1 ? (
+                                           [
+                                               <Button
+                                                   size="large"
+                                                   icon="check-circle"
+                                                   type="primary"
+                                                   onClick={event => {
+                                                       this.showModalHired();
+                                                       this.setState({
+                                                           idContract: item.idContract,
+                                                           idStudent: item.idStudent,
+                                                           idTeacher: item.idTeacher,
+                                                           nameStudent: item.nameStudent,
+                                                           nameTeacher: item.nameTeacher,
+                                                           imageTeacher: item.imgTeacher,
+                                                           imageStudent: item.imgStudent,
+                                                       });
+                                                       const newStatus = 2;
+                                                       fetch(`https://apiclientwebsitethuegiasu.herokuapp.com/contract/changeStatusAndUpdateMoney/${item.idContract}/${newStatus}/${item.idStudent}/${item.idTeacher}`,
+                                                           {method: 'PUT'})
+                                                           .then((response) => response.json())
+                                                           .then((data) => {
+                                                                   console.log(data);
+                                                               }
+                                                           )
+                                                           .catch((error) => {
+                                                               return error;
+                                                           });
+                                                   }}/>,
+                                               <Button
+                                                   size="large"
+                                                   icon="warning"
+                                                   type="danger"
+                                                   onClick={event => {
+                                                       this.showModalReport();
+                                                       this.setState({
+                                                           idContract: item.idContract,
+                                                           idStudent: item.idStudent
+                                                       });
+                                                       const newStatus = -2;
+                                                       fetch(`https://apiclientwebsitethuegiasu.herokuapp.com/contract/changeStatus/${item.idContract}/${newStatus}`,
+                                                           {method: 'PUT'})
+                                                           .then((response) => response.json())
+                                                           .then((data) => {
+                                                                   console.log(data);
+                                                               }
+                                                           )
+                                                           .catch((error) => {
+                                                               return error;
+                                                           });
+                                                   }}/>
+                                           ]
+                                       ) : (
+                                           [null]
+                                       )
 
-                            }
+                                   }
                         >
                             <List.Item.Meta
                                 avatar={
                                     <Avatar
                                         size="large"
-                                        style={{minHeight: 100, minWidth: 100, marginTop: 35, marginLeft:10}}
+                                        style={{minHeight: 100, minWidth: 100, marginTop: 35, marginLeft: 10}}
                                         src={item.imgTeacher}
                                     />
                                 }
@@ -233,14 +236,14 @@ class OrderContract extends Component {
                                                 <Text style={{marginBottom: 5}}>
                                                     <Icon type="dollar"/>
                                                     &ensp;Giá thuê:&ensp;
-                                                    <span style={{ fontWeight: 500 }}>
+                                                    <span style={{fontWeight: 500}}>
                                                         {numeral(item.moneyTeacherPerHour).format('0,0')} vnđ/h
 													</span>
                                                 </Text>
                                                 <Text style={{marginBottom: 5}}>
                                                     <Icon type="euro"/>
                                                     &ensp;Tổng tiền hợp đồng:&ensp;
-                                                    <span style={{ fontWeight: 500 }}>
+                                                    <span style={{fontWeight: 500}}>
                                                         {numeral(item.totalMoneyContract).format('0,0')} vnđ
 													</span>
                                                 </Text>
@@ -275,7 +278,13 @@ class OrderContract extends Component {
                                         <div className="item-list-info-hire">
                                             <Avatar
                                                 size="large"
-                                                style={{minHeight: 100, minWidth: 100, marginTop: 15, position:'absolute', left: 5}}
+                                                style={{
+                                                    minHeight: 100,
+                                                    minWidth: 100,
+                                                    marginTop: 15,
+                                                    position: 'absolute',
+                                                    left: 5
+                                                }}
                                                 src={item.imgStudent}
                                             />
                                             <Text
@@ -331,7 +340,7 @@ class OrderContract extends Component {
 												</span>
                                             </Text>
                                             {item.noiDungKhieuNaiHS !== "" && item.noiDungKhieuNaiGV === "" && item.status === -2 && (
-                                                <Text style={{marginBottom: 5, textAlign: 'left'}}>
+                                                <Text style={{marginBottom: 5, textAlign: 'left', color: 'red'}}>
                                                     <Icon type="info-circle"/>
                                                     &ensp;Nội dung bạn đã khiếu
                                                     nại <strong>{item.nameTeacher}</strong>:&ensp;
@@ -352,7 +361,7 @@ class OrderContract extends Component {
                     visible={this.state.visibleReport}
                     onCancel={this.handleCancelReport}
                     onOk={event => {
-                        fetch(`http://localhost:4000/contract/complaintFromStudent/${this.state.idContract}/${this.state.idStudent}/${this.state.name}`,
+                        fetch(`https://apiclientwebsitethuegiasu.herokuapp.com/contract/complaintFromStudent/${this.state.idContract}/${this.state.idStudent}/${this.state.name}`,
                             {method: 'PUT'})
                             .then((response) => response.json())
                             .then((data) => {
@@ -397,7 +406,7 @@ class OrderContract extends Component {
                     visible={this.state.visibleHired}
                     onCancel={this.handleCancelHired}
                     onOk={event => {
-                        fetch('http://localhost:4000/contract/addNewEvaluation', {
+                        fetch('https://apiclientwebsitethuegiasu.herokuapp.com/contract/addNewEvaluation', {
                             method: 'POST',
                             headers: {
                                 'Accept': 'application/json',

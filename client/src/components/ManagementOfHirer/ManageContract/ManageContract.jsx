@@ -22,7 +22,7 @@ class ManageContract extends React.Component {
 
 	componentDidMount() {
 		const { idStudent } = this.props;
-		fetch(`http://localhost:4000/contract/getListContractByIdStudent/${idStudent}`)
+		fetch(`https://apiclientwebsitethuegiasu.herokuapp.com/contract/getListContractByIdStudent/${idStudent}`)
 			.then((response) => response.json())
 			.then((data) => {
 				this.setState({

@@ -103,7 +103,7 @@ class ProfileForm extends React.Component {
     };
 
     componentDidMount() {
-        fetch('http://localhost:4000/user/getSkills')
+        fetch('https://apiclientwebsitethuegiasu.herokuapp.com/user/getSkills')
             .then(response => response.json())
             .then(data => this.setState({dataSkills: data}));
     }

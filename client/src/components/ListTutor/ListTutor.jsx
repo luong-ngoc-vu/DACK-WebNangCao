@@ -17,6 +17,7 @@ class ListTutor extends React.Component {
             dataTutorialCity: [],
             dataTutorialSubject: [],
             dataSkills: [],
+            dataTutorialBySkill: [],
             dataTeacherSearch: [],
             provinceName: '',
             listTeacherByMoney: [],
@@ -34,10 +35,10 @@ class ListTutor extends React.Component {
     };
 
     componentWillMount() {
-        fetch('http://localhost:4000/user/getTutorialUser')
+        fetch('https://apiclientwebsitethuegiasu.herokuapp.com/user/getTutorialUser')
             .then((response) => response.json())
             .then((data) => this.setState({data: data}));
-        fetch('http://localhost:4000/user/getSkills')
+        fetch('https://apiclientwebsitethuegiasu.herokuapp.com/user/getSkills')
             .then((response) => response.json())
             .then((data) => this.setState({dataSkills: data}));
     }
@@ -45,8 +46,10 @@ class ListTutor extends React.Component {
     render() {
         const st = this.props;
         let data_tutorial = [];
-        const {data, dataTutorialCity, dataSkills, dataTutorialSubject, dataTeacherSearch, listTeacherByMoney} = this.state;
-        console.log(dataTutorialSubject);
+        fetch(`https://apiclientwebsitethuegiasu.herokuapp.com/user/getTeacherBySkillName/${st.subSkillName}`)
+            .then(response => response.json())
+            .then(data => this.setState({dataTutorialBySkill: data}));
+        const {data, dataTutorialCity, dataSkills, dataTutorialSubject, dataTeacherSearch, listTeacherByMoney, dataTutorialBySkill} = this.state;
 
         const treeData = dataSkills.map((item) => ({
             title: item.name,
@@ -63,6 +66,7 @@ class ListTutor extends React.Component {
         else if (this.state.checkChooseSubject === true) data_tutorial = dataTutorialSubject;
         else if (this.state.checkSearchName === true) data_tutorial = dataTeacherSearch;
         else if (this.state.checkListTutorMoney === true) data_tutorial = listTeacherByMoney;
+        else if (this.state.dataTutorialBySkill.length !== 0) data_tutorial = dataTutorialBySkill;
         return (
             <div className="out-tutor">
                 <div className="filter-tutor">
@@ -88,7 +92,7 @@ class ListTutor extends React.Component {
                                     onChange={(value) => {
                                         value.key === 'all'
                                             ? this.setState({checkChooseCity: false})
-                                            : fetch(`http://localhost:4000/user/getTutorialCity/${value.label}`)
+                                            : fetch(`https://apiclientwebsitethuegiasu.herokuapp.com/user/getTutorialCity/${value.label}`)
                                                 .then((response) => response.json())
                                                 .then((teachers) => {
                                                     this.setState({
@@ -129,7 +133,7 @@ class ListTutor extends React.Component {
                                     onChange={(value) => {
                                         this.onChangeSubject(value);
                                         console.log(value);
-                                        fetch(`http://localhost:4000/user/getTeachesrBySkill/${value.value}`)
+                                        fetch(`https://apiclientwebsitethuegiasu.herokuapp.com/user/getTeachesrBySkill/${value.value}`)
                                             .then((response) => response.json())
                                             .then((teachers) => {
                                                 this.setState({
@@ -156,7 +160,7 @@ class ListTutor extends React.Component {
                                         option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}
                                     onChange={(value) => {
                                         this.onChangeSubject(value);
-                                        fetch(`http://localhost:4000/user/getTeacherByMoneyPerHour/${value}`)
+                                        fetch(`https://apiclientwebsitethuegiasu.herokuapp.com/user/getTeacherByMoneyPerHour/${value}`)
                                             .then((response) => response.json())
                                             .then((teachers) => {
                                                 this.setState({
@@ -179,7 +183,7 @@ class ListTutor extends React.Component {
                                     key="name"
                                     placeholder="Tìm kiếm gia sư"
                                     onSearch={value => {
-                                        fetch(`http://localhost:4000/user/getTeacherByName/${value}`)
+                                        fetch(`https://apiclientwebsitethuegiasu.herokuapp.com/user/getTeacherByName/${value}`)
                                             .then(response => response.json())
                                             .then(data => this.setState({
                                                 dataTeacherSearch: data,
@@ -195,7 +199,7 @@ class ListTutor extends React.Component {
                 <div className="out-tutor__list">
                     <List
                         grid={{gutter: 16, column: 4}}
-                        pagination={{pageSize: 8}}
+                        pagination={{pageSize: 12}}
                         dataSource={data_tutorial}
                         renderItem={(teacher) => (
                             <List.Item>

@@ -211,23 +211,6 @@ class ProfileForm extends React.Component {
 							)}
 							{st.isLoginFB === false &&
 							st.isLoginGG === false && (
-								<Form.Item label={<span>Số tiền hiện có&nbsp;</span>}>
-									<InputNumber
-										style={{ width: '100%' }}
-										defaultValue={st.curMoney}
-										min={50000}
-										onChange={(event) => {
-											this.curMoney = event.valueOf();
-										}}
-										step={10000}
-										size="large"
-										formatter={(value) => `${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
-										parser={(value) => value.replace(/\$\s?|(,*)/g, '')}
-									/>
-								</Form.Item>
-							)}
-							{st.isLoginFB === false &&
-							st.isLoginGG === false && (
 								<Form.Item label="Thông tin mô tả bản thân">
 									<TextArea
 										rows={3}
@@ -312,7 +295,6 @@ class ProfileForm extends React.Component {
 												this.state.districtName,
 												this.state.wardName,
 												this.moreInfo,
-												this.curMoney
 											);
 											this.err = 'Cập nhật thành công';
 										}}

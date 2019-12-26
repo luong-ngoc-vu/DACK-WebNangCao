@@ -51,6 +51,15 @@ class ContactForm extends React.Component {
 				)}
 
 				{st.isLogin === true &&
+				st.typeUser === 2
+				&& (
+					<Button size="large" type="default" className="contact-button">
+						<Icon type="solution" />
+						Không thể thuê gia sư
+					</Button>
+				)}
+
+				{st.isLogin === true &&
 				st.typeUser === 1 &&
 				hiringPending === -2 && (
 					<Button size="large" type="default" className="contact-button" onClick={this.showContract}>

@@ -24,7 +24,7 @@ app.set('view engine', 'hbs');
 app.use(cors());
 app.disable('etag');
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({extended: false}));
 
 app.use(function (req, res, next) {
     res.locals.user = req.user || null;
@@ -33,13 +33,15 @@ app.use(function (req, res, next) {
 app.use('/user', userRoute);
 app.use('/contract', contractRoute);
 app.use('/message', messageRoute);
-app.get('/me', passport.authenticate('jwt', { session: false }), (req, res) => {
+app.get('/me', passport.authenticate('jwt', {session: false}), (req, res) => {
     res.status(200).json(
         req.user
     );
 });
-// app.use('/introduce', passport.authenticate('jwt', {session: false}), introduce);
-// app.use('/userskill', passport.authenticate('jwt', {session: false}), userRoute);
+app.use(express.static(path.join(__dirname, 'build')));
+app.get('/*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
 
 
 app.use(function (req, res, next) {

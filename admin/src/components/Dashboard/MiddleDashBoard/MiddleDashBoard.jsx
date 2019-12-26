@@ -15,38 +15,28 @@ const {TabPane} = Tabs;
 
 const topTutor = [
     {
-        x: 'Lương Ngọc Vũ',
-        y: 3000000,
+        x: 'Tiếng anh giao tiếp',
+        y: 40800000,
         z: 'teacher10@gmail.com'
     },
     {
-        x: 'Lương Ngọc A',
-        y: 4000000,
+        x: 'Tiếng anh thi TOEIC',
+        y: 37500000,
         z: 'teacher9@gmail.com'
     },
     {
-        x: 'Lương Ngọc B',
-        y: 3000000,
+        x: 'Hóa lớp 11',
+        y: 30000000,
         z: 'teacher7@gmail.com'
     },
     {
-        x: 'Lương Ngọc C',
-        y: 3000000,
+        x: 'Lý thi THPT',
+        y: 22600000,
         z: 'teacher6@gmail.com'
     },
     {
-        x: 'Lương Ngọc D',
-        y: 10000000,
-        z: 'teacher1@gmail.com'
-    },
-    {
-        x: 'Lương Ngọc E',
-        y: 8000000,
-        z: 'teacher1@gmail.com'
-    },
-    {
-        x: 'Lương Ngọc F',
-        y: 9000000,
+        x: 'Lý thi cấp 3',
+        y: 16000000,
         z: 'teacher1@gmail.com'
     }
 ];
@@ -120,7 +110,7 @@ class MiddleDashBoard extends Component {
                             <Col span={8}>
                                 <div style={{width: '100%'}}>
                                     <h4>
-                                        <span>Top gia sư</span>
+                                        <span>Top gia sư có doanh thu cao nhất</span>
                                     </h4>
                                     <ol
                                         style={{
@@ -173,38 +163,41 @@ class MiddleDashBoard extends Component {
                             <Col span={8}>
                                 <div style={{width: '100%'}}>
                                     <h4>
-                                        <span>Top gia sư</span>
+                                        <span>Top kỹ năng doanh thu cao nhất</span>
                                     </h4>
                                     <ol
                                         style={{
                                             listStyleType: 'none',
-                                            margin: 0,
+                                            margin: 20,
                                             padding: 0
                                         }}
                                     >
-                                        <li style={{display: 'flex', flexDirection: 'row', position: 'relative'}}>
-                                            <div className="ranking">
-                                                <Text className="text-ranking">1</Text>
-                                            </div>
-                                            <Avatar
-                                                style={{marginRight: 5}}
-                                                size="large"
-                                                src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-                                            />
-                                            <div
+                                        {topTutor.map((item, index) => (
+                                            <li
                                                 style={{
                                                     display: 'flex',
-                                                    flexDirection: 'column',
-                                                    alignItems: 'flex-start'
+                                                    flexDirection: 'row',
+                                                    position: 'relative',
+                                                    marginBottom: 10
                                                 }}
                                             >
-                                                <span style={{color: 'blue'}}>Lương Ngọc Vũ</span>
-                                                <span>teacher1@gmail.com</span>
-                                            </div>
-                                            <span style={{float: 'right', position: 'absolute', right: 0}}>
-												15,323,234 vnđ
-											</span>
-                                        </li>
+                                                <div className="ranking ${}">
+                                                    <Text className={`text-ranking top-${index + 1}`}>{index + 1}</Text>
+                                                </div>
+                                                <div
+                                                    style={{
+                                                        display: 'flex',
+                                                        flexDirection: 'column',
+                                                        alignItems: 'flex-start'
+                                                    }}
+                                                >
+                                                    <span style={{color: 'blue'}}>{item.x}</span>
+                                                </div>
+                                                <span style={{float: 'right', position: 'absolute', right: 0}}>
+													{item.y.toLocaleString('vi', {style: 'currency', currency: 'VND'})}
+												</span>
+                                            </li>
+                                        ))}
                                     </ol>
                                 </div>
                             </Col>

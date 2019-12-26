@@ -17,7 +17,7 @@ class OutstandingTutorList extends React.Component {
     }
 
     componentDidMount() {
-        fetch('http://localhost:4000/user/getTutorialUser')
+        fetch('https://apiclientwebsitethuegiasu.herokuapp.com/user/getTutorialUser')
             .then((response) => response.json())
             .then((data) => this.setState({data: data.slice(0, 8)}));
     }

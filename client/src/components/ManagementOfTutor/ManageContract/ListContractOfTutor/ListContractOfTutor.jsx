@@ -64,7 +64,7 @@ class OrderContract extends Component {
                                             type="primary"
                                             onClick={event => {
                                                 const newStatus = 1;
-                                                fetch(`http://localhost:4000/contract/changeStatus/${item.idContract}/${newStatus}`,
+                                                fetch(`https://apiclientwebsitethuegiasu.herokuapp.com/contract/changeStatus/${item.idContract}/${newStatus}`,
                                                     {method: 'PUT'})
                                                     .then((response) => response.json())
                                                     .then((data) =>
@@ -84,7 +84,7 @@ class OrderContract extends Component {
                                             key="2"
                                             onClick={event => {
                                                 const newStatus = -1;
-                                                fetch(`http://localhost:4000/contract/changeStatus/${item.idContract}/${newStatus}`,
+                                                fetch(`https://apiclientwebsitethuegiasu.herokuapp.com/contract/changeStatus/${item.idContract}/${newStatus}`,
                                                     {method: 'PUT'})
                                                     .then((response) => response.json())
                                                     .then((data) =>
@@ -108,7 +108,7 @@ class OrderContract extends Component {
                                                 this.showModalReport();
                                                 this.setState({idContract: item.idContract, idTeacher: item.idTeacher});
                                                 const newStatus = -2;
-                                                fetch(`http://localhost:4000/contract/changeStatus/${item.idContract}/${newStatus}`,
+                                                fetch(`https://apiclientwebsitethuegiasu.herokuapp.com/contract/changeStatus/${item.idContract}/${newStatus}`,
                                                     {method: 'PUT'})
                                                     .then((response) => response.json())
                                                     .then((data) => {
@@ -337,7 +337,7 @@ class OrderContract extends Component {
                     visible={this.state.visibleReport}
                     onCancel={this.handleCancelReport}
                     onOk={event => {
-                        fetch(`http://localhost:4000/contract/complaintFromTeacher/${this.state.idContract}/${this.state.idTeacher}/${this.state.name}`,
+                        fetch(`https://apiclientwebsitethuegiasu.herokuapp.com/contract/complaintFromTeacher/${this.state.idContract}/${this.state.idTeacher}/${this.state.name}`,
                             {method: 'PUT'})
                             .then((response) => response.json())
                             .then((data) => {
