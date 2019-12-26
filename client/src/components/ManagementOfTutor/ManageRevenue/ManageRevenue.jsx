@@ -57,8 +57,7 @@ class ManageRevenue extends Component {
 		contractsByStatus: [],
 		filterBy: 'bymonth',
 
-		year: 2019,
-		month: ''
+		year: 2019
 	};
 
 	filterChange = (value) => {
