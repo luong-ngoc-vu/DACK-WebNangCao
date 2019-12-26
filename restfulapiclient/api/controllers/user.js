@@ -12,7 +12,7 @@ module.exports = {
             phone: req.body.phone,
             typeUser: req.body.typeUser,
         });
-        User.findOne({"email": req.body.email}, (err, user) => {
+        User.findOne({ "email": req.body.email }, (err, user) => {
             if (user) {
                 return res.status(400).json({
                     message: 'Tài khoản đã tồn tại !',
@@ -37,7 +37,7 @@ module.exports = {
     },
 
     updateUser: async (req, res) => {
-        await User.findOne({"email": req.body.email}, async (err, user) => {
+        await User.findOne({ "email": req.body.email }, async (err, user) => {
             Object.assign(user, req.body);
             await user.save();
             res.status(200).json(user);
@@ -45,7 +45,7 @@ module.exports = {
     },
 
     changePassword: async (req, res) => {
-        await User.findOne({"email": req.body.email}, (err, user) => {
+        await User.findOne({ "email": req.body.email }, (err, user) => {
             if (!bcrypt.compareSync(req.body.password, user.password)) {
                 return res.status(400).json({
                     message: 'Mật khẩu không chính xác !',
@@ -76,19 +76,19 @@ module.exports = {
     },
 
     getTeacher: async (req, res) => {
-        const tutorrials = await User.find({"typeUser": 2});
+        const tutorrials = await User.find({ "typeUser": 2 });
         return res.status(200).json(tutorrials);
     },
 
     getTeacherCity: async (req, res) => {
         const city = req.params.provinceName;
-        const tutorrialsCity = await User.find({"provinceName": city, "typeUser": 2});
+        const tutorrialsCity = await User.find({ "provinceName": city, "typeUser": 2 });
         return res.status(200).json(tutorrialsCity);
     },
 
     getDetailTeacher: async (req, res) => {
         const id = req.params.id;
-        await User.find({"_id": ObjectId(id)}, function (err, teacher) {
+        await User.find({ "_id": ObjectId(id) }, function (err, teacher) {
             return res.status(200).json(teacher);
         });
     },
@@ -99,13 +99,13 @@ module.exports = {
     },
 
     getTeachersBySkill: async (req, res) => {
-        const nameSkill = req.body.name;
-        const tutorrials = await User.find({"skills": {$in: [nameSkill]}, "typeUser": 2});
+        const nameSkill = req.params.name;
+        const tutorrials = await User.find({ "skills": { $in: [nameSkill] }, "typeUser": 2 });
         return res.status(200).json(tutorrials);
     },
 
     lockAccount: async (req, res) => {
-        await User.findOne({"email": req.body.email}, async (err, user) => {
+        await User.findOne({ "email": req.body.email }, async (err, user) => {
             user.isLocked = !user.isLocked;
             await user.save();
             res.status(200).json(user);
@@ -113,27 +113,27 @@ module.exports = {
     },
 
     getUserByEmail: async (req, res) => {
-        await User.findOne({"email": req.params.email}, async (err, user) => {
+        await User.findOne({ "email": req.params.email }, async (err, user) => {
             res.status(200).json(user);
         })
     },
 
     getUserById: async (req, res) => {
-        await User.findOne({"_id": req.params.id}, async (err, user) => {
+        await User.findOne({ "_id": req.params.id }, async (err, user) => {
             res.status(200).json(user);
         })
     },
 
     getChildrentByNameSkill: async (req, res) => {
         const name = req.params.name;
-        const skill = await Skill.findOne({"name": name});
+        const skill = await Skill.findOne({ "name": name });
         return res.status(200).json(skill.children);
     },
 
     getTeacherBySkillNameAndSubSkill: async (req, res) => {
         const subSkillName = req.params.subSkillName;
 
-        const listUserBySkill = await User.find({"skills": {$in: [subSkillName]}, "typeUser": 2});
+        const listUserBySkill = await User.find({ "skills": { $in: [subSkillName] }, "typeUser": 2 });
         return res.status(200).json(listUserBySkill)
     }
 };

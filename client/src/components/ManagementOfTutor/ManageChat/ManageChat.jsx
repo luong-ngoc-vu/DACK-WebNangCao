@@ -85,7 +85,6 @@ class ManageChat extends Component {
 										<Link>
 											<Text strong> {item.user}</Text>
 										</Link>
-										<Link>{item.user}</Link>
 									</div>
 								}
 							/>

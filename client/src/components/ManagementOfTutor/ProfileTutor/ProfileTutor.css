@@ -1,36 +1,36 @@
 .typo-data {
-  padding: 10px 0;
-  border-bottom: 1px solid #e0e0e0;
+	padding: 15px 0px;
+	border-bottom: 1px solid #e0e0e0;
 }
 
 .avatar-user {
-  height: 252px;
-  display: flex;
-  flex-direction: column;
+	height: 252px;
+	display: flex;
+	flex-direction: column;
 
-  align-items: center;
+	align-items: center;
 }
 
 .avatar-uploader {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 
 .avatar-uploader > .ant-upload {
-  width: 150px;
-  height: 150px;
+	width: 150px;
+	height: 150px;
 }
 
 .ant-form-item-control {
-  text-align: left;
+	text-align: left;
 }
 
 .ant-select-selection--multiple .ant-select-selection__rendered {
-  padding-top: 5px;
+	padding-top: 5px;
 }
 
 .ant-checkbox-group-item {
-  width: 12.5%;
+	width: 12.5%;
 }

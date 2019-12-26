@@ -2,7 +2,7 @@ import React from 'react';
 import 'antd/dist/antd.css';
 import './ProfileTutor.css';
 
-import {Avatar, Button, Checkbox, Form, Input, InputNumber, Row, Select, TreeSelect, Typography} from 'antd';
+import {Avatar, Button, Checkbox, Form, Input, InputNumber, Row, Select, TreeSelect, Typography, Col} from 'antd';
 import Redirect from 'react-router-dom/Redirect';
 import {getDistrictsByProvinceCode, getProvinces, getWardsByDistrictCode} from 'sub-vn';
 
@@ -183,7 +183,8 @@ class ProfileForm extends React.Component {
                                     name="email"
                                 />
                             </Form.Item>
-                            <Form.Item label="Tên đầy đủ">
+                            <Row gutter={15}>
+                                <Col span={12}><Form.Item label="Tên đầy đủ">
                                 <Input
                                     size="large"
                                     defaultValue={st.name}
@@ -192,8 +193,9 @@ class ProfileForm extends React.Component {
                                         this.name = event.target.value;
                                     }}
                                 />
-                            </Form.Item>
-                            {st.isLoginFB === false && st.isLoginGG === false && (
+                                </Form.Item></Col>
+                                <Col span={6}>
+                                {st.isLoginFB === false && st.isLoginGG === false && (
                                 <Form.Item label="Số điện thoại">
                                     <Input
                                         size="large"
@@ -205,7 +207,8 @@ class ProfileForm extends React.Component {
                                     />
                                 </Form.Item>
                             )}
-                            {st.isLoginFB === false && st.isLoginGG === false && (
+                                </Col>
+                                <Col span={6}> {st.isLoginFB === false && st.isLoginGG === false && (
                                 <Form.Item label="Giới tính">
                                     <Select
                                         defaultValue={st.gender}
@@ -218,8 +221,12 @@ class ProfileForm extends React.Component {
                                         <Select.Option value={'Nữ'}>Nữ</Select.Option>
                                     </Select>
                                 </Form.Item>
-                            )}
-                            {st.isLoginFB === false && st.isLoginGG === false && (
+                            )}</Col>
+                            </Row>
+                            
+                            
+                            <Row gutter={15}>
+                                <Col span={12}>{st.isLoginFB === false && st.isLoginGG === false && (
                                 <Form.Item label="Chọn tỉnh/ Thành phố">
                                     <Select
                                         labelInValue
@@ -244,8 +251,8 @@ class ProfileForm extends React.Component {
                                         ))}
                                     </Select>
                                 </Form.Item>
-                            )}
-                            {st.isLoginFB === false && st.isLoginGG === false && (
+                            )}</Col>
+                                <Col span={6}>{st.isLoginFB === false && st.isLoginGG === false && (
                                 <Form.Item label="Chọn huyện/ thị xã">
                                     <Select
                                         showSearch
@@ -274,8 +281,8 @@ class ProfileForm extends React.Component {
                                         )}
                                     </Select>
                                 </Form.Item>
-                            )}
-                            {st.isLoginFB === false && st.isLoginGG === false && (
+                            )}</Col>
+                                <Col span={6}>{st.isLoginFB === false && st.isLoginGG === false && (
                                 <Form.Item label="Chọn phường">
                                     <Select
                                         defaultValue={{key: st.wardName}}
@@ -304,7 +311,11 @@ class ProfileForm extends React.Component {
                                         )}
                                     </Select>
                                 </Form.Item>
-                            )}
+                            )}</Col>
+                           </Row>
+                            
+                            
+                            
                             {st.isLoginFB === false && st.isLoginGG === false && (
                                 <Form.Item label="Địa chỉ cụ thể">
                                     <Input
@@ -380,7 +391,22 @@ class ProfileForm extends React.Component {
                         layout="vertical"
                         onSubmit={this.handleSubmit}
                     >
-                        <Form.Item label="Chọn trình độ học vấn">
+                        <Row gutter={15}>
+                            <Col span={12}>
+                            <Form.Item label="Nhập tên trường đã theo học">
+                            <Input
+                                size="large"
+                                placeholder="Trường bạn đã theo học"
+                                defaultValue={st.school}
+                                name="school"
+                                onChange={event => {
+                                    this.school = event.target.value;
+                                }}
+                            />
+                        </Form.Item>
+                            </Col>
+                            <Col span={6}>
+                            <Form.Item label="Chọn trình độ học vấn">
                             <Select
                                 style={{width: '100%'}}
                                 placeholder="Chọn trình độ học vấn"
@@ -406,18 +432,8 @@ class ProfileForm extends React.Component {
                                 <Select.Option value={'Trung học'}>Trung học</Select.Option>
                             </Select>
                         </Form.Item>
-                        <Form.Item label="Nhập tên trường đã theo học">
-                            <Input
-                                size="large"
-                                placeholder="Trường bạn đã theo học"
-                                defaultValue={st.school}
-                                name="school"
-                                onChange={event => {
-                                    this.school = event.target.value;
-                                }}
-                            />
-                        </Form.Item>
-                        <Form.Item label="Hiện tại là">
+                            </Col>
+                            <Col span={6}><Form.Item label="Hiện tại là">
                             <Select
                                 style={{width: '100%'}}
                                 placeholder="Chọn chức danh, cấp bậc của bạn"
@@ -447,7 +463,11 @@ class ProfileForm extends React.Component {
                                     Chức danh khác
                                 </Select.Option>
                             </Select>
-                        </Form.Item>
+                        </Form.Item></Col>
+                        </Row>
+                        
+                        
+                        
                         <Form.Item label="Thành tích, bằng cấp và kinh nghiệm giảng dạy">
                             <TextArea
                                 rows={3}
