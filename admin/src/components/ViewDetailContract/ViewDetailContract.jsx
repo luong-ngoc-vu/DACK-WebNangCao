@@ -7,6 +7,7 @@ import {Link, Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
 import moment from 'moment';
 import Messages from './ViewChat/Messages';
+import numeral from 'numeral';
 
 const {Option} = Select;
 const {Text} = Typography;
@@ -172,13 +173,14 @@ class ViewDetailContract extends Component {
                                                 <Icon type="dollar"/>
                                                 &ensp;Giá thuê:&ensp;
                                                 <span style={{fontWeight: 500}}>
-													{item.moneyTeacherPerHour} VNĐ/giờ
+													{numeral(item.moneyTeacherPerHour).format('0, 0')} VNĐ/giờ
 												</span>
                                             </Text>
                                             <Text style={{marginBottom: 5}}>
                                                 <Icon type="euro"/>
                                                 &ensp;Tổng tiền thuê:&ensp;
-                                                <span style={{fontWeight: 500}}>{item.totalMoneyContract} VNĐ</span>
+                                                <span
+                                                    style={{fontWeight: 500}}>{numeral(item.totalMoneyContract).format('0,0')} VNĐ</span>
                                             </Text>
                                             <Text style={{marginBottom: 5}}>
                                                 <Icon type="phone"/>
@@ -232,6 +234,13 @@ class ViewDetailContract extends Component {
                                                     <Icon type="close-circle"/>
                                                     &ensp;Nội dung khiếu nại từ giáo viên:&ensp;
                                                     <span style={{fontWeight: 500}}>{item.noiDungKhieuNaiGV}</span>
+                                                </Text>
+                                            )}
+                                            {item.note === "Hợp đồng kết thúc vì khiếu nại" && (
+                                                <Text type="danger" style={{marginBottom: 5, textAlign: 'left'}}>
+                                                    <Icon type="close-circle"/>
+                                                    &ensp;Ghi chú:&ensp;
+                                                    <span style={{fontWeight: 500}}>{item.note}</span>
                                                 </Text>
                                             )}
                                         </div>

@@ -50,10 +50,32 @@ class StatisticAndRevenue extends Component {
         filteredInfo: null,
         sortedInfo: null,
         allContracts: [],
-        contractsByStatus: []
+        dataAllTutorRevenueMonth: [],
+        contractsByStatus: [],
+        filterBy: ''
+    };
+
+    filterChange = (value) => {
+        this.setState({filterBy: value});
+    };
+    groupBy = (objectArray, property) => {
+        return objectArray.reduce(function (acc, obj) {
+            let key = obj[property];
+            if (!acc[key]) {
+                acc[key] = [];
+            }
+            acc[key].push(obj);
+            return acc;
+        }, {});
     };
 
     componentDidMount() {
+        fetch(`http://localhost:4000/contract/thongKeDoanhThuAllTutorByMonth/${2019}`)
+            .then((response) => response.json())
+            .then((data) => this.setState({dataAllTutorRevenueMonth: data}))
+            .catch((error) => {
+                return error;
+            });
         fetch(`http://localhost:4000/contract/contractByStatus/${2}`)
             .then((response) => response.json())
             .then((data) => {
@@ -65,7 +87,7 @@ class StatisticAndRevenue extends Component {
     }
 
     render() {
-        const {contractsByStatus} = this.state;
+        const {contractsByStatus, dataAllTutorRevenueMonth} = this.state;
         const {isLogin} = this.props;
         const dataContracts = contractsByStatus.map((item) => ({
             idContract: item.idContract,
@@ -77,20 +99,21 @@ class StatisticAndRevenue extends Component {
             cost: item.totalMoneyContract
         }));
 
-        const revenueData = [];
         if (isLogin === false) {
             return <Redirect to="/admin-login"/>;
         }
 
-        for (let i = 0; i < 12; i += 1) {
-            revenueData.push({
-                x: `Tháng ${i + 1}`,
-                y: Math.floor(Math.random() * 1000) + 200
-            });
+        let uni = this.groupBy(dataAllTutorRevenueMonth, 'month');
+        let result = [];
+
+        for (let i in uni) {
+            const rev = uni[i].map((item) => item.revenue).reduce((acc, cur) => acc + cur);
+            result.push({x: `Tháng ${i}`, y: rev});
         }
+
         return (
             <div style={{padding: '10px 20px'}}>
-                <Bar height={200} title="Thống kê doanh thu của gia sư" data={revenueData}/>
+                <Bar height={200} title="Thống kê doanh thu của gia sư" data={result}/>
                 <div style={{width: 'auto', marginTop: 30}}>
                     <Text strong style={{fontSize: 18}}>
                         Danh sách hợp đồng đã hoàn thành

@@ -76,7 +76,7 @@ module.exports = {
     },
 
     getTeacher: async (req, res) => {
-        const tutorrials = await User.find({"typeUser": 2});
+        const tutorrials = await User.find({"typeUser": 2}).sort({averagePoint: -1});
         return res.status(200).json(tutorrials);
     },
 
@@ -99,7 +99,7 @@ module.exports = {
     },
 
     getTeachersBySkill: async (req, res) => {
-        const nameSkill = req.body.name;
+        const nameSkill = req.params.name;
         const tutorrials = await User.find({"skills": {$in: [nameSkill]}, "typeUser": 2});
         return res.status(200).json(tutorrials);
     },
@@ -114,6 +114,30 @@ module.exports = {
 
     getUserByEmail: async (req, res) => {
         await User.findOne({"email": req.params.email}, async (err, user) => {
+            res.status(200).json(user);
+        })
+    },
+
+    getTeacherByMoneyPerHour: async (req, res) => {
+        const option = req.params.option;
+
+        if (option === "1") {
+            await User.find({money: {$gte: 100000, $lte: 300000}, "typeUser": 2}, async (err, user) => {
+                res.status(200).json(user);
+            })
+        } else if (option === "2") {
+            await User.find({money: {$gt: 300000, $lte: 500000}, "typeUser": 2}, async (err, user) => {
+                res.status(200).json(user);
+            })
+        } else if (option === "3") {
+            await User.find({money: {$gt: 500000, $lte: 1000000}, "typeUser": 2}, async (err, user) => {
+                res.status(200).json(user);
+            })
+        }
+    },
+
+    getTeacherByName: async (req, res) => {
+        await User.find({"name": {'$regex': req.params.name}, "typeUser": 2}, async (err, user) => {
             res.status(200).json(user);
         })
     },

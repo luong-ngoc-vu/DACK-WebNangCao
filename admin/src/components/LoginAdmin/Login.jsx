@@ -28,7 +28,7 @@ class LoginForm extends React.Component {
             this.err = 'Email hoặc mật khẩu không chính xác !';
         }
         if (st.isLogin === true) {
-            return <Redirect to="/admin-normal/view-list-user"/>;
+            return <Redirect to="/admin-normal/view-dashBoard"/>;
         }
 
         return (

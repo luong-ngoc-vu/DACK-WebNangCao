@@ -119,12 +119,11 @@ class ManageRevenue extends Component {
             cost: item.totalMoneyContract
         }));
 
-        const revenueData = [];
         if (isLogin === false) {
             return <Redirect to="/admin-login"/>;
         }
 
-        let uni = this.groupBy(dataRevenueMonth, 'month'); //Group by month
+        let uni = this.groupBy(dataRevenueMonth, 'month');
         let result = []; // show data after recfactor;
 
         for (let i in uni) {
@@ -132,7 +131,6 @@ class ManageRevenue extends Component {
             result.push({x: `Tháng ${i}`, y: rev});
         }
 
-        console.log('data cần test +', filterBy);
         return (
             <div style={{padding: '10px 20px'}}>
                 <div style={{float: 'right'}}>
