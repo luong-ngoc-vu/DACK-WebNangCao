@@ -58,7 +58,7 @@ class ViewListContract extends React.Component {
     };
 
     componentDidMount() {
-        fetch(`http://localhost:4000/contract/contracts`)
+        fetch(`https://apiadminthuegiasu.herokuapp.com/contract/contracts`)
             .then((response) => response.json())
             .then((data) => {
                 this.setState({allContracts: data});
@@ -130,7 +130,7 @@ class ViewListContract extends React.Component {
                             defaultValue="Tất cả hợp đống"
                             showSearch
                             onChange={value => {
-                                fetch(`http://localhost:4000/contract/contractByStatus/${value}`)
+                                fetch(`https://apiadminthuegiasu.herokuapp.com/contract/contractByStatus/${value}`)
                                     .then((response) => response.json())
                                     .then((data) => {
                                         this.setState({contractsByStatus: data, selectedStatusContract: value});

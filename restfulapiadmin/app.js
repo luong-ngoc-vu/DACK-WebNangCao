@@ -29,6 +29,11 @@ app.use('/admin', adminRoute);
 app.use('/contract', contractRoute);
 app.use('/message', messageRoute);
 
+app.use(express.static(path.join(__dirname, 'build')));
+app.get('/*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
+
 app.get('/me', passport.authenticate('jwt', {session: false}), (req, res) => {
     res.status(200).json(
         req.user

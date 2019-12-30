@@ -73,25 +73,25 @@ class StatisticAndRevenue extends Component {
 	};
 
 	componentDidMount() {
-		fetch(`http://localhost:4000/contract/thongKeDoanhThuAllTutorByMonth/${2019}`)
+		fetch(`https://apiadminthuegiasu.herokuapp.com/contract/thongKeDoanhThuAllTutorByMonth/${2019}`)
 			.then((response) => response.json())
 			.then((data) => this.setState({ dataAllTutorRevenueMonth: data }))
 			.catch((error) => {
 				return error;
 			});
-		fetch(`http://localhost:4000/contract/thongKeDoanhThuAllTutorByQuarter/${this.state.year}`)
+		fetch(`https://apiadminthuegiasu.herokuapp.com/contract/thongKeDoanhThuAllTutorByQuarter/${this.state.year}`)
 			.then((response) => response.json())
 			.then((data) => this.setState({ dataAllTutorRevenueQuater: data }))
 			.catch((error) => {
 				return error;
 			});
-		fetch(`http://localhost:4000/contract/thongKeDoanhThuAllTutorByYear`)
+		fetch(`https://apiadminthuegiasu.herokuapp.com/contract/thongKeDoanhThuAllTutorByYear`)
 			.then((response) => response.json())
 			.then((data) => this.setState({ dataAllTutorRevenueYear: data }))
 			.catch((error) => {
 				return error;
 			});
-		fetch(`http://localhost:4000/contract/contractByStatus/${2}`)
+		fetch(`https://apiadminthuegiasu.herokuapp.com/contract/contractByStatus/${2}`)
 			.then((response) => response.json())
 			.then((data) => {
 				this.setState({ contractsByStatus: data });

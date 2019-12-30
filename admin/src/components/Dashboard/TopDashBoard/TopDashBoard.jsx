@@ -75,13 +75,13 @@ class TopDashBoard extends Component {
 	componentDidMount() {
 		const { idTeacher } = this.props;
 
-		fetch(`http://localhost:4000/contract/thongKeDoanhThuAllTutorByMonth/${2019}`)
+		fetch(`https://apiadminthuegiasu.herokuapp.com/contract/thongKeDoanhThuAllTutorByMonth/${2019}`)
 			.then((response) => response.json())
 			.then((data) => this.setState({ dataAllTutorRevenueMonth: data }))
 			.catch((error) => {
 				return error;
 			});
-		fetch(`http://localhost:4000/contract/getListContractByIdTeacher/${idTeacher}`)
+		fetch(`https://apiadminthuegiasu.herokuapp.com/contract/getListContractByIdTeacher/${idTeacher}`)
 			.then((response) => response.json())
 			.then((data) =>
 				this.setState({
@@ -92,7 +92,7 @@ class TopDashBoard extends Component {
 				return error;
 			});
 
-		fetch(`http://localhost:4000/contract/getListTutorAndRevenue`)
+		fetch(`https://apiadminthuegiasu.herokuapp.com/contract/getListTutorAndRevenue`)
 			.then((response) => response.json())
 			.then((data) =>
 				this.setState({
@@ -102,7 +102,7 @@ class TopDashBoard extends Component {
 			.catch((error) => {
 				return error;
 			});
-		fetch(`http://localhost:4000/contract/thongKeDoanhThuAllTutorByYear`)
+		fetch(`https://apiadminthuegiasu.herokuapp.com/contract/thongKeDoanhThuAllTutorByYear`)
 			.then((response) => response.json())
 			.then((data) =>
 				this.setState({
@@ -112,7 +112,7 @@ class TopDashBoard extends Component {
 			.catch((error) => {
 				return error;
 			});
-		fetch(`http://localhost:4000/contract/getAllNumberForDashboard`)
+		fetch(`https://apiadminthuegiasu.herokuapp.com/contract/getAllNumberForDashboard`)
 			.then((response) => response.json())
 			.then((data) =>
 				this.setState({
@@ -230,7 +230,7 @@ class TopDashBoard extends Component {
 							footer={
 								<div>
 									<span>
-										abcd
+										KPI
 										<Trend flag="up" style={{ marginLeft: 8, color: 'rgba(0,0,0,.85)' }}>
 											12%
 										</Trend>

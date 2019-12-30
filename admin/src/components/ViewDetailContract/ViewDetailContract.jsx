@@ -45,7 +45,7 @@ class ViewDetailContract extends Component {
     componentDidMount() {
         const {idContract, idTeacher, idStudent} = this.props;
 
-        fetch(`http://localhost:4000/contract/contractByIdContract/${idContract}`)
+        fetch(`https://apiadminthuegiasu.herokuapp.com/contract/contractByIdContract/${idContract}`)
             .then((response) => response.json())
             .then((data) => {
                 this.setState({item: data});
@@ -53,7 +53,7 @@ class ViewDetailContract extends Component {
             .catch((error) => {
                 return error;
             });
-        fetch(`http://localhost:4000/admin/getUserId/${idTeacher}`)
+        fetch(`https://apiadminthuegiasu.herokuapp.com/admin/getUserId/${idTeacher}`)
             .then((response) => response.json())
             .then((data) => {
                 this.setState({dataTeacher: data});
@@ -61,7 +61,7 @@ class ViewDetailContract extends Component {
             .catch((error) => {
                 return error;
             });
-        fetch(`http://localhost:4000/admin/getUserId/${idStudent}`)
+        fetch(`https://apiadminthuegiasu.herokuapp.com/admin/getUserId/${idStudent}`)
             .then((response) => response.json())
             .then((data) => {
                 this.setState({dataStudent: data});
@@ -349,7 +349,7 @@ class ViewDetailContract extends Component {
                                         onClick={(event) => {
                                             const newStatus = 1;
                                             fetch(
-                                                `http://localhost:4000/contract/changeStatus/${item.idContract}/${newStatus}`,
+                                                `https://apiadminthuegiasu.herokuapp.com/contract/changeStatus/${item.idContract}/${newStatus}`,
                                                 {method: 'PUT'}
                                             )
                                                 .then((response) => response.json())
@@ -373,7 +373,7 @@ class ViewDetailContract extends Component {
                                         onClick={(event) => {
                                             const newStatus = 2;
                                             fetch(
-                                                `http://localhost:4000/contract/changeStatus/${item.idContract}/${newStatus}`,
+                                                `https://apiadminthuegiasu.herokuapp.com/contract/changeStatus/${item.idContract}/${newStatus}`,
                                                 {method: 'PUT'}
                                             )
                                                 .then((response) => response.json())

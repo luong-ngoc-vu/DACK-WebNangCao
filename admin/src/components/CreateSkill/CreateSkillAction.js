@@ -3,7 +3,7 @@ import axios from 'axios';
 export const CREATE_SKILL = 'CREATE_SKILL';
 
 function onClickCreateSkill(name) {
-    return axios.post('http://localhost:4000/admin/createSkill', {
+    return axios.post('https://apiadminthuegiasu.herokuapp.com/admin/createSkill', {
         name
     }).catch(err => {
         return err;

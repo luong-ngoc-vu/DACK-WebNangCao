@@ -49,13 +49,13 @@ class ViewListUserForm extends React.Component {
     }
 
     componentDidMount() {
-        fetch('http://localhost:4000/admin/users')
+        fetch('https://apiadminthuegiasu.herokuapp.com/admin/users')
             .then(response => response.json())
             .then(data => this.setState({dataUser: data}));
-        fetch('http://localhost:4000/admin/teachers')
+        fetch('https://apiadminthuegiasu.herokuapp.com/admin/teachers')
             .then(response => response.json())
             .then(data => this.setState({dataUserTeacher: data}));
-        fetch('http://localhost:4000/admin/students')
+        fetch('https://apiadminthuegiasu.herokuapp.com/admin/students')
             .then(response => response.json())
             .then(data => this.setState({dataUserStudent: data}));
     }
@@ -147,7 +147,7 @@ class ViewListUserForm extends React.Component {
                             enterButton
                             placeholder="Tìm người dùng theo tên"
                             onSearch={value => {
-                                fetch(`http://localhost:4000/admin/getUserByName/${value}`)
+                                fetch(`https://apiadminthuegiasu.herokuapp.com/admin/getUserByName/${value}`)
                                     .then(response => response.json())
                                     .then(data => this.setState({
                                         dataUserSearch: data,

@@ -13,7 +13,7 @@ class Messages extends React.Component {
     }
 
     componentDidMount() {
-        fetch(`http://localhost:4000/message/getAll/${this.props.mailTeacher}/${this.props.mailStudent}/${50}`)
+        fetch(`https://apiadminthuegiasu.herokuapp.com/message/getAll/${this.props.mailTeacher}/${this.props.mailStudent}/${50}`)
             .then((response) => response.json())
             .then((data) => {
                 this.setState({ messages: data });

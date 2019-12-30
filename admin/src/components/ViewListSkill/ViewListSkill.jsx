@@ -76,7 +76,7 @@ class ViewListSkillForm extends React.Component {
 	};
 
 	componentDidMount() {
-		fetch('http://localhost:4000/admin/skills')
+		fetch('https://apiadminthuegiasu.herokuapp.com/admin/skills')
 			.then((response) => response.json())
 			.then((data) => this.setState({ dataSkill: data }));
 	}
@@ -156,7 +156,7 @@ class ViewListSkillForm extends React.Component {
 						<Search
 							placeholder="Tìm kỹ năng"
 							onSearch={(value) => {
-								fetch(`http://localhost:4000/admin/getSkillByName/${value}`)
+								fetch(`https://apiadminthuegiasu.herokuapp.com/admin/getSkillByName/${value}`)
 									.then((response) => response.json())
 									.then((data) =>
 										this.setState({

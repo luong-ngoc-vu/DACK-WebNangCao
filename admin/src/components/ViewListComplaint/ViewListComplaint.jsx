@@ -56,7 +56,7 @@ class ViewListComplaint extends React.Component {
     };
 
     componentDidMount() {
-        fetch(`http://localhost:4000/contract/contractByStatus/${-2}`)
+        fetch(`https://apiadminthuegiasu.herokuapp.com/contract/contractByStatus/${-2}`)
             .then((response) => response.json())
             .then((data) => {
                 this.setState({complaintContracts: data});

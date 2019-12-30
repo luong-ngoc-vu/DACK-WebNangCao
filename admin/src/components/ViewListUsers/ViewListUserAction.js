@@ -5,7 +5,7 @@ export const LOCK_USER = 'LOCK_USER';
 export const VIEW_CONTRACT = 'VIEW_CONTRACT';
 
 function OnClickViewDetail(_id) {
-    return axios.post('http://localhost:4000/admin/user', {
+    return axios.post('https://apiadminthuegiasu.herokuapp.com/admin/user', {
         _id
     }).catch(error => {
         return error;
@@ -37,7 +37,7 @@ export const viewContractRequest = (idContract, idStudent, idTeacher) => {
 };
 
 function OnClickLockUser(email) {
-    return axios.post('http://localhost:4000/admin/lockAccount', {
+    return axios.post('https://apiadminthuegiasu.herokuapp.com/admin/lockAccount', {
         email
     }).catch(error => {
         return error;

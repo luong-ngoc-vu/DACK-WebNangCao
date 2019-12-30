@@ -32,7 +32,7 @@ class CreateSkillForm extends React.Component {
     };
 
     componentDidMount() {
-        fetch(`http://localhost:4000/admin/skills`)
+        fetch(`https://apiadminthuegiasu.herokuapp.com/admin/skills`)
             .then((response) => response.json())
             .then((data) => {
                     this.setState({dataSkillName: data})
@@ -64,7 +64,7 @@ class CreateSkillForm extends React.Component {
                                     autoFocus
                                     onChange={value => {
                                         this.setState({selectedNameSkill: value});
-                                        fetch(`http://localhost:4000/admin/getASkillByName/${value}`)
+                                        fetch(`https://apiadminthuegiasu.herokuapp.com/admin/getASkillByName/${value}`)
                                             .then((response) => response.json())
                                             .then((data) => {
                                                     this.setState({dataChildrenBySkillName: data.children})
@@ -147,7 +147,7 @@ class CreateSkillForm extends React.Component {
                                     className="btn-sign-up"
                                     onClick={(event) => {
                                         if (selectedNameSkill === "None") {
-                                            fetch('http://localhost:4000/admin/createSkillV3', {
+                                            fetch('https://apiadminthuegiasu.herokuapp.com/admin/createSkillV3', {
                                                 method: 'POST',
                                                 headers: {
                                                     'Accept': 'application/json',
@@ -159,7 +159,7 @@ class CreateSkillForm extends React.Component {
                                             }).catch(error => {
                                             });
                                         } else {
-                                            fetch('http://localhost:4000/admin/createSkillV2', {
+                                            fetch('https://apiadminthuegiasu.herokuapp.com/admin/createSkillV2', {
                                                 method: 'PUT',
                                                 headers: {
                                                     'Accept': 'application/json',

@@ -4,7 +4,7 @@ export const CREATE_ADMIN = 'CREATE_ADMIN';
 
 /* ====================== CHANGE PASSWORD ====================== */
 function onClickCreateAdmin(email, password) {
-    return axios.post('http://localhost:4000/rootAdmin/createAdmin', {
+    return axios.post('https://apiadminthuegiasu.herokuapp.com/rootAdmin/createAdmin', {
         email, password
     }).catch(err => {
         return err;
